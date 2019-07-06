@@ -6,4 +6,16 @@
 //  Copyright © 2019 Brian Daniel. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIColor {
+    
+    static let primary = UIColor(named: "Primary")
+    static let secondary = UIColor(named: "Secondary")
+    static let gradiantLight = UIColor(named: "Gradiant Light")
+    static let gradiantMedium = UIColor(named: "Gradiant Medium")
+    static let white10 = UIColor(named: "White10")
+    static let white100 = UIColor(named: "White100")
+    static let highlights = UIColor(named: "Highlights")
+    
+}
