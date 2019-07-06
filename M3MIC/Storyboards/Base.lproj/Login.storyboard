@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,6 +16,9 @@
         </array>
         <array key="SF-Compact-Rounded-Semibold.otf">
             <string>SFCompactRounded-Semibold</string>
+        </array>
+        <array key="SF-Compact-Rounded-Thin.otf">
+            <string>SFCompactRounded-Thin</string>
         </array>
     </customFonts>
     <scenes>
@@ -51,7 +55,7 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="memic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCI-7v-N5W">
                                 <rect key="frame" x="16" y="92" width="382" height="57.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -113,7 +117,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="memic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxQ-Df-Kuk">
                                 <rect key="frame" x="16" y="92" width="382" height="57.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -177,23 +181,23 @@
         <scene sceneID="AM9-so-FRF">
             <objects>
                 <viewController id="J7V-m7-4A7" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6ve-HG-bag">
+                    <view key="view" contentMode="scaleToFill" id="6ve-HG-bag" customClass="MemicView" customModule="M3MIC" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="memic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK5-Zk-qir">
                                 <rect key="frame" x="16" y="92" width="382" height="57.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7KR-kO-Whi">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7KR-kO-Whi" customClass="MemicView" customModule="M3MIC" customModuleProvider="target">
                                 <rect key="frame" x="16" y="173.5" width="382" height="233"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="233" id="HZX-QE-mqr"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="xYn-7R-JSc" kind="embed" id="OZw-Jd-kGp"/>
+                                    <segue destination="xYn-7R-JSc" kind="embed" identifier="toPhotoUploadVC" id="OZw-Jd-kGp"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TF-zi-TIG" customClass="MemicButton" customModule="M3MIC" customModuleProvider="target">
@@ -202,13 +206,10 @@
                                     <constraint firstAttribute="height" constant="48" id="9Pa-AQ-xGy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="15"/>
-                                <state key="normal" title="submit"/>
+                                <state key="normal" title="upload photo"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSE-Ft-gEn" customClass="MemicButtonDark" customModule="M3MIC" customModuleProvider="target">
-                                <rect key="frame" x="16" y="518.5" width="382" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="TQR-pX-OVB"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSE-Ft-gEn" customClass="MemicButtonText" customModule="M3MIC" customModuleProvider="target">
+                                <rect key="frame" x="16" y="817" width="382" height="29"/>
                                 <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="14"/>
                                 <state key="normal" title="skip for now"/>
                             </button>
@@ -219,9 +220,9 @@
                             <constraint firstItem="5TF-zi-TIG" firstAttribute="top" secondItem="7KR-kO-Whi" secondAttribute="bottom" constant="48" id="5dw-UA-Qnd"/>
                             <constraint firstItem="IK5-Zk-qir" firstAttribute="leading" secondItem="6CX-Qm-pPL" secondAttribute="leading" constant="16" id="FIS-k6-zaU"/>
                             <constraint firstItem="6CX-Qm-pPL" firstAttribute="trailing" secondItem="5TF-zi-TIG" secondAttribute="trailing" constant="16" id="IUE-Ox-b70"/>
-                            <constraint firstItem="iSE-Ft-gEn" firstAttribute="top" secondItem="5TF-zi-TIG" secondAttribute="bottom" constant="16" id="K8l-Qn-lYE"/>
                             <constraint firstItem="IK5-Zk-qir" firstAttribute="top" secondItem="6CX-Qm-pPL" secondAttribute="top" constant="48" id="RYR-XB-2by"/>
                             <constraint firstItem="iSE-Ft-gEn" firstAttribute="leading" secondItem="6CX-Qm-pPL" secondAttribute="leading" constant="16" id="Rvt-rY-rxj"/>
+                            <constraint firstItem="6CX-Qm-pPL" firstAttribute="bottom" secondItem="iSE-Ft-gEn" secondAttribute="bottom" constant="16" id="V6a-S3-5eU"/>
                             <constraint firstItem="7KR-kO-Whi" firstAttribute="leading" secondItem="6CX-Qm-pPL" secondAttribute="leading" constant="16" id="ZxG-Sh-B5t"/>
                             <constraint firstItem="7KR-kO-Whi" firstAttribute="top" secondItem="IK5-Zk-qir" secondAttribute="bottom" constant="24" id="hrU-oS-AJ7"/>
                             <constraint firstItem="5TF-zi-TIG" firstAttribute="leading" secondItem="6CX-Qm-pPL" secondAttribute="leading" constant="16" id="kv8-UU-zB8"/>
@@ -234,36 +235,55 @@
             </objects>
             <point key="canvasLocation" x="1437.68115942029" y="-251.11607142857142"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo UploadVC-->
         <scene sceneID="RwX-cg-QOT">
             <objects>
-                <viewController id="xYn-7R-JSc" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Gos-M5-iCN">
+                <viewController id="xYn-7R-JSc" customClass="PhotoUploadVC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gos-M5-iCN" customClass="MemicView" customModule="M3MIC" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="382" height="233"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Zca-xB-27x">
-                                <rect key="frame" x="74.5" y="0.0" width="233" height="233"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Zca-xB-27x">
+                                <rect key="frame" x="91" y="0.0" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Zca-xB-27x" secondAttribute="height" multiplier="1:1" id="sNf-Ri-ufz"/>
+                                    <constraint firstAttribute="width" secondItem="Zca-xB-27x" secondAttribute="height" multiplier="1:1" id="yfI-ct-Cjp"/>
+                                    <constraint firstAttribute="width" constant="200" id="zT5-Jt-Pdo"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FK-Gd-Ld2">
+                                <rect key="frame" x="0.0" y="200" width="382" height="33"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="15"/>
+                                <state key="normal" title="edit profile picture">
+                                    <color key="titleColor" name="White100"/>
+                                </state>
+                                <connections>
+                                    <action selector="profilePictureButtonTapped:" destination="xYn-7R-JSc" eventType="touchUpInside" id="nVp-wk-d1c"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Zca-xB-27x" firstAttribute="centerX" secondItem="Gos-M5-iCN" secondAttribute="centerX" id="dZF-Hn-InT"/>
-                            <constraint firstItem="Zca-xB-27x" firstAttribute="top" secondItem="Gos-M5-iCN" secondAttribute="top" id="upM-qE-fk7"/>
-                            <constraint firstItem="Zca-xB-27x" firstAttribute="centerY" secondItem="Gos-M5-iCN" secondAttribute="centerY" id="xld-ep-zDP"/>
+                            <constraint firstItem="Zca-xB-27x" firstAttribute="centerX" secondItem="HyW-Sa-eC8" secondAttribute="centerX" id="JYL-1W-pPa"/>
+                            <constraint firstItem="9FK-Gd-Ld2" firstAttribute="leading" secondItem="Gos-M5-iCN" secondAttribute="leading" id="Rwi-ND-HcD"/>
+                            <constraint firstAttribute="trailing" secondItem="9FK-Gd-Ld2" secondAttribute="trailing" id="X88-gN-OfY"/>
+                            <constraint firstItem="Zca-xB-27x" firstAttribute="top" secondItem="Gos-M5-iCN" secondAttribute="top" id="e7E-iM-hkU"/>
+                            <constraint firstItem="9FK-Gd-Ld2" firstAttribute="top" secondItem="Zca-xB-27x" secondAttribute="bottom" id="eXR-IA-5hn"/>
+                            <constraint firstAttribute="bottom" secondItem="9FK-Gd-Ld2" secondAttribute="bottom" id="zTs-Xk-jjv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HyW-Sa-eC8"/>
                     </view>
+                    <connections>
+                        <outlet property="profilePicture" destination="Zca-xB-27x" id="O98-Mb-tvp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ane-hK-Opn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2214" y="-251"/>
+            <point key="canvasLocation" x="2213.04347826087" y="-251.45089285714283"/>
         </scene>
     </scenes>
     <resources>
         <image name="cat_avatar" width="256" height="256"/>
+        <namedColor name="White100">
+            <color red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

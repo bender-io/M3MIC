@@ -28,6 +28,9 @@
 		561472ED22D140D800648B86 /* MemicButtonDark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561472EC22D140D800648B86 /* MemicButtonDark.swift */; };
 		561472EF22D1411700648B86 /* MemicButtonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561472EE22D1411700648B86 /* MemicButtonText.swift */; };
 		561472F122D1432C00648B86 /* MemicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561472F022D1432C00648B86 /* MemicLabel.swift */; };
+		561472F322D1449400648B86 /* ProfilePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561472F222D1449400648B86 /* ProfilePictureVC.swift */; };
+		561472F522D144D300648B86 /* MemicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561472F422D144D300648B86 /* MemicView.swift */; };
+		561472F722D1489400648B86 /* PhotoUploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561472F622D1489400648B86 /* PhotoUploadVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,9 @@
 		561472EC22D140D800648B86 /* MemicButtonDark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemicButtonDark.swift; sourceTree = "<group>"; };
 		561472EE22D1411700648B86 /* MemicButtonText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemicButtonText.swift; sourceTree = "<group>"; };
 		561472F022D1432C00648B86 /* MemicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemicLabel.swift; sourceTree = "<group>"; };
+		561472F222D1449400648B86 /* ProfilePictureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureVC.swift; sourceTree = "<group>"; };
+		561472F422D144D300648B86 /* MemicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemicView.swift; sourceTree = "<group>"; };
+		561472F622D1489400648B86 /* PhotoUploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoUploadVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +154,8 @@
 			children = (
 				561472D222D1224800648B86 /* LoginVC.swift */,
 				561472D422D1225800648B86 /* SignupVC.swift */,
+				561472F222D1449400648B86 /* ProfilePictureVC.swift */,
+				561472F622D1489400648B86 /* PhotoUploadVC.swift */,
 			);
 			path = "Login & Signup";
 			sourceTree = "<group>";
@@ -172,6 +180,7 @@
 				561472EC22D140D800648B86 /* MemicButtonDark.swift */,
 				561472EE22D1411700648B86 /* MemicButtonText.swift */,
 				561472F022D1432C00648B86 /* MemicLabel.swift */,
+				561472F422D144D300648B86 /* MemicView.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -250,8 +259,10 @@
 			files = (
 				561472ED22D140D800648B86 /* MemicButtonDark.swift in Sources */,
 				561472E722D132C600648B86 /* extensionView.swift in Sources */,
+				561472F722D1489400648B86 /* PhotoUploadVC.swift in Sources */,
 				561472D522D1225800648B86 /* SignupVC.swift in Sources */,
 				561472CE22D1115A00648B86 /* Reply.swift in Sources */,
+				561472F522D144D300648B86 /* MemicView.swift in Sources */,
 				561472E522D1325A00648B86 /* extensionFont.swift in Sources */,
 				561472C622D10B1300648B86 /* Post.swift in Sources */,
 				561472D322D1224800648B86 /* LoginVC.swift in Sources */,
@@ -265,6 +276,7 @@
 				561472EB22D13E3600648B86 /* MemicButton.swift in Sources */,
 				561472AF22D1085800648B86 /* AppDelegate.swift in Sources */,
 				561472E222D131CD00648B86 /* MemicTF.swift in Sources */,
+				561472F322D1449400648B86 /* ProfilePictureVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

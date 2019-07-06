@@ -51,5 +51,9 @@
 		<string>SF-Compact-Rounded-Thin.otf</string>
 		<string>SF-Compact-Rounded-Ultralight.otf</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>Memic would like to access your camera so you can take a profile picture for the app.</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Memic would like to access your library so you can pick a profile picture for the app.</string>
 </dict>
 </plist>
