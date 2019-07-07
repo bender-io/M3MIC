@@ -10,19 +10,40 @@ import UIKit
 
 class SignupVC: UIViewController {
 
+    @IBOutlet weak var usernameTF: MemicTF!
+    @IBOutlet weak var emailTF: MemicTF!
+    @IBOutlet weak var passwordTF: MemicTF!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func signupButtonTapped(_ sender: Any) {
+        guard let username = usernameTF.text, !username.isEmpty,
+            let email = emailTF.text, !email.isEmpty,
+            let password = passwordTF.text, !password.isEmpty else { return }
+        
+        UserController.shared.createNewUserWith(email: email, password: password) { (error) in
+            if let error = error {
+                print("❌ Error creating a new user found in \(#function) ; \(error.localizedDescription) ; \(error)")
+                self.presentSignupErrorAlert()
+            } else {
+                print("New user created")
+                self.performSegue(withIdentifier: "toProfilePictureVC", sender: self)
+            }
+        }
     }
-    */
+}
 
+extension SignupVC {
+    
+    func presentSignupErrorAlert() {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Signup Failed", message: "This Email address belongs to another account", preferredStyle: .alert)
+            let okay = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(okay)
+            self.present(alert, animated: true)
+        }
+    }
 }

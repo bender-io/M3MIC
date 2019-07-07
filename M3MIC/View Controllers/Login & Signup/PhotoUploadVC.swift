@@ -22,6 +22,15 @@ class PhotoUploadVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupImage()
+    }
+    
+    // MARK: - IBActions
+    @IBAction func profilePictureButtonTapped(_ sender: Any) {
+        presentImagePickerActionSheet()
+    }
+    
+    func setupImage() {
         profilePicture.layer.borderWidth = 1.0
         profilePicture.layer.masksToBounds = false
         profilePicture.layer.borderWidth = 3
@@ -29,17 +38,11 @@ class PhotoUploadVC: UIViewController {
         profilePicture.layer.cornerRadius = profilePicture.frame.size.width / 2
         profilePicture.clipsToBounds = true
     }
-    
-    // MARK: - IBActions
-    @IBAction func profilePictureButtonTapped(_ sender: Any) {
-        presentImagePickerActionSheet()
-    }
 }
 
 extension PhotoUploadVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        
         picker.dismiss(animated: true, completion: nil)
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -72,7 +75,16 @@ extension PhotoUploadVC: UIImagePickerControllerDelegate, UINavigationController
         }
         
         // Cancel:
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
         present(actionSheet, animated: true)
+        
+        // Stylize:
+        let subview = actionSheet.view.subviews.first! as UIView
+        let subviewTwo = subview.subviews.first! as UIView
+        let subviewThree = subviewTwo.subviews.first! as UIView
+        
+        subview.tintColor = .secondary
+        subviewThree.backgroundColor = .primary
+
     }
 }

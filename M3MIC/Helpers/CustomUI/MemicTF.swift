@@ -27,6 +27,7 @@ class MemicTF: UITextField {
     
     func setupUI() {
         updatePlaceholderColor()
+        keyboardAppearance = UIKeyboardAppearance.dark
         self.textColor = .white100
         self.backgroundColor = .gradiantMedium
         self.cornerRadios(10)

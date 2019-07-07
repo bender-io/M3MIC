@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2JG-I9-dey">
-                                <rect key="frame" x="16" y="173.5" width="382" height="112"/>
+                                <rect key="frame" x="16" y="149.5" width="382" height="112"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="lIN-4G-7FU" customClass="MemicTF" customModule="M3MIC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
@@ -54,13 +54,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="memic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCI-7v-N5W">
-                                <rect key="frame" x="16" y="92" width="382" height="57.5"/>
+                                <rect key="frame" x="16" y="60" width="382" height="57.5"/>
                                 <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVt-TS-gok" customClass="MemicButton" customModule="M3MIC" customModuleProvider="target">
-                                <rect key="frame" x="16" y="333.5" width="382" height="48"/>
+                                <rect key="frame" x="16" y="309.5" width="382" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="iGs-4k-NSX"/>
                                 </constraints>
@@ -90,11 +90,11 @@
                         <constraints>
                             <constraint firstItem="pCp-uR-lnI" firstAttribute="trailing" secondItem="2JG-I9-dey" secondAttribute="trailing" constant="16" id="7Fv-VT-hO9"/>
                             <constraint firstItem="pCI-7v-N5W" firstAttribute="leading" secondItem="pCp-uR-lnI" secondAttribute="leading" constant="16" id="7Hi-Yx-TUs"/>
-                            <constraint firstItem="2JG-I9-dey" firstAttribute="top" secondItem="pCI-7v-N5W" secondAttribute="bottom" constant="24" id="Bz4-rX-xrc"/>
+                            <constraint firstItem="2JG-I9-dey" firstAttribute="top" secondItem="pCI-7v-N5W" secondAttribute="bottom" constant="32" id="Bz4-rX-xrc"/>
                             <constraint firstItem="2JG-I9-dey" firstAttribute="leading" secondItem="pCp-uR-lnI" secondAttribute="leading" constant="16" id="NLD-Ab-cNX"/>
                             <constraint firstItem="vVt-TS-gok" firstAttribute="leading" secondItem="pCp-uR-lnI" secondAttribute="leading" constant="16" id="NzD-Rv-X9L"/>
                             <constraint firstItem="pCp-uR-lnI" firstAttribute="trailing" secondItem="vVt-TS-gok" secondAttribute="trailing" constant="16" id="WHP-cc-xBa"/>
-                            <constraint firstItem="pCI-7v-N5W" firstAttribute="top" secondItem="pCp-uR-lnI" secondAttribute="top" constant="48" id="kAN-4F-Ked"/>
+                            <constraint firstItem="pCI-7v-N5W" firstAttribute="top" secondItem="pCp-uR-lnI" secondAttribute="top" constant="16" id="kAN-4F-Ked"/>
                             <constraint firstItem="vVt-TS-gok" firstAttribute="top" secondItem="2JG-I9-dey" secondAttribute="bottom" constant="48" id="p9r-zO-rNv"/>
                             <constraint firstItem="4VR-fa-71t" firstAttribute="centerX" secondItem="pCp-uR-lnI" secondAttribute="centerX" id="rES-rJ-qVn"/>
                             <constraint firstItem="pCp-uR-lnI" firstAttribute="bottom" secondItem="4VR-fa-71t" secondAttribute="bottom" constant="16" id="vqB-7g-IAM"/>
@@ -116,13 +116,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="memic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxQ-Df-Kuk">
-                                <rect key="frame" x="16" y="92" width="382" height="57.5"/>
+                                <rect key="frame" x="16" y="60" width="382" height="57.5"/>
                                 <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="2D6-32-0zq">
-                                <rect key="frame" x="16" y="173.5" width="382" height="170"/>
+                                <rect key="frame" x="16" y="149.5" width="382" height="170"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="p3X-xl-LrQ" customClass="MemicTF" customModule="M3MIC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
@@ -148,14 +148,14 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilf-Mm-YaL" customClass="MemicButton" customModule="M3MIC" customModuleProvider="target">
-                                <rect key="frame" x="16" y="391.5" width="382" height="48"/>
+                                <rect key="frame" x="16" y="367.5" width="382" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="XT4-Ev-QSA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="15"/>
                                 <state key="normal" title="sign up"/>
                                 <connections>
-                                    <segue destination="J7V-m7-4A7" kind="presentation" identifier="toProfilePictureVC" modalTransitionStyle="flipHorizontal" id="8pp-YS-znO"/>
+                                    <action selector="signupButtonTapped:" destination="ZCn-Kf-gvu" eventType="touchUpInside" id="nxh-XI-0LS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -165,13 +165,19 @@
                             <constraint firstItem="ilf-Mm-YaL" firstAttribute="leading" secondItem="4uR-zb-VSN" secondAttribute="leading" constant="16" id="Rbw-DM-Pm8"/>
                             <constraint firstItem="4uR-zb-VSN" firstAttribute="trailing" secondItem="ilf-Mm-YaL" secondAttribute="trailing" constant="16" id="bef-HP-DJT"/>
                             <constraint firstItem="ilf-Mm-YaL" firstAttribute="top" secondItem="2D6-32-0zq" secondAttribute="bottom" constant="48" id="hic-fC-zos"/>
-                            <constraint firstItem="ZxQ-Df-Kuk" firstAttribute="top" secondItem="4uR-zb-VSN" secondAttribute="top" constant="48" id="pRN-hc-Ng1"/>
-                            <constraint firstItem="2D6-32-0zq" firstAttribute="top" secondItem="ZxQ-Df-Kuk" secondAttribute="bottom" constant="24" id="xBg-jI-ZFR"/>
+                            <constraint firstItem="ZxQ-Df-Kuk" firstAttribute="top" secondItem="4uR-zb-VSN" secondAttribute="top" constant="16" id="pRN-hc-Ng1"/>
+                            <constraint firstItem="2D6-32-0zq" firstAttribute="top" secondItem="ZxQ-Df-Kuk" secondAttribute="bottom" constant="32" id="xBg-jI-ZFR"/>
                             <constraint firstItem="2D6-32-0zq" firstAttribute="leading" secondItem="v5J-zW-DT1" secondAttribute="leading" constant="16" id="xMM-2c-uhE"/>
                             <constraint firstItem="ZxQ-Df-Kuk" firstAttribute="leading" secondItem="4uR-zb-VSN" secondAttribute="leading" constant="16" id="zMd-2b-5SE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4uR-zb-VSN"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTF" destination="LTo-oF-OYa" id="4wi-UZ-eCQ"/>
+                        <outlet property="passwordTF" destination="5OX-bp-fGv" id="JrZ-hc-3Dd"/>
+                        <outlet property="usernameTF" destination="p3X-xl-LrQ" id="7Zn-G0-Pea"/>
+                        <segue destination="J7V-m7-4A7" kind="presentation" identifier="toProfilePictureVC" id="8Y1-bm-rYk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXi-iL-hnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,13 +192,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="memic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK5-Zk-qir">
-                                <rect key="frame" x="16" y="92" width="382" height="57.5"/>
+                                <rect key="frame" x="16" y="60" width="382" height="57.5"/>
                                 <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7KR-kO-Whi" customClass="MemicView" customModule="M3MIC" customModuleProvider="target">
-                                <rect key="frame" x="16" y="173.5" width="382" height="233"/>
+                                <rect key="frame" x="16" y="165.5" width="382" height="233"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="233" id="HZX-QE-mqr"/>
                                 </constraints>
@@ -201,7 +207,7 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TF-zi-TIG" customClass="MemicButton" customModule="M3MIC" customModuleProvider="target">
-                                <rect key="frame" x="16" y="454.5" width="382" height="48"/>
+                                <rect key="frame" x="16" y="446.5" width="382" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="9Pa-AQ-xGy"/>
                                 </constraints>
@@ -220,11 +226,11 @@
                             <constraint firstItem="5TF-zi-TIG" firstAttribute="top" secondItem="7KR-kO-Whi" secondAttribute="bottom" constant="48" id="5dw-UA-Qnd"/>
                             <constraint firstItem="IK5-Zk-qir" firstAttribute="leading" secondItem="6CX-Qm-pPL" secondAttribute="leading" constant="16" id="FIS-k6-zaU"/>
                             <constraint firstItem="6CX-Qm-pPL" firstAttribute="trailing" secondItem="5TF-zi-TIG" secondAttribute="trailing" constant="16" id="IUE-Ox-b70"/>
-                            <constraint firstItem="IK5-Zk-qir" firstAttribute="top" secondItem="6CX-Qm-pPL" secondAttribute="top" constant="48" id="RYR-XB-2by"/>
+                            <constraint firstItem="IK5-Zk-qir" firstAttribute="top" secondItem="6CX-Qm-pPL" secondAttribute="top" constant="16" id="RYR-XB-2by"/>
                             <constraint firstItem="iSE-Ft-gEn" firstAttribute="leading" secondItem="6CX-Qm-pPL" secondAttribute="leading" constant="16" id="Rvt-rY-rxj"/>
                             <constraint firstItem="6CX-Qm-pPL" firstAttribute="bottom" secondItem="iSE-Ft-gEn" secondAttribute="bottom" constant="16" id="V6a-S3-5eU"/>
                             <constraint firstItem="7KR-kO-Whi" firstAttribute="leading" secondItem="6CX-Qm-pPL" secondAttribute="leading" constant="16" id="ZxG-Sh-B5t"/>
-                            <constraint firstItem="7KR-kO-Whi" firstAttribute="top" secondItem="IK5-Zk-qir" secondAttribute="bottom" constant="24" id="hrU-oS-AJ7"/>
+                            <constraint firstItem="7KR-kO-Whi" firstAttribute="top" secondItem="IK5-Zk-qir" secondAttribute="bottom" constant="48" id="hrU-oS-AJ7"/>
                             <constraint firstItem="5TF-zi-TIG" firstAttribute="leading" secondItem="6CX-Qm-pPL" secondAttribute="leading" constant="16" id="kv8-UU-zB8"/>
                             <constraint firstItem="6CX-Qm-pPL" firstAttribute="trailing" secondItem="IK5-Zk-qir" secondAttribute="trailing" constant="16" id="y4h-7f-PSn"/>
                         </constraints>

@@ -1,0 +1,38 @@
+{
+  "Mac" : [
+
+  ],
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+
+  ],
+  "commitish" : "6.3.0",
+  "iOS" : [
+    {
+      "name" : "leveldb-library",
+      "hash" : "647d0daca1ab80847ada021131115a74495a0f27dfdc76c7adbf95042ebb6c6c"
+    },
+    {
+      "name" : "Protobuf",
+      "hash" : "f35eda60b70c057daf39f887f297176a07f10dd44c1b1fda17fff10e071ead11"
+    },
+    {
+      "name" : "gRPC-C++",
+      "hash" : "13920e230fda8bcb245bbf0951b52ac7cf1631670446b87d0e1df9c0ff511146"
+    },
+    {
+      "name" : "BoringSSL-GRPC",
+      "hash" : "49ba90ee7a70a5fc40eea6f63c79a90fba237faf194e2f64d8d0628fa258e125"
+    },
+    {
+      "name" : "gRPC-Core",
+      "hash" : "d1524396efbf4993f7df1427e0bef1d4b2e0893151749e878899eefbf2c96b4b"
+    },
+    {
+      "name" : "FirebaseFirestore",
+      "hash" : "5f3d49861d23477ab987715321d445dbc03d60ff683da8d69999cdfb9136790c"
+    }
+  ]
+}
