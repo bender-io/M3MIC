@@ -30,6 +30,7 @@ class PhotoUploadVC: UIViewController {
         presentImagePickerActionSheet()
     }
     
+    // MARK: - Methods
     func setupImage() {
         profilePicture.layer.borderWidth = 1.0
         profilePicture.layer.masksToBounds = false
@@ -85,6 +86,5 @@ extension PhotoUploadVC: UIImagePickerControllerDelegate, UINavigationController
         
         subview.tintColor = .secondary
         subviewThree.backgroundColor = .primary
-
     }
 }

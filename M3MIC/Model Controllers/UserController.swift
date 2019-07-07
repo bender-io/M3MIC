@@ -35,17 +35,29 @@ class UserController {
             self.db.collection("User").document(data.user.uid).setData([
                 "friendUIDs" : [],
                 "blockedUIDs" : [],
-                "postUIDs" : []
+                "postUIDs" : [],
+                "replyUIDs" : []
                 ], completion: { (error) in
                     if let error = error {
                         print("❌ Error creating user document in \(#function) ; \(error.localizedDescription) ; \(error)")
-                        completion(error)
-                        return
+                        completion(error) ; return
                     } else {
                         print("Document created with ID \(data.user.uid)")
                     }
                 })
             completion(nil)
+        }
+    }
+    
+    func loginUserWith(email: String, password: String, completion: @escaping(Error?) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { (data, error) in
+            if let error = error {
+                print("❌ error authenticating user in \(#function) ; \(error.localizedDescription) ; \(error)")
+                completion(error) ; return
+            } else {
+                print("User has been succesfully logged in")
+                completion(nil)
+            }
         }
     }
 }

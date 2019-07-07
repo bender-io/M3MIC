@@ -24,6 +24,15 @@ class ProfilePictureVC: UIViewController {
             destinationVC?.delegate = self
         }
     }
+    
+    @IBAction func uploadButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "signupNavigationTBC", sender: self)
+    }
+    
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "signupNavigationTBC", sender: self)
+    }
+    
 }
 
 extension ProfilePictureVC: PhotoUploadVCDelegate {

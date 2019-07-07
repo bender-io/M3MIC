@@ -55,6 +55,12 @@
 		5614732422D15F5400648B86 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5614732322D15F5400648B86 /* UserController.swift */; };
 		5614732622D1625F00648B86 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5614732522D1625F00648B86 /* Errors.swift */; };
 		5614732822D1CADE00648B86 /* gRPCCertificates-Cpp.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5614732722D1CADE00648B86 /* gRPCCertificates-Cpp.bundle */; };
+		562178F822D284A900B45E7B /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562178F722D284A900B45E7B /* Navigation.storyboard */; };
+		562178FA22D2873900B45E7B /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562178F922D2873900B45E7B /* Feed.storyboard */; };
+		562178FC22D287AA00B45E7B /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562178FB22D287AA00B45E7B /* FeedVC.swift */; };
+		562178FE22D2890300B45E7B /* NavigationTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562178FD22D2890300B45E7B /* NavigationTBC.swift */; };
+		5621790022D28C0F00B45E7B /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562178FF22D28C0F00B45E7B /* PostVC.swift */; };
+		5621790322D28CAE00B45E7B /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5621790222D28CAE00B45E7B /* Post.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +114,12 @@
 		5614732322D15F5400648B86 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		5614732522D1625F00648B86 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		5614732722D1CADE00648B86 /* gRPCCertificates-Cpp.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "gRPCCertificates-Cpp.bundle"; sourceTree = "<group>"; };
+		562178F722D284A900B45E7B /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
+		562178F922D2873900B45E7B /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		562178FB22D287AA00B45E7B /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		562178FD22D2890300B45E7B /* NavigationTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTBC.swift; sourceTree = "<group>"; };
+		562178FF22D28C0F00B45E7B /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
+		5621790222D28CAE00B45E7B /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,8 +186,11 @@
 		561472C022D1086F00648B86 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				561472B222D1085800648B86 /* Login.storyboard */,
 				561472B722D1085C00648B86 /* LaunchScreen.storyboard */,
+				561472B222D1085800648B86 /* Login.storyboard */,
+				562178F722D284A900B45E7B /* Navigation.storyboard */,
+				562178F922D2873900B45E7B /* Feed.storyboard */,
+				5621790222D28CAE00B45E7B /* Post.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -217,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				561472D722D1227800648B86 /* Login & Signup */,
+				5621790122D28C1900B45E7B /* Navigation */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -285,6 +301,16 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
+		5621790122D28C1900B45E7B /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				562178FD22D2890300B45E7B /* NavigationTBC.swift */,
+				562178FB22D287AA00B45E7B /* FeedVC.swift */,
+				562178FF22D28C0F00B45E7B /* PostVC.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -345,10 +371,13 @@
 			files = (
 				561472B922D1085C00648B86 /* LaunchScreen.storyboard in Resources */,
 				5614732822D1CADE00648B86 /* gRPCCertificates-Cpp.bundle in Resources */,
+				562178FA22D2873900B45E7B /* Feed.storyboard in Resources */,
 				561472B622D1085C00648B86 /* Assets.xcassets in Resources */,
+				5621790322D28CAE00B45E7B /* Post.storyboard in Resources */,
 				561472F922D1581400648B86 /* GoogleService-Info.plist in Resources */,
 				561472B422D1085800648B86 /* Login.storyboard in Resources */,
 				561472E922D13C3F00648B86 /* Fonts in Resources */,
+				562178F822D284A900B45E7B /* Navigation.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +389,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				561472ED22D140D800648B86 /* MemicButtonDark.swift in Sources */,
+				562178FC22D287AA00B45E7B /* FeedVC.swift in Sources */,
+				5621790022D28C0F00B45E7B /* PostVC.swift in Sources */,
 				561472E722D132C600648B86 /* extensionView.swift in Sources */,
 				561472F722D1489400648B86 /* PhotoUploadVC.swift in Sources */,
 				561472D522D1225800648B86 /* SignupVC.swift in Sources */,
@@ -381,6 +412,7 @@
 				5614732422D15F5400648B86 /* UserController.swift in Sources */,
 				561472E222D131CD00648B86 /* MemicTF.swift in Sources */,
 				561472F322D1449400648B86 /* ProfilePictureVC.swift in Sources */,
+				562178FE22D2890300B45E7B /* NavigationTBC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
