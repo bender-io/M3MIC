@@ -62,6 +62,7 @@
 		5621790522D28E6300B45E7B /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5621790422D28E6300B45E7B /* Friend.storyboard */; };
 		5621790722D28EB900B45E7B /* FriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790622D28EB900B45E7B /* FriendVC.swift */; };
 		5621790A22D2A24000B45E7B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790922D2A24000B45E7B /* Profile.swift */; };
+		5621790C22D3F1E600B45E7B /* MemicTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790B22D3F1E600B45E7B /* MemicTV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,6 +124,7 @@
 		5621790422D28E6300B45E7B /* Friend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friend.storyboard; sourceTree = "<group>"; };
 		5621790622D28EB900B45E7B /* FriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendVC.swift; sourceTree = "<group>"; };
 		5621790922D2A24000B45E7B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		5621790B22D3F1E600B45E7B /* MemicTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemicTV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,6 +272,7 @@
 				561472EE22D1411700648B86 /* MemicButtonText.swift */,
 				561472F022D1432C00648B86 /* MemicLabel.swift */,
 				561472F422D144D300648B86 /* MemicView.swift */,
+				5621790B22D3F1E600B45E7B /* MemicTV.swift */,
 			);
 			path = MemicUI;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				561472EB22D13E3600648B86 /* MemicButton.swift in Sources */,
 				561472AF22D1085800648B86 /* AppDelegate.swift in Sources */,
 				5614732422D15F5400648B86 /* UserController.swift in Sources */,
+				5621790C22D3F1E600B45E7B /* MemicTV.swift in Sources */,
 				561472E222D131CD00648B86 /* MemicTF.swift in Sources */,
 				561472F322D1449400648B86 /* ProfilePictureVC.swift in Sources */,
 				562178FE22D2890300B45E7B /* NavigationTBC.swift in Sources */,
@@ -587,7 +591,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.brianhersh.M3MIC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -610,7 +614,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = dev.brianhersh.M3MIC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

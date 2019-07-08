@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Friends-->
+        <!--FriendVC-->
         <scene sceneID="U2J-aF-k1y">
             <objects>
                 <viewController storyboardIdentifier="FriendVC" id="MAX-j5-a9g" customClass="FriendVC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="HGb-rB-5XG"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Friends" id="11b-xL-QCy"/>
+                    <tabBarItem key="tabBarItem" title="" image="Friends" selectedImage="Friends" id="11b-xL-QCy"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhS-Ej-WC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -27,4 +27,7 @@
             <point key="canvasLocation" x="426" y="-175"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Friends" width="27" height="22"/>
+    </resources>
 </document>

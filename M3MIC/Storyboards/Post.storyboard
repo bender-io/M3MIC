@@ -6,25 +6,132 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Rounded-Light.otf">
+            <string>SFCompactRounded-Light</string>
+        </array>
+        <array key="SF-Compact-Rounded-Regular.otf">
+            <string>SFCompactRounded-Regular</string>
+        </array>
+        <array key="SF-Compact-Rounded-Semibold.otf">
+            <string>SFCompactRounded-Semibold</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Post-->
+        <!--PostVC-->
         <scene sceneID="ru7-ZF-U2L">
             <objects>
                 <viewController storyboardIdentifier="PostVC" id="0jM-3a-wdQ" customClass="PostVC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Fo-Zn-kav">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="weS-zm-1cA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHZ-z4-P3e">
+                                        <rect key="frame" x="44" y="59" width="16" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="JHb-4i-yJ3"/>
+                                            <constraint firstAttribute="height" constant="16" id="ine-9t-yJe"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel" image="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="0jM-3a-wdQ" eventType="touchUpInside" id="7UO-nJ-qnT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWt-qe-C6M" customClass="MemicButtonText" customModule="M3MIC" customModuleProvider="target">
+                                        <rect key="frame" x="344" y="50" width="37" height="34"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="18"/>
+                                        <state key="normal" title="post"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="memic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hw9-rd-Nyc">
+                                        <rect key="frame" x="177.5" y="55" width="59" height="24"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="20"/>
+                                        <color key="textColor" name="White100"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="-1" height="2"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="Black35"/>
+                                <constraints>
+                                    <constraint firstItem="hw9-rd-Nyc" firstAttribute="centerY" secondItem="weS-zm-1cA" secondAttribute="centerY" multiplier="1.5" id="Um5-fE-tUR"/>
+                                    <constraint firstItem="sHZ-z4-P3e" firstAttribute="centerY" secondItem="weS-zm-1cA" secondAttribute="centerY" multiplier="1.5" id="WBo-XP-7bn"/>
+                                    <constraint firstItem="lWt-qe-C6M" firstAttribute="centerX" secondItem="weS-zm-1cA" secondAttribute="centerX" multiplier="1.75" id="X1I-bL-3Lk"/>
+                                    <constraint firstItem="lWt-qe-C6M" firstAttribute="centerY" secondItem="weS-zm-1cA" secondAttribute="centerY" multiplier="1.5" id="lBI-WO-o44"/>
+                                    <constraint firstItem="hw9-rd-Nyc" firstAttribute="centerX" secondItem="weS-zm-1cA" secondAttribute="centerX" id="lZY-uQ-jFI"/>
+                                    <constraint firstItem="sHZ-z4-P3e" firstAttribute="centerX" secondItem="weS-zm-1cA" secondAttribute="centerX" multiplier="0.25" id="qe2-5i-Dmc"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's on your mind?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G2d-R7-QAB" customClass="MemicTV" customModule="M3MIC" customModuleProvider="target">
+                                <rect key="frame" x="32" y="89.5" width="350" height="225"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="Hf1-kO-nRt"/>
+                                </constraints>
+                                <color key="textColor" name="White100"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" keyboardAppearance="alert" returnKeyType="send"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gD4-fB-dZe">
+                                <rect key="frame" x="117" y="330.5" width="180" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is this a public post?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9r-Gj-AiO">
+                                        <rect key="frame" x="0.0" y="0.0" width="123" height="31"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="14"/>
+                                        <color key="textColor" name="White100"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HH8-fh-WET">
+                                        <rect key="frame" x="131" y="0.0" width="51" height="31"/>
+                                        <color key="onTintColor" name="Secondary"/>
+                                        <connections>
+                                            <action selector="publicSwitchTapped:" destination="0jM-3a-wdQ" eventType="valueChanged" id="3Ut-td-bUJ"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="weS-zm-1cA" firstAttribute="trailing" secondItem="5Qh-s2-2tq" secondAttribute="trailing" id="30f-1u-ogp"/>
+                            <constraint firstItem="gD4-fB-dZe" firstAttribute="top" secondItem="G2d-R7-QAB" secondAttribute="bottom" constant="16" id="CLM-pG-meS"/>
+                            <constraint firstItem="weS-zm-1cA" firstAttribute="top" secondItem="3Fo-Zn-kav" secondAttribute="top" id="FMN-JS-W7r"/>
+                            <constraint firstItem="G2d-R7-QAB" firstAttribute="top" secondItem="weS-zm-1cA" secondAttribute="bottom" id="G2N-FQ-Ipy"/>
+                            <constraint firstItem="weS-zm-1cA" firstAttribute="height" secondItem="3Fo-Zn-kav" secondAttribute="height" multiplier="0.1" id="SJc-Rv-rYZ"/>
+                            <constraint firstItem="G2d-R7-QAB" firstAttribute="leading" secondItem="5Qh-s2-2tq" secondAttribute="leading" constant="32" id="d8z-fC-8eA"/>
+                            <constraint firstItem="gD4-fB-dZe" firstAttribute="centerX" secondItem="5Qh-s2-2tq" secondAttribute="centerX" id="ffe-pU-2xM"/>
+                            <constraint firstItem="5Qh-s2-2tq" firstAttribute="trailing" secondItem="G2d-R7-QAB" secondAttribute="trailing" constant="32" id="hsl-mg-iJv"/>
+                            <constraint firstItem="weS-zm-1cA" firstAttribute="leading" secondItem="5Qh-s2-2tq" secondAttribute="leading" id="yip-M3-doS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5Qh-s2-2tq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Post" id="eW8-36-LkY"/>
+                    <tabBarItem key="tabBarItem" title="" image="Add" selectedImage="Add" id="eW8-36-LkY"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="postTV" destination="G2d-R7-QAB" id="Z1T-mn-mei"/>
+                        <outlet property="publicSwitch" destination="HH8-fh-WET" id="iUp-t6-FRL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bl-1B-TwB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="149" y="-328"/>
+            <point key="canvasLocation" x="147.82608695652175" y="-328.125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Add" width="22" height="22"/>
+        <image name="Cancel" width="84" height="84"/>
+        <namedColor name="Black35">
+            <color red="0.0" green="0.0" blue="0.0" alpha="0.34999999403953552" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Secondary">
+            <color red="0.792156862745098" green="0.24313725490196078" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White100">
+            <color red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
