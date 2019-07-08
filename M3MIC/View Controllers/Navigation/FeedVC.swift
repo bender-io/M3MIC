@@ -14,6 +14,13 @@ class FeedVC: UIViewController {
         super.viewDidLoad()
         viewSetup()
         setupTabBarUI()
+        GifController.shared.fetchGifURL(searchTerm: "puppy") { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    print(GifController.shared.tinyGifs as Any)
+                }
+            }
+        }
     }
     
     func setupTabBarUI() {

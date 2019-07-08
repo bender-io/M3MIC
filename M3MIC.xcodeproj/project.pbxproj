@@ -37,7 +37,6 @@
 		5614730F22D15A4B00648B86 /* GTMSessionFetcher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561472FE22D15A4A00648B86 /* GTMSessionFetcher.framework */; };
 		5614731022D15A4B00648B86 /* leveldb-library.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561472FF22D15A4A00648B86 /* leveldb-library.framework */; };
 		5614731122D15A4B00648B86 /* gRPC-C++.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5614730022D15A4A00648B86 /* gRPC-C++.framework */; };
-		5614731222D15A4B00648B86 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5614730122D15A4A00648B86 /* Firebase.framework */; };
 		5614731322D15A4B00648B86 /* Protobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5614730222D15A4A00648B86 /* Protobuf.framework */; };
 		5614731422D15A4B00648B86 /* FirebaseAuth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5614730322D15A4A00648B86 /* FirebaseAuth.framework */; };
 		5614731522D15A4B00648B86 /* FirebaseCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5614730422D15A4A00648B86 /* FirebaseCore.framework */; };
@@ -141,7 +140,6 @@
 				5614731C22D15A4B00648B86 /* nanopb.framework in Frameworks */,
 				5614730E22D15A4B00648B86 /* GoogleUtilities.framework in Frameworks */,
 				5614731122D15A4B00648B86 /* gRPC-C++.framework in Frameworks */,
-				5614731222D15A4B00648B86 /* Firebase.framework in Frameworks */,
 				5614730C22D15A4B00648B86 /* FirebaseAnalytics.framework in Frameworks */,
 				5614731522D15A4B00648B86 /* FirebaseCore.framework in Frameworks */,
 				5614730D22D15A4B00648B86 /* FirebaseCoreDiagnostics.framework in Frameworks */,
