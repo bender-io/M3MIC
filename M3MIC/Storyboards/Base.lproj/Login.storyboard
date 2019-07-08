@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lRe-GC-wQn">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-Compact-Rounded-Light.otf">
+            <string>SFCompactRounded-Light</string>
+        </array>
+        <array key="SF-Compact-Rounded-Semibold.otf">
+            <string>SFCompactRounded-Semibold</string>
+        </array>
+        <array key="SF-Compact-Rounded-Thin.otf">
+            <string>SFCompactRounded-Thin</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--LoginVC-->
+        <scene sceneID="yLZ-5h-ytv">
+            <objects>
+                <viewController title="LoginVC" id="lRe-GC-wQn" customClass="LoginVC" customModule="M3MIC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B64-Uc-d6W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="2JG-I9-dey">
+                                <rect key="frame" x="16" y="149.5" width="382" height="112"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="lIN-4G-7FU" customClass="MemicTF" customModule="M3MIC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="kFd-Pn-Zn8"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="next" textContentType="email"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="lRe-GC-wQn" id="jUt-gN-OIR"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="xt5-8m-8Xi" customClass="MemicTF" customModule="M3MIC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="64" width="382" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="kwE-e0-aej"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="lRe-GC-wQn" id="xDn-Cn-Sdj"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="memic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pCI-7v-N5W">
+                                <rect key="frame" x="16" y="60" width="382" height="57.5"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vVt-TS-gok" customClass="MemicButton" customModule="M3MIC" customModuleProvider="target">
+                                <rect key="frame" x="16" y="309.5" width="382" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="iGs-4k-NSX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="15"/>
+                                <state key="normal" title="login"/>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="lRe-GC-wQn" eventType="touchUpInside" id="0A8-4P-Dlf"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4VR-fa-71t">
+                                <rect key="frame" x="104.5" y="816" width="205.5" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="don't have an account yet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSm-gV-1fb" customClass="MemicLabel" customModule="M3MIC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="147.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PR-UK-eX9" customClass="MemicButtonText" customModule="M3MIC" customModuleProvider="target">
+                                        <rect key="frame" x="155.5" y="0.0" width="50" height="30"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="15"/>
+                                        <state key="normal" title="sign up"/>
+                                        <connections>
+                                            <segue destination="ZCn-Kf-gvu" kind="presentation" identifier="toSignupVC" id="jmK-xp-kft"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="pCp-uR-lnI" firstAttribute="trailing" secondItem="2JG-I9-dey" secondAttribute="trailing" constant="16" id="7Fv-VT-hO9"/>
+                            <constraint firstItem="pCI-7v-N5W" firstAttribute="leading" secondItem="pCp-uR-lnI" secondAttribute="leading" constant="16" id="7Hi-Yx-TUs"/>
+                            <constraint firstItem="2JG-I9-dey" firstAttribute="top" secondItem="pCI-7v-N5W" secondAttribute="bottom" constant="32" id="Bz4-rX-xrc"/>
+                            <constraint firstItem="2JG-I9-dey" firstAttribute="leading" secondItem="pCp-uR-lnI" secondAttribute="leading" constant="16" id="NLD-Ab-cNX"/>
+                            <constraint firstItem="vVt-TS-gok" firstAttribute="leading" secondItem="pCp-uR-lnI" secondAttribute="leading" constant="16" id="NzD-Rv-X9L"/>
+                            <constraint firstItem="pCp-uR-lnI" firstAttribute="trailing" secondItem="vVt-TS-gok" secondAttribute="trailing" constant="16" id="WHP-cc-xBa"/>
+                            <constraint firstItem="pCI-7v-N5W" firstAttribute="top" secondItem="pCp-uR-lnI" secondAttribute="top" constant="16" id="kAN-4F-Ked"/>
+                            <constraint firstItem="vVt-TS-gok" firstAttribute="top" secondItem="2JG-I9-dey" secondAttribute="bottom" constant="48" id="p9r-zO-rNv"/>
+                            <constraint firstItem="4VR-fa-71t" firstAttribute="centerX" secondItem="pCp-uR-lnI" secondAttribute="centerX" id="rES-rJ-qVn"/>
+                            <constraint firstItem="pCp-uR-lnI" firstAttribute="bottom" secondItem="4VR-fa-71t" secondAttribute="bottom" constant="16" id="vqB-7g-IAM"/>
+                            <constraint firstItem="pCp-uR-lnI" firstAttribute="trailing" secondItem="pCI-7v-N5W" secondAttribute="trailing" constant="16" id="vv7-jI-fY6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pCp-uR-lnI"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTF" destination="lIN-4G-7FU" id="bUx-NK-s45"/>
+                        <outlet property="passwordTF" destination="xt5-8m-8Xi" id="Lam-L5-rOX"/>
+                        <segue destination="edu-zH-7af" kind="show" identifier="loginNavigationTBC" id="MK4-N4-xbP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jdo-jq-WmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-160" y="-251"/>
+        </scene>
+        <!--SignupVC-->
+        <scene sceneID="lVj-Dg-T4z">
+            <objects>
+                <viewController id="ZCn-Kf-gvu" customClass="SignupVC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v5J-zW-DT1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="memic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxQ-Df-Kuk">
+                                <rect key="frame" x="16" y="60" width="382" height="57.5"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="2D6-32-0zq">
+                                <rect key="frame" x="16" y="149.5" width="382" height="170"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="p3X-xl-LrQ" customClass="MemicTF" customModule="M3MIC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="a5Q-Z8-MOG"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="ZCn-Kf-gvu" id="XvV-4b-bBk"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="LTo-oF-OYa" customClass="MemicTF" customModule="M3MIC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="61" width="382" height="48"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="ZCn-Kf-gvu" id="P9n-gq-G4f"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="5OX-bp-fGv" customClass="MemicTF" customModule="M3MIC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="122" width="382" height="48"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="ZCn-Kf-gvu" id="R0V-ap-QTK"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilf-Mm-YaL" customClass="MemicButton" customModule="M3MIC" customModuleProvider="target">
+                                <rect key="frame" x="16" y="367.5" width="382" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="XT4-Ev-QSA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="15"/>
+                                <state key="normal" title="sign up"/>
+                                <connections>
+                                    <action selector="signupButtonTapped:" destination="ZCn-Kf-gvu" eventType="touchUpInside" id="nxh-XI-0LS"/>
+                                    <segue destination="J7V-m7-4A7" kind="presentation" identifier="temporary" id="9qk-8T-uIm"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="waR-KK-MJK">
+                                <rect key="frame" x="114.5" y="816" width="185.5" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEn-5G-0bR" customClass="MemicLabel" customModule="M3MIC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="140.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yeM-Ha-rw0" customClass="MemicButtonText" customModule="M3MIC" customModuleProvider="target">
+                                        <rect key="frame" x="148.5" y="0.0" width="37" height="30"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="15"/>
+                                        <state key="normal" title="log in"/>
+                                        <connections>
+                                            <action selector="loginButtonTapped:" destination="ZCn-Kf-gvu" eventType="touchUpInside" id="bJW-jp-a28"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="4uR-zb-VSN" firstAttribute="trailing" secondItem="ZxQ-Df-Kuk" secondAttribute="trailing" constant="16" id="AKx-6d-CNd"/>
+                            <constraint firstItem="4uR-zb-VSN" firstAttribute="bottom" secondItem="waR-KK-MJK" secondAttribute="bottom" constant="16" id="KSn-mV-ZYo"/>
+                            <constraint firstItem="4uR-zb-VSN" firstAttribute="trailing" secondItem="2D6-32-0zq" secondAttribute="trailing" constant="16" id="Qr7-RP-rtv"/>
+                            <constraint firstItem="ilf-Mm-YaL" firstAttribute="leading" secondItem="4uR-zb-VSN" secondAttribute="leading" constant="16" id="Rbw-DM-Pm8"/>
+                            <constraint firstItem="4uR-zb-VSN" firstAttribute="trailing" secondItem="ilf-Mm-YaL" secondAttribute="trailing" constant="16" id="bef-HP-DJT"/>
+                            <constraint firstItem="ilf-Mm-YaL" firstAttribute="top" secondItem="2D6-32-0zq" secondAttribute="bottom" constant="48" id="hic-fC-zos"/>
+                            <constraint firstItem="ZxQ-Df-Kuk" firstAttribute="top" secondItem="4uR-zb-VSN" secondAttribute="top" constant="16" id="pRN-hc-Ng1"/>
+                            <constraint firstItem="waR-KK-MJK" firstAttribute="centerX" secondItem="4uR-zb-VSN" secondAttribute="centerX" id="w8x-2L-6jn"/>
+                            <constraint firstItem="2D6-32-0zq" firstAttribute="top" secondItem="ZxQ-Df-Kuk" secondAttribute="bottom" constant="32" id="xBg-jI-ZFR"/>
+                            <constraint firstItem="2D6-32-0zq" firstAttribute="leading" secondItem="v5J-zW-DT1" secondAttribute="leading" constant="16" id="xMM-2c-uhE"/>
+                            <constraint firstItem="ZxQ-Df-Kuk" firstAttribute="leading" secondItem="4uR-zb-VSN" secondAttribute="leading" constant="16" id="zMd-2b-5SE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4uR-zb-VSN"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTF" destination="LTo-oF-OYa" id="4wi-UZ-eCQ"/>
+                        <outlet property="passwordTF" destination="5OX-bp-fGv" id="JrZ-hc-3Dd"/>
+                        <outlet property="usernameTF" destination="p3X-xl-LrQ" id="7Zn-G0-Pea"/>
+                        <segue destination="J7V-m7-4A7" kind="presentation" identifier="toProfilePictureVC" id="8Y1-bm-rYk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LXi-iL-hnE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="-251"/>
+        </scene>
+        <!--Navigation-->
+        <scene sceneID="7vF-kK-rff">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Navigation" id="edu-zH-7af" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iQL-9X-pGY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="633" y="165"/>
+        </scene>
+        <!--Profile PictureVC-->
+        <scene sceneID="AM9-so-FRF">
+            <objects>
+                <viewController id="J7V-m7-4A7" customClass="ProfilePictureVC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6ve-HG-bag" customClass="MemicView" customModule="M3MIC" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="memic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IK5-Zk-qir">
+                                <rect key="frame" x="16" y="60" width="382" height="57.5"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7KR-kO-Whi" customClass="MemicView" customModule="M3MIC" customModuleProvider="target">
+                                <rect key="frame" x="16" y="165.5" width="382" height="233"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="233" id="HZX-QE-mqr"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="xYn-7R-JSc" kind="embed" identifier="toPhotoUploadVC" id="OZw-Jd-kGp"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TF-zi-TIG" customClass="MemicButton" customModule="M3MIC" customModuleProvider="target">
+                                <rect key="frame" x="16" y="446.5" width="382" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="9Pa-AQ-xGy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="15"/>
+                                <state key="normal" title="upload photo"/>
+                                <connections>
+                                    <action selector="uploadButtonTapped:" destination="V7w-C6-ouC" eventType="touchUpInside" id="SWq-Jr-DbC"/>
+                                    <action selector="uploadButtonTapped:" destination="J7V-m7-4A7" eventType="touchUpInside" id="mqd-LQ-Oot"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSE-Ft-gEn" customClass="MemicButtonText" customModule="M3MIC" customModuleProvider="target">
+                                <rect key="frame" x="16" y="817" width="382" height="29"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="14"/>
+                                <state key="normal" title="skip for now"/>
+                                <connections>
+                                    <action selector="skipButtonTapped:" destination="J7V-m7-4A7" eventType="touchUpInside" id="SJz-co-P7Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="6CX-Qm-pPL" firstAttribute="trailing" secondItem="7KR-kO-Whi" secondAttribute="trailing" constant="16" id="0OI-wT-onS"/>
+                            <constraint firstItem="6CX-Qm-pPL" firstAttribute="trailing" secondItem="iSE-Ft-gEn" secondAttribute="trailing" constant="16" id="1zk-yf-w4g"/>
+                            <constraint firstItem="5TF-zi-TIG" firstAttribute="top" secondItem="7KR-kO-Whi" secondAttribute="bottom" constant="48" id="5dw-UA-Qnd"/>
+                            <constraint firstItem="IK5-Zk-qir" firstAttribute="leading" secondItem="6CX-Qm-pPL" secondAttribute="leading" constant="16" id="FIS-k6-zaU"/>
+                            <constraint firstItem="6CX-Qm-pPL" firstAttribute="trailing" secondItem="5TF-zi-TIG" secondAttribute="trailing" constant="16" id="IUE-Ox-b70"/>
+                            <constraint firstItem="IK5-Zk-qir" firstAttribute="top" secondItem="6CX-Qm-pPL" secondAttribute="top" constant="16" id="RYR-XB-2by"/>
+                            <constraint firstItem="iSE-Ft-gEn" firstAttribute="leading" secondItem="6CX-Qm-pPL" secondAttribute="leading" constant="16" id="Rvt-rY-rxj"/>
+                            <constraint firstItem="6CX-Qm-pPL" firstAttribute="bottom" secondItem="iSE-Ft-gEn" secondAttribute="bottom" constant="16" id="V6a-S3-5eU"/>
+                            <constraint firstItem="7KR-kO-Whi" firstAttribute="leading" secondItem="6CX-Qm-pPL" secondAttribute="leading" constant="16" id="ZxG-Sh-B5t"/>
+                            <constraint firstItem="7KR-kO-Whi" firstAttribute="top" secondItem="IK5-Zk-qir" secondAttribute="bottom" constant="48" id="hrU-oS-AJ7"/>
+                            <constraint firstItem="5TF-zi-TIG" firstAttribute="leading" secondItem="6CX-Qm-pPL" secondAttribute="leading" constant="16" id="kv8-UU-zB8"/>
+                            <constraint firstItem="6CX-Qm-pPL" firstAttribute="trailing" secondItem="IK5-Zk-qir" secondAttribute="trailing" constant="16" id="y4h-7f-PSn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6CX-Qm-pPL"/>
+                    </view>
+                    <connections>
+                        <segue destination="edu-zH-7af" kind="show" identifier="signupNavigationTBC" id="E4X-Jn-Exn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JJ2-gk-vNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="V7w-C6-ouC" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1437.68115942029" y="-251.11607142857142"/>
+        </scene>
+        <!--Photo UploadVC-->
+        <scene sceneID="RwX-cg-QOT">
+            <objects>
+                <viewController id="xYn-7R-JSc" customClass="PhotoUploadVC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gos-M5-iCN" customClass="MemicView" customModule="M3MIC" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="382" height="233"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FK-Gd-Ld2">
+                                <rect key="frame" x="0.0" y="0.0" width="382" height="233"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="13"/>
+                                <state key="normal" title="edit profile picture">
+                                    <color key="titleColor" name="Secondary"/>
+                                </state>
+                                <connections>
+                                    <action selector="profilePictureButtonTapped:" destination="xYn-7R-JSc" eventType="touchUpInside" id="nVp-wk-d1c"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cat_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Zca-xB-27x">
+                                <rect key="frame" x="91" y="0.0" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Zca-xB-27x" secondAttribute="height" multiplier="1:1" id="yfI-ct-Cjp"/>
+                                    <constraint firstAttribute="width" constant="200" id="zT5-Jt-Pdo"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Zca-xB-27x" firstAttribute="centerX" secondItem="HyW-Sa-eC8" secondAttribute="centerX" id="JYL-1W-pPa"/>
+                            <constraint firstItem="9FK-Gd-Ld2" firstAttribute="leading" secondItem="Gos-M5-iCN" secondAttribute="leading" id="Rwi-ND-HcD"/>
+                            <constraint firstAttribute="trailing" secondItem="9FK-Gd-Ld2" secondAttribute="trailing" id="X88-gN-OfY"/>
+                            <constraint firstItem="9FK-Gd-Ld2" firstAttribute="top" secondItem="Gos-M5-iCN" secondAttribute="top" id="d3E-Yd-pME"/>
+                            <constraint firstItem="Zca-xB-27x" firstAttribute="top" secondItem="Gos-M5-iCN" secondAttribute="top" id="e7E-iM-hkU"/>
+                            <constraint firstAttribute="bottom" secondItem="9FK-Gd-Ld2" secondAttribute="bottom" id="zTs-Xk-jjv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HyW-Sa-eC8"/>
+                    </view>
+                    <connections>
+                        <outlet property="profilePicture" destination="Zca-xB-27x" id="O98-Mb-tvp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ane-hK-Opn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2213.04347826087" y="-251.45089285714283"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cat_avatar" width="256" height="256"/>
+        <namedColor name="Secondary">
+            <color red="0.792156862745098" green="0.24313725490196078" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9qk-8T-uIm"/>
+        <segue reference="E4X-Jn-Exn"/>
+    </inferredMetricsTieBreakers>
+</document>
