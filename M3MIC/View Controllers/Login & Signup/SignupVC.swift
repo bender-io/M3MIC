@@ -17,8 +17,7 @@ class SignupVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        hideKeyboardWhenTappedAround()
-        setupUI()
+        viewSetup()
     }
     
     // MARK: - IBActions

@@ -21,8 +21,9 @@ extension UIViewController {
         view.endEditing(true)
     }
     
-    func setupUI() {
+    func viewSetup() {
         view.backgroundColor = .primary
+        hideKeyboardWhenTappedAround()
     }
 }
 

@@ -12,6 +12,5 @@ class NavigationTBC: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 }

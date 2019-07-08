@@ -14,7 +14,7 @@ class ProfilePictureVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        viewSetup()
     }
     
     // MARK: - Navigation

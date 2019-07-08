@@ -12,6 +12,12 @@ class FeedVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewSetup()
+        setupTabBarUI()
+    }
+    
+    func setupTabBarUI() {
+        tabBarController?.tabBar.barStyle = .black
+        tabBarController?.tabBar.isTranslucent = true
     }
 }

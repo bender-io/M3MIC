@@ -11,7 +11,6 @@
 		561472B422D1085800648B86 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561472B222D1085800648B86 /* Login.storyboard */; };
 		561472B622D1085C00648B86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 561472B522D1085C00648B86 /* Assets.xcassets */; };
 		561472B922D1085C00648B86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561472B722D1085C00648B86 /* LaunchScreen.storyboard */; };
-		561472C322D108C100648B86 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561472C222D108C100648B86 /* User.swift */; };
 		561472C622D10B1300648B86 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561472C522D10B1300648B86 /* Post.swift */; };
 		561472C822D10EEF00648B86 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561472C722D10EEF00648B86 /* Gif.swift */; };
 		561472CE22D1115A00648B86 /* Reply.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561472CD22D1115A00648B86 /* Reply.swift */; };
@@ -61,6 +60,9 @@
 		562178FE22D2890300B45E7B /* NavigationTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562178FD22D2890300B45E7B /* NavigationTBC.swift */; };
 		5621790022D28C0F00B45E7B /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562178FF22D28C0F00B45E7B /* PostVC.swift */; };
 		5621790322D28CAE00B45E7B /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5621790222D28CAE00B45E7B /* Post.storyboard */; };
+		5621790522D28E6300B45E7B /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5621790422D28E6300B45E7B /* Friend.storyboard */; };
+		5621790722D28EB900B45E7B /* FriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790622D28EB900B45E7B /* FriendVC.swift */; };
+		5621790A22D2A24000B45E7B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790922D2A24000B45E7B /* Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,7 +72,6 @@
 		561472B522D1085C00648B86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		561472B822D1085C00648B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		561472BA22D1085C00648B86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		561472C222D108C100648B86 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		561472C522D10B1300648B86 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		561472C722D10EEF00648B86 /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		561472CD22D1115A00648B86 /* Reply.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reply.swift; sourceTree = "<group>"; };
@@ -120,6 +121,9 @@
 		562178FD22D2890300B45E7B /* NavigationTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTBC.swift; sourceTree = "<group>"; };
 		562178FF22D28C0F00B45E7B /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		5621790222D28CAE00B45E7B /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
+		5621790422D28E6300B45E7B /* Friend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friend.storyboard; sourceTree = "<group>"; };
+		5621790622D28EB900B45E7B /* FriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendVC.swift; sourceTree = "<group>"; };
+		5621790922D2A24000B45E7B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 				562178F722D284A900B45E7B /* Navigation.storyboard */,
 				562178F922D2873900B45E7B /* Feed.storyboard */,
 				5621790222D28CAE00B45E7B /* Post.storyboard */,
+				5621790422D28E6300B45E7B /* Friend.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -211,7 +216,7 @@
 		561472C422D10A5500648B86 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				561472C222D108C100648B86 /* User.swift */,
+				5621790922D2A24000B45E7B /* Profile.swift */,
 				561472C522D10B1300648B86 /* Post.swift */,
 				561472CD22D1115A00648B86 /* Reply.swift */,
 				561472C722D10EEF00648B86 /* Gif.swift */,
@@ -251,17 +256,14 @@
 		561472DE22D12FB200648B86 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				561472DA22D1252300648B86 /* extensionVC.swift */,
-				561472E622D132C600648B86 /* extensionView.swift */,
-				561472DF22D12FC100648B86 /* extensionColors.swift */,
-				561472E422D1325A00648B86 /* extensionFont.swift */,
-				561472E322D131D200648B86 /* CustomUI */,
+				5621790822D2906600B45E7B /* Extensions */,
+				561472E322D131D200648B86 /* MemicUI */,
 				5614732522D1625F00648B86 /* Errors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		561472E322D131D200648B86 /* CustomUI */ = {
+		561472E322D131D200648B86 /* MemicUI */ = {
 			isa = PBXGroup;
 			children = (
 				561472E122D131CD00648B86 /* MemicTF.swift */,
@@ -271,7 +273,7 @@
 				561472F022D1432C00648B86 /* MemicLabel.swift */,
 				561472F422D144D300648B86 /* MemicView.swift */,
 			);
-			path = CustomUI;
+			path = MemicUI;
 			sourceTree = "<group>";
 		};
 		561472FA22D15A3900648B86 /* Frameworks */ = {
@@ -307,8 +309,20 @@
 				562178FD22D2890300B45E7B /* NavigationTBC.swift */,
 				562178FB22D287AA00B45E7B /* FeedVC.swift */,
 				562178FF22D28C0F00B45E7B /* PostVC.swift */,
+				5621790622D28EB900B45E7B /* FriendVC.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		5621790822D2906600B45E7B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				561472DA22D1252300648B86 /* extensionVC.swift */,
+				561472E622D132C600648B86 /* extensionView.swift */,
+				561472DF22D12FC100648B86 /* extensionColors.swift */,
+				561472E422D1325A00648B86 /* extensionFont.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +389,7 @@
 				561472B622D1085C00648B86 /* Assets.xcassets in Resources */,
 				5621790322D28CAE00B45E7B /* Post.storyboard in Resources */,
 				561472F922D1581400648B86 /* GoogleService-Info.plist in Resources */,
+				5621790522D28E6300B45E7B /* Friend.storyboard in Resources */,
 				561472B422D1085800648B86 /* Login.storyboard in Resources */,
 				561472E922D13C3F00648B86 /* Fonts in Resources */,
 				562178F822D284A900B45E7B /* Navigation.storyboard in Resources */,
@@ -391,11 +406,13 @@
 				561472ED22D140D800648B86 /* MemicButtonDark.swift in Sources */,
 				562178FC22D287AA00B45E7B /* FeedVC.swift in Sources */,
 				5621790022D28C0F00B45E7B /* PostVC.swift in Sources */,
+				5621790A22D2A24000B45E7B /* Profile.swift in Sources */,
 				561472E722D132C600648B86 /* extensionView.swift in Sources */,
 				561472F722D1489400648B86 /* PhotoUploadVC.swift in Sources */,
 				561472D522D1225800648B86 /* SignupVC.swift in Sources */,
 				561472CE22D1115A00648B86 /* Reply.swift in Sources */,
 				561472F522D144D300648B86 /* MemicView.swift in Sources */,
+				5621790722D28EB900B45E7B /* FriendVC.swift in Sources */,
 				5614732622D1625F00648B86 /* Errors.swift in Sources */,
 				561472E522D1325A00648B86 /* extensionFont.swift in Sources */,
 				561472C622D10B1300648B86 /* Post.swift in Sources */,
@@ -403,7 +420,6 @@
 				561472DB22D1252300648B86 /* extensionVC.swift in Sources */,
 				561472F122D1432C00648B86 /* MemicLabel.swift in Sources */,
 				561472E022D12FC100648B86 /* extensionColors.swift in Sources */,
-				561472C322D108C100648B86 /* User.swift in Sources */,
 				561472C822D10EEF00648B86 /* Gif.swift in Sources */,
 				561472D022D111F500648B86 /* GifController.swift in Sources */,
 				561472EF22D1411700648B86 /* MemicButtonText.swift in Sources */,

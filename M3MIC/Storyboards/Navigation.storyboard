@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,25 +28,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="Secondary"/>
                     </tabBar>
                     <connections>
                         <segue destination="yW6-7z-RGS" kind="relationship" relationship="viewControllers" id="Tc1-Qc-ksT"/>
                         <segue destination="R6Y-so-MKQ" kind="relationship" relationship="viewControllers" id="w17-Wl-lXt"/>
+                        <segue destination="afd-RO-aPv" kind="relationship" relationship="viewControllers" id="6hz-Aa-mLk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zdi-4Q-kkY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-825" y="-378"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="IaF-Me-sFT">
-            <objects>
-                <viewControllerPlaceholder id="m23-NL-CLg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="meR-FK-842"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mvs-E4-Nhl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-250" y="68"/>
         </scene>
         <!--Post-->
         <scene sceneID="Y49-l6-669">
@@ -55,17 +48,22 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugu-uG-8uQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1008" y="69"/>
+            <point key="canvasLocation" x="-826" y="68"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--Friend-->
         <scene sceneID="GBv-hl-the">
             <objects>
-                <viewControllerPlaceholder id="afd-RO-aPv" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Friend" id="afd-RO-aPv" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="LkG-O6-gA2"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Pf-S4-T2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-644" y="68"/>
+            <point key="canvasLocation" x="-359" y="68"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="Secondary">
+            <color red="0.792156862745098" green="0.24313725490196078" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

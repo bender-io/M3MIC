@@ -1,5 +1,5 @@
 //
-//  NewPostVC.swift
+//  FriendVC.swift
 //  M3MIC
 //
 //  Created by Brian Hersh on 7/7/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostVC: UIViewController {
+class FriendVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

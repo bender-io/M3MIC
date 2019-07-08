@@ -10,17 +10,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--PostVC-->
+        <!--Post-->
         <scene sceneID="ru7-ZF-U2L">
             <objects>
                 <viewController storyboardIdentifier="PostVC" id="0jM-3a-wdQ" customClass="PostVC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Fo-Zn-kav">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="5Qh-s2-2tq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="eW8-36-LkY"/>
+                    <tabBarItem key="tabBarItem" title="Post" id="eW8-36-LkY"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bl-1B-TwB" userLabel="First Responder" sceneMemberID="firstResponder"/>

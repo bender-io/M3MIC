@@ -49,6 +49,12 @@ class UserController {
         }
     }
     
+    /// Signs the user into the account associated with the inputed email and password.
+    ///
+    /// - Parameters:
+    ///   - email: user's email
+    ///   - password: user's password
+    ///   - completion: completes with an error if there is one
     func loginUserWith(email: String, password: String, completion: @escaping(Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (data, error) in
             if let error = error {
@@ -58,6 +64,15 @@ class UserController {
                 print("User has been succesfully logged in")
                 completion(nil)
             }
+        }
+    }
+    
+    /// Signs out the current user
+    func signOutUser() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("There was an error signing the user out in \(#function) ; \(error.localizedDescription) ; \(error)")
         }
     }
 }
