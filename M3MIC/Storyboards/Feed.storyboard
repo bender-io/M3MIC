@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="89.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="memic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4c-YR-tdO">
-                                        <rect key="frame" x="177" y="55" width="60.5" height="24"/>
+                                        <rect key="frame" x="177.5" y="55" width="59" height="24"/>
                                         <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="20"/>
                                         <color key="textColor" name="White100"/>
                                         <nil key="highlightedColor"/>

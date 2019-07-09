@@ -29,6 +29,7 @@ class User {
     }
     
     init?(from dictionary: [String : Any]) {
+        
         guard let userUID = dictionary[Constants.userUID] as? String,
             let username = dictionary[Constants.username] as? String,
             let firstname = dictionary[Constants.firstname] as? String,
