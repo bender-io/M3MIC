@@ -61,8 +61,9 @@
 		5621790322D28CAE00B45E7B /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5621790222D28CAE00B45E7B /* Post.storyboard */; };
 		5621790522D28E6300B45E7B /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5621790422D28E6300B45E7B /* Friend.storyboard */; };
 		5621790722D28EB900B45E7B /* FriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790622D28EB900B45E7B /* FriendVC.swift */; };
-		5621790A22D2A24000B45E7B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790922D2A24000B45E7B /* Profile.swift */; };
+		5621790A22D2A24000B45E7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790922D2A24000B45E7B /* User.swift */; };
 		5621790C22D3F1E600B45E7B /* MemicTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790B22D3F1E600B45E7B /* MemicTV.swift */; };
+		5621790E22D40C8400B45E7B /* FeedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790D22D40C8400B45E7B /* FeedDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -123,8 +124,9 @@
 		5621790222D28CAE00B45E7B /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		5621790422D28E6300B45E7B /* Friend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friend.storyboard; sourceTree = "<group>"; };
 		5621790622D28EB900B45E7B /* FriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendVC.swift; sourceTree = "<group>"; };
-		5621790922D2A24000B45E7B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		5621790922D2A24000B45E7B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5621790B22D3F1E600B45E7B /* MemicTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemicTV.swift; sourceTree = "<group>"; };
+		5621790D22D40C8400B45E7B /* FeedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,7 +218,7 @@
 		561472C422D10A5500648B86 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5621790922D2A24000B45E7B /* Profile.swift */,
+				5621790922D2A24000B45E7B /* User.swift */,
 				561472C522D10B1300648B86 /* Post.swift */,
 				561472CD22D1115A00648B86 /* Reply.swift */,
 				561472C722D10EEF00648B86 /* Gif.swift */,
@@ -309,6 +311,7 @@
 			children = (
 				562178FD22D2890300B45E7B /* NavigationTBC.swift */,
 				562178FB22D287AA00B45E7B /* FeedVC.swift */,
+				5621790D22D40C8400B45E7B /* FeedDetailVC.swift */,
 				562178FF22D28C0F00B45E7B /* PostVC.swift */,
 				5621790622D28EB900B45E7B /* FriendVC.swift */,
 			);
@@ -407,7 +410,7 @@
 				561472ED22D140D800648B86 /* MemicButtonDark.swift in Sources */,
 				562178FC22D287AA00B45E7B /* FeedVC.swift in Sources */,
 				5621790022D28C0F00B45E7B /* PostVC.swift in Sources */,
-				5621790A22D2A24000B45E7B /* Profile.swift in Sources */,
+				5621790A22D2A24000B45E7B /* User.swift in Sources */,
 				561472E722D132C600648B86 /* extensionView.swift in Sources */,
 				561472F722D1489400648B86 /* PhotoUploadVC.swift in Sources */,
 				561472D522D1225800648B86 /* SignupVC.swift in Sources */,
@@ -421,6 +424,7 @@
 				561472DB22D1252300648B86 /* extensionVC.swift in Sources */,
 				561472F122D1432C00648B86 /* MemicLabel.swift in Sources */,
 				561472E022D12FC100648B86 /* extensionColors.swift in Sources */,
+				5621790E22D40C8400B45E7B /* FeedDetailVC.swift in Sources */,
 				561472C822D10EEF00648B86 /* Gif.swift in Sources */,
 				561472D022D111F500648B86 /* GifController.swift in Sources */,
 				561472EF22D1411700648B86 /* MemicButtonText.swift in Sources */,
