@@ -323,7 +323,7 @@
                                     <action selector="profilePictureButtonTapped:" destination="xYn-7R-JSc" eventType="touchUpInside" id="nVp-wk-d1c"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CatAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="Zca-xB-27x">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Zca-xB-27x">
                                 <rect key="frame" x="91" y="0.0" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Zca-xB-27x" secondAttribute="height" multiplier="1:1" id="yfI-ct-Cjp"/>
@@ -351,7 +351,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CatAvatar" width="256" height="256"/>
+        <image name="PrimaryLogo" width="1024" height="1024"/>
         <namedColor name="Secondary">
             <color red="0.792156862745098" green="0.24313725490196078" blue="0.27843137254901962" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -10,9 +10,7 @@ import UIKit
 
 class PostVC: UIViewController {
 
-    // MARK: - Properties
-    let feedStoryboard: UIStoryboard = UIStoryboard(name: "Feed", bundle: nil)
-    
+    // MARK: - IBOutlets
     @IBOutlet weak var postTV: MemicTV!
     @IBOutlet weak var publicSwitch: UISwitch!
     
@@ -38,9 +36,8 @@ class PostVC: UIViewController {
     }
     
     func toDetailVC() {
-        let postDetailVC = feedStoryboard.instantiateViewController(withIdentifier: "FeedDetailVC")
-//        UIApplication.shared.windows.first?.rootViewController = postDetailVC
-        present(postDetailVC, animated: true, completion: nil)
+        PostController.shared.postWasCreated = true
+        tabBarController?.selectedIndex = 0
     }
 }
 
