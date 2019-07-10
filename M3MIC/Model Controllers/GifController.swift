@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Daniel. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class GifController {
     
@@ -14,7 +14,8 @@ class GifController {
     static let shared = GifController()
     private init(){}
     
-    var tinyGifs: [String]?
+    var gifs: [String]?
+    var gifImageArray = [UIImage]()
     
     let baseURL = URL(string: "https://api.tenor.com/v1")
     let apiKey = "8ZNGHJOGN4RF"
@@ -24,7 +25,7 @@ class GifController {
     /// - Parameters:
     ///   - searchTerm: determines what the query will search for
     ///   - completion: boolian value determines whether the query succeeded or failed
-    func fetchGifURL(searchTerm: String, completion: @escaping(Bool) -> Void) {
+    func fetchGifUrls(searchTerm: String, completion: @escaping(Bool) -> Void) {
         guard var url = baseURL else { completion(false) ; return }
         
         url.appendPathComponent("search")
@@ -57,10 +58,32 @@ class GifController {
                         tinygifs.append(url)
                     }
                 }
-                self.tinyGifs = tinygifs
+                self.gifs = tinygifs
                 completion(true)
                 
             } catch { print("❌ could not decode topLevelJSON.") ; completion(false) ; return }
         }.resume()
+    }
+    
+    func fetchGifsFromUrls(tinygifs: [String], completion: @escaping(Bool) -> Void) {
+        
+        guard let gifs = gifs else { completion(false) ; return }
+    
+        for gif in gifs {
+            
+            guard let baseURL = URL(string: gif) else { completion(false) ; return }
+                        
+            URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
+                if let error = error {
+                    print("❌ could not unwrap data in \(#function) ; \(error.localizedDescription) ; \(error)")
+                    completion(false) ; return
+                }
+                guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
+                
+                self.gifImageArray.append(gif)
+                completion(true)
+                
+            }.resume()
+        }
     }
 }

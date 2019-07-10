@@ -9,22 +9,59 @@
 import UIKit
 
 class FeedVC: UIViewController {
-
-    override func viewDidLoad() {
+    
+        override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        fetchUrls(searchTerm: "wild west")
         setupTabBarUI()
-        GifController.shared.fetchGifURL(searchTerm: "puppy") { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    print(GifController.shared.tinyGifs as Any)
-                }
-            }
-        }
+    }
+    
+    override func viewWillAppxwear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        pushToDetailVC()
     }
     
     func setupTabBarUI() {
         tabBarController?.tabBar.barStyle = .black
         tabBarController?.tabBar.isTranslucent = true
+    }
+    
+    func pushToDetailVC() {
+        let feedDetailVC = UIStoryboard.init(name: "Feed", bundle: Bundle.main).instantiateViewController(withIdentifier: "FeedDetailVC") as? FeedDetailVC
+        
+        if PostController.shared.postWasCreated {
+            
+            PostController.shared.postWasCreated = false
+            navigationController?.pushViewController(feedDetailVC ?? UIViewController(), animated: true)
+        }
+    }
+}
+
+// MARK: - Fetch Methods
+extension FeedVC {
+    
+    func fetchUrls(searchTerm: String) {
+        
+        GifController.shared.fetchGifUrls(searchTerm: searchTerm) { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    print("\(String(describing: GifController.shared.gifs))")
+                    self.fetchGifs()
+                }
+            }
+        }
+    }
+    
+    func fetchGifs() {
+        guard let gifs = GifController.shared.gifs else { return }
+        
+        GifController.shared.fetchGifsFromUrls(tinygifs: gifs) { (success) in
+            DispatchQueue.main.async {
+                if success {
+                    print("UIImage \(GifController.shared.gifImageArray.count)")
+                }
+            }
+        }
     }
 }

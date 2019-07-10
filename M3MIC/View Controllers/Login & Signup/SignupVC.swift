@@ -45,6 +45,7 @@ class SignupVC: UIViewController {
                 self.performSegue(withIdentifier: "toProfilePictureVC", sender: self)
             }
         }
+        UserController.shared.updateUsername(with: username)
     }
 }
 

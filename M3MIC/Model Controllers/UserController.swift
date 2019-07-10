@@ -25,7 +25,7 @@ class UserController {
     func createNewUserWith(email: String, password: String, completion: @escaping(Error?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (data, error) in
             if let error = error {
-                print("❌ Error creating the user in \(#function) ; \(error.localizedDescription) ; \(error)")
+                print("❌ error creating the user in \(#function) ; \(error.localizedDescription) ; \(error)")
                 completion(error)
                 return
             }
@@ -39,7 +39,7 @@ class UserController {
                 "replyUIDs" : []
                 ], completion: { (error) in
                     if let error = error {
-                        print("❌ Error creating user document in \(#function) ; \(error.localizedDescription) ; \(error)")
+                        print("❌ error creating user document in \(#function) ; \(error.localizedDescription) ; \(error)")
                         completion(error) ; return
                     } else {
                         print("Document created with ID \(data.user.uid)")
@@ -65,6 +65,21 @@ class UserController {
                 completion(nil)
             }
         }
+    }
+    
+    func updateUsername(with username: String) {
+        
+        guard let currentUser = Auth.auth().currentUser else { print("Couldn't unwrap the current user in \(#function)") ; return }
+        
+        db.collection("User").document(currentUser.uid).updateData(["username" : username]) { (error) in
+            if let error = error {
+                print("❌ error updating username in \(#function) ; \(error.localizedDescription) ; \(error)")
+            }
+        }
+    }
+    
+    func updateProfilePicture() {
+        
     }
     
     /// Signs out the current user

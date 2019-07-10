@@ -10,20 +10,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Feed-->
+        <!--FeedVC-->
         <scene sceneID="LsZ-iX-vw6">
             <objects>
-                <viewControllerPlaceholder storyboardName="Feed" id="yW6-7z-RGS" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Feed" referencedIdentifier="FeedVC" id="yW6-7z-RGS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="vYh-Ze-bbA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCd-BE-0tg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1385" y="68"/>
+            <point key="canvasLocation" x="-1083" y="68"/>
         </scene>
         <!--NavigationTBC-->
         <scene sceneID="OGk-Er-QpV">
             <objects>
-                <tabBarController id="urp-qt-CbH" customClass="NavigationTBC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NavigationTBC" id="urp-qt-CbH" customClass="NavigationTBC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Fd-Bh-NyV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -58,7 +58,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Pf-S4-T2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-359" y="68"/>
+            <point key="canvasLocation" x="-576" y="68"/>
         </scene>
     </scenes>
     <resources>
