@@ -23,16 +23,7 @@ class FeedDetailVC: UIViewController {
         viewSetup()
     }
     
-    @IBAction func backButtonTapped(_ sender: Any) {
-        toFeedVC()
-    }
-    
-    @IBAction func replyButtonTapped(_ sender: Any) {
-    }
-    
     func toFeedVC() {
-        // TODO: - DEALLOCATE CURRENT TBC
-        let toFeedVC = navigationStoryboard.instantiateViewController(withIdentifier: "NavigationTBC")
-        UIApplication.shared.windows.first?.rootViewController = toFeedVC
+       tabBarController?.selectedIndex = 0
     }
 }

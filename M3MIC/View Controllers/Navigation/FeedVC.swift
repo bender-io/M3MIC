@@ -10,20 +10,14 @@ import UIKit
 
 class FeedVC: UIViewController {
     
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        fetchUrls(searchTerm: "wild west")
         setupTabBarUI()
-        GifController.shared.fetchGifURL(searchTerm: "puppy") { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    print(GifController.shared.tinyGifs as Any)
-                }
-            }
-        }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppxwear(_ animated: Bool) {
         super.viewWillAppear(true)
         pushToDetailVC()
     }
@@ -40,6 +34,34 @@ class FeedVC: UIViewController {
             
             PostController.shared.postWasCreated = false
             navigationController?.pushViewController(feedDetailVC ?? UIViewController(), animated: true)
+        }
+    }
+}
+
+// MARK: - Fetch Methods
+extension FeedVC {
+    
+    func fetchUrls(searchTerm: String) {
+        
+        GifController.shared.fetchGifUrls(searchTerm: searchTerm) { (success) in
+            if success {
+                DispatchQueue.main.async {
+                    print("\(String(describing: GifController.shared.gifs))")
+                    self.fetchGifs()
+                }
+            }
+        }
+    }
+    
+    func fetchGifs() {
+        guard let gifs = GifController.shared.gifs else { return }
+        
+        GifController.shared.fetchGifsFromUrls(tinygifs: gifs) { (success) in
+            DispatchQueue.main.async {
+                if success {
+                    print("UIImage \(GifController.shared.gifImageArray.count)")
+                }
+            }
         }
     }
 }
