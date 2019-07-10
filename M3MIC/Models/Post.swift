@@ -16,16 +16,16 @@ class Post {
     let userUID: String
     let username: String?
     let timestamp: Date?
-    let post: String?
+    let message: String?
     let profilePicture: UIImage?
     let replyUIDs: [String]?
     
-    init(postUID: String, userUID: String, username: String, timestamp: Date = Date(), post: String, profilePicture: UIImage = #imageLiteral(resourceName: "PrimaryLogo"), replyUIDs: [String] = []) {
+    init(postUID: String, userUID: String, username: String, timestamp: Date = Date(), message: String, profilePicture: UIImage = #imageLiteral(resourceName: "PrimaryLogo"), replyUIDs: [String] = []) {
         self.postUID = postUID
         self.userUID = userUID
         self.username = username
         self.timestamp = timestamp
-        self.post = post
+        self.message = message
         self.profilePicture = profilePicture
         self.replyUIDs = replyUIDs
     }
@@ -34,16 +34,15 @@ class Post {
         guard let userUID = dictionary[Constants.userUID] as? String,
             let username = dictionary[Constants.username] as? String,
             let timestamp = dictionary[Constants.timestamp] as? Date,
-            let post = dictionary[Constants.post] as? String,
+            let message = dictionary[Constants.message] as? String,
             let profilePicture = dictionary[Constants.profilePicture] as? UIImage else { return nil }
         
         self.postUID = postUID
         self.userUID = userUID
         self.username = username
         self.timestamp = timestamp
-        self.post = post
+        self.message = message
         self.profilePicture = profilePicture
         self.replyUIDs = replyUIDs
     }
-    
 }

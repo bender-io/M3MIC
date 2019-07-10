@@ -119,10 +119,10 @@
             </objects>
             <point key="canvasLocation" x="2179.7101449275365" y="-283.25892857142856"/>
         </scene>
-        <!--FeedNC-->
+        <!--Navigation Controller-->
         <scene sceneID="Ag3-Ac-fE8">
             <objects>
-                <navigationController storyboardIdentifier="FeedVC" automaticallyAdjustsScrollViewInsets="NO" id="XmZ-qu-Vp8" customClass="FeedNC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FeedVC" automaticallyAdjustsScrollViewInsets="NO" id="XmZ-qu-Vp8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="Home" selectedImage="Home" id="lOx-0m-0jK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="iws-OA-OBM">

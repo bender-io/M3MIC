@@ -22,10 +22,10 @@ class UserController {
     ///   - email: user's email
     ///   - password: user's password
     ///   - completion: completes with an error if there is one
-    func createNewUserWith(email: String, password: String, completion: @escaping(Error?) -> Void) {
+    func signupUserWith(email: String, password: String, completion: @escaping(Error?) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (data, error) in
             if let error = error {
-                print("❌ error creating the user in \(#function) ; \(error.localizedDescription) ; \(error)")
+                print("❌ Error creating the user in \(#function) ; \(error.localizedDescription) ; \(error)")
                 completion(error)
                 return
             }
@@ -33,13 +33,13 @@ class UserController {
             guard let data = data else { completion(Errors.unwrapData) ; return }
             
             self.db.collection("User").document(data.user.uid).setData([
-                "friendUIDs" : [],
-                "blockedUIDs" : [],
-                "postUIDs" : [],
-                "replyUIDs" : []
+                Constants.friendUIDs : [],
+                Constants.blockedUIDs : [],
+                Constants.postUIDs : [],
+                Constants.replyUIDs : []
                 ], completion: { (error) in
                     if let error = error {
-                        print("❌ error creating user document in \(#function) ; \(error.localizedDescription) ; \(error)")
+                        print("❌ Error creating user document in \(#function) ; \(error.localizedDescription) ; \(error)")
                         completion(error) ; return
                     } else {
                         print("Document created with ID \(data.user.uid)")
@@ -58,7 +58,7 @@ class UserController {
     func loginUserWith(email: String, password: String, completion: @escaping(Error?) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (data, error) in
             if let error = error {
-                print("❌ error authenticating user in \(#function) ; \(error.localizedDescription) ; \(error)")
+                print("❌ Error authenticating user in \(#function) ; \(error.localizedDescription) ; \(error)")
                 completion(error) ; return
             } else {
                 print("User has been succesfully logged in")
@@ -67,19 +67,30 @@ class UserController {
         }
     }
     
-    func updateUsername(with username: String) {
-        
+    func createUsername(_ username: String) {
         guard let currentUser = Auth.auth().currentUser else { print("Couldn't unwrap the current user in \(#function)") ; return }
         
-        db.collection("User").document(currentUser.uid).updateData(["username" : username]) { (error) in
+        db.collection("User").document(currentUser.uid).updateData([Constants.username : username]) { (error) in
             if let error = error {
-                print("❌ error updating username in \(#function) ; \(error.localizedDescription) ; \(error)")
+                print("❌ Error updating username in \(#function) ; \(error.localizedDescription) ; \(error)")
             }
         }
     }
     
     func updateProfilePicture() {
         
+    }
+    
+    func updatePostUIDs(with postUID: String) {
+        guard let currentUser = Auth.auth().currentUser else { print("Couldn't unwrap the current user in \(#function)") ; return }
+        
+        db.collection("User").document(currentUser.uid).updateData([
+            Constants.postUIDs : FieldValue.arrayUnion([postUID])
+        ]) { (error) in
+            if let error = error {
+                print("❌ Error updating postUIDs array in \(#function) ; \(error.localizedDescription) ; \(error)")
+            }
+        }
     }
     
     /// Signs out the current user

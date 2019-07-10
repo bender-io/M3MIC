@@ -11,16 +11,16 @@ import UIKit
 class User {
     
     let userUID: String
-    let username: String?
+    let username: String
     let firstname: String?
     let lastname: String?
-    let profilePicture: UIImage?
+    let profilePicture: UIImage
 
     var fullname: String? {
         return "\(String(describing: firstname)) \(String(describing: lastname))"
     }
     
-    init(userUID: String, username: String, firstname: String, lastname: String, fullname: String, profilePicture: UIImage?) {
+    init(userUID: String, username: String, firstname: String, lastname: String, fullname: String, profilePicture: UIImage = #imageLiteral(resourceName: "PrimaryLogo")) {
         self.userUID = userUID
         self.username = username
         self.firstname = firstname
@@ -43,17 +43,4 @@ class User {
         self.lastname = lastname
         self.profilePicture = profilePicture
     }
-}
-
-enum Constants {
-    
-    static let userUID = "userUID"
-    static let username = "username"
-    static let firstname = "firstname"
-    static let lastname = "lastname"
-    static let profilePicture = "profilePicture"
-    
-    static let postUID = "postUID"
-    static let post = "post"
-    static let timestamp = "timestamp"
 }
