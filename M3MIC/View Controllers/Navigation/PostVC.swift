@@ -13,10 +13,16 @@ class PostVC: UIViewController {
     // MARK: - IBOutlets
     @IBOutlet weak var postTV: MemicTV!
     @IBOutlet weak var publicSwitch: UISwitch!
+    @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var switchLabel: UILabel!
+    
+    var switchIsPublic = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        headerView.backgroundColor = .black
+        headerView.alpha = 0.35
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,10 +35,18 @@ class PostVC: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        postTV.text = "What's on your mind?"
         tabBarController?.selectedIndex = 0
     }
     
     @IBAction func publicSwitchTapped(_ sender: Any) {
+        switchIsPublic = !switchIsPublic
+        
+        if switchIsPublic {
+            switchLabel.text = "Post to Public Feed"
+        } else {
+            switchLabel.text = "Post to Private Feed"
+        }
     }
     
     func toDetailVC() {

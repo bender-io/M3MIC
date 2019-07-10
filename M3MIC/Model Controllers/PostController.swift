@@ -13,5 +13,5 @@ class PostController {
     static let shared = PostController()
     private init(){}
     
-    var postWasCreated: Bool = false
+    var postWasCreated = false
 }

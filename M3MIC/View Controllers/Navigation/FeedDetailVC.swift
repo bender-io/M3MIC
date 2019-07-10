@@ -8,6 +8,8 @@
 
 import UIKit
 
+// TODO: - Hide / Remove TBC for FeedDetailVC
+
 class FeedDetailVC: UIViewController {
 
     // MARK: - Properties
@@ -26,4 +28,5 @@ class FeedDetailVC: UIViewController {
     func toFeedVC() {
        tabBarController?.selectedIndex = 0
     }
+    
 }

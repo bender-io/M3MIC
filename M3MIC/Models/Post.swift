@@ -7,24 +7,43 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class Post {
     
     // MARK: - Properties
     let postUID: String
     let userUID: String
-    let username: String
-    let profilePicture: UIImage
-    let timestamp: Date
-    let question: String
+    let username: String?
+    let timestamp: Date?
+    let post: String?
+    let profilePicture: UIImage?
+    let replyUIDs: [String]?
     
-    // TODO: - Add new UIImage placeholder
-    init(postUID: String, userUID: String, username: String, timestamp: Date = Date(), question: String, profilePicture: UIImage = #imageLiteral(resourceName: "profile_pic")) {
+    init(postUID: String, userUID: String, username: String, timestamp: Date = Date(), post: String, profilePicture: UIImage = #imageLiteral(resourceName: "PrimaryLogo"), replyUIDs: [String] = []) {
         self.postUID = postUID
         self.userUID = userUID
         self.username = username
         self.timestamp = timestamp
-        self.question = question
+        self.post = post
         self.profilePicture = profilePicture
+        self.replyUIDs = replyUIDs
     }
+    
+    init?(from dictionary: [String : Any], postUID: String, replyUIDs: [String] = []) {
+        guard let userUID = dictionary[Constants.userUID] as? String,
+            let username = dictionary[Constants.username] as? String,
+            let timestamp = dictionary[Constants.timestamp] as? Date,
+            let post = dictionary[Constants.post] as? String,
+            let profilePicture = dictionary[Constants.profilePicture] as? UIImage else { return nil }
+        
+        self.postUID = postUID
+        self.userUID = userUID
+        self.username = username
+        self.timestamp = timestamp
+        self.post = post
+        self.profilePicture = profilePicture
+        self.replyUIDs = replyUIDs
+    }
+    
 }

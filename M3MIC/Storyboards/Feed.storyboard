@@ -106,7 +106,7 @@
                         <viewLayoutGuide key="safeArea" id="R7k-Ot-h7n"/>
                     </view>
                     <navigationItem key="navigationItem" id="E71-qT-TyD">
-                        <barButtonItem key="rightBarButtonItem" image="Add" id="F7P-3h-OsQ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="F7P-3h-OsQ"/>
                     </navigationItem>
                     <connections>
                         <outlet property="postLabel" destination="rSg-DL-mAZ" id="SPN-4r-VY6"/>
@@ -141,7 +141,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add" width="22" height="22"/>
         <image name="Home" width="19" height="22"/>
         <image name="Menu" width="21" height="13"/>
         <image name="PrimaryLogo" width="1024" height="1024"/>

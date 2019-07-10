@@ -17,7 +17,7 @@ class FeedVC: UIViewController {
         setupTabBarUI()
     }
     
-    override func viewWillAppxwear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         pushToDetailVC()
     }

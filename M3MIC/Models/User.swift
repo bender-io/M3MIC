@@ -52,4 +52,8 @@ enum Constants {
     static let firstname = "firstname"
     static let lastname = "lastname"
     static let profilePicture = "profilePicture"
+    
+    static let postUID = "postUID"
+    static let post = "post"
+    static let timestamp = "timestamp"
 }

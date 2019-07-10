@@ -16,7 +16,6 @@ class MemicTV: UITextView {
     }
     
     func setupUI() {
-        self.backgroundColor = .white10
         self.cornerRadios()
     }
     
