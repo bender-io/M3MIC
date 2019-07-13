@@ -23,26 +23,39 @@ class PostController {
     var posts = [Post]()
     var postWasCreated = false
     
-    
     // MARK: - CRUD Methods
-    func createPostWith(message: String, timestamp: Date, replyUIDs: [String] = [], completion: @escaping(Error?) -> Void) {
+    func createPostWith(message: String, timestamp: Date = Date(), replyUIDs: [String] = [], completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.noCurrentUser) ; return }
         
         var ref: DocumentReference?
         ref = db.collection("Post").addDocument(data: [
-            Constants.userUID : currentUser.uid,
-            Constants.message : message,
-            Constants.timestamp : timestamp,
-            Constants.replyUID : replyUIDs
+            Document.userUID : currentUser.uid,
+            Document.message : message,
+            Document.timestamp : timestamp,
+            Document.replyUIDs : replyUIDs
             ], completion: { (error) in
                 if let error = error {
-                    print("❌ error adding document in \(#function) ; \(error.localizedDescription) ; \(error)")
+                    print("❌ Error adding document in \(#function) ; \(error.localizedDescription) ; \(error)")
                     completion(error) ; return
                 }
                 guard let docID = ref?.documentID else { completion(Errors.unwrapDocumentID) ; return }
                 
+                UserController.shared.updatePostUIDs(with: docID)
                 print("Successfully created document with id: \(docID)")
                 completion(nil)
         })
+    }
+    
+    func fetchAllPosts(completion: @escaping(Error?) -> Void) {
+        db.collection(Collection.Post).getDocuments { (snapshot, error) in
+            if let error = error {
+                print("❌ Error fetching documents in \(#function) ; \(error.localizedDescription) ; \(error)")
+                completion(error) ; return
+            }
+            guard let snapshot = snapshot, snapshot.count >= 1 else { completion(Errors.snapshotGuard) ; return }
+            
+            self.posts = snapshot.documents.compactMap { Post(from: $0.data(), postUID: $0.documentID) }
+            completion(nil)
+        }
     }
 }

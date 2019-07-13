@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Constants {
+enum Document {
     
     static let userUID = "userUID"
     static let username = "username"
@@ -26,4 +26,10 @@ enum Constants {
     
     static let blockedUIDs = "blockedUIDs"
     static let friendUIDs = "friendUIDs"
+}
+
+enum Collection {
+    
+    static let User = "User"
+    static let Post = "Post"
 }

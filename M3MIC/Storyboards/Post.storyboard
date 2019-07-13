@@ -77,7 +77,7 @@
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="exq-jy-Unz">
                                             <color key="tintColor" name="Secondary"/>
                                             <connections>
-                                                <action selector="postButtonTapped:" destination="0jM-3a-wdQ" id="EAU-BP-zBD"/>
+                                                <action selector="saveButtonTapped:" destination="0jM-3a-wdQ" id="EAU-BP-zBD"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -110,7 +110,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="headerView" destination="x31-oo-uv4" id="q3N-uh-ZRY"/>
-                        <outlet property="postTV" destination="G2d-R7-QAB" id="Z1T-mn-mei"/>
+                        <outlet property="messageTV" destination="G2d-R7-QAB" id="Z1T-mn-mei"/>
                         <outlet property="publicSwitch" destination="HH8-fh-WET" id="iUp-t6-FRL"/>
                         <outlet property="switchLabel" destination="M9r-Gj-AiO" id="QJr-af-XqO"/>
                     </connections>

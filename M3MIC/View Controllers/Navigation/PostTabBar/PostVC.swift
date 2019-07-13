@@ -11,7 +11,7 @@ import UIKit
 class PostVC: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var postTV: MemicTV!
+    @IBOutlet weak var messageTV: UITextView!
     @IBOutlet weak var publicSwitch: UISwitch!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var switchLabel: UILabel!
@@ -27,15 +27,16 @@ class PostVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        postTV.becomeFirstResponder()
+        messageTV.becomeFirstResponder()
     }
     
-    @IBAction func postButtonTapped(_ sender: Any) {
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        createPost()
         toDetailVC()
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        postTV.text = "What's on your mind?"
+        messageTV.text = "What's on your mind?"
         tabBarController?.selectedIndex = 0
     }
     
@@ -59,8 +60,23 @@ extension PostVC: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
+            createPost()
             toDetailVC()
         }
         return true
+    }
+}
+
+extension PostVC {
+    
+    func createPost() {
+        guard let message = messageTV.text, !message.isEmpty else { print("Could not unwrap a message in \(#function)") ; return }
+        
+        PostController.shared.createPostWith(message: message) { (error) in
+            if let error = error {
+                print("❌ Error creating post in \(#function) ; \(error.localizedDescription) ; \(error)")
+            }
+        }
+        messageTV.text = "What's on your mind?"
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2019 Brian Daniel. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import FirebaseFirestore
 import FirebaseAuth
 
@@ -15,6 +15,8 @@ class UserController {
     // MARK: - Properties
     static let shared = UserController()
     lazy var db = Firestore.firestore()
+    
+    var user: User?
     
     /// Creates a new "User" document to the "Users" collection in FireStore. At inception, each user generates a userUID. Additionaly, each user sets an empty array for friendUID (other userUID's that the user can find on their friend's list), blockedUID (other userUID's that are blocked from the user) and a profileUID, which links the user to their profile data.
     ///
@@ -33,10 +35,10 @@ class UserController {
             guard let data = data else { completion(Errors.unwrapData) ; return }
             
             self.db.collection("User").document(data.user.uid).setData([
-                Constants.friendUIDs : [],
-                Constants.blockedUIDs : [],
-                Constants.postUIDs : [],
-                Constants.replyUIDs : []
+                Document.friendUIDs : [],
+                Document.blockedUIDs : [],
+                Document.postUIDs : [],
+                Document.replyUIDs : []
                 ], completion: { (error) in
                     if let error = error {
                         print("❌ Error creating user document in \(#function) ; \(error.localizedDescription) ; \(error)")
@@ -70,7 +72,7 @@ class UserController {
     func createUsername(_ username: String) {
         guard let currentUser = Auth.auth().currentUser else { print("Couldn't unwrap the current user in \(#function)") ; return }
         
-        db.collection("User").document(currentUser.uid).updateData([Constants.username : username]) { (error) in
+        db.collection("User").document(currentUser.uid).updateData([Document.username : username]) { (error) in
             if let error = error {
                 print("❌ Error updating username in \(#function) ; \(error.localizedDescription) ; \(error)")
             }
@@ -85,11 +87,27 @@ class UserController {
         guard let currentUser = Auth.auth().currentUser else { print("Couldn't unwrap the current user in \(#function)") ; return }
         
         db.collection("User").document(currentUser.uid).updateData([
-            Constants.postUIDs : FieldValue.arrayUnion([postUID])
+            Document.postUIDs : FieldValue.arrayUnion([postUID])
         ]) { (error) in
             if let error = error {
                 print("❌ Error updating postUIDs array in \(#function) ; \(error.localizedDescription) ; \(error)")
             }
+        }
+    }
+    
+    // MARK: - Fetch Methods
+    func fetchUserInfo(completion: @escaping(Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
+        
+        db.collection(Collection.User).document(currentUser).getDocument { (document, error) in
+            if let error = error {
+                print("❌ Error fetching documents in \(#function) ; \(error.localizedDescription) ; \(error)")
+                completion(error) ; return
+            }
+            guard let data = document?.data() else { print("No data found in \(#function)") ; return }
+            self.user = User(from: data)
+            print("User: \(String(describing: self.user?.username)) was fetched")
+
         }
     }
     

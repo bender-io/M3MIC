@@ -11,9 +11,13 @@ import UIKit
 // TODO: - Hide / Remove TBC for FeedDetailVC
 
 class FeedDetailVC: UIViewController {
-
+    
     // MARK: - Properties
-    let navigationStoryboard: UIStoryboard = UIStoryboard(name: "Navigation", bundle: nil)
+    var post: Post? {
+        didSet{
+            updateViews()
+        }
+    }
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
@@ -29,4 +33,15 @@ class FeedDetailVC: UIViewController {
        tabBarController?.selectedIndex = 0
     }
     
+    func updateViews() {
+        loadViewIfNeeded()
+
+        guard let post = post else { return }
+        guard let username = UserController.shared.user?.username else { return }
+        
+        usernameLabel.text = username
+        timestampLabel.text = "Timestamp: \(String(describing: post.timestamp))"
+        profilePicture.image = #imageLiteral(resourceName: "PrimaryLogo")
+        postLabel.text = post.message
+    }
 }

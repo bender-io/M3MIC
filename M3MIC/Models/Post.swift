@@ -12,37 +12,31 @@ import FirebaseFirestore
 class Post {
     
     // MARK: - Properties
-    let postUID: String
+    let postUID: String?
     let userUID: String
-    let username: String?
-    let timestamp: Date?
-    let message: String?
-    let profilePicture: UIImage?
-    let replyUIDs: [String]?
+    let timestamp: Timestamp
+    let message: String
+    let replyUIDs: [String]
     
-    init(postUID: String, userUID: String, username: String, timestamp: Date = Date(), message: String, profilePicture: UIImage = #imageLiteral(resourceName: "PrimaryLogo"), replyUIDs: [String] = []) {
+    init(postUID: String, userUID: String, timestamp: Timestamp, message: String, replyUIDs: [String] = []) {
         self.postUID = postUID
         self.userUID = userUID
-        self.username = username
         self.timestamp = timestamp
         self.message = message
-        self.profilePicture = profilePicture
         self.replyUIDs = replyUIDs
     }
     
-    init?(from dictionary: [String : Any], postUID: String, replyUIDs: [String] = []) {
-        guard let userUID = dictionary[Constants.userUID] as? String,
-            let username = dictionary[Constants.username] as? String,
-            let timestamp = dictionary[Constants.timestamp] as? Date,
-            let message = dictionary[Constants.message] as? String,
-            let profilePicture = dictionary[Constants.profilePicture] as? UIImage else { return nil }
+    init?(from dictionary: [String : Any], postUID: String?) {
+        guard let userUID = dictionary[Document.userUID] as? String,
+            let timestamp = dictionary[Document.timestamp] as? Timestamp,
+            let message = dictionary[Document.message] as? String,
+            let replyUIDs = dictionary[Document.replyUIDs] as? [String]
+            else { print("Initializer failed in \(#function)") ; return nil }
         
         self.postUID = postUID
         self.userUID = userUID
-        self.username = username
         self.timestamp = timestamp
         self.message = message
-        self.profilePicture = profilePicture
         self.replyUIDs = replyUIDs
     }
 }

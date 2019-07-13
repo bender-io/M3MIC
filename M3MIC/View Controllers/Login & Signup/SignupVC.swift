@@ -30,7 +30,6 @@ class SignupVC: UIViewController {
     }
     
     func createNewUser() {
-        
         guard let username = usernameTF.text, !username.isEmpty,
             let email = emailTF.text, !email.isEmpty,
             let password = passwordTF.text, !password.isEmpty
@@ -42,10 +41,10 @@ class SignupVC: UIViewController {
                 self.presentSignupErrorAlert()
             } else {
                 print("New user created")
+                UserController.shared.createUsername(username)
                 self.performSegue(withIdentifier: "toProfilePictureVC", sender: self)
             }
         }
-        UserController.shared.createUsername(with: username)
     }
 }
 
