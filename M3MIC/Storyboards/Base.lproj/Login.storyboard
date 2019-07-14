@@ -179,7 +179,6 @@
                                 <state key="normal" title="sign up"/>
                                 <connections>
                                     <action selector="signupButtonTapped:" destination="ZCn-Kf-gvu" eventType="touchUpInside" id="nxh-XI-0LS"/>
-                                    <segue destination="J7V-m7-4A7" kind="presentation" identifier="temporary" id="9qk-8T-uIm"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="waR-KK-MJK">
@@ -357,7 +356,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9qk-8T-uIm"/>
         <segue reference="E4X-Jn-Exn"/>
     </inferredMetricsTieBreakers>
 </document>

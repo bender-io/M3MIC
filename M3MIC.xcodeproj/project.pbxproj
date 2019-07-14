@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		560840EF22D4F98F0056CD72 /* FeedNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560840EE22D4F98F0056CD72 /* FeedNC.swift */; };
 		560840F122D4FDF90056CD72 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560840F022D4FDF90056CD72 /* PostController.swift */; };
+		5608412222D6753B0056CD72 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5608412122D6753B0056CD72 /* Constants.swift */; };
 		561472AF22D1085800648B86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561472AE22D1085800648B86 /* AppDelegate.swift */; };
 		561472B422D1085800648B86 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 561472B222D1085800648B86 /* Login.storyboard */; };
 		561472B622D1085C00648B86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 561472B522D1085C00648B86 /* Assets.xcassets */; };
@@ -66,11 +66,12 @@
 		5621790A22D2A24000B45E7B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790922D2A24000B45E7B /* User.swift */; };
 		5621790C22D3F1E600B45E7B /* MemicTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790B22D3F1E600B45E7B /* MemicTV.swift */; };
 		5621790E22D40C8400B45E7B /* FeedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790D22D40C8400B45E7B /* FeedDetailVC.swift */; };
+		5622D79322D6CDF0002D0542 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D79222D6CDF0002D0542 /* FeedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		560840EE22D4F98F0056CD72 /* FeedNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNC.swift; sourceTree = "<group>"; };
 		560840F022D4FDF90056CD72 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
+		5608412122D6753B0056CD72 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		561472AB22D1085800648B86 /* M3MIC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = M3MIC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		561472AE22D1085800648B86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		561472B322D1085800648B86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 		5621790922D2A24000B45E7B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5621790B22D3F1E600B45E7B /* MemicTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemicTV.swift; sourceTree = "<group>"; };
 		5621790D22D40C8400B45E7B /* FeedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailVC.swift; sourceTree = "<group>"; };
+		5622D79222D6CDF0002D0542 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				561472C522D10B1300648B86 /* Post.swift */,
 				561472CD22D1115A00648B86 /* Reply.swift */,
 				561472C722D10EEF00648B86 /* Gif.swift */,
+				5608412122D6753B0056CD72 /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,8 +237,8 @@
 			isa = PBXGroup;
 			children = (
 				5614732322D15F5400648B86 /* UserController.swift */,
-				561472CF22D111F500648B86 /* GifController.swift */,
 				560840F022D4FDF90056CD72 /* PostController.swift */,
+				561472CF22D111F500648B86 /* GifController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -315,11 +318,9 @@
 			isa = PBXGroup;
 			children = (
 				562178FD22D2890300B45E7B /* NavigationTBC.swift */,
-				560840EE22D4F98F0056CD72 /* FeedNC.swift */,
-				562178FB22D287AA00B45E7B /* FeedVC.swift */,
-				5621790D22D40C8400B45E7B /* FeedDetailVC.swift */,
-				562178FF22D28C0F00B45E7B /* PostVC.swift */,
-				5621790622D28EB900B45E7B /* FriendVC.swift */,
+				5622D79422D6CDFA002D0542 /* FeedTabBar */,
+				5622D79522D6CE13002D0542 /* PostTabBar */,
+				5622D79622D6CE1B002D0542 /* FriendTabBar */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -333,6 +334,32 @@
 				561472E422D1325A00648B86 /* extensionFont.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5622D79422D6CDFA002D0542 /* FeedTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				562178FB22D287AA00B45E7B /* FeedVC.swift */,
+				5621790D22D40C8400B45E7B /* FeedDetailVC.swift */,
+				5622D79222D6CDF0002D0542 /* FeedCell.swift */,
+			);
+			path = FeedTabBar;
+			sourceTree = "<group>";
+		};
+		5622D79522D6CE13002D0542 /* PostTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				562178FF22D28C0F00B45E7B /* PostVC.swift */,
+			);
+			path = PostTabBar;
+			sourceTree = "<group>";
+		};
+		5622D79622D6CE1B002D0542 /* FriendTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				5621790622D28EB900B45E7B /* FriendVC.swift */,
+			);
+			path = FriendTabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,10 +442,10 @@
 			files = (
 				561472ED22D140D800648B86 /* MemicButtonDark.swift in Sources */,
 				562178FC22D287AA00B45E7B /* FeedVC.swift in Sources */,
-				560840EF22D4F98F0056CD72 /* FeedNC.swift in Sources */,
 				5621790022D28C0F00B45E7B /* PostVC.swift in Sources */,
 				5621790A22D2A24000B45E7B /* User.swift in Sources */,
 				560840F122D4FDF90056CD72 /* PostController.swift in Sources */,
+				5608412222D6753B0056CD72 /* Constants.swift in Sources */,
 				561472E722D132C600648B86 /* extensionView.swift in Sources */,
 				561472F722D1489400648B86 /* PhotoUploadVC.swift in Sources */,
 				561472D522D1225800648B86 /* SignupVC.swift in Sources */,
@@ -435,6 +462,7 @@
 				5621790E22D40C8400B45E7B /* FeedDetailVC.swift in Sources */,
 				561472C822D10EEF00648B86 /* Gif.swift in Sources */,
 				561472D022D111F500648B86 /* GifController.swift in Sources */,
+				5622D79322D6CDF0002D0542 /* FeedCell.swift in Sources */,
 				561472EF22D1411700648B86 /* MemicButtonText.swift in Sources */,
 				561472EB22D13E3600648B86 /* MemicButton.swift in Sources */,
 				561472AF22D1085800648B86 /* AppDelegate.swift in Sources */,

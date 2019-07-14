@@ -17,5 +17,7 @@ extension UIColor {
     static let white10 = UIColor(named: "White10")
     static let white100 = UIColor(named: "White100")
     static let highlights = UIColor(named: "Highlights")
+    static let black35 = UIColor(named: "Black35")
+
     
 }

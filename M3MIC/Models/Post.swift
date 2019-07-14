@@ -7,24 +7,36 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class Post {
     
     // MARK: - Properties
-    let postUID: String
+    let postUID: String?
     let userUID: String
-    let username: String
-    let profilePicture: UIImage
-    let timestamp: Date
-    let question: String
+    let timestamp: Timestamp
+    let message: String
+    let replyUIDs: [String]
     
-    // TODO: - Add new UIImage placeholder
-    init(postUID: String, userUID: String, username: String, timestamp: Date = Date(), question: String, profilePicture: UIImage = #imageLiteral(resourceName: "profile_pic")) {
+    init(postUID: String, userUID: String, timestamp: Timestamp, message: String, replyUIDs: [String] = []) {
         self.postUID = postUID
         self.userUID = userUID
-        self.username = username
         self.timestamp = timestamp
-        self.question = question
-        self.profilePicture = profilePicture
+        self.message = message
+        self.replyUIDs = replyUIDs
+    }
+    
+    init?(from dictionary: [String : Any], postUID: String?) {
+        guard let userUID = dictionary[Document.userUID] as? String,
+            let timestamp = dictionary[Document.timestamp] as? Timestamp,
+            let message = dictionary[Document.message] as? String,
+            let replyUIDs = dictionary[Document.replyUIDs] as? [String]
+            else { print("Initializer failed in \(#function)") ; return nil }
+        
+        self.postUID = postUID
+        self.userUID = userUID
+        self.timestamp = timestamp
+        self.message = message
+        self.replyUIDs = replyUIDs
     }
 }
