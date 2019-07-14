@@ -10,11 +10,16 @@ import UIKit
 
 class FeedVC: UIViewController {
     
+    var menuIsShowing = false
     
+    @IBOutlet weak var menuOverlay: UIView!
     @IBOutlet weak var feedTableView: UITableView!
+    @IBOutlet weak var menuLeadConstraint: NSLayoutConstraint!
+    @IBOutlet weak var feedLeadConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        menuOverlay.isHidden = true
         fetchUserProfile()
         viewSetup()
         setupTabBarUI()
@@ -25,10 +30,32 @@ class FeedVC: UIViewController {
         fetchPosts()
         pushToDetailVC()
     }
+    @IBAction func dismissMenuTapped(_ sender: Any) {
+        menuTapped()
+    }
+    
+    @IBAction func menuButtonTapped(_ sender: Any) {
+        menuTapped()
+    }
     
     func setupTabBarUI() {
         tabBarController?.tabBar.barStyle = .black
         tabBarController?.tabBar.isTranslucent = true
+    }
+    
+    func menuTapped() {
+        if menuIsShowing == false {
+            menuLeadConstraint.constant = 0
+            feedLeadConstraint.constant = 283
+            menuOverlay.isHidden = false
+            tabBarController?.tabBar.isHidden = true
+        } else {
+            menuLeadConstraint.constant = -310.5
+            feedLeadConstraint.constant = 0
+            menuOverlay.isHidden = true
+            tabBarController?.tabBar.isHidden = false
+        }
+        menuIsShowing = !menuIsShowing
     }
     
     func pushToDetailVC() {
@@ -42,6 +69,7 @@ class FeedVC: UIViewController {
     }
 }
 
+// MARK: - TableView Methods
 extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
