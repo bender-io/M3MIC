@@ -67,6 +67,7 @@
 		5621790C22D3F1E600B45E7B /* MemicTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790B22D3F1E600B45E7B /* MemicTV.swift */; };
 		5621790E22D40C8400B45E7B /* FeedDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5621790D22D40C8400B45E7B /* FeedDetailVC.swift */; };
 		5622D79322D6CDF0002D0542 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D79222D6CDF0002D0542 /* FeedCell.swift */; };
+		5622D7A022DCD4B4002D0542 /* FeedMenuTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D79F22DCD4B4002D0542 /* FeedMenuTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +134,7 @@
 		5621790B22D3F1E600B45E7B /* MemicTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemicTV.swift; sourceTree = "<group>"; };
 		5621790D22D40C8400B45E7B /* FeedDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailVC.swift; sourceTree = "<group>"; };
 		5622D79222D6CDF0002D0542 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		5622D79F22DCD4B4002D0542 /* FeedMenuTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedMenuTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +341,7 @@
 		5622D79422D6CDFA002D0542 /* FeedTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				5622D79F22DCD4B4002D0542 /* FeedMenuTVC.swift */,
 				562178FB22D287AA00B45E7B /* FeedVC.swift */,
 				5621790D22D40C8400B45E7B /* FeedDetailVC.swift */,
 				5622D79222D6CDF0002D0542 /* FeedCell.swift */,
@@ -442,6 +445,7 @@
 			files = (
 				561472ED22D140D800648B86 /* MemicButtonDark.swift in Sources */,
 				562178FC22D287AA00B45E7B /* FeedVC.swift in Sources */,
+				5622D7A022DCD4B4002D0542 /* FeedMenuTVC.swift in Sources */,
 				5621790022D28C0F00B45E7B /* PostVC.swift in Sources */,
 				5621790A22D2A24000B45E7B /* User.swift in Sources */,
 				560840F122D4FDF90056CD72 /* PostController.swift in Sources */,

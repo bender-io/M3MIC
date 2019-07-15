@@ -37,6 +37,8 @@ class FeedVC: UIViewController {
     @IBAction func menuButtonTapped(_ sender: Any) {
         menuTapped()
     }
+    @IBAction func logoutButtonTapped(_ sender: Any) {
+    }
     
     func setupTabBarUI() {
         tabBarController?.tabBar.barStyle = .black
@@ -46,14 +48,19 @@ class FeedVC: UIViewController {
     func menuTapped() {
         if menuIsShowing == false {
             menuLeadConstraint.constant = 0
-            feedLeadConstraint.constant = 283
+            feedLeadConstraint.constant = 310.5
             menuOverlay.isHidden = false
-            tabBarController?.tabBar.isHidden = true
+            tabBarController?.tabBar.unselectedItemTintColor = .clear
+            tabBarController?.tabBar.tintColor = .clear
         } else {
             menuLeadConstraint.constant = -310.5
             feedLeadConstraint.constant = 0
             menuOverlay.isHidden = true
-            tabBarController?.tabBar.isHidden = false
+            tabBarController?.tabBar.unselectedItemTintColor = .gray
+            tabBarController?.tabBar.tintColor = .secondary
+        }
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
         }
         menuIsShowing = !menuIsShowing
     }
