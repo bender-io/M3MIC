@@ -16,8 +16,16 @@ class GifController {
     private init(){}
     
     var gifs: [String]?
-    var gifImageArray = [UIImage]()
-    
+       
+    var gifSearchArray = [UIImage]()
+    var gifFunnyArray = [UIImage]()
+    var gifCoolArray = [UIImage]()
+    var gifHappyArray = [UIImage]()
+    var gifSadArray = [UIImage]()
+    var gifHungryArray = [UIImage]()
+    var gifAngryArray = [UIImage]()
+    var gifLoveArray = [UIImage]()
+
     let baseURL = URL(string: "https://api.tenor.com/v1")
     let apiKey = "8ZNGHJOGN4RF"
     
@@ -66,26 +74,214 @@ class GifController {
         }.resume()
     }
     
-    func fetchGifsFromUrls(tinygifs: [String], completion: @escaping(Bool) -> Void) {
+    func fetchGifsFromUrls(tinygifs: [String], category: String, completion: @escaping(Bool) -> Void) {
         
         guard let gifs = gifs else { completion(false) ; return }
         
-        self.gifImageArray.removeAll()
-        
-        for gif in gifs {
-            guard let baseURL = URL(string: gif) else { completion(false) ; return }
+        switch category {
+            
+        case "funny":
+            
+            if gifFunnyArray.count < 20 {
+                for gif in gifs {
+                    guard let baseURL = URL(string: gif) else { completion(false) ; return }
+                    print(baseURL)
+                    
+                    URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
+                        if let error = error {
+                            print("❌ could not unwrap \(String(describing: category)) data in \(#function) ; \(error.localizedDescription) ; \(error)")
+                            completion(false) ; return
+                        }
+                        guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
-            URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
-                if let error = error {
-                    print("❌ could not unwrap data in \(#function) ; \(error.localizedDescription) ; \(error)")
-                    completion(false) ; return
+                        self.gifFunnyArray.append(gif)
+                        completion(true)
+                        
+                        }.resume()
                 }
-                guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                 
-                self.gifImageArray.append(gif)
-                completion(true)
+            } else {
+                return
+            }
+            
+            
+            
+        case "cool":
+            
+            if gifCoolArray.count < 20 {
+                for gif in gifs {
+                    guard let baseURL = URL(string: gif) else { completion(false) ; return }
+                    print(baseURL)
+                    
+                    URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
+                        if let error = error {
+                            print("❌ could not unwrap \(String(describing: category)) data in \(#function) ; \(error.localizedDescription) ; \(error)")
+                            completion(false) ; return
+                        }
+                        guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
+                        
+                        self.gifCoolArray.append(gif)
+                        completion(true)
+                        
+                    }.resume()
+                }
                 
-            }.resume()
+            } else {
+                return
+            }
+
+           
+            
+        case "happy":
+            
+            if gifHappyArray.count < 20 {
+                for gif in gifs {
+                    guard let baseURL = URL(string: gif) else { completion(false) ; return }
+                    print(baseURL)
+                    
+                    URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
+                        if let error = error {
+                            print("❌ could not unwrap \(String(describing: category)) data in \(#function) ; \(error.localizedDescription) ; \(error)")
+                            completion(false) ; return
+                        }
+                        guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
+                        
+                        self.gifHappyArray.append(gif)
+                        completion(true)
+                        
+                    }.resume()
+                }
+                
+            } else {
+                return
+            }
+
+            
+            
+        case "sad":
+            
+            if gifSadArray.count < 20 {
+                for gif in gifs {
+                    guard let baseURL = URL(string: gif) else { completion(false) ; return }
+                    print(baseURL)
+                    
+                    URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
+                        if let error = error {
+                            print("❌ could not unwrap \(String(describing: category)) data in \(#function) ; \(error.localizedDescription) ; \(error)")
+                            completion(false) ; return
+                        }
+                        guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
+                        
+                        self.gifSadArray.append(gif)
+                        completion(true)
+                        
+                    }.resume()
+                }
+                
+            } else {
+                return
+            }
+
+            
+            
+        case "hungry":
+            
+            if gifHungryArray.count < 20 {
+                for gif in gifs {
+                    guard let baseURL = URL(string: gif) else { completion(false) ; return }
+                    print(baseURL)
+                    
+                    URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
+                        if let error = error {
+                            print("❌ could not unwrap \(String(describing: category)) data in \(#function) ; \(error.localizedDescription) ; \(error)")
+                            completion(false) ; return
+                        }
+                        guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
+                        
+                        self.gifHungryArray.append(gif)
+                        completion(true)
+                        
+                    }.resume()
+                }
+                
+            } else {
+                return
+            }
+
+            
+            
+        case "angry":
+            
+            if gifAngryArray.count < 20 {
+                for gif in gifs {
+                    guard let baseURL = URL(string: gif) else { completion(false) ; return }
+                    print(baseURL)
+                    
+                    URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
+                        if let error = error {
+                            print("❌ could not unwrap \(String(describing: category)) data in \(#function) ; \(error.localizedDescription) ; \(error)")
+                            completion(false) ; return
+                        }
+                        guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
+                        
+                        self.gifAngryArray.append(gif)
+                        completion(true)
+                        
+                    }.resume()
+                }
+                
+            } else {
+                return
+            }
+
+            
+            
+        case "love":
+            
+            if gifLoveArray.count < 20 {
+                for gif in gifs {
+                    guard let baseURL = URL(string: gif) else { completion(false) ; return }
+                    print(baseURL)
+                    
+                    URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
+                        if let error = error {
+                            print("❌ could not unwrap \(String(describing: category)) data in \(#function) ; \(error.localizedDescription) ; \(error)")
+                            completion(false) ; return
+                        }
+                        guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
+                        
+                        self.gifLoveArray.append(gif)
+                        completion(true)
+                        
+                    }.resume()
+                }
+                
+            } else {
+                return
+            }
+
+            
+            
+        default:
+            
+            self.gifSearchArray.removeAll()
+            
+            for gif in gifs {
+                guard let baseURL = URL(string: gif) else { completion(false) ; return }
+                print(baseURL)
+                
+                URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
+                    if let error = error {
+                        print("❌ could not unwrap \(String(describing: category)) in \(#function) ; \(error.localizedDescription) ; \(error)")
+                        completion(false) ; return
+                    }
+                    guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
+                    
+                    self.gifSearchArray.append(gif)
+                    completion(true)
+                    
+                }.resume()
+            }
         }
     }
 }

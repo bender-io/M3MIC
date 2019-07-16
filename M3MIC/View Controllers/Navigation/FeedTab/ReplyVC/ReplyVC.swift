@@ -33,6 +33,7 @@ extension ReplyVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gifCell") as? CategoryCell
         let category = categories[indexPath.row]
         cell?.categoryLabel.text = category
+        cell?.category = category
         fetchGifsByCategory(category)
         
         return cell ?? UITableViewCell()
@@ -44,19 +45,22 @@ extension ReplyVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 // MARK: - CollectionView Methods
-extension ReplyVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return GifController.shared.gifImageArray.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCollectionCell", for: indexPath) as? CategoryCollectionCell
-        let gif = GifController.shared.gifImageArray[indexPath.row]
-        cell?.gifImage.image = gif
-        
-        return cell ?? UICollectionViewCell()
-    }
-}
+//extension ReplyVC: UICollectionViewDelegate, UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return GifController.shared.gifFunnyArray.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//
+//
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCollectionCell", for: indexPath) as? CategoryCollectionCell
+//        let gif = GifController.shared.gifFunnyArray[indexPath.row]
+//        cell?.gifImage.image = gif
+//        // TODO: - Breakpoints for CollectionView.reloadData
+//        return cell ?? UICollectionViewCell()
+//    }
+//}
 
 // MARK: - SearchBar Methods
 extension ReplyVC: UISearchBarDelegate {
@@ -71,7 +75,7 @@ extension ReplyVC: UISearchBarDelegate {
             guard let gifs = GifController.shared.gifs else { print("Could not unwrap gif urls") ; return }
             
             DispatchQueue.main.async {
-                GifController.shared.fetchGifsFromUrls(tinygifs: gifs, completion: { (success) in
+                GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: "other", completion: { (success) in
                     print("Success!")
                 })
             }
@@ -93,8 +97,10 @@ extension ReplyVC {
             guard let gifs = GifController.shared.gifs else { print("Could not unwrap gif urls") ; return }
             
             DispatchQueue.main.async {
-                GifController.shared.fetchGifsFromUrls(tinygifs: gifs, completion: { (success) in
-                    print("Success!")
+                GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: category, completion: { (success) in
+                    if success {
+                        print("Gif appended to array")
+                    }
                 })
             }
         }

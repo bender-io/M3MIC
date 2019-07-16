@@ -292,7 +292,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hpP-Bi-K0f">
-                                <rect key="frame" x="0.0" y="88" width="414" height="125"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="100"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="6e2-pU-ZHo">
                                         <rect key="frame" x="6" y="6" width="50" height="50"/>
@@ -302,7 +302,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ERl-BF-9ea">
-                                        <rect key="frame" x="62" y="11.5" width="336" height="39.5"/>
+                                        <rect key="frame" x="62" y="5.5" width="336" height="39.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(username)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r64-PC-ifT">
                                                 <rect key="frame" x="0.0" y="0.0" width="336" height="19.5"/>
@@ -328,7 +328,7 @@
                                 <constraints>
                                     <constraint firstItem="6e2-pU-ZHo" firstAttribute="leading" secondItem="hpP-Bi-K0f" secondAttribute="leading" constant="6" id="Cyc-yK-hRe"/>
                                     <constraint firstItem="ERl-BF-9ea" firstAttribute="leading" secondItem="6e2-pU-ZHo" secondAttribute="trailing" constant="6" id="IxW-W9-qi6"/>
-                                    <constraint firstAttribute="height" constant="125" id="NDp-BR-RaB"/>
+                                    <constraint firstAttribute="height" constant="100" id="NDp-BR-RaB"/>
                                     <constraint firstItem="6e2-pU-ZHo" firstAttribute="top" secondItem="hpP-Bi-K0f" secondAttribute="top" constant="6" id="STV-qi-DA5"/>
                                     <constraint firstAttribute="trailing" secondItem="rbu-gI-D3B" secondAttribute="trailing" constant="16" id="f2W-Pu-d3n"/>
                                     <constraint firstItem="rbu-gI-D3B" firstAttribute="leading" secondItem="6e2-pU-ZHo" secondAttribute="leading" constant="3" id="f4g-VQ-kDD"/>
@@ -338,7 +338,7 @@
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" barStyle="black" text="" placeholder="search gifs" translatesAutoresizingMaskIntoConstraints="NO" id="4dS-05-S7t">
-                                <rect key="frame" x="0.0" y="213" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="56"/>
                                 <color key="tintColor" name="Secondary"/>
                                 <color key="barTintColor" name="Primary"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="go"/>
@@ -346,15 +346,15 @@
                                     <outlet property="delegate" destination="h41-cG-FXI" id="yLi-3b-d5X"/>
                                 </connections>
                             </searchBar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="gBU-S9-faf">
-                                <rect key="frame" x="8" y="269" width="398" height="221"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Trending" translatesAutoresizingMaskIntoConstraints="NO" id="gBU-S9-faf">
+                                <rect key="frame" x="8" y="244" width="398" height="119.5"/>
                                 <color key="backgroundColor" name="Black35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="gBU-S9-faf" secondAttribute="height" multiplier="9:5" id="AgN-Il-123"/>
+                                    <constraint firstAttribute="width" secondItem="gBU-S9-faf" secondAttribute="height" multiplier="10:3" id="AgN-Il-123"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="81y-7k-dnO">
-                                <rect key="frame" x="0.0" y="500" width="414" height="313"/>
+                                <rect key="frame" x="0.0" y="373.5" width="414" height="439.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="gifCell" rowHeight="128" id="aB3-Hh-vEz" customClass="CategoryCell" customModule="M3MIC" customModuleProvider="target">
@@ -399,10 +399,6 @@
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="h41-cG-FXI" id="MjJ-FZ-shL"/>
-                                                        <outlet property="delegate" destination="h41-cG-FXI" id="cPz-Mw-SZL"/>
-                                                    </connections>
                                                 </collectionView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(category)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="479-WP-uhq">
                                                     <rect key="frame" x="8" y="8" width="64.5" height="18"/>
@@ -661,6 +657,7 @@
         <image name="Home" width="19" height="22"/>
         <image name="Menu" width="21" height="13"/>
         <image name="PrimaryLogo" width="1024" height="1024"/>
+        <image name="Trending" width="1024" height="1024"/>
         <namedColor name="Black35">
             <color red="0.0" green="0.0" blue="0.0" alpha="0.34999999403953552" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

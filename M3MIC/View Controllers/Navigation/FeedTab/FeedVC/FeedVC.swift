@@ -127,28 +127,4 @@ extension FeedVC {
             self.feedTableView.reloadData()
         }
     }
-    
-    func fetchUrls(searchTerm: String) {
-        
-        GifController.shared.fetchGifUrls(searchTerm: searchTerm) { (success) in
-            if success {
-                DispatchQueue.main.async {
-                    print("\(String(describing: GifController.shared.gifs))")
-                    self.fetchGifs()
-                }
-            }
-        }
-    }
-    
-    func fetchGifs() {
-        guard let gifs = GifController.shared.gifs else { return }
-        
-        GifController.shared.fetchGifsFromUrls(tinygifs: gifs) { (success) in
-            DispatchQueue.main.async {
-                if success {
-                    print("UIImage \(GifController.shared.gifImageArray.count)")
-                }
-            }
-        }
-    }
 }
