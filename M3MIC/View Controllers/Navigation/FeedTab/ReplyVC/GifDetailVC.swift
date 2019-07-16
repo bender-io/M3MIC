@@ -13,9 +13,7 @@ protocol GifDetailVCDelegate: class {
 }
 
 class GifDetailVC: UIViewController {
-    
-//    weak var delegate: GifDetailVCDelegate?
-    
+        
     @IBOutlet weak var gifTableView: UITableView!
     
     override func viewDidLoad() {

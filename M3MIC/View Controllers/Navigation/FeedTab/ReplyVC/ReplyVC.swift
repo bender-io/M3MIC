@@ -8,21 +8,22 @@
 
 import UIKit
 
-
 class ReplyVC: UIViewController {
     
+    // MARK: - Properties
     let categories = ["funny", "cool", "happy", "sad", "hungry", "angry", "love"]
     
+    // MARK: - IBOutlets
     @IBOutlet weak var gifSearchBar: UISearchBar!
     @IBOutlet weak var gifTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchGifsByCategory()
         viewSetup()
     }
 }
 
+// MARK: - TableView Methods
 extension ReplyVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return categories.count
@@ -32,6 +33,7 @@ extension ReplyVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gifCell") as? CategoryCell
         let category = categories[indexPath.row]
         cell?.categoryLabel.text = category
+        fetchGifsByCategory(category)
         
         return cell ?? UITableViewCell()
     }
@@ -41,6 +43,7 @@ extension ReplyVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+// MARK: - CollectionView Methods
 extension ReplyVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return GifController.shared.gifImageArray.count
@@ -55,16 +58,7 @@ extension ReplyVC: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
-//extension ReplyVC: GifDetailVCDelegate {
-//
-//    func reloadTableView() {
-//        let gifDetailVC = GifDetailVC()
-//        gifDetailVC.delegate = self
-//
-//        gifTableView.reloadData()
-//    }
-//}
-
+// MARK: - SearchBar Methods
 extension ReplyVC: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -82,15 +76,17 @@ extension ReplyVC: UISearchBarDelegate {
                 })
             }
         }
+        gifSearchBar.text = ""
+        dismissKeyboard()
         performSegue(withIdentifier: "toGifDetailVC", sender: self)
     }
 }
 
-// MARK: - Category Methods
+// MARK: - FetchGifsByCategory Methods
 extension ReplyVC {
     
-    func fetchGifsByCategory() {
-        GifController.shared.fetchGifUrls(searchTerm: "funny") { (success) in
+    func fetchGifsByCategory(_ category: String) {
+        GifController.shared.fetchGifUrls(searchTerm: category) { (success) in
             if success {
                 print("Url fetch successful")
             }
@@ -102,6 +98,5 @@ extension ReplyVC {
                 })
             }
         }
-        self.gifTableView.reloadData()
     }
 }
