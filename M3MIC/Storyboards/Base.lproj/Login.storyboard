@@ -25,7 +25,7 @@
         <!--LoginVC-->
         <scene sceneID="yLZ-5h-ytv">
             <objects>
-                <viewController title="LoginVC" id="lRe-GC-wQn" customClass="LoginVC" customModule="M3MIC" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" title="LoginVC" id="lRe-GC-wQn" customClass="LoginVC" customModule="M3MIC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B64-Uc-d6W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -356,6 +356,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="E4X-Jn-Exn"/>
+        <segue reference="MK4-N4-xbP"/>
     </inferredMetricsTieBreakers>
 </document>
