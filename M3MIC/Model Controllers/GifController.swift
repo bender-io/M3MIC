@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class GifController {
     
@@ -32,7 +33,7 @@ class GifController {
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         let searchQuery = URLQueryItem(name: "q", value: searchTerm)
         let keyQuery = URLQueryItem(name: "key", value: apiKey)
-        let limitQuery = URLQueryItem(name: "limit", value: "8")
+        let limitQuery = URLQueryItem(name: "limit", value: "20")
         components?.queryItems = [searchQuery, keyQuery, limitQuery]
         
         guard let finalURL = components?.url else { completion(false) ; return }
@@ -68,9 +69,10 @@ class GifController {
     func fetchGifsFromUrls(tinygifs: [String], completion: @escaping(Bool) -> Void) {
         
         guard let gifs = gifs else { completion(false) ; return }
-    
+        
+        self.gifImageArray.removeAll()
+        
         for gif in gifs {
-            
             guard let baseURL = URL(string: gif) else { completion(false) ; return }
                         
             URLSession.shared.dataTask(with: baseURL) { (data, _, error) in

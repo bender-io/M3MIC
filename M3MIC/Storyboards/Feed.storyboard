@@ -357,7 +357,7 @@
                                 <rect key="frame" x="0.0" y="500" width="414" height="313"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="categoryCell" rowHeight="128" id="aB3-Hh-vEz" customClass="CategoryCell" customModule="M3MIC" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="gifCell" rowHeight="128" id="aB3-Hh-vEz" customClass="CategoryCell" customModule="M3MIC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aB3-Hh-vEz" id="qcd-rX-qx5">
@@ -375,14 +375,14 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gifCollection" id="ulK-pA-9Ew" customClass="CategoryCollectionCell" customModule="M3MIC" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gifCollectionCell" id="ulK-pA-9Ew" customClass="CategoryCollectionCell" customModule="M3MIC" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.5" width="141" height="93"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="141" height="93"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="tGo-yX-Ghx">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="tGo-yX-Ghx">
                                                                         <rect key="frame" x="8" y="8" width="125" height="77"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -448,10 +448,74 @@
                         <viewLayoutGuide key="safeArea" id="Aya-zA-Cw2"/>
                     </view>
                     <navigationItem key="navigationItem" id="Qrz-bw-Tcc"/>
+                    <connections>
+                        <outlet property="gifSearchBar" destination="4dS-05-S7t" id="Ikx-4H-7Mq"/>
+                        <outlet property="gifTableView" destination="81y-7k-dnO" id="1xv-0A-osO"/>
+                        <segue destination="qBg-ag-3go" kind="show" identifier="toGifDetailVC" id="CeB-Qo-y4a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEi-G6-09N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3037.68115942029" y="-283.25892857142856"/>
+        </scene>
+        <!--Category-->
+        <scene sceneID="3bR-C4-iFH">
+            <objects>
+                <viewController id="qBg-ag-3go" customClass="GifDetailVC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K8b-FI-jaL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fFR-fO-Yrp">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" name="Black35"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="gifCell" rowHeight="220" id="lub-8s-a4X" customClass="GifDetailCell" customModule="M3MIC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="220"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lub-8s-a4X" id="Dpx-ZV-8Oq">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="C5h-Re-q31">
+                                                    <rect key="frame" x="20" y="20" width="374" height="180"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="C5h-Re-q31" secondAttribute="trailing" constant="20" id="Jdv-c2-bKp"/>
+                                                <constraint firstItem="C5h-Re-q31" firstAttribute="leading" secondItem="Dpx-ZV-8Oq" secondAttribute="leading" constant="20" id="Qaa-dV-mQ7"/>
+                                                <constraint firstItem="C5h-Re-q31" firstAttribute="top" secondItem="Dpx-ZV-8Oq" secondAttribute="top" constant="20" id="Z6h-UK-k7F"/>
+                                                <constraint firstAttribute="bottom" secondItem="C5h-Re-q31" secondAttribute="bottom" constant="20" id="waa-Vh-bA1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="gifImage" destination="C5h-Re-q31" id="DJC-Sz-h5F"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="qBg-ag-3go" id="8OP-T1-2Kx"/>
+                                    <outlet property="delegate" destination="qBg-ag-3go" id="zaR-xQ-7QQ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="4rS-4Z-L3g" firstAttribute="trailing" secondItem="fFR-fO-Yrp" secondAttribute="trailing" id="BDi-47-Dv4"/>
+                            <constraint firstItem="fFR-fO-Yrp" firstAttribute="top" secondItem="4rS-4Z-L3g" secondAttribute="top" id="NM3-69-2Xf"/>
+                            <constraint firstItem="4rS-4Z-L3g" firstAttribute="bottom" secondItem="fFR-fO-Yrp" secondAttribute="bottom" id="s02-Zp-lgB"/>
+                            <constraint firstItem="fFR-fO-Yrp" firstAttribute="leading" secondItem="4rS-4Z-L3g" secondAttribute="leading" id="zWo-De-3LN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4rS-4Z-L3g"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Category" id="s0D-Hp-uOj"/>
+                    <connections>
+                        <outlet property="gifTableView" destination="fFR-fO-Yrp" id="XlT-2E-iti"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3an-vJ-65R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3908.6956521739135" y="-283.25892857142856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ag3-Ac-fE8">

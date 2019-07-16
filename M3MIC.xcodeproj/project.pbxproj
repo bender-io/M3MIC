@@ -72,6 +72,8 @@
 		5622D7A822DD0723002D0542 /* ReplyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7A722DD0723002D0542 /* ReplyController.swift */; };
 		5622D7AA22DD08BC002D0542 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7A922DD08BC002D0542 /* CategoryCell.swift */; };
 		5622D7B122DD1209002D0542 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B022DD1209002D0542 /* CategoryCollectionCell.swift */; };
+		5622D7B422DD2354002D0542 /* GifDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B322DD2354002D0542 /* GifDetailVC.swift */; };
+		5622D7B622DD2579002D0542 /* GifDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B522DD2579002D0542 /* GifDetailCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +145,8 @@
 		5622D7A722DD0723002D0542 /* ReplyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplyController.swift; sourceTree = "<group>"; };
 		5622D7A922DD08BC002D0542 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		5622D7B022DD1209002D0542 /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
+		5622D7B322DD2354002D0542 /* GifDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailVC.swift; sourceTree = "<group>"; };
+		5622D7B522DD2579002D0542 /* GifDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -329,7 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				562178FD22D2890300B45E7B /* NavigationTBC.swift */,
-				5622D7AF22DD11B9002D0542 /* New Group */,
+				5622D7AF22DD11B9002D0542 /* FeedTab */,
 				5622D79522D6CE13002D0542 /* PostTabBar */,
 				5622D79622D6CE1B002D0542 /* FriendTabBar */,
 			);
@@ -347,18 +351,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		5622D79422D6CDFA002D0542 /* FeedTabBar */ = {
+		5622D79422D6CDFA002D0542 /* FeedVC */ = {
 			isa = PBXGroup;
 			children = (
 				5622D79F22DCD4B4002D0542 /* FeedMenuTVC.swift */,
 				562178FB22D287AA00B45E7B /* FeedVC.swift */,
 				5621790D22D40C8400B45E7B /* FeedDetailVC.swift */,
 				5622D79222D6CDF0002D0542 /* FeedCell.swift */,
-				5622D7A122DCF282002D0542 /* ReplyVC.swift */,
-				5622D7A922DD08BC002D0542 /* CategoryCell.swift */,
-				5622D7B022DD1209002D0542 /* CategoryCollectionCell.swift */,
 			);
-			path = FeedTabBar;
+			path = FeedVC;
 			sourceTree = "<group>";
 		};
 		5622D79522D6CE13002D0542 /* PostTabBar */ = {
@@ -377,12 +378,25 @@
 			path = FriendTabBar;
 			sourceTree = "<group>";
 		};
-		5622D7AF22DD11B9002D0542 /* New Group */ = {
+		5622D7AF22DD11B9002D0542 /* FeedTab */ = {
 			isa = PBXGroup;
 			children = (
-				5622D79422D6CDFA002D0542 /* FeedTabBar */,
+				5622D79422D6CDFA002D0542 /* FeedVC */,
+				5622D7B222DD1CE0002D0542 /* ReplyVC */,
 			);
-			path = "New Group";
+			path = FeedTab;
+			sourceTree = "<group>";
+		};
+		5622D7B222DD1CE0002D0542 /* ReplyVC */ = {
+			isa = PBXGroup;
+			children = (
+				5622D7A122DCF282002D0542 /* ReplyVC.swift */,
+				5622D7B322DD2354002D0542 /* GifDetailVC.swift */,
+				5622D7A922DD08BC002D0542 /* CategoryCell.swift */,
+				5622D7B022DD1209002D0542 /* CategoryCollectionCell.swift */,
+				5622D7B522DD2579002D0542 /* GifDetailCell.swift */,
+			);
+			path = ReplyVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,6 +490,7 @@
 				561472D522D1225800648B86 /* SignupVC.swift in Sources */,
 				561472CE22D1115A00648B86 /* Reply.swift in Sources */,
 				561472F522D144D300648B86 /* MemicView.swift in Sources */,
+				5622D7B422DD2354002D0542 /* GifDetailVC.swift in Sources */,
 				5622D7A822DD0723002D0542 /* ReplyController.swift in Sources */,
 				5621790722D28EB900B45E7B /* FriendVC.swift in Sources */,
 				5614732622D1625F00648B86 /* Errors.swift in Sources */,
@@ -495,6 +510,7 @@
 				561472EB22D13E3600648B86 /* MemicButton.swift in Sources */,
 				561472AF22D1085800648B86 /* AppDelegate.swift in Sources */,
 				5614732422D15F5400648B86 /* UserController.swift in Sources */,
+				5622D7B622DD2579002D0542 /* GifDetailCell.swift in Sources */,
 				5621790C22D3F1E600B45E7B /* MemicTV.swift in Sources */,
 				561472E222D131CD00648B86 /* MemicTF.swift in Sources */,
 				561472F322D1449400648B86 /* ProfilePictureVC.swift in Sources */,
