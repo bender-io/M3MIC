@@ -8,21 +8,26 @@
 
 import UIKit
 
-
 class ReplyVC: UIViewController {
     
+    // MARK: - Properties
     let categories = ["funny", "cool", "happy", "sad", "hungry", "angry", "love"]
     
+    // MARK: - IBOutlets
     @IBOutlet weak var gifSearchBar: UISearchBar!
     @IBOutlet weak var gifTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchGifsByCategory()
         viewSetup()
+        
+        for category in categories {
+            fetchGifsByCategory(category)
+        }
     }
 }
 
+// MARK: - TableView Methods
 extension ReplyVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return categories.count
@@ -32,6 +37,7 @@ extension ReplyVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gifCell") as? CategoryCell
         let category = categories[indexPath.row]
         cell?.categoryLabel.text = category
+        cell?.category = category
         
         return cell ?? UITableViewCell()
     }
@@ -41,30 +47,7 @@ extension ReplyVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension ReplyVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return GifController.shared.gifImageArray.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCollectionCell", for: indexPath) as? CategoryCollectionCell
-        let gif = GifController.shared.gifImageArray[indexPath.row]
-        cell?.gifImage.image = gif
-        
-        return cell ?? UICollectionViewCell()
-    }
-}
-
-//extension ReplyVC: GifDetailVCDelegate {
-//
-//    func reloadTableView() {
-//        let gifDetailVC = GifDetailVC()
-//        gifDetailVC.delegate = self
-//
-//        gifTableView.reloadData()
-//    }
-//}
-
+// MARK: - SearchBar Methods
 extension ReplyVC: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -77,31 +60,37 @@ extension ReplyVC: UISearchBarDelegate {
             guard let gifs = GifController.shared.gifs else { print("Could not unwrap gif urls") ; return }
             
             DispatchQueue.main.async {
-                GifController.shared.fetchGifsFromUrls(tinygifs: gifs, completion: { (success) in
+                GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: "other", completion: { (success) in
                     print("Success!")
                 })
             }
         }
+        gifSearchBar.text = ""
+        dismissKeyboard()
         performSegue(withIdentifier: "toGifDetailVC", sender: self)
     }
 }
 
-// MARK: - Category Methods
+// MARK: - FetchGifsByCategory Methods
 extension ReplyVC {
     
-    func fetchGifsByCategory() {
-        GifController.shared.fetchGifUrls(searchTerm: "funny") { (success) in
+    func fetchGifsByCategory(_ category: String) {
+        GifController.shared.fetchGifUrls(searchTerm: category) { (success) in
             if success {
-                print("Url fetch successful")
+                print("\(category) url fetch successful")
             }
             guard let gifs = GifController.shared.gifs else { print("Could not unwrap gif urls") ; return }
             
-            DispatchQueue.main.async {
-                GifController.shared.fetchGifsFromUrls(tinygifs: gifs, completion: { (success) in
-                    print("Success!")
-                })
-            }
+            GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: category, completion: { (success) in
+                DispatchQueue.main.async {
+                    if success {
+                        print("[\(category)] complete!")
+                        let indexPath = IndexPath(row: self.categories.firstIndex(of: category)!, section: 0)
+                        self.gifTableView.reloadRows(at: [indexPath], with: .automatic)
+                        self.gifTableView.reloadData()
+                    }
+                }
+            })
         }
-        self.gifTableView.reloadData()
     }
 }

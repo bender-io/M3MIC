@@ -13,9 +13,7 @@ protocol GifDetailVCDelegate: class {
 }
 
 class GifDetailVC: UIViewController {
-    
-//    weak var delegate: GifDetailVCDelegate?
-    
+        
     @IBOutlet weak var gifTableView: UITableView!
     
     override func viewDidLoad() {
@@ -29,12 +27,12 @@ extension GifDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return GifController.shared.gifImageArray.count
+        return GifController.shared.gifSearchArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gifCell") as? GifDetailCell
-        let gif = GifController.shared.gifImageArray[indexPath.row]
+        let gif = GifController.shared.gifSearchArray[indexPath.row]
         cell?.gifImage.image = gif
         
         return cell ?? UITableViewCell()
