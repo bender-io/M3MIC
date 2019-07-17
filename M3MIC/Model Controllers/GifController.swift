@@ -95,11 +95,10 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifFunnyArray.append(gif)
-                        completion(true)
-                        
-                        }.resume()
+                    }.resume()
                 }
-                
+                completion(true)
+
             } else {
                 return
             }
@@ -121,10 +120,9 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifCoolArray.append(gif)
-                        completion(true)
-                        
                     }.resume()
                 }
+                completion(true)
                 
             } else {
                 return
@@ -147,10 +145,9 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifHappyArray.append(gif)
-                        completion(true)
-                        
                     }.resume()
                 }
+                completion(true)
                 
             } else {
                 return
@@ -173,10 +170,9 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifSadArray.append(gif)
-                        completion(true)
-                        
                     }.resume()
                 }
+                completion(true)
                 
             } else {
                 return
@@ -199,10 +195,9 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifHungryArray.append(gif)
-                        completion(true)
-                        
                     }.resume()
                 }
+                completion(true)
                 
             } else {
                 return
@@ -225,10 +220,9 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifAngryArray.append(gif)
-                        completion(true)
-                        
                     }.resume()
                 }
+                completion(true)
                 
             } else {
                 return
@@ -251,10 +245,9 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifLoveArray.append(gif)
-                        completion(true)
-                        
                     }.resume()
                 }
+                completion(true)
                 
             } else {
                 return
@@ -278,10 +271,9 @@ class GifController {
                     guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                     
                     self.gifSearchArray.append(gif)
-                    completion(true)
-                    
                 }.resume()
             }
+            completion(true)
         }
     }
 }

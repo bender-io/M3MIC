@@ -44,24 +44,6 @@ extension ReplyVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK: - CollectionView Methods
-//extension ReplyVC: UICollectionViewDelegate, UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return GifController.shared.gifFunnyArray.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//
-//
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCollectionCell", for: indexPath) as? CategoryCollectionCell
-//        let gif = GifController.shared.gifFunnyArray[indexPath.row]
-//        cell?.gifImage.image = gif
-//        // TODO: - Breakpoints for CollectionView.reloadData
-//        return cell ?? UICollectionViewCell()
-//    }
-//}
-
 // MARK: - SearchBar Methods
 extension ReplyVC: UISearchBarDelegate {
     
@@ -96,13 +78,15 @@ extension ReplyVC {
             }
             guard let gifs = GifController.shared.gifs else { print("Could not unwrap gif urls") ; return }
             
-            DispatchQueue.main.async {
-                GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: category, completion: { (success) in
+            GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: category, completion: { (success) in
+                DispatchQueue.main.async {
                     if success {
                         print("Gif appended to array")
+//                        let indexPath = IndexPath(row: self.categories.firstIndex(of: category)!, section: 0)
+//                        self.gifTableView.reloadRows(at: [indexPath], with: .automatic)
                     }
-                })
-            }
+                }
+            })
         }
     }
 }
