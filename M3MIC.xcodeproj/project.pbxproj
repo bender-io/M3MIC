@@ -74,6 +74,7 @@
 		5622D7B122DD1209002D0542 /* CategoryCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B022DD1209002D0542 /* CategoryCollectionCell.swift */; };
 		5622D7B422DD2354002D0542 /* GifDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B322DD2354002D0542 /* GifDetailVC.swift */; };
 		5622D7B622DD2579002D0542 /* GifDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B522DD2579002D0542 /* GifDetailCell.swift */; };
+		5622D7BC22DF8D15002D0542 /* CreateReplyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +148,7 @@
 		5622D7B022DD1209002D0542 /* CategoryCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionCell.swift; sourceTree = "<group>"; };
 		5622D7B322DD2354002D0542 /* GifDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailVC.swift; sourceTree = "<group>"; };
 		5622D7B522DD2579002D0542 /* GifDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailCell.swift; sourceTree = "<group>"; };
+		5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReplyVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -392,6 +394,7 @@
 			children = (
 				5622D7A122DCF282002D0542 /* ReplyVC.swift */,
 				5622D7B322DD2354002D0542 /* GifDetailVC.swift */,
+				5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */,
 				5622D7A922DD08BC002D0542 /* CategoryCell.swift */,
 				5622D7B022DD1209002D0542 /* CategoryCollectionCell.swift */,
 				5622D7B522DD2579002D0542 /* GifDetailCell.swift */,
@@ -503,6 +506,7 @@
 				561472E022D12FC100648B86 /* extensionColors.swift in Sources */,
 				5621790E22D40C8400B45E7B /* FeedDetailVC.swift in Sources */,
 				561472C822D10EEF00648B86 /* Gif.swift in Sources */,
+				5622D7BC22DF8D15002D0542 /* CreateReplyVC.swift in Sources */,
 				5622D7AA22DD08BC002D0542 /* CategoryCell.swift in Sources */,
 				561472D022D111F500648B86 /* GifController.swift in Sources */,
 				5622D79322D6CDF0002D0542 /* FeedCell.swift in Sources */,

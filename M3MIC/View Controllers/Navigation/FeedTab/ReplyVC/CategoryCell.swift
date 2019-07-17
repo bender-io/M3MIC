@@ -61,7 +61,7 @@ extension CategoryCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gifCollectionCell", for: indexPath) as? CategoryCollectionCell
-        
+        cell?.gifImage.image = #imageLiteral(resourceName: "Trending")
         switch category {
             
         case "funny":
