@@ -22,7 +22,7 @@ class ReplyVC: UIViewController {
         viewSetup()
         
         for category in categories {
-            fetchGifsByCategory(category)
+            fetchGifsByCategory(Category(rawValue: category)!)
         }
     }
 }
@@ -53,44 +53,61 @@ extension ReplyVC: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = gifSearchBar.text, !searchText.isEmpty else { print("Search text empty") ; return }
         
+        self.gifSearchBar.text = ""
+        self.dismissKeyboard()
+        
         GifController.shared.fetchGifUrls(searchTerm: searchText) { (success) in
             if success {
                 print("Url fetch successful")
             }
             guard let gifs = GifController.shared.gifs else { print("Could not unwrap gif urls") ; return }
             
-            DispatchQueue.main.async {
-                GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: "other", completion: { (success) in
-                    print("Success!")
-                })
-            }
+            GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: "other", completion: { (success) in
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "toGifDetailVC", sender: self)
+                }
+            })
         }
-        gifSearchBar.text = ""
-        dismissKeyboard()
-        performSegue(withIdentifier: "toGifDetailVC", sender: self)
     }
 }
 
 // MARK: - FetchGifsByCategory Methods
 extension ReplyVC {
     
-    func fetchGifsByCategory(_ category: String) {
-        GifController.shared.fetchGifUrls(searchTerm: category) { (success) in
+    func fetchGifsByCategory(_ category: Category) {
+        GifController.shared.fetchGifUrls(searchTerm: category.rawValue) { (success) in
             if success {
                 print("\(category) url fetch successful")
             }
             guard let gifs = GifController.shared.gifs else { print("Could not unwrap gif urls") ; return }
             
-            GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: category, completion: { (success) in
+            GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: category.rawValue, completion: { (success) in
                 DispatchQueue.main.async {
                     if success {
                         print("[\(category)] complete!")
-                        let indexPath = IndexPath(row: self.categories.firstIndex(of: category)!, section: 0)
-                        self.gifTableView.reloadRows(at: [indexPath], with: .automatic)
-                        self.gifTableView.reloadData()
+                        
+                        // find indexpath based on the category's place in its array
+                        let indexPath = IndexPath(row: self.categories.firstIndex(of: category.rawValue)!, section: 0)
+                        
+                        // use indexpath to get cell
+                        let cell = self.gifTableView.cellForRow(at: indexPath) as? CategoryCell
+                        
+                        // drill into cell collectionview and reload data
+                        cell?.categoryCollection.reloadData()
+                        
                     }
                 }
             })
         }
     }
+}
+
+enum Category: String {
+    case funny
+    case cool
+    case happy
+    case sad
+    case hungry
+    case angry
+    case love
 }

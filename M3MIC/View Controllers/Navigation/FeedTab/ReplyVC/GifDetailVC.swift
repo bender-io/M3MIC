@@ -24,7 +24,7 @@ class GifDetailVC: UIViewController {
 }
 
 extension GifDetailVC: UITableViewDelegate, UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return GifController.shared.gifSearchArray.count
@@ -40,5 +40,19 @@ extension GifDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 220
+    }
+}
+
+// MARK: - Navigation
+extension GifDetailVC {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toCreateReplyVC" {
+            let indexPath = gifTableView.indexPathForSelectedRow
+            let destinationVC = segue.destination as? CreateReplyVC
+            let gif = GifController.shared.gifSearchArray[(indexPath?.row)!]
+            destinationVC?.image = gif
+            
+        }
     }
 }
