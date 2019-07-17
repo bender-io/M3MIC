@@ -20,6 +20,10 @@ class ReplyVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        
+        for category in categories {
+            fetchGifsByCategory(category)
+        }
     }
 }
 
@@ -34,7 +38,6 @@ extension ReplyVC: UITableViewDelegate, UITableViewDataSource {
         let category = categories[indexPath.row]
         cell?.categoryLabel.text = category
         cell?.category = category
-        fetchGifsByCategory(category)
         
         return cell ?? UITableViewCell()
     }
@@ -74,16 +77,17 @@ extension ReplyVC {
     func fetchGifsByCategory(_ category: String) {
         GifController.shared.fetchGifUrls(searchTerm: category) { (success) in
             if success {
-                print("Url fetch successful")
+                print("\(category) url fetch successful")
             }
             guard let gifs = GifController.shared.gifs else { print("Could not unwrap gif urls") ; return }
             
             GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: category, completion: { (success) in
                 DispatchQueue.main.async {
                     if success {
-                        print("Gif appended to array")
-//                        let indexPath = IndexPath(row: self.categories.firstIndex(of: category)!, section: 0)
-//                        self.gifTableView.reloadRows(at: [indexPath], with: .automatic)
+                        print("[\(category)] complete!")
+                        let indexPath = IndexPath(row: self.categories.firstIndex(of: category)!, section: 0)
+                        self.gifTableView.reloadRows(at: [indexPath], with: .automatic)
+                        self.gifTableView.reloadData()
                     }
                 }
             })

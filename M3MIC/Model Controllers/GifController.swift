@@ -41,7 +41,7 @@ class GifController {
         var components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         let searchQuery = URLQueryItem(name: "q", value: searchTerm)
         let keyQuery = URLQueryItem(name: "key", value: apiKey)
-        let limitQuery = URLQueryItem(name: "limit", value: "20")
+        let limitQuery = URLQueryItem(name: "limit", value: "10")
         components?.queryItems = [searchQuery, keyQuery, limitQuery]
         
         guard let finalURL = components?.url else { completion(false) ; return }
@@ -82,10 +82,9 @@ class GifController {
             
         case "funny":
             
-            if gifFunnyArray.count < 20 {
+            if gifFunnyArray.count < 10 {
                 for gif in gifs {
                     guard let baseURL = URL(string: gif) else { completion(false) ; return }
-                    print(baseURL)
                     
                     URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
                         if let error = error {
@@ -95,22 +94,22 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifFunnyArray.append(gif)
+                        
+                        if self.gifFunnyArray.count == 10 {
+                            print("[🤪Image] Complete!")
+                            completion(true)
+                        }
                     }.resume()
                 }
-                completion(true)
-
-            } else {
-                return
             }
             
             
             
         case "cool":
             
-            if gifCoolArray.count < 20 {
+            if gifCoolArray.count < 10 {
                 for gif in gifs {
                     guard let baseURL = URL(string: gif) else { completion(false) ; return }
-                    print(baseURL)
                     
                     URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
                         if let error = error {
@@ -120,22 +119,20 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifCoolArray.append(gif)
+                        if self.gifCoolArray.count == 10 {
+                            print("[😎Image] Complete!")
+                            completion(true)
+                        }
+                        
                     }.resume()
                 }
-                completion(true)
-                
-            } else {
-                return
             }
 
-           
-            
         case "happy":
             
-            if gifHappyArray.count < 20 {
+            if gifHappyArray.count < 10 {
                 for gif in gifs {
                     guard let baseURL = URL(string: gif) else { completion(false) ; return }
-                    print(baseURL)
                     
                     URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
                         if let error = error {
@@ -145,22 +142,20 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifHappyArray.append(gif)
+                        if self.gifHappyArray.count == 10 {
+                            print("[☀️Image] Complete!")
+                            completion(true)
+                        }
+                        
                     }.resume()
                 }
-                completion(true)
-                
-            } else {
-                return
             }
 
-            
-            
         case "sad":
             
-            if gifSadArray.count < 20 {
+            if gifSadArray.count < 10 {
                 for gif in gifs {
                     guard let baseURL = URL(string: gif) else { completion(false) ; return }
-                    print(baseURL)
                     
                     URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
                         if let error = error {
@@ -170,22 +165,20 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifSadArray.append(gif)
+                        if self.gifSadArray.count == 10 {
+                            print("[😢Image] Complete!")
+                            completion(true)
+                        }
+                        
                     }.resume()
                 }
-                completion(true)
-                
-            } else {
-                return
             }
 
-            
-            
         case "hungry":
             
-            if gifHungryArray.count < 20 {
+            if gifHungryArray.count < 10 {
                 for gif in gifs {
                     guard let baseURL = URL(string: gif) else { completion(false) ; return }
-                    print(baseURL)
                     
                     URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
                         if let error = error {
@@ -195,22 +188,20 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifHungryArray.append(gif)
+                        if self.gifSadArray.count == 10 {
+                            print("[🍔Image] Complete!")
+                            completion(true)
+                        }
+                        
                     }.resume()
                 }
-                completion(true)
-                
-            } else {
-                return
             }
 
-            
-            
         case "angry":
             
-            if gifAngryArray.count < 20 {
+            if gifAngryArray.count < 10 {
                 for gif in gifs {
                     guard let baseURL = URL(string: gif) else { completion(false) ; return }
-                    print(baseURL)
                     
                     URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
                         if let error = error {
@@ -220,22 +211,22 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifAngryArray.append(gif)
+                        if self.gifAngryArray.count == 10 {
+                            print("[😡Image] Complete!")
+                            completion(true)
+                        }
+
                     }.resume()
                 }
-                completion(true)
-                
-            } else {
-                return
             }
 
             
             
         case "love":
             
-            if gifLoveArray.count < 20 {
+            if gifLoveArray.count < 10 {
                 for gif in gifs {
                     guard let baseURL = URL(string: gif) else { completion(false) ; return }
-                    print(baseURL)
                     
                     URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
                         if let error = error {
@@ -245,15 +236,14 @@ class GifController {
                         guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                         
                         self.gifLoveArray.append(gif)
+                        if self.gifLoveArray.count == 10 {
+                            print("[💗Image] Complete!")
+                            completion(true)
+                        }
+
                     }.resume()
                 }
-                completion(true)
-                
-            } else {
-                return
             }
-
-            
             
         default:
             
@@ -261,7 +251,6 @@ class GifController {
             
             for gif in gifs {
                 guard let baseURL = URL(string: gif) else { completion(false) ; return }
-                print(baseURL)
                 
                 URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
                     if let error = error {
@@ -271,9 +260,12 @@ class GifController {
                     guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
                     
                     self.gifSearchArray.append(gif)
+                    if self.gifSearchArray.count == 10 {
+                        print("[search] Complete!")
+                        completion(true)
+                    }
                 }.resume()
             }
-            completion(true)
         }
     }
 }
