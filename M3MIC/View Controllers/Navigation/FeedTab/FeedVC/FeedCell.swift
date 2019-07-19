@@ -21,6 +21,7 @@ class FeedCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var gifImage: UIImageView!
     
     func updateViews() {
         guard let post = post else { return }

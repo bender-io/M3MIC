@@ -18,6 +18,7 @@ class GifController {
     var gifs: [String]?
     
     var gifReplyArray = [UIImage]()
+    var gifPostImage: UIImage?
        
     var gifSearchArray = [UIImage]()
     var gifFunnyArray = [UIImage]()
@@ -99,6 +100,24 @@ class GifController {
                 }
             }.resume()
         }
+    }
+    
+    func fetchTopGifFromFSURLs(completion: @escaping(Bool) -> Void) {
+        guard let reply = ReplyController.shared.replies.first?.gifURL else { print("No reply URL found") ; completion(false) ; return }
+        guard let baseURL = URL(string: reply) else { completion(false) ; return }
+        
+        URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
+            if let error = error {
+                print("❌ could not unwrap data in \(#function) ; \(error.localizedDescription) ; \(error)")
+                completion(false) ; return
+            }
+            
+            guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
+            
+            self.gifPostImage = gif
+            completion(true)
+            
+            }.resume()
     }
     
     func fetchGifsFromUrls(tinygifs: [String], category: String, completion: @escaping(Bool) -> Void) {

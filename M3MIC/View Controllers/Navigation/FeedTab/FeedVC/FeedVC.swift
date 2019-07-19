@@ -87,6 +87,14 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as? FeedCell
         let post = PostController.shared.posts[indexPath.row]
         cell?.post = post
+        
+        GifController.shared.fetchTopGifFromFSURLs { (success) in
+            if success {
+                print("BitConnect!")
+            }
+        }
+        
+        cell?.gifImage.image = GifController.shared.gifPostImage
         cell?.updateViews()
         loadViewIfNeeded()
         
@@ -124,6 +132,7 @@ extension FeedVC {
             if let error = error {
                 print("❌ Error fetching posts in \(#function) ; \(error.localizedDescription) ; \(error)")
             }
+//            GifController.shared.
             self.feedTableView.reloadData()
         }
     }
