@@ -80,6 +80,7 @@ class GifController {
     func fetchGifsFromFSURLs(completion: @escaping(Bool) -> Void) {
     
         let replies = ReplyController.shared.replies
+        gifReplyArray.removeAll()
         
         for reply in replies {
             guard let baseURL = URL(string: reply.gifURL) else { completion(false) ; return }

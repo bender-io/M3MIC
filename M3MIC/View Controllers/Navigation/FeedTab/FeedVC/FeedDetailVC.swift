@@ -69,9 +69,9 @@ extension FeedDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gifCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gifCell") as? FeedDetailCell
         let image = GifController.shared.gifReplyArray[indexPath.row]
-        cell?.backgroundView = UIImageView.init(image: image)
+        cell?.gifImage.image = image
         
         return cell ?? UITableViewCell()
     }

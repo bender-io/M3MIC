@@ -42,7 +42,6 @@ class ReplyController {
             
             print(self.replies.first?.gifURL as Any)
             completion(nil)
-            
         }
     }
     
@@ -65,7 +64,7 @@ class ReplyController {
                 
                 self.updateReplyUIDsWith(replyUID: docID, postUID: currentPost.postUID!)
                 
-                UserController.shared.updateReplyUIDs(with: postUID)
+                UserController.shared.updateReplyUIDs(with: docID)
                 print("Successfully created document with id: \(docID) in postID \(String(describing: currentPost.postUID))")
                 completion(nil)
         })
