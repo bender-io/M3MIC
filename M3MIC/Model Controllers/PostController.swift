@@ -59,4 +59,8 @@ class PostController {
             completion(nil)
         }
     }
+    
+    func fetchTopImageFromPost() {
+        
+    }
 }
