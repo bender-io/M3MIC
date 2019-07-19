@@ -16,6 +16,8 @@ class GifController {
     private init(){}
     
     var gifs: [String]?
+    
+    var gifReplyArray = [UIImage]()
        
     var gifSearchArray = [UIImage]()
     var gifFunnyArray = [UIImage]()
@@ -72,6 +74,31 @@ class GifController {
                 
             } catch { print("❌ could not decode topLevelJSON.") ; completion(false) ; return }
         }.resume()
+    }
+    
+    func fetchGifsFromFSURLs(completion: @escaping(Bool) -> Void) {
+    
+        let replies = ReplyController.shared.replies
+        
+        for reply in replies {
+            guard let baseURL = URL(string: reply.gifURL) else { completion(false) ; return }
+            
+            URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
+                if let error = error {
+                    print("❌ could not unwrap data in \(#function) ; \(error.localizedDescription) ; \(error)")
+                    completion(false) ; return
+                }
+                
+                guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
+                
+                self.gifReplyArray.append(gif)
+                
+                if self.gifReplyArray.count == replies.count {
+                    print("Image Fetch Complete!")
+                    completion(true)
+                }
+            }.resume()
+        }
     }
     
     func fetchGifsFromUrls(tinygifs: [String], category: String, completion: @escaping(Bool) -> Void) {

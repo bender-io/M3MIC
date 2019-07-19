@@ -8,6 +8,8 @@
 
 import UIKit
 
+// TODO: - Change name to FeedDetailVC
+
 protocol GifDetailVCDelegate: class {
     func reloadTableView()
 }
@@ -20,6 +22,7 @@ class GifDetailVC: UIViewController {
         super.viewDidLoad()
         loadViewIfNeeded()
         viewSetup()
+        
     }
 }
 
@@ -50,8 +53,10 @@ extension GifDetailVC {
         if segue.identifier == "toCreateReplyVC" {
             let indexPath = gifTableView.indexPathForSelectedRow
             let destinationVC = segue.destination as? CreateReplyVC
-            let gif = GifController.shared.gifSearchArray[(indexPath?.row)!]
-            destinationVC?.image = gif
+            let image = GifController.shared.gifSearchArray[(indexPath?.row)!]
+            let imageUrl = GifController.shared.gifs?[(indexPath?.row)!]
+            destinationVC?.imageUrl = imageUrl
+            destinationVC?.image = image
             
         }
     }

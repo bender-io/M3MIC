@@ -8,31 +8,31 @@
   "tvOS" : [
 
   ],
-  "commitish" : "6.3.0",
+  "commitish" : "6.4.0",
   "iOS" : [
     {
       "name" : "leveldb-library",
-      "hash" : "647d0daca1ab80847ada021131115a74495a0f27dfdc76c7adbf95042ebb6c6c"
+      "hash" : "62f8bc14b38539c5f45eca236c4a469a6a7a0cfab1db12665b57c9092bb48d58"
     },
     {
       "name" : "Protobuf",
-      "hash" : "f35eda60b70c057daf39f887f297176a07f10dd44c1b1fda17fff10e071ead11"
+      "hash" : "4c6ddfed1c36af05e61e3601b1db35e5dbe845c9e8d1569d6efe45de51f94247"
     },
     {
       "name" : "gRPC-C++",
-      "hash" : "13920e230fda8bcb245bbf0951b52ac7cf1631670446b87d0e1df9c0ff511146"
+      "hash" : "095a5431c5bf5c705c31695d2da0db02169aa9c8658bfbe6714c99a29d980b8d"
     },
     {
       "name" : "BoringSSL-GRPC",
-      "hash" : "49ba90ee7a70a5fc40eea6f63c79a90fba237faf194e2f64d8d0628fa258e125"
+      "hash" : "4c3ef194bc14c658e061ed15c278773dc17c79f280c779d718c5f3ab890bca27"
     },
     {
       "name" : "gRPC-Core",
-      "hash" : "d1524396efbf4993f7df1427e0bef1d4b2e0893151749e878899eefbf2c96b4b"
+      "hash" : "f537c550d0c29ea426119adb95474579a275455365c8e75af3c76be23317a21f"
     },
     {
       "name" : "FirebaseFirestore",
-      "hash" : "5f3d49861d23477ab987715321d445dbc03d60ff683da8d69999cdfb9136790c"
+      "hash" : "f5cfe44b7209b894783dccc406799c5c6d347213dc3b9d41343d4e5873583e04"
     }
   ]
 }

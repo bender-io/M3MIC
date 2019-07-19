@@ -23,6 +23,7 @@ enum Document {
     
     static let replyUIDs = "replyUIDs"
     static let replyUID = "replyUID"
+    static let replyImage = "replyImage"
     
     static let blockedUIDs = "blockedUIDs"
     static let friendUIDs = "friendUIDs"
@@ -32,4 +33,5 @@ enum Collection {
     
     static let User = "User"
     static let Post = "Post"
+    static let Reply = "Reply"
 }

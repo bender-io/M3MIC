@@ -11,11 +11,22 @@ import Foundation
 struct Reply {
     
     // MARK: - Properties
-    let replyUID: String
     let postUID: String
-    let gif: TinyGif?
-    let likeCount: Int
-    let rank: Rank
+    let userUID: String
+    let gifURL: String
+//    let likeCount: Int
+//    let rank: Rank
+    
+    init?(from dictionary: [String : Any]) {
+        guard let userUID = dictionary[Document.userUID] as? String,
+            let gifURL = dictionary[Document.replyImage] as? String,
+            let postUID = dictionary[Document.postUID] as? String
+            else { print("Initializer failed in \(#function)") ; return nil }
+        
+        self.userUID = userUID
+        self.postUID = postUID
+        self.gifURL = gifURL
+    }
     
     enum Rank: String {
         case gold

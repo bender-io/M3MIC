@@ -256,11 +256,33 @@
                                     <constraint firstItem="rSg-DL-mAZ" firstAttribute="top" secondItem="b2E-Od-JMU" secondAttribute="bottom" constant="3" id="xFe-dH-Nk8"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wvu-83-PdH">
+                                <rect key="frame" x="16" y="213" width="382" height="600"/>
+                                <color key="backgroundColor" name="Black75"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="gifCell" rowHeight="155" id="Gak-91-Xv0">
+                                        <rect key="frame" x="0.0" y="28" width="382" height="155"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gak-91-Xv0" id="zSG-9e-jYA">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="155"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xvr-hb-IYp" id="JoK-uI-Ahg"/>
+                                    <outlet property="delegate" destination="xvr-hb-IYp" id="hpl-VD-4mS"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="wvu-83-PdH" firstAttribute="leading" secondItem="R7k-Ot-h7n" secondAttribute="leading" constant="16" id="5Fg-gG-EkT"/>
                             <constraint firstItem="WjG-0K-kaP" firstAttribute="leading" secondItem="R7k-Ot-h7n" secondAttribute="leading" id="83N-Qb-L6W"/>
+                            <constraint firstItem="wvu-83-PdH" firstAttribute="top" secondItem="WjG-0K-kaP" secondAttribute="bottom" id="FUs-9f-uEu"/>
+                            <constraint firstItem="R7k-Ot-h7n" firstAttribute="trailing" secondItem="wvu-83-PdH" secondAttribute="trailing" constant="16" id="Ftj-Yw-2Jr"/>
                             <constraint firstItem="WjG-0K-kaP" firstAttribute="top" secondItem="R7k-Ot-h7n" secondAttribute="top" id="Um5-gI-RN1"/>
                             <constraint firstItem="R7k-Ot-h7n" firstAttribute="trailing" secondItem="WjG-0K-kaP" secondAttribute="trailing" id="fCh-ZT-ymo"/>
+                            <constraint firstItem="R7k-Ot-h7n" firstAttribute="bottom" secondItem="wvu-83-PdH" secondAttribute="bottom" id="oAY-mi-Rps"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R7k-Ot-h7n"/>
                     </view>
@@ -273,6 +295,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="gifTableView" destination="wvu-83-PdH" id="4nR-4Z-t3K"/>
                         <outlet property="postLabel" destination="rSg-DL-mAZ" id="SPN-4r-VY6"/>
                         <outlet property="profilePicture" destination="b2E-Od-JMU" id="weC-ln-IpT"/>
                         <outlet property="timestampLabel" destination="CzN-li-axL" id="xZy-7M-fTu"/>
@@ -424,11 +447,19 @@
                                     <outlet property="delegate" destination="h41-cG-FXI" id="b8v-Mv-Czy"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AaR-gx-FQx">
+                                <rect key="frame" x="8" y="244" width="398" height="121.5"/>
+                                <connections>
+                                    <action selector="trendingButtonTapped:" destination="h41-cG-FXI" eventType="touchUpInside" id="Rxc-4E-8PG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="hpP-Bi-K0f" firstAttribute="top" secondItem="Aya-zA-Cw2" secondAttribute="top" id="1n3-Y9-WW4"/>
                             <constraint firstItem="gBU-S9-faf" firstAttribute="centerX" secondItem="Aya-zA-Cw2" secondAttribute="centerX" id="5gq-O3-F5H"/>
                             <constraint firstItem="4dS-05-S7t" firstAttribute="leading" secondItem="Aya-zA-Cw2" secondAttribute="leading" id="7im-UR-YPH"/>
+                            <constraint firstItem="AaR-gx-FQx" firstAttribute="top" secondItem="4dS-05-S7t" secondAttribute="bottom" id="9f7-4T-9tG"/>
+                            <constraint firstItem="AaR-gx-FQx" firstAttribute="leading" secondItem="Aya-zA-Cw2" secondAttribute="leading" constant="8" id="BZt-Ev-fRf"/>
                             <constraint firstItem="81y-7k-dnO" firstAttribute="top" secondItem="gBU-S9-faf" secondAttribute="bottom" constant="10" id="LXE-rD-wLP"/>
                             <constraint firstItem="Aya-zA-Cw2" firstAttribute="trailing" secondItem="gBU-S9-faf" secondAttribute="trailing" constant="8" id="LgO-DB-RlM"/>
                             <constraint firstItem="gBU-S9-faf" firstAttribute="top" secondItem="4dS-05-S7t" secondAttribute="bottom" id="M2i-b5-BtG"/>
@@ -436,6 +467,8 @@
                             <constraint firstItem="4dS-05-S7t" firstAttribute="trailing" secondItem="Aya-zA-Cw2" secondAttribute="trailing" id="RDZ-pC-sjw"/>
                             <constraint firstItem="4dS-05-S7t" firstAttribute="top" secondItem="hpP-Bi-K0f" secondAttribute="bottom" id="UhZ-CQ-PpO"/>
                             <constraint firstItem="Aya-zA-Cw2" firstAttribute="bottom" secondItem="81y-7k-dnO" secondAttribute="bottom" id="b5f-10-Pe2"/>
+                            <constraint firstItem="Aya-zA-Cw2" firstAttribute="trailing" secondItem="AaR-gx-FQx" secondAttribute="trailing" constant="8" id="dUm-W5-NmL"/>
+                            <constraint firstItem="81y-7k-dnO" firstAttribute="top" secondItem="AaR-gx-FQx" secondAttribute="bottom" constant="8" id="eBC-pa-QaI"/>
                             <constraint firstItem="81y-7k-dnO" firstAttribute="leading" secondItem="Aya-zA-Cw2" secondAttribute="leading" id="gSm-da-BxK"/>
                             <constraint firstItem="gBU-S9-faf" firstAttribute="leading" secondItem="Aya-zA-Cw2" secondAttribute="leading" constant="8" id="hoU-1W-avq"/>
                             <constraint firstItem="hpP-Bi-K0f" firstAttribute="leading" secondItem="Aya-zA-Cw2" secondAttribute="leading" id="uCj-XL-CXM"/>
@@ -729,7 +762,11 @@
                         <viewLayoutGuide key="safeArea" id="8QU-QA-LnG"/>
                     </view>
                     <navigationItem key="navigationItem" id="pks-ej-OXb">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yu5-jT-fMJ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yu5-jT-fMJ">
+                            <connections>
+                                <action selector="saveButtonTApped:" destination="IbR-O6-EJl" id="QQb-dF-1fg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="gifImage" destination="Vcm-ZT-O6a" id="YmC-qd-gQK"/>

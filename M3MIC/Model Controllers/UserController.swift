@@ -79,15 +79,23 @@ class UserController {
         }
     }
     
-    func updateProfilePicture() {
-        
-    }
-    
     func updatePostUIDs(with postUID: String) {
         guard let currentUser = Auth.auth().currentUser else { print("Couldn't unwrap the current user in \(#function)") ; return }
         
         db.collection("User").document(currentUser.uid).updateData([
             Document.postUIDs : FieldValue.arrayUnion([postUID])
+        ]) { (error) in
+            if let error = error {
+                print("❌ Error updating postUIDs array in \(#function) ; \(error.localizedDescription) ; \(error)")
+            }
+        }
+    }
+    
+    func updateReplyUIDs(with replyUID: String) {
+        guard let currentUser = Auth.auth().currentUser else { print("Couldn't unwrap the current user in \(#function)") ; return }
+        
+        db.collection("User").document(currentUser.uid).updateData([
+            Document.replyUIDs : FieldValue.arrayUnion([replyUID])
         ]) { (error) in
             if let error = error {
                 print("❌ Error updating postUIDs array in \(#function) ; \(error.localizedDescription) ; \(error)")
@@ -108,7 +116,7 @@ class UserController {
             self.user = User(from: data)
             print("User: \(String(describing: self.user?.username)) was fetched")
 
-        }
+        } 
     }
     
     /// Signs out the current user
