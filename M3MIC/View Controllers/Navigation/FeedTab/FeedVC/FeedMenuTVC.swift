@@ -31,9 +31,11 @@ class FeedMenuTVC: UITableViewController {
         case 0:
             print("Username Tapped")
         case 1:
-            print("Friends Tapped")
+            tabBarController?.tabBar.isHidden = false
+            tabBarController?.selectedIndex = 2
         case 2:
-            print("Blocked Tapped")
+            tabBarController?.tabBar.isHidden = false
+            tabBarController?.selectedIndex = 2
         case 3:
             logoutAlertController()
         default:

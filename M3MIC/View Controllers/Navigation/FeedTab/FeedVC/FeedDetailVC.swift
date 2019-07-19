@@ -29,7 +29,6 @@ class FeedDetailVC: UIViewController {
                         if success {
                             print("Replies for \(postUID) complete")
                             self.gifTableView.reloadData()
-
                         }
                     }
                 })
@@ -47,8 +46,9 @@ class FeedDetailVC: UIViewController {
         viewSetup()
     }
     
-    func toFeedVC() {
-       tabBarController?.selectedIndex = 0
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
     }
     
     func updateViews() {

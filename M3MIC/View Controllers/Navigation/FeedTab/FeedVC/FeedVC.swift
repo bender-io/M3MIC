@@ -29,7 +29,10 @@ class FeedVC: UIViewController {
         super.viewWillAppear(true)
         fetchPosts()
         pushToDetailVC()
+        menuClosed()
+        menuIsShowing = false
     }
+    
     @IBAction func dismissMenuTapped(_ sender: Any) {
         menuTapped()
     }
@@ -47,22 +50,28 @@ class FeedVC: UIViewController {
     
     func menuTapped() {
         if menuIsShowing == false {
-            menuLeadConstraint.constant = 0
-            feedLeadConstraint.constant = 310.5
-            menuOverlay.isHidden = false
-            tabBarController?.tabBar.unselectedItemTintColor = .clear
-            tabBarController?.tabBar.tintColor = .clear
+            menuOpen()
         } else {
-            menuLeadConstraint.constant = -310.5
-            feedLeadConstraint.constant = 0
-            menuOverlay.isHidden = true
-            tabBarController?.tabBar.unselectedItemTintColor = .gray
-            tabBarController?.tabBar.tintColor = .secondary
+            menuClosed()
         }
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
         menuIsShowing = !menuIsShowing
+    }
+    
+    func menuOpen() {
+        menuLeadConstraint.constant = 0
+        feedLeadConstraint.constant = 310.5
+        menuOverlay.isHidden = false
+        tabBarController?.tabBar.isHidden = true
+    }
+    
+    func menuClosed() {
+        menuLeadConstraint.constant = -310.5
+        feedLeadConstraint.constant = 0
+        menuOverlay.isHidden = true
+        tabBarController?.tabBar.isHidden = false
     }
     
     func pushToDetailVC() {

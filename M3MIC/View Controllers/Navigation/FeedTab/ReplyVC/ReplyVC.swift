@@ -21,8 +21,6 @@ class ReplyVC: UIViewController {
         super.viewDidLoad()
         viewSetup()
         fetchGifImages()
-        
-        
     }
     
     @IBAction func trendingButtonTapped(_ sender: Any) {
