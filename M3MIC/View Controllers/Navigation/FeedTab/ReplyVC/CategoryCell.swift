@@ -10,12 +10,6 @@ import UIKit
 
 class CategoryCell: UITableViewCell {
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        categoryCollection.dataSource = self
-        categoryCollection.delegate = self
-    }
-    
     // MARK: - Properties
     var category: String?
     
@@ -23,6 +17,11 @@ class CategoryCell: UITableViewCell {
     @IBOutlet weak var categoryCollection: UICollectionView!
     @IBOutlet weak var categoryLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        categoryCollection.dataSource = self
+        categoryCollection.delegate = self
+    }
 }
 
 

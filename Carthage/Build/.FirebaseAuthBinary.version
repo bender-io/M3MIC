@@ -8,15 +8,15 @@
   "tvOS" : [
 
   ],
-  "commitish" : "6.3.0",
+  "commitish" : "6.4.0",
   "iOS" : [
     {
       "name" : "GTMSessionFetcher",
-      "hash" : "db7d0b3c3cd9431ff431dd52a6cbc26dfe988d20438ad745ccee2520d3046faa"
+      "hash" : "bf8cf501061b9bff6e1373669f921bc7cdafb8a4992bdce492eba25fcd9fe4fe"
     },
     {
       "name" : "FirebaseAuth",
-      "hash" : "9085df76c0bddc14f64f8d4fdc00924feba5ae4f692a643eeeb101a091929c28"
+      "hash" : "5e354922f066f98df30ff1bf3fa8814d3663f706b368128466a6f8bbe8094730"
     }
   ]
 }

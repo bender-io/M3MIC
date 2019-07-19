@@ -11,4 +11,10 @@ import UIKit
 class CategoryCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var gifImage: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        gifImage.cornerRadios()
+        cornerRadios()
+    }
 }

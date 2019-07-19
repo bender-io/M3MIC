@@ -21,6 +21,7 @@ class PostController {
     let db = UserController.shared.db
     
     var posts = [Post]()
+    var currentPost: Post?
     var postWasCreated = false
     
     // MARK: - CRUD Methods
@@ -28,7 +29,7 @@ class PostController {
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.noCurrentUser) ; return }
         
         var ref: DocumentReference?
-        ref = db.collection("Post").addDocument(data: [
+        ref = db.collection(Collection.Post).addDocument(data: [
             Document.userUID : currentUser.uid,
             Document.message : message,
             Document.timestamp : timestamp,
@@ -52,7 +53,7 @@ class PostController {
                 print("❌ Error fetching documents in \(#function) ; \(error.localizedDescription) ; \(error)")
                 completion(error) ; return
             }
-            guard let snapshot = snapshot, snapshot.count >= 1 else { completion(Errors.snapshotGuard) ; return }
+            guard let snapshot = snapshot, snapshot.count > 0 else { completion(Errors.snapshotGuard) ; return }
             
             self.posts = snapshot.documents.compactMap { Post(from: $0.data(), postUID: $0.documentID) }
             completion(nil)

@@ -75,6 +75,7 @@
 		5622D7B422DD2354002D0542 /* GifDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B322DD2354002D0542 /* GifDetailVC.swift */; };
 		5622D7B622DD2579002D0542 /* GifDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B522DD2579002D0542 /* GifDetailCell.swift */; };
 		5622D7BC22DF8D15002D0542 /* CreateReplyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */; };
+		56781E7522E0CC070074BC6D /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56781E7422E0CC070074BC6D /* FirebaseStorage.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +150,7 @@
 		5622D7B322DD2354002D0542 /* GifDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailVC.swift; sourceTree = "<group>"; };
 		5622D7B522DD2579002D0542 /* GifDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailCell.swift; sourceTree = "<group>"; };
 		5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReplyVC.swift; sourceTree = "<group>"; };
+		56781E7422E0CC070074BC6D /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Carthage/Build/iOS/FirebaseStorage.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				5614732222D15A8D00648B86 /* StoreKit.framework in Frameworks */,
 				5614732022D15A7B00648B86 /* libc++.tbd in Frameworks */,
 				5614731E22D15A6900648B86 /* libsqlite3.tbd in Frameworks */,
+				56781E7522E0CC070074BC6D /* FirebaseStorage.framework in Frameworks */,
 				5614731422D15A4B00648B86 /* FirebaseAuth.framework in Frameworks */,
 				5614731B22D15A4B00648B86 /* gRPC-Core.framework in Frameworks */,
 				5614730F22D15A4B00648B86 /* GTMSessionFetcher.framework in Frameworks */,
@@ -254,8 +257,8 @@
 			children = (
 				5614732322D15F5400648B86 /* UserController.swift */,
 				560840F022D4FDF90056CD72 /* PostController.swift */,
-				561472CF22D111F500648B86 /* GifController.swift */,
 				5622D7A722DD0723002D0542 /* ReplyController.swift */,
+				561472CF22D111F500648B86 /* GifController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 		561472FA22D15A3900648B86 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				56781E7422E0CC070074BC6D /* FirebaseStorage.framework */,
 				5614732122D15A8D00648B86 /* StoreKit.framework */,
 				5614731F22D15A7B00648B86 /* libc++.tbd */,
 				5614731D22D15A6900648B86 /* libsqlite3.tbd */,

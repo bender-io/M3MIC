@@ -8,43 +8,43 @@
   "tvOS" : [
 
   ],
-  "commitish" : "6.3.0",
+  "commitish" : "6.4.0",
   "iOS" : [
-    {
-      "name" : "nanopb",
-      "hash" : "2872461c576bb92792f2484de5b045c6cfd76fa1179eca949a06a960641b397e"
-    },
-    {
-      "name" : "FIRAnalyticsConnector",
-      "hash" : "620630296781708cbd37c9f33f268d91a8d8a1948ecfef264c33f40190934271"
-    },
     {
       "name" : "Firebase",
       "hash" : "a8669248da9519e9955e00448e518e1ca6becb32689eedddde237e19ad1136ae"
     },
     {
+      "name" : "nanopb",
+      "hash" : "a6b60546abf44d193db5694a527a8a0cf2f106563eb92cd781dc93cbe11d1ef1"
+    },
+    {
       "name" : "FirebaseAnalytics",
-      "hash" : "09666e79a09d14bd022539ddb85afb8fda073f920339afb779ffa4837dfa8e81"
+      "hash" : "63a46059b6e62aa835cfdb5389242a36a2d4b040c216a879d0dfbd1cef0f6b1a"
+    },
+    {
+      "name" : "FIRAnalyticsConnector",
+      "hash" : "387dadd091072834568c217ae0dbd1e5603e96052fee39dc86345252ec179c52"
     },
     {
       "name" : "FirebaseCore",
-      "hash" : "3f00133f4036bb7078ae1c571fc03e90f4a1d29b410cfe1143b62e2692dc500e"
+      "hash" : "edd24289787418f66253bf674f87c175f9feb8c570af5f8532cfc89f30553274"
     },
     {
       "name" : "GoogleUtilities",
-      "hash" : "e81e825cd3facda5f3effaaffdf9069cd548e1c6743b16d409d2dd3ea54d2e5f"
+      "hash" : "4cfbe2c44e5110ca1d2d38a5f3283d9be73f171150acd78dc029da8ac4fd577e"
     },
     {
       "name" : "FirebaseCoreDiagnostics",
-      "hash" : "3ec0a2026b56cfa8567d131b55bd3fd189269e874340ef36dcb2efff2b2a7fc7"
+      "hash" : "ca3d9e5e58eb7e8e1a5e7e9a449cea9ac914bb1e0e7219669c196c6a6b5d06dc"
     },
     {
       "name" : "FirebaseInstanceID",
-      "hash" : "25a020e5c3d91536f04a6e54f1ad11c2efe8e46c1d762046932a9155760f85df"
+      "hash" : "46e701c9fdd19fb94fbb5c75f8ea9193d5a825493a2e42221d2c802243c0fb76"
     },
     {
       "name" : "GoogleAppMeasurement",
-      "hash" : "d512b88235bb0b54395bef3beb635642fdb929bfb8953c38e6c75282aa709ab0"
+      "hash" : "477aa8c22f1d563b37724f4d31bb8e3bf7598e332c4889b9da1858b0f7bd051b"
     }
   ]
 }

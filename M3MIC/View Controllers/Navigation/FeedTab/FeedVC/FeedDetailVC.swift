@@ -8,14 +8,32 @@
 
 import UIKit
 
-// TODO: - Hide / Remove TBC for FeedDetailVC
-
 class FeedDetailVC: UIViewController {
+    
+    @IBOutlet weak var gifTableView: UITableView!
     
     // MARK: - Properties
     var post: Post? {
-        didSet{
+        didSet {
             updateViews()
+            PostController.shared.currentPost = post
+            
+            guard let postUID = post?.postUID else { print("No postUID found in \(#function)") ; return }
+
+            ReplyController.shared.fetchGifReplies(postUID: postUID, completion: { (error) in
+                if let error = error {
+                    print("❌ Error found in \(#function) ; \(error.localizedDescription) ; \(error)")
+                }
+                GifController.shared.fetchGifsFromFSURLs(completion: { (success) in
+                    DispatchQueue.main.async {
+                        if success {
+                            print("Replies for \(postUID) complete")
+                            self.gifTableView.reloadData()
+
+                        }
+                    }
+                })
+            })
         }
     }
     
@@ -36,12 +54,30 @@ class FeedDetailVC: UIViewController {
     func updateViews() {
         loadViewIfNeeded()
 
-        guard let post = post else { return }
         guard let username = UserController.shared.user?.username else { return }
         
         usernameLabel.text = username
-        timestampLabel.text = "Timestamp: \(String(describing: post.timestamp))"
+        timestampLabel.text = "Timestamp: \(String(describing: post?.timestamp))"
         profilePicture.image = #imageLiteral(resourceName: "PrimaryLogo")
-        postLabel.text = post.message
+        postLabel.text = post?.message
     }
+}
+
+extension FeedDetailVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return GifController.shared.gifReplyArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gifCell")
+        let image = GifController.shared.gifReplyArray[indexPath.row]
+        cell?.backgroundView = UIImageView.init(image: image)
+        
+        return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 175
+    }
+    
 }

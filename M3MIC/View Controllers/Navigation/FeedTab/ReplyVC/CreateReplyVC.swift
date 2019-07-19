@@ -11,6 +11,7 @@ import UIKit
 class CreateReplyVC: UIViewController {
 
     var image: UIImage?
+    var imageUrl: String?
     
     @IBOutlet weak var gifImage: UIImageView!
     
@@ -20,4 +21,14 @@ class CreateReplyVC: UIViewController {
         gifImage.image = image
     }
     
+    @IBAction func saveButtonTApped(_ sender: Any) {
+        guard let imageUrl = imageUrl else { print("No imageURL found in \(#function)") ; return }
+        
+        ReplyController.shared.saveGifReplyWith(image: imageUrl, postUID: (PostController.shared.currentPost?.postUID)!) { (error) in
+            if let error = error {
+                print("❌ error saving gif in \(#function) ; \(error.localizedDescription) ; \(error)")
+            }
+        }
+        navigationController?.popToRootViewController(animated: true)
+    }
 }

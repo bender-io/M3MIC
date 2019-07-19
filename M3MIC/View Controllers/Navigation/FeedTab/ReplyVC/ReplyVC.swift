@@ -20,9 +20,23 @@ class ReplyVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        fetchGifImages()
         
-        for category in categories {
-            fetchGifsByCategory(Category(rawValue: category)!)
+        
+    }
+    
+    @IBAction func trendingButtonTapped(_ sender: Any) {
+        GifController.shared.fetchGifUrls(searchTerm: "trending") { (success) in
+            if success {
+                print("Url fetch successful")
+            }
+            guard let gifs = GifController.shared.gifs else { print("Could not unwrap gif urls") ; return }
+            
+            GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: "other", completion: { (success) in
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "toGifDetailVC", sender: self)
+                }
+            })
         }
     }
 }
@@ -73,6 +87,13 @@ extension ReplyVC: UISearchBarDelegate {
 
 // MARK: - FetchGifsByCategory Methods
 extension ReplyVC {
+    
+    func fetchGifImages() {
+        for category in categories {
+            fetchGifsByCategory(Category(rawValue: category)!)
+        }
+    }
+    
     
     func fetchGifsByCategory(_ category: Category) {
         GifController.shared.fetchGifUrls(searchTerm: category.rawValue) { (success) in
