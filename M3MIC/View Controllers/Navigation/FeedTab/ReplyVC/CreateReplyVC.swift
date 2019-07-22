@@ -28,7 +28,9 @@ class CreateReplyVC: UIViewController {
             if let error = error {
                 print("❌ error saving gif in \(#function) ; \(error.localizedDescription) ; \(error)")
             }
+            DispatchQueue.main.async {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         }
-        navigationController?.popToRootViewController(animated: true)
     }
 }
