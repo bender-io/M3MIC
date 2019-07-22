@@ -80,6 +80,7 @@
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" name="Primary"/>
+                                                    <color key="tintColor" name="Black35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="HyX-zn-alN" secondAttribute="trailing" constant="16" id="2S0-wn-Eae"/>
                                                         <constraint firstItem="HyX-zn-alN" firstAttribute="centerY" secondItem="bPT-1d-gD7" secondAttribute="centerY" multiplier="0.5" id="EeQ-uT-kQr"/>
@@ -92,7 +93,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="P6t-Y9-vBq" secondAttribute="trailing" constant="16" id="xFN-7n-PAU"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="omw-La-9RX">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="omw-La-9RX">
                                                     <rect key="frame" x="8" y="108" width="398" height="184"/>
                                                 </imageView>
                                             </subviews>
@@ -240,16 +241,31 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wvu-83-PdH">
-                                <rect key="frame" x="16" y="188" width="382" height="625"/>
-                                <color key="backgroundColor" name="Black75"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="625"/>
+                                <color key="backgroundColor" name="Black35"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="gifCell" rowHeight="155" id="Gak-91-Xv0">
-                                        <rect key="frame" x="0.0" y="28" width="382" height="155"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="gifCell" rowHeight="192" id="Gak-91-Xv0" customClass="FeedDetailCell" customModule="M3MIC" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="192"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gak-91-Xv0" id="zSG-9e-jYA">
-                                            <rect key="frame" x="0.0" y="0.0" width="382" height="155"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="192"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ylb-WY-JZ6">
+                                                    <rect key="frame" x="8" y="8" width="398" height="176"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ylb-WY-JZ6" secondAttribute="bottom" constant="8" id="Ju9-Bd-fPd"/>
+                                                <constraint firstItem="ylb-WY-JZ6" firstAttribute="leading" secondItem="zSG-9e-jYA" secondAttribute="leading" constant="8" id="dYU-rD-Lx0"/>
+                                                <constraint firstAttribute="trailing" secondItem="ylb-WY-JZ6" secondAttribute="trailing" constant="8" id="mKd-Nj-mP4"/>
+                                                <constraint firstItem="ylb-WY-JZ6" firstAttribute="top" secondItem="zSG-9e-jYA" secondAttribute="top" constant="8" id="pGp-CI-UOy"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="gifImage" destination="ylb-WY-JZ6" id="qLI-cI-VVc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -258,11 +274,12 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <color key="backgroundColor" name="Primary"/>
                         <constraints>
-                            <constraint firstItem="wvu-83-PdH" firstAttribute="leading" secondItem="R7k-Ot-h7n" secondAttribute="leading" constant="16" id="5Fg-gG-EkT"/>
+                            <constraint firstItem="wvu-83-PdH" firstAttribute="leading" secondItem="R7k-Ot-h7n" secondAttribute="leading" id="5Fg-gG-EkT"/>
                             <constraint firstItem="WjG-0K-kaP" firstAttribute="leading" secondItem="R7k-Ot-h7n" secondAttribute="leading" id="83N-Qb-L6W"/>
                             <constraint firstItem="wvu-83-PdH" firstAttribute="top" secondItem="WjG-0K-kaP" secondAttribute="bottom" id="FUs-9f-uEu"/>
-                            <constraint firstItem="R7k-Ot-h7n" firstAttribute="trailing" secondItem="wvu-83-PdH" secondAttribute="trailing" constant="16" id="Ftj-Yw-2Jr"/>
+                            <constraint firstItem="R7k-Ot-h7n" firstAttribute="trailing" secondItem="wvu-83-PdH" secondAttribute="trailing" id="Ftj-Yw-2Jr"/>
                             <constraint firstItem="WjG-0K-kaP" firstAttribute="top" secondItem="R7k-Ot-h7n" secondAttribute="top" id="Um5-gI-RN1"/>
                             <constraint firstItem="R7k-Ot-h7n" firstAttribute="trailing" secondItem="WjG-0K-kaP" secondAttribute="trailing" id="fCh-ZT-ymo"/>
                             <constraint firstItem="R7k-Ot-h7n" firstAttribute="bottom" secondItem="wvu-83-PdH" secondAttribute="bottom" id="oAY-mi-Rps"/>

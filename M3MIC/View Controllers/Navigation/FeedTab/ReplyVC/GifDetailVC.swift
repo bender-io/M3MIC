@@ -22,7 +22,6 @@ class GifDetailVC: UIViewController {
         super.viewDidLoad()
         loadViewIfNeeded()
         viewSetup()
-        
     }
 }
 

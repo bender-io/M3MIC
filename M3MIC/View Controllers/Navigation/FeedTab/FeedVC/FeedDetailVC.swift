@@ -17,22 +17,6 @@ class FeedDetailVC: UIViewController {
         didSet {
             updateViews()
             PostController.shared.currentPost = post
-            
-            guard let postUID = post?.postUID else { print("No postUID found in \(#function)") ; return }
-
-            ReplyController.shared.fetchGifReplies(postUID: postUID, completion: { (error) in
-                if let error = error {
-                    print("❌ Error found in \(#function) ; \(error.localizedDescription) ; \(error)")
-                }
-                GifController.shared.fetchGifsFromFSURLs(completion: { (success) in
-                    DispatchQueue.main.async {
-                        if success {
-                            print("Replies for \(postUID) complete")
-                            self.gifTableView.reloadData()
-                        }
-                    }
-                })
-            })
         }
     }
     
@@ -49,6 +33,7 @@ class FeedDetailVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
+        fetchImages()
     }
     
     func updateViews() {
@@ -61,6 +46,28 @@ class FeedDetailVC: UIViewController {
         profilePicture.image = #imageLiteral(resourceName: "PrimaryLogo")
         postLabel.text = post?.message
     }
+    
+    func fetchImages() {
+        
+        ReplyController.shared.replies.removeAll()
+        GifController.shared.gifReplyArray.removeAll()
+        
+        guard let postUID = post?.postUID else { print("No postUID found in \(#function)") ; return }
+        
+        ReplyController.shared.fetchGifReplies(postUID: postUID, completion: { (error) in
+            if let error = error {
+                print("❌ Error found in \(#function) ; \(error.localizedDescription) ; \(error)")
+            }
+            GifController.shared.fetchGifsFromFSURLs(completion: { (success) in
+                DispatchQueue.main.async {
+                    if success {
+                        print("Replies for \(postUID) complete")
+                        self.gifTableView.reloadData()
+                    }
+                }
+            })
+        })
+    }
 }
 
 extension FeedDetailVC: UITableViewDelegate, UITableViewDataSource {
@@ -69,9 +76,9 @@ extension FeedDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gifCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gifCell") as? FeedDetailCell
         let image = GifController.shared.gifReplyArray[indexPath.row]
-        cell?.backgroundView = UIImageView.init(image: image)
+        cell?.gifImage.image = image
         
         return cell ?? UITableViewCell()
     }

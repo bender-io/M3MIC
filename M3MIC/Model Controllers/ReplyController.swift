@@ -31,7 +31,7 @@ class ReplyController {
         }
     }
     
-    func fetchGifReplies(postUID: String, completion: @escaping(Error?) -> Void) {
+    func fetchGifReplies(postUID: String, completion: @escaping(Error?) -> Void) {        
         db.collection(Collection.Reply).whereField(Document.postUID, isEqualTo: postUID).getDocuments { (snapshot, error) in
             if let error = error {
                 print("❌ Error fetching reply documents in \(#function) ; \(error.localizedDescription) ; \(error)")
@@ -40,9 +40,7 @@ class ReplyController {
             
             self.replies = snapshot.documents.compactMap { Reply(from: $0.data()) }
             
-            print(self.replies.first?.gifURL as Any)
             completion(nil)
-            
         }
     }
     
@@ -65,7 +63,7 @@ class ReplyController {
                 
                 self.updateReplyUIDsWith(replyUID: docID, postUID: currentPost.postUID!)
                 
-                UserController.shared.updateReplyUIDs(with: postUID)
+                UserController.shared.updateReplyUIDs(with: docID)
                 print("Successfully created document with id: \(docID) in postID \(String(describing: currentPost.postUID))")
                 completion(nil)
         })
