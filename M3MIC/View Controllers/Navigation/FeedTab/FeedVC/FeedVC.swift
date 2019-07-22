@@ -100,20 +100,23 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as? FeedCell
-        let post = PostController.shared.posts[indexPath.row]
+        let post = posts[indexPath.row]
         cell?.post = post
         
         cell?.gifImage.image = #imageLiteral(resourceName: "PrimaryLogo")
         
-        guard let replyUrl = post.topReply else { return UITableViewCell() }
-        
-        GifController.shared.fetchTopReplyImageFrom(url: replyUrl, completion: { (image) in
-            DispatchQueue.main.async {
-                if let image = image {
-                    cell?.gifImage.image = image
+        if let replyUrl = post.topReply {
+            GifController.shared.fetchTopReplyImageFrom(url: replyUrl, completion: { (image) in
+                DispatchQueue.main.async {
+                    if let image = image {
+                        cell?.gifImage.image = image
+                        print(cell?.post?.message as Any, image)
+                    } else {
+                        print("Failed to get image ; \(String(describing: post.topReply))")
+                    }
                 }
-            }
-        })
+            })
+        }
         
         return cell ?? UITableViewCell()
     }
