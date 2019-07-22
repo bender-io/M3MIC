@@ -26,8 +26,8 @@ class FeedCell: UITableViewCell {
     func updateViews() {
         guard let post = post else { return }
 //        profileImage.image = user.profilePicture
-        usernameLabel.text = UserController.shared.user?.username
-        timestampLabel.text = "\(post.timestamp)"
+        usernameLabel.text = post.username
+        timestampLabel.text = Date(timeIntervalSince1970: post.timestamp).stringWith(dateStyle: .short, timeStyle: .short)
         messageLabel.text = post.message
     }
 }

@@ -71,8 +71,9 @@ extension PostVC {
     
     func createPost() {
         guard let message = messageTV.text, !message.isEmpty else { print("Could not unwrap a message in \(#function)") ; return }
+        guard let username = UserController.shared.user?.username else { print("Could not find username in \(#function)") ; return }
         
-        PostController.shared.createPostWith(message: message) { (error) in
+        PostController.shared.createPostWith(message: message, username: username) { (error) in
             if let error = error {
                 print("❌ Error creating post in \(#function) ; \(error.localizedDescription) ; \(error)")
             }

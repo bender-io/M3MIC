@@ -77,6 +77,7 @@
 		5622D7BC22DF8D15002D0542 /* CreateReplyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */; };
 		56781E7522E0CC070074BC6D /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56781E7422E0CC070074BC6D /* FirebaseStorage.framework */; };
 		56781E7722E2605B0074BC6D /* FeedDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7622E2605B0074BC6D /* FeedDetailCell.swift */; };
+		56781E7922E66BD90074BC6D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7822E66BD90074BC6D /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +154,7 @@
 		5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReplyVC.swift; sourceTree = "<group>"; };
 		56781E7422E0CC070074BC6D /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Carthage/Build/iOS/FirebaseStorage.framework; sourceTree = SOURCE_ROOT; };
 		56781E7622E2605B0074BC6D /* FeedDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailCell.swift; sourceTree = "<group>"; };
+		56781E7822E66BD90074BC6D /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -352,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				561472DA22D1252300648B86 /* extensionVC.swift */,
+				56781E7822E66BD90074BC6D /* DateFormatter.swift */,
 				561472E622D132C600648B86 /* extensionView.swift */,
 				561472DF22D12FC100648B86 /* extensionColors.swift */,
 				561472E422D1325A00648B86 /* extensionFont.swift */,
@@ -516,6 +519,7 @@
 				5622D7BC22DF8D15002D0542 /* CreateReplyVC.swift in Sources */,
 				5622D7AA22DD08BC002D0542 /* CategoryCell.swift in Sources */,
 				561472D022D111F500648B86 /* GifController.swift in Sources */,
+				56781E7922E66BD90074BC6D /* DateFormatter.swift in Sources */,
 				5622D79322D6CDF0002D0542 /* FeedCell.swift in Sources */,
 				56781E7722E2605B0074BC6D /* FeedDetailCell.swift in Sources */,
 				561472EF22D1411700648B86 /* MemicButtonText.swift in Sources */,

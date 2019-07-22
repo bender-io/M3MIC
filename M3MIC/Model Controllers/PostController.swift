@@ -25,7 +25,8 @@ class PostController {
     var postWasCreated = false
     
     // MARK: - CRUD Methods
-    func createPostWith(message: String, timestamp: Date = Date(), replyUIDs: [String] = [], completion: @escaping(Error?) -> Void) {
+    func createPostWith(message: String, timestamp: Double = Date().timeIntervalSince1970, replyUIDs: [String] = [], username: String, completion: @escaping(Error?) -> Void) {
+        
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.noCurrentUser) ; return }
         
         var ref: DocumentReference?
@@ -33,7 +34,8 @@ class PostController {
             Document.userUID : currentUser.uid,
             Document.message : message,
             Document.timestamp : timestamp,
-            Document.replyUIDs : replyUIDs
+            Document.replyUIDs : replyUIDs,
+            Document.username : username
             ], completion: { (error) in
                 if let error = error {
                     print("❌ Error adding document in \(#function) ; \(error.localizedDescription) ; \(error)")

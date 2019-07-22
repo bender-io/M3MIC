@@ -56,16 +56,16 @@
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HyX-zn-alN">
-                                                            <rect key="frame" x="64" y="5.5" width="334" height="39.5"/>
+                                                            <rect key="frame" x="64" y="11.5" width="80.5" height="39.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(username)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sZ-el-pFL">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="19.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80.5" height="19.5"/>
                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="16"/>
                                                                     <color key="textColor" name="White100"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(timestamp)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6r7-hB-Zvo">
-                                                                    <rect key="frame" x="0.0" y="23.5" width="334" height="16"/>
+                                                                    <rect key="frame" x="0.0" y="23.5" width="80.5" height="16"/>
                                                                     <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="13"/>
                                                                     <color key="textColor" name="White100"/>
                                                                     <nil key="highlightedColor"/>
@@ -73,21 +73,20 @@
                                                             </subviews>
                                                         </stackView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(message)" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6t-Y9-vBq">
-                                                            <rect key="frame" x="9" y="59" width="389" height="20.5"/>
-                                                            <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="17"/>
+                                                            <rect key="frame" x="9" y="59" width="389" height="17"/>
+                                                            <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="14"/>
                                                             <color key="textColor" name="White100"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="HyX-zn-alN" secondAttribute="trailing" constant="16" id="2S0-wn-Eae"/>
-                                                        <constraint firstItem="HyX-zn-alN" firstAttribute="centerY" secondItem="bPT-1d-gD7" secondAttribute="centerY" multiplier="0.5" id="EeQ-uT-kQr"/>
                                                         <constraint firstItem="NJl-K5-9p9" firstAttribute="leading" secondItem="bPT-1d-gD7" secondAttribute="leading" constant="6" id="FYL-2Q-OsT"/>
+                                                        <constraint firstItem="HyX-zn-alN" firstAttribute="centerY" secondItem="NJl-K5-9p9" secondAttribute="centerY" id="L32-1a-YjG"/>
                                                         <constraint firstAttribute="height" constant="100" id="Wua-TF-wcJ"/>
                                                         <constraint firstItem="NJl-K5-9p9" firstAttribute="top" secondItem="bPT-1d-gD7" secondAttribute="top" constant="6" id="cHR-d9-f9r"/>
                                                         <constraint firstItem="P6t-Y9-vBq" firstAttribute="top" secondItem="NJl-K5-9p9" secondAttribute="bottom" constant="3" id="k6k-6P-p1Z"/>
+                                                        <constraint firstItem="HyX-zn-alN" firstAttribute="leading" secondItem="NJl-K5-9p9" secondAttribute="trailing" constant="8" id="nn9-6F-9LU"/>
                                                         <constraint firstItem="P6t-Y9-vBq" firstAttribute="leading" secondItem="NJl-K5-9p9" secondAttribute="leading" constant="3" id="oNA-QO-rVr"/>
-                                                        <constraint firstItem="HyX-zn-alN" firstAttribute="leading" secondItem="NJl-K5-9p9" secondAttribute="trailing" constant="8" id="q8Y-WT-BP5"/>
                                                         <constraint firstAttribute="trailing" secondItem="P6t-Y9-vBq" secondAttribute="trailing" constant="16" id="xFN-7n-PAU"/>
                                                     </constraints>
                                                 </view>
@@ -208,16 +207,16 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="V63-YU-CSt">
-                                        <rect key="frame" x="64" y="5.5" width="334" height="39.5"/>
+                                        <rect key="frame" x="64" y="11.5" width="80.5" height="39.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(username)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mG-bc-G95">
-                                                <rect key="frame" x="0.0" y="0.0" width="334" height="19.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80.5" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="16"/>
                                                 <color key="textColor" name="White100"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(timestamp)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzN-li-axL">
-                                                <rect key="frame" x="0.0" y="23.5" width="334" height="16"/>
+                                                <rect key="frame" x="0.0" y="23.5" width="80.5" height="16"/>
                                                 <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="13"/>
                                                 <color key="textColor" name="White100"/>
                                                 <nil key="highlightedColor"/>
@@ -225,21 +224,20 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(message)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSg-DL-mAZ">
-                                        <rect key="frame" x="9" y="59" width="389" height="20.5"/>
-                                        <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="17"/>
+                                        <rect key="frame" x="9" y="59" width="389" height="17"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="14"/>
                                         <color key="textColor" name="White100"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="V63-YU-CSt" secondAttribute="trailing" constant="16" id="Jie-KJ-0q4"/>
                                     <constraint firstItem="b2E-Od-JMU" firstAttribute="top" secondItem="WjG-0K-kaP" secondAttribute="top" constant="6" id="LMF-Wl-Shd"/>
                                     <constraint firstItem="b2E-Od-JMU" firstAttribute="leading" secondItem="WjG-0K-kaP" secondAttribute="leading" constant="6" id="Qap-Pv-6S4"/>
                                     <constraint firstItem="rSg-DL-mAZ" firstAttribute="leading" secondItem="b2E-Od-JMU" secondAttribute="leading" constant="3" id="Uf1-NG-tub"/>
                                     <constraint firstAttribute="trailing" secondItem="rSg-DL-mAZ" secondAttribute="trailing" constant="16" id="UfX-Qa-j1e"/>
+                                    <constraint firstItem="V63-YU-CSt" firstAttribute="leading" secondItem="b2E-Od-JMU" secondAttribute="trailing" constant="8" id="YeS-d1-ewW"/>
                                     <constraint firstAttribute="height" constant="100" id="d8v-c5-cIt"/>
-                                    <constraint firstItem="V63-YU-CSt" firstAttribute="centerY" secondItem="WjG-0K-kaP" secondAttribute="centerY" multiplier="0.5" id="em3-jc-giG"/>
-                                    <constraint firstItem="V63-YU-CSt" firstAttribute="leading" secondItem="b2E-Od-JMU" secondAttribute="trailing" constant="8" id="pW6-PU-5jE"/>
+                                    <constraint firstItem="V63-YU-CSt" firstAttribute="centerY" secondItem="b2E-Od-JMU" secondAttribute="centerY" id="grh-Py-cO5"/>
                                     <constraint firstItem="rSg-DL-mAZ" firstAttribute="top" secondItem="b2E-Od-JMU" secondAttribute="bottom" constant="3" id="xFe-dH-Nk8"/>
                                 </constraints>
                             </view>
@@ -328,16 +326,16 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ERl-BF-9ea">
-                                        <rect key="frame" x="62" y="5.5" width="336" height="39.5"/>
+                                        <rect key="frame" x="64" y="11.5" width="80.5" height="39.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(username)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r64-PC-ifT">
-                                                <rect key="frame" x="0.0" y="0.0" width="336" height="19.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80.5" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="16"/>
                                                 <color key="textColor" name="White100"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(timestamp)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cF-Pd-JLO">
-                                                <rect key="frame" x="0.0" y="23.5" width="336" height="16"/>
+                                                <rect key="frame" x="0.0" y="23.5" width="80.5" height="16"/>
                                                 <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="13"/>
                                                 <color key="textColor" name="White100"/>
                                                 <nil key="highlightedColor"/>
@@ -345,22 +343,21 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(message)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbu-gI-D3B">
-                                        <rect key="frame" x="9" y="59" width="389" height="20.5"/>
-                                        <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="17"/>
+                                        <rect key="frame" x="9" y="59" width="389" height="17"/>
+                                        <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="14"/>
                                         <color key="textColor" name="White100"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="6e2-pU-ZHo" firstAttribute="leading" secondItem="hpP-Bi-K0f" secondAttribute="leading" constant="6" id="Cyc-yK-hRe"/>
-                                    <constraint firstItem="ERl-BF-9ea" firstAttribute="leading" secondItem="6e2-pU-ZHo" secondAttribute="trailing" constant="6" id="IxW-W9-qi6"/>
+                                    <constraint firstItem="ERl-BF-9ea" firstAttribute="leading" secondItem="6e2-pU-ZHo" secondAttribute="trailing" constant="8" id="KgD-nl-CKS"/>
                                     <constraint firstAttribute="height" constant="100" id="NDp-BR-RaB"/>
                                     <constraint firstItem="6e2-pU-ZHo" firstAttribute="top" secondItem="hpP-Bi-K0f" secondAttribute="top" constant="6" id="STV-qi-DA5"/>
                                     <constraint firstAttribute="trailing" secondItem="rbu-gI-D3B" secondAttribute="trailing" constant="16" id="f2W-Pu-d3n"/>
                                     <constraint firstItem="rbu-gI-D3B" firstAttribute="leading" secondItem="6e2-pU-ZHo" secondAttribute="leading" constant="3" id="f4g-VQ-kDD"/>
                                     <constraint firstItem="rbu-gI-D3B" firstAttribute="top" secondItem="6e2-pU-ZHo" secondAttribute="bottom" constant="3" id="ilq-6d-Kui"/>
-                                    <constraint firstAttribute="trailing" secondItem="ERl-BF-9ea" secondAttribute="trailing" constant="16" id="pmw-dn-QqG"/>
-                                    <constraint firstItem="ERl-BF-9ea" firstAttribute="centerY" secondItem="hpP-Bi-K0f" secondAttribute="centerY" multiplier="0.5" id="qOm-wP-pXq"/>
+                                    <constraint firstItem="ERl-BF-9ea" firstAttribute="centerY" secondItem="6e2-pU-ZHo" secondAttribute="centerY" id="kjI-He-Iqh"/>
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" barStyle="black" text="" placeholder="search gifs" translatesAutoresizingMaskIntoConstraints="NO" id="4dS-05-S7t">
@@ -485,6 +482,10 @@
                     <connections>
                         <outlet property="gifSearchBar" destination="4dS-05-S7t" id="Ikx-4H-7Mq"/>
                         <outlet property="gifTableView" destination="81y-7k-dnO" id="1xv-0A-osO"/>
+                        <outlet property="messageLabel" destination="rbu-gI-D3B" id="cIk-JS-Sy8"/>
+                        <outlet property="profilePicture" destination="6e2-pU-ZHo" id="zC9-Tq-hwL"/>
+                        <outlet property="timestampLabel" destination="7cF-Pd-JLO" id="T8J-73-FRr"/>
+                        <outlet property="usernameLabel" destination="r64-PC-ifT" id="S6t-ai-4GE"/>
                         <segue destination="qBg-ag-3go" kind="show" identifier="toGifDetailVC" id="CeB-Qo-y4a"/>
                     </connections>
                 </viewController>
@@ -712,16 +713,16 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="BWD-Bg-2ih">
-                                        <rect key="frame" x="62" y="5.5" width="336" height="39.5"/>
+                                        <rect key="frame" x="64" y="11.5" width="80.5" height="39.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(username)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWE-7N-dw2">
-                                                <rect key="frame" x="0.0" y="0.0" width="336" height="19.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="80.5" height="19.5"/>
                                                 <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="16"/>
                                                 <color key="textColor" name="White100"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(timestamp)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDG-ib-NGi">
-                                                <rect key="frame" x="0.0" y="23.5" width="336" height="16"/>
+                                                <rect key="frame" x="0.0" y="23.5" width="80.5" height="16"/>
                                                 <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="13"/>
                                                 <color key="textColor" name="White100"/>
                                                 <nil key="highlightedColor"/>
@@ -738,11 +739,10 @@
                                 <constraints>
                                     <constraint firstItem="veS-OP-U7i" firstAttribute="top" secondItem="6GX-UR-O8c" secondAttribute="top" constant="6" id="2am-AV-mtb"/>
                                     <constraint firstAttribute="trailing" secondItem="U1R-lu-FSa" secondAttribute="trailing" constant="16" id="DVB-Kt-QLm"/>
-                                    <constraint firstItem="BWD-Bg-2ih" firstAttribute="centerY" secondItem="6GX-UR-O8c" secondAttribute="centerY" multiplier="0.5" id="F6r-ZC-mV8"/>
-                                    <constraint firstAttribute="trailing" secondItem="BWD-Bg-2ih" secondAttribute="trailing" constant="16" id="YNg-pH-dAP"/>
                                     <constraint firstItem="veS-OP-U7i" firstAttribute="leading" secondItem="6GX-UR-O8c" secondAttribute="leading" constant="6" id="ctG-cW-3al"/>
-                                    <constraint firstItem="BWD-Bg-2ih" firstAttribute="leading" secondItem="veS-OP-U7i" secondAttribute="trailing" constant="6" id="feg-fC-VQw"/>
                                     <constraint firstItem="U1R-lu-FSa" firstAttribute="leading" secondItem="veS-OP-U7i" secondAttribute="leading" constant="3" id="gKl-6b-oGD"/>
+                                    <constraint firstItem="BWD-Bg-2ih" firstAttribute="leading" secondItem="veS-OP-U7i" secondAttribute="trailing" constant="8" id="i0I-5R-1dc"/>
+                                    <constraint firstItem="BWD-Bg-2ih" firstAttribute="centerY" secondItem="veS-OP-U7i" secondAttribute="centerY" id="ntN-b1-qfM"/>
                                     <constraint firstAttribute="height" constant="100" id="qZL-d9-FVf"/>
                                     <constraint firstItem="U1R-lu-FSa" firstAttribute="top" secondItem="veS-OP-U7i" secondAttribute="bottom" constant="3" id="w97-VI-Lkr"/>
                                 </constraints>

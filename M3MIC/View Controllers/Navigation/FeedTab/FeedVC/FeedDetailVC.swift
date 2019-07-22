@@ -39,12 +39,12 @@ class FeedDetailVC: UIViewController {
     func updateViews() {
         loadViewIfNeeded()
 
-        guard let username = UserController.shared.user?.username else { return }
+        guard let post = post else { return }
         
-        usernameLabel.text = username
-        timestampLabel.text = "Timestamp: \(String(describing: post?.timestamp))"
+        usernameLabel.text = post.username
+        timestampLabel.text = Date(timeIntervalSince1970: post.timestamp).stringWith(dateStyle: .short, timeStyle: .short)
         profilePicture.image = #imageLiteral(resourceName: "PrimaryLogo")
-        postLabel.text = post?.message
+        postLabel.text = post.message
     }
     
     func fetchImages() {
@@ -85,5 +85,16 @@ extension FeedDetailVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 175
+    }
+}
+
+// MARK: - Prepare for Segue
+extension FeedDetailVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toReplyVC" {
+            let destinationVC = segue.destination as? ReplyVC
+            let post = self.post
+            destinationVC?.post = post
+        }
     }
 }
