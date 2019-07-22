@@ -36,7 +36,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pJG-sI-dEx">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" name="Primary"/>
-                                <color key="separatorColor" name="Black75"/>
+                                <color key="sectionIndexBackgroundColor" name="Primary"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="300" id="DYj-05-mLr" customClass="FeedCell" customModule="M3MIC" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="300"/>
@@ -48,7 +48,7 @@
                                                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPT-1d-gD7">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="NJl-K5-9p9">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="CatAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="NJl-K5-9p9">
                                                             <rect key="frame" x="6" y="6" width="50" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="Awa-4S-ckf"/>
@@ -79,8 +79,6 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="Primary"/>
-                                                    <color key="tintColor" name="Black35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="HyX-zn-alN" secondAttribute="trailing" constant="16" id="2S0-wn-Eae"/>
                                                         <constraint firstItem="HyX-zn-alN" firstAttribute="centerY" secondItem="bPT-1d-gD7" secondAttribute="centerY" multiplier="0.5" id="EeQ-uT-kQr"/>
@@ -93,8 +91,12 @@
                                                         <constraint firstAttribute="trailing" secondItem="P6t-Y9-vBq" secondAttribute="trailing" constant="16" id="xFN-7n-PAU"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="omw-La-9RX">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="omw-La-9RX">
                                                     <rect key="frame" x="8" y="108" width="398" height="184"/>
+                                                    <color key="backgroundColor" name="Black35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="omw-La-9RX" secondAttribute="height" multiplier="199:92" id="9rW-th-QQZ"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -107,14 +109,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="omw-La-9RX" secondAttribute="trailing" constant="8" id="y3y-m5-ngF"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="Primary"/>
                                         <connections>
                                             <outlet property="gifImage" destination="omw-La-9RX" id="Wqi-4v-WuS"/>
                                             <outlet property="messageLabel" destination="P6t-Y9-vBq" id="15z-Uc-VMu"/>
                                             <outlet property="profileImage" destination="NJl-K5-9p9" id="X7H-dy-zrr"/>
                                             <outlet property="timestampLabel" destination="6r7-hB-Zvo" id="AXE-Cv-YcE"/>
                                             <outlet property="usernameLabel" destination="0sZ-el-pFL" id="8R2-p7-2rc"/>
-                                            <segue destination="xvr-hb-IYp" kind="show" identifier="toFeedDetailVC" id="dmi-Zf-Wfe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -148,6 +149,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <color key="backgroundColor" name="Primary"/>
                         <constraints>
                             <constraint firstItem="x92-OP-9nm" firstAttribute="trailing" secondItem="pJG-sI-dEx" secondAttribute="trailing" id="2u6-Dl-Kyz"/>
                             <constraint firstAttribute="bottom" secondItem="KLD-5X-tnw" secondAttribute="bottom" id="3wc-ZX-C3O"/>
@@ -180,11 +182,12 @@
                         <outlet property="feedTableView" destination="pJG-sI-dEx" id="4RY-lH-HT1"/>
                         <outlet property="menuLeadConstraint" destination="YWf-Sp-jda" id="sKM-nw-F9r"/>
                         <outlet property="menuOverlay" destination="tOQ-bh-32r" id="qDG-4h-KNQ"/>
+                        <segue destination="xvr-hb-IYp" kind="show" identifier="toFeedDetailVC" id="kiw-4g-B7S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wpu-Hr-4eV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1314.4927536231885" y="-283.25892857142856"/>
+            <point key="canvasLocation" x="1239" y="-283"/>
         </scene>
         <!--Feed DetailVC-->
         <scene sceneID="yuC-RM-Rbm">
@@ -778,6 +781,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CatAvatar" width="256" height="256"/>
         <image name="Home" width="19" height="22"/>
         <image name="Menu" width="21" height="13"/>
         <image name="PrimaryLogo" width="1024" height="1024"/>

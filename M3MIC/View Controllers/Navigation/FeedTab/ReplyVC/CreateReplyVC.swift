@@ -24,7 +24,7 @@ class CreateReplyVC: UIViewController {
     @IBAction func saveButtonTApped(_ sender: Any) {
         guard let imageUrl = imageUrl else { print("No imageURL found in \(#function)") ; return }
         
-        ReplyController.shared.saveGifReplyWith(image: imageUrl, postUID: (PostController.shared.currentPost?.postUID)!) { (error) in
+        ReplyController.shared.saveGifReplyWith(imageURL: imageUrl, postUID: (PostController.shared.currentPost?.postUID)!) { (error) in
             if let error = error {
                 print("❌ error saving gif in \(#function) ; \(error.localizedDescription) ; \(error)")
             }

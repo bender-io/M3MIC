@@ -17,20 +17,23 @@ class Post {
     let timestamp: Timestamp
     let message: String
     let replyUIDs: [String]
+    let topReply: String?
     
-    init(postUID: String, userUID: String, timestamp: Timestamp, message: String, replyUIDs: [String] = []) {
+    init(postUID: String, userUID: String, timestamp: Timestamp, message: String, replyUIDs: [String] = [], topReply: String?) {
         self.postUID = postUID
         self.userUID = userUID
         self.timestamp = timestamp
         self.message = message
         self.replyUIDs = replyUIDs
+        self.topReply = topReply
     }
     
     init?(from dictionary: [String : Any], postUID: String?) {
         guard let userUID = dictionary[Document.userUID] as? String,
             let timestamp = dictionary[Document.timestamp] as? Timestamp,
             let message = dictionary[Document.message] as? String,
-            let replyUIDs = dictionary[Document.replyUIDs] as? [String]
+            let replyUIDs = dictionary[Document.replyUIDs] as? [String],
+            let topReply = dictionary[Document.topReply] as? String?
             else { print("Initializer failed in \(#function)") ; return nil }
         
         self.postUID = postUID
@@ -38,5 +41,6 @@ class Post {
         self.timestamp = timestamp
         self.message = message
         self.replyUIDs = replyUIDs
+        self.topReply = topReply
     }
 }

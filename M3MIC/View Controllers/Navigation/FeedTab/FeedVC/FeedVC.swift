@@ -17,6 +17,12 @@ class FeedVC: UIViewController {
     @IBOutlet weak var menuLeadConstraint: NSLayoutConstraint!
     @IBOutlet weak var feedLeadConstraint: NSLayoutConstraint!
     
+    var posts = [Post]() {
+        didSet {
+            self.feedTableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         menuOverlay.isHidden = true
@@ -97,17 +103,23 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         let post = PostController.shared.posts[indexPath.row]
         cell?.post = post
         
-        GifController.shared.fetchTopGifFromFSURLs { (success) in
-            if success {
-                print("BitConnect!")
-            }
-        }
+        cell?.gifImage.image = #imageLiteral(resourceName: "PrimaryLogo")
         
-        cell?.gifImage.image = GifController.shared.gifPostImage
-        cell?.updateViews()
-        loadViewIfNeeded()
+        guard let replyUrl = post.topReply else { return UITableViewCell() }
+        
+        GifController.shared.fetchTopReplyImageFrom(url: replyUrl, completion: { (image) in
+            DispatchQueue.main.async {
+                if let image = image {
+                    cell?.gifImage.image = image
+                }
+            }
+        })
         
         return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toFeedDetailVC", sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -137,12 +149,14 @@ extension FeedVC {
     }
     
     func fetchPosts() {
-        PostController.shared.fetchAllPosts { (error) in
-            if let error = error {
+        PostController.shared.fetchAllPosts { (result) in
+            switch result {
+            case .failure(let error):
                 print("❌ Error fetching posts in \(#function) ; \(error.localizedDescription) ; \(error)")
+
+            case .success(let posts):
+                self.posts = posts
             }
-//            GifController.shared.
-            self.feedTableView.reloadData()
         }
     }
 }

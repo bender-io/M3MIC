@@ -9,10 +9,10 @@
 import Foundation
 
 struct TopLevelJSON: Codable {
-    let results: [Result]
+    let results: [JSONResult]
 }
 
-struct Result: Codable {
+struct JSONResult: Codable {
     let media: [GifDictionary]
 }
 

@@ -47,20 +47,17 @@ class PostController {
         })
     }
     
-    func fetchAllPosts(completion: @escaping(Error?) -> Void) {
+    func fetchAllPosts(completion: @escaping(Result <[Post], Error>) -> Void) {
         db.collection(Collection.Post).getDocuments { (snapshot, error) in
             if let error = error {
                 print("❌ Error fetching documents in \(#function) ; \(error.localizedDescription) ; \(error)")
-                completion(error) ; return
+                completion(.failure(error)) ; return
             }
-            guard let snapshot = snapshot, snapshot.count > 0 else { completion(Errors.snapshotGuard) ; return }
+            guard let snapshot = snapshot, snapshot.count > 0 else { completion(.failure(Errors.snapshotGuard)) ; return }
             
             self.posts = snapshot.documents.compactMap { Post(from: $0.data(), postUID: $0.documentID) }
-            completion(nil)
+            completion(.success(self.posts))
         }
     }
-    
-    func fetchTopImageFromPost() {
-        
-    }
+
 }
