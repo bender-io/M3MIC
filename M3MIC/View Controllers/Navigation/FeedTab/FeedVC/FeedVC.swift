@@ -17,6 +17,12 @@ class FeedVC: UIViewController {
     @IBOutlet weak var menuLeadConstraint: NSLayoutConstraint!
     @IBOutlet weak var feedLeadConstraint: NSLayoutConstraint!
     
+    var posts = [Post]() {
+        didSet {
+            self.feedTableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         menuOverlay.isHidden = true
@@ -89,29 +95,38 @@ class FeedVC: UIViewController {
 extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PostController.shared.posts.count
+        return posts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as? FeedCell
-        let post = PostController.shared.posts[indexPath.row]
+        let post = posts[indexPath.row]
         cell?.post = post
         
-        GifController.shared.fetchTopGifFromFSURLs { (success) in
-            if success {
-                print("BitConnect!")
-            }
-        }
+        cell?.gifImage.image = #imageLiteral(resourceName: "PrimaryLogo")
         
-        cell?.gifImage.image = GifController.shared.gifPostImage
-        cell?.updateViews()
-        loadViewIfNeeded()
+        if let replyUrl = post.topReply {
+            GifController.shared.fetchTopReplyImageFrom(url: replyUrl, completion: { (image) in
+                DispatchQueue.main.async {
+                    if let image = image {
+                        cell?.gifImage.image = image
+                        print(cell?.post?.message as Any, image)
+                    } else {
+                        print("Failed to get image ; \(String(describing: post.topReply))")
+                    }
+                }
+            })
+        }
         
         return cell ?? UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toFeedDetailVC", sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 350
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -137,12 +152,14 @@ extension FeedVC {
     }
     
     func fetchPosts() {
-        PostController.shared.fetchAllPosts { (error) in
-            if let error = error {
+        PostController.shared.fetchAllPosts { (result) in
+            switch result {
+            case .failure(let error):
                 print("❌ Error fetching posts in \(#function) ; \(error.localizedDescription) ; \(error)")
+
+            case .success(let posts):
+                self.posts = posts
             }
-//            GifController.shared.
-            self.feedTableView.reloadData()
         }
     }
 }

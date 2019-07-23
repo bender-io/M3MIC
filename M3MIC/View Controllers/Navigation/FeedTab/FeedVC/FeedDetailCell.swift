@@ -12,4 +12,8 @@ class FeedDetailCell: UITableViewCell {
 
     @IBOutlet weak var gifImage: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        gifImage.cornerRadios()
+    }
 }

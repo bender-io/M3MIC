@@ -13,9 +13,19 @@ class ReplyVC: UIViewController {
     // MARK: - Properties
     let categories = ["funny", "cool", "happy", "sad", "hungry", "angry", "love"]
     
+    var post: Post? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     // MARK: - IBOutlets
     @IBOutlet weak var gifSearchBar: UISearchBar!
     @IBOutlet weak var gifTableView: UITableView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var profilePicture: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +46,15 @@ class ReplyVC: UIViewController {
                 }
             })
         }
+    }
+    
+    func updateViews() {
+        guard let post = post else { return }
+        
+        loadViewIfNeeded()
+        usernameLabel.text = post.username
+        timestampLabel.text = Date(timeIntervalSince1970: post.timestamp).stringWith(dateStyle: .short, timeStyle: .short)
+        messageLabel.text = post.message
     }
 }
 

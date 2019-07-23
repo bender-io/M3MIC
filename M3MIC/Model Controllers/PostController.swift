@@ -25,7 +25,8 @@ class PostController {
     var postWasCreated = false
     
     // MARK: - CRUD Methods
-    func createPostWith(message: String, timestamp: Date = Date(), replyUIDs: [String] = [], completion: @escaping(Error?) -> Void) {
+    func createPostWith(message: String, timestamp: Double = Date().timeIntervalSince1970, replyUIDs: [String] = [], username: String, completion: @escaping(Error?) -> Void) {
+        
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.noCurrentUser) ; return }
         
         var ref: DocumentReference?
@@ -33,7 +34,8 @@ class PostController {
             Document.userUID : currentUser.uid,
             Document.message : message,
             Document.timestamp : timestamp,
-            Document.replyUIDs : replyUIDs
+            Document.replyUIDs : replyUIDs,
+            Document.username : username
             ], completion: { (error) in
                 if let error = error {
                     print("❌ Error adding document in \(#function) ; \(error.localizedDescription) ; \(error)")
@@ -47,20 +49,28 @@ class PostController {
         })
     }
     
-    func fetchAllPosts(completion: @escaping(Error?) -> Void) {
+    func fetchAllPosts(completion: @escaping(Result <[Post], Error>) -> Void) {
         db.collection(Collection.Post).getDocuments { (snapshot, error) in
             if let error = error {
                 print("❌ Error fetching documents in \(#function) ; \(error.localizedDescription) ; \(error)")
-                completion(error) ; return
+                completion(.failure(error)) ; return
             }
-            guard let snapshot = snapshot, snapshot.count > 0 else { completion(Errors.snapshotGuard) ; return }
+            guard let snapshot = snapshot, snapshot.count > 0 else { completion(.failure(Errors.snapshotGuard)) ; return }
+            
+//            for document in snapshot.documents {
+//                let data = document.data()
+//                let userID = data[Document.userUID]
+//                //go into storage filepath: ("profileImages/\(userID)").
+//
+//                //if let data = data{
+//                //let image = UIImage(data:data)
+//
+//                //Post(
+//            }
             
             self.posts = snapshot.documents.compactMap { Post(from: $0.data(), postUID: $0.documentID) }
-            completion(nil)
+            completion(.success(self.posts))
         }
     }
-    
-    func fetchTopImageFromPost() {
-        
-    }
+
 }

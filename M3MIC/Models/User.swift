@@ -20,7 +20,7 @@ class User {
 //        return "\(String(describing: firstname)) \(String(describing: lastname))"
 //    }
     
-    init(username: String) {
+    init(username: String, profilePicture: UIImage) {
 //        self.userUID = userUID
         self.username = username
 //        self.firstname = firstname

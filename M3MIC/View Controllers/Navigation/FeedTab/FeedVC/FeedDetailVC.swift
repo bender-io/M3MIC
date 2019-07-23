@@ -10,9 +10,10 @@ import UIKit
 
 class FeedDetailVC: UIViewController {
     
-    @IBOutlet weak var gifTableView: UITableView!
     
     // MARK: - Properties
+    var toggleViewShowing = false
+    
     var post: Post? {
         didSet {
             updateViews()
@@ -20,10 +21,12 @@ class FeedDetailVC: UIViewController {
         }
     }
     
+    @IBOutlet weak var toggleViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var postLabel: UILabel!
+    @IBOutlet weak var gifTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,15 +39,29 @@ class FeedDetailVC: UIViewController {
         fetchImages()
     }
     
+    @IBAction func profileButtonTapped(_ sender: Any) {
+        switch toggleViewShowing {
+        case false:
+            toggleViewTrailingConstraint.constant = 0
+        case true:
+            toggleViewTrailingConstraint.constant = -414
+        }
+        toggleViewShowing = !toggleViewShowing
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     func updateViews() {
         loadViewIfNeeded()
 
-        guard let username = UserController.shared.user?.username else { return }
+        guard let post = post else { return }
         
-        usernameLabel.text = username
-        timestampLabel.text = "Timestamp: \(String(describing: post?.timestamp))"
+        usernameLabel.text = post.username
+        timestampLabel.text = Date(timeIntervalSince1970: post.timestamp).stringWith(dateStyle: .short, timeStyle: .short)
         profilePicture.image = #imageLiteral(resourceName: "PrimaryLogo")
-        postLabel.text = post?.message
+        postLabel.text = post.message
     }
     
     func fetchImages() {
@@ -84,7 +101,17 @@ extension FeedDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 175
+        return 225
     }
-    
+}
+
+// MARK: - Prepare for Segue
+extension FeedDetailVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toReplyVC" {
+            let destinationVC = segue.destination as? ReplyVC
+            let post = self.post
+            destinationVC?.post = post
+        }
+    }
 }

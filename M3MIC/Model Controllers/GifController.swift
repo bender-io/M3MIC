@@ -103,20 +103,18 @@ class GifController {
         }
     }
     
-    func fetchTopGifFromFSURLs(completion: @escaping(Bool) -> Void) {
-        guard let reply = ReplyController.shared.replies.first?.gifURL else { print("No reply URL found") ; completion(false) ; return }
-        guard let baseURL = URL(string: reply) else { completion(false) ; return }
+    func fetchTopReplyImageFrom(url: String, completion: @escaping(UIImage?) -> Void) {
+        guard let baseURL = URL(string: url) else { completion(nil) ; return }
         
         URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
             if let error = error {
                 print("❌ could not unwrap data in \(#function) ; \(error.localizedDescription) ; \(error)")
-                completion(false) ; return
+                completion(nil) ; return
             }
             
-            guard let data = data, let gif = UIImage(data: data) else { completion(false) ; return }
+            guard let data = data, let gif = UIImage(data: data) else { completion(nil) ; return }
             
-            self.gifPostImage = gif
-            completion(true)
+            completion(gif)
             
             }.resume()
     }
