@@ -141,7 +141,7 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
 extension FeedVC {
     
     func fetchUserProfile() {
-        UserController.shared.fetchUserInfo { (error) in
+        UserController.shared.fetchCurrentUserInfo { (error) in
             if let error = error {
                 print("❌ Could not fetch user info in \(#function) ; \(error.localizedDescription) ; \(error)")
             }

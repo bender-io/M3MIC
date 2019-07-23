@@ -16,20 +16,40 @@ class FeedDetailMenuVC: UIViewController {
 
     weak var delegate: FeedDetailMenuVCDelegate?
     
+    var post: Post?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
     @IBAction func addFriendButtonTapped(_ sender: Any) {
-        // TODO: - add friend method
+        guard let userUID = post?.userUID else { print("Could not find userUID") ; return }
+        
+        UserController.shared.updateFriendUIDArrayWith(userUID: userUID) { (error) in
+            if error != nil {
+                print(error as Any)
+            } else {
+                print("User with UID \(userUID) is now a friend")
+            }
+        }
+        
         navigationController?.popToRootViewController(animated: true)
         tabBarController?.selectedIndex = 2
         tabBarController?.tabBar.isHidden = false
     }
     
     @IBAction func blockButtonTapped(_ sender: Any) {
-        // TODO: - block friend method
+        guard let userUID = post?.userUID else { print("Could not find userUID") ; return }
+        
+        UserController.shared.updateBlockedUIDArrayWith(userUID: userUID) { (error) in
+            if error != nil {
+                print(error as Any)
+            } else {
+                print("User with UID \(userUID) has been blocked")
+            }
+        }
+        
         navigationController?.popToRootViewController(animated: true)
         tabBarController?.selectedIndex = 2
         tabBarController?.tabBar.isHidden = false

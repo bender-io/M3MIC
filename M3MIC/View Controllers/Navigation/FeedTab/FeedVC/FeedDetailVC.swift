@@ -13,7 +13,7 @@ class FeedDetailVC: UIViewController {
     // MARK: - Properties
     var toggleViewShowing = false
     
-    var feedDetailMenuVC: FeedDetailMenuVC?
+    var feedDetailMenuVC = FeedDetailMenuVC()
     
     var post: Post? {
         didSet {
@@ -33,8 +33,6 @@ class FeedDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
-        feedDetailMenuVC = FeedDetailMenuVC()
-        feedDetailMenuVC?.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,6 +117,13 @@ extension FeedDetailVC {
             let post = self.post
             destinationVC?.post = post
         }
+        
+        if segue.identifier == "friendMenueVC" {
+            let destinationVC = segue.destination as? FeedDetailMenuVC
+            destinationVC?.delegate = self
+            let post = self.post
+            destinationVC?.post = post
+        }
     }
 }
 
@@ -127,7 +132,7 @@ extension FeedDetailVC: FeedDetailMenuVCDelegate {
     func dismissFeedDetailMenu(sender: FeedDetailMenuVC) {
         print("delegate responded")
         
-        feedDetailMenuVC?.dismissButtonTapped(self)
+        feedDetailMenuVC.dismissButtonTapped(self)
         
         toggleViewTrailingConstraint.constant = -414
         toggleViewShowing = !toggleViewShowing

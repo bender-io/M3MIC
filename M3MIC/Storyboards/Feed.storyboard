@@ -232,7 +232,7 @@
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qpw-T7-5xu" userLabel="ToggleView">
                                         <rect key="frame" x="414" y="62" width="414" height="38"/>
                                         <connections>
-                                            <segue destination="SY2-tM-1Ku" kind="embed" id="iPw-gI-bAw"/>
+                                            <segue destination="SY2-tM-1Ku" kind="embed" identifier="friendMenueVC" id="iPw-gI-bAw"/>
                                         </connections>
                                     </containerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="32I-Q6-eas">
