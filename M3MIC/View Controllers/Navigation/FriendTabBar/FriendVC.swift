@@ -18,7 +18,10 @@ class FriendVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        blockedTableView.cornerRadios()
+        friendsTableView.cornerRadios()
     }
+    
     @IBAction func profileButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "toProfilePictureVC", sender: self)
     }
@@ -27,7 +30,7 @@ class FriendVC: UIViewController {
 extension FriendVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 75
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

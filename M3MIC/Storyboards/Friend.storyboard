@@ -34,10 +34,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FRN-7L-H6q">
-                                <rect key="frame" x="8" y="540" width="398" height="265"/>
+                                <rect key="frame" x="8" y="450.5" width="398" height="250"/>
                                 <color key="backgroundColor" name="Black35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="265" id="eUv-kd-Cf3"/>
+                                    <constraint firstAttribute="height" constant="250" id="eUv-kd-Cf3"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="blockedCell" rowHeight="60" id="FnJ-NM-oWd">
@@ -77,10 +77,10 @@
                                 </connections>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kEL-GV-p8D">
-                                <rect key="frame" x="8" y="238.5" width="398" height="265"/>
+                                <rect key="frame" x="8" y="164" width="398" height="250"/>
                                 <color key="backgroundColor" name="Black35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="265" id="vl9-Fe-H0O"/>
+                                    <constraint firstAttribute="height" constant="250" id="vl9-Fe-H0O"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="60" id="av2-Sl-hoP">
@@ -120,13 +120,13 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blocked List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fv1-Pi-qRD">
-                                <rect key="frame" x="8" y="511.5" width="93" height="20.5"/>
+                                <rect key="frame" x="8" y="422" width="93" height="20.5"/>
                                 <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="17"/>
                                 <color key="textColor" name="Secondary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friends List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYV-vl-dIR">
-                                <rect key="frame" x="8" y="209.5" width="89" height="21"/>
+                                <rect key="frame" x="8" y="135" width="89" height="21"/>
                                 <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="17"/>
                                 <color key="textColor" name="Secondary"/>
                                 <nil key="highlightedColor"/>
@@ -175,11 +175,11 @@
                             <constraint firstItem="HGb-rB-5XG" firstAttribute="trailing" secondItem="FRN-7L-H6q" secondAttribute="trailing" constant="8" id="Dwz-bg-MqM"/>
                             <constraint firstItem="Btf-T8-4Tl" firstAttribute="leading" secondItem="HGb-rB-5XG" secondAttribute="leading" id="I5g-Vt-gNg"/>
                             <constraint firstItem="Btf-T8-4Tl" firstAttribute="trailing" secondItem="HGb-rB-5XG" secondAttribute="trailing" id="JJo-12-Rjj"/>
-                            <constraint firstItem="HGb-rB-5XG" firstAttribute="bottom" secondItem="FRN-7L-H6q" secondAttribute="bottom" constant="8" id="T1I-gW-cvC"/>
                             <constraint firstItem="Btf-T8-4Tl" firstAttribute="top" secondItem="HGb-rB-5XG" secondAttribute="top" id="V4n-zJ-Iwq"/>
                             <constraint firstItem="dYV-vl-dIR" firstAttribute="leading" secondItem="HGb-rB-5XG" secondAttribute="leading" constant="8" id="VQ0-uk-4tS"/>
                             <constraint firstItem="kEL-GV-p8D" firstAttribute="top" secondItem="dYV-vl-dIR" secondAttribute="bottom" constant="8" id="Wbg-s4-p7i"/>
                             <constraint firstItem="FRN-7L-H6q" firstAttribute="leading" secondItem="HGb-rB-5XG" secondAttribute="leading" constant="8" id="Zi8-Ge-U99"/>
+                            <constraint firstItem="dYV-vl-dIR" firstAttribute="top" secondItem="Btf-T8-4Tl" secondAttribute="bottom" constant="16" id="bP3-tk-QfU"/>
                             <constraint firstItem="FRN-7L-H6q" firstAttribute="top" secondItem="Fv1-Pi-qRD" secondAttribute="bottom" constant="8" id="iz6-pk-P4E"/>
                             <constraint firstItem="Fv1-Pi-qRD" firstAttribute="leading" secondItem="HGb-rB-5XG" secondAttribute="leading" constant="8" id="sqL-Td-gSW"/>
                             <constraint firstItem="Fv1-Pi-qRD" firstAttribute="top" secondItem="kEL-GV-p8D" secondAttribute="bottom" constant="8" id="vSf-7l-gtY"/>

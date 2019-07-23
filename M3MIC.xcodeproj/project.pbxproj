@@ -80,6 +80,7 @@
 		56781E7922E66BD90074BC6D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7822E66BD90074BC6D /* DateFormatter.swift */; };
 		56781E7B22E69BBE0074BC6D /* FriendsProfilePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7A22E69BBE0074BC6D /* FriendsProfilePictureVC.swift */; };
 		56781E7D22E69C130074BC6D /* ProfilePictureUploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7C22E69C130074BC6D /* ProfilePictureUploadVC.swift */; };
+		5679831822E7435100B97202 /* FeedDetailMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5679831722E7435100B97202 /* FeedDetailMenuVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +160,7 @@
 		56781E7822E66BD90074BC6D /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		56781E7A22E69BBE0074BC6D /* FriendsProfilePictureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfilePictureVC.swift; sourceTree = "<group>"; };
 		56781E7C22E69C130074BC6D /* ProfilePictureUploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureUploadVC.swift; sourceTree = "<group>"; };
+		5679831722E7435100B97202 /* FeedDetailMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailMenuVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,10 +371,11 @@
 		5622D79422D6CDFA002D0542 /* FeedVC */ = {
 			isa = PBXGroup;
 			children = (
-				5622D79F22DCD4B4002D0542 /* FeedMenuTVC.swift */,
 				562178FB22D287AA00B45E7B /* FeedVC.swift */,
-				5621790D22D40C8400B45E7B /* FeedDetailVC.swift */,
+				5622D79F22DCD4B4002D0542 /* FeedMenuTVC.swift */,
 				5622D79222D6CDF0002D0542 /* FeedCell.swift */,
+				5621790D22D40C8400B45E7B /* FeedDetailVC.swift */,
+				5679831722E7435100B97202 /* FeedDetailMenuVC.swift */,
 				56781E7622E2605B0074BC6D /* FeedDetailCell.swift */,
 			);
 			path = FeedVC;
@@ -514,6 +517,7 @@
 				5621790722D28EB900B45E7B /* FriendVC.swift in Sources */,
 				5614732622D1625F00648B86 /* Errors.swift in Sources */,
 				5622D7B122DD1209002D0542 /* CategoryCollectionCell.swift in Sources */,
+				5679831822E7435100B97202 /* FeedDetailMenuVC.swift in Sources */,
 				561472E522D1325A00648B86 /* extensionFont.swift in Sources */,
 				561472C622D10B1300648B86 /* Post.swift in Sources */,
 				561472D322D1224800648B86 /* LoginVC.swift in Sources */,

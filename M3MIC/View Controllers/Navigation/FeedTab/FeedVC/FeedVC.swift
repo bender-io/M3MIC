@@ -46,8 +46,6 @@ class FeedVC: UIViewController {
     @IBAction func menuButtonTapped(_ sender: Any) {
         menuTapped()
     }
-    @IBAction func logoutButtonTapped(_ sender: Any) {
-    }
     
     func setupTabBarUI() {
         tabBarController?.tabBar.barStyle = .black

@@ -8,8 +8,6 @@
 
 import UIKit
 
-// TODO: - Change name to FeedDetailVC
-
 protocol GifDetailVCDelegate: class {
     func reloadTableView()
 }

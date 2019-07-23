@@ -21,9 +21,6 @@ class FeedMenuTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
-
-    @IBAction func logoutButtonTapped(_ sender: Any) {
-    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
