@@ -57,6 +57,17 @@ class PostController {
             }
             guard let snapshot = snapshot, snapshot.count > 0 else { completion(.failure(Errors.snapshotGuard)) ; return }
             
+//            for document in snapshot.documents {
+//                let data = document.data()
+//                let userID = data[Document.userUID]
+//                //go into storage filepath: ("profileImages/\(userID)").
+//
+//                //if let data = data{
+//                //let image = UIImage(data:data)
+//
+//                //Post(
+//            }
+            
             self.posts = snapshot.documents.compactMap { Post(from: $0.data(), postUID: $0.documentID) }
             completion(.success(self.posts))
         }

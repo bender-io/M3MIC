@@ -126,7 +126,7 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 350
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

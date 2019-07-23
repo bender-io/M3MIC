@@ -48,7 +48,7 @@
                                                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPT-1d-gD7">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="CatAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="NJl-K5-9p9">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="NJl-K5-9p9">
                                                             <rect key="frame" x="6" y="6" width="50" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="Awa-4S-ckf"/>
@@ -90,7 +90,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="P6t-Y9-vBq" secondAttribute="trailing" constant="16" id="xFN-7n-PAU"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="omw-La-9RX">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="omw-La-9RX">
                                                     <rect key="frame" x="8" y="108" width="398" height="184"/>
                                                     <color key="backgroundColor" name="Black35"/>
                                                     <constraints>
@@ -781,7 +781,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CatAvatar" width="256" height="256"/>
         <image name="Home" width="19" height="22"/>
         <image name="Menu" width="21" height="13"/>
         <image name="PrimaryLogo" width="1024" height="1024"/>

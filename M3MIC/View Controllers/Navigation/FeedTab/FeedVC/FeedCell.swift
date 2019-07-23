@@ -16,6 +16,11 @@ class FeedCell: UITableViewCell {
         }
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        gifImage.cornerRadios()
+    }
+    
     // MARK: - IBOutlets
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
