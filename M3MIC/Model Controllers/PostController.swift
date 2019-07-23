@@ -22,7 +22,6 @@ class PostController {
     
     var posts = [Post]()
     var currentPost: Post?
-    var postWasCreated = false
     
     // MARK: - CRUD Methods
     func createPostWith(message: String, timestamp: Double = Date().timeIntervalSince1970, replyUIDs: [String] = [], username: String, completion: @escaping(Error?) -> Void) {

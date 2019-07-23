@@ -646,17 +646,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="310.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooT-Yi-faI">
-                                                    <rect key="frame" x="24" y="7" width="93" height="30"/>
-                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="15"/>
-                                                    <state key="normal" title="(friendsCount)">
-                                                        <color key="titleColor" name="Secondary"/>
-                                                    </state>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(friendCount)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmj-XX-kWo">
+                                                    <rect key="frame" x="24" y="13.5" width="80" height="17"/>
+                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="14"/>
+                                                    <color key="textColor" name="Secondary"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ooT-Yi-faI" firstAttribute="centerY" secondItem="CRV-Hb-30Z" secondAttribute="centerY" id="f8B-t5-bUk"/>
-                                                <constraint firstItem="ooT-Yi-faI" firstAttribute="leading" secondItem="CRV-Hb-30Z" secondAttribute="leading" constant="24" id="pqH-KX-HyQ"/>
+                                                <constraint firstItem="Nmj-XX-kWo" firstAttribute="leading" secondItem="CRV-Hb-30Z" secondAttribute="leading" constant="24" id="Iw3-UD-HPK"/>
+                                                <constraint firstItem="Nmj-XX-kWo" firstAttribute="centerY" secondItem="CRV-Hb-30Z" secondAttribute="centerY" id="wOu-Y8-CcX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Black35"/>
@@ -668,17 +667,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="310.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDq-JO-qyD">
-                                                    <rect key="frame" x="24" y="7" width="60" height="30"/>
-                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="15"/>
-                                                    <state key="normal" title="(blocked)">
-                                                        <color key="titleColor" name="Secondary"/>
-                                                    </state>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(blockedCount)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhH-6P-URK">
+                                                    <rect key="frame" x="24" y="13.5" width="92" height="17"/>
+                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="14"/>
+                                                    <color key="textColor" name="Secondary"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="zDq-JO-qyD" firstAttribute="centerY" secondItem="isG-Cb-hqc" secondAttribute="centerY" id="35t-SO-RvP"/>
-                                                <constraint firstItem="zDq-JO-qyD" firstAttribute="leading" secondItem="isG-Cb-hqc" secondAttribute="leading" constant="24" id="7Hy-8x-j1Y"/>
+                                                <constraint firstItem="bhH-6P-URK" firstAttribute="centerY" secondItem="isG-Cb-hqc" secondAttribute="centerY" id="SrE-jn-AsY"/>
+                                                <constraint firstItem="bhH-6P-URK" firstAttribute="leading" secondItem="isG-Cb-hqc" secondAttribute="leading" constant="24" id="Vpq-Io-Gtn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Black35"/>
@@ -690,16 +688,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="310.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Qz-8n-L4A">
-                                                    <rect key="frame" x="24" y="13" width="41" height="18"/>
-                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTx-KU-nQz">
+                                                    <rect key="frame" x="24" y="13.5" width="38" height="17"/>
+                                                    <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="14"/>
                                                     <color key="textColor" name="Secondary"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="8Qz-8n-L4A" firstAttribute="centerY" secondItem="P9G-hi-ssE" secondAttribute="centerY" id="Lxz-dE-fso"/>
-                                                <constraint firstItem="8Qz-8n-L4A" firstAttribute="leading" secondItem="P9G-hi-ssE" secondAttribute="leading" constant="24" id="sYO-ky-VWQ"/>
+                                                <constraint firstItem="QTx-KU-nQz" firstAttribute="leading" secondItem="P9G-hi-ssE" secondAttribute="leading" constant="24" id="cj5-tZ-0dX"/>
+                                                <constraint firstItem="QTx-KU-nQz" firstAttribute="centerY" secondItem="P9G-hi-ssE" secondAttribute="centerY" id="rdf-HT-jKf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="Black35"/>
@@ -712,6 +710,12 @@
                             <outlet property="delegate" destination="Acl-KX-VGB" id="1Sj-um-CIZ"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="blockedCountLabel" destination="bhH-6P-URK" id="VTi-P6-AGj"/>
+                        <outlet property="friendCountLabel" destination="Nmj-XX-kWo" id="ljG-BG-L6H"/>
+                        <outlet property="profilePicture" destination="RJH-bp-z10" id="eoi-fg-nhZ"/>
+                        <outlet property="usernameLabel" destination="eyf-Hw-Z8C" id="JEJ-vU-FY9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQw-9P-7ql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

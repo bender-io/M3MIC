@@ -51,8 +51,8 @@ class PostVC: UIViewController {
     }
     
     func toDetailVC() {
-        PostController.shared.postWasCreated = true
         tabBarController?.selectedIndex = 0
+        
     }
 }
 
