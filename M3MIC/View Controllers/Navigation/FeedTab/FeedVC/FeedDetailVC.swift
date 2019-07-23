@@ -10,9 +10,10 @@ import UIKit
 
 class FeedDetailVC: UIViewController {
     
-    @IBOutlet weak var gifTableView: UITableView!
     
     // MARK: - Properties
+    var toggleViewShowing = false
+    
     var post: Post? {
         didSet {
             updateViews()
@@ -20,10 +21,12 @@ class FeedDetailVC: UIViewController {
         }
     }
     
+    @IBOutlet weak var toggleViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var postLabel: UILabel!
+    @IBOutlet weak var gifTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,20 @@ class FeedDetailVC: UIViewController {
         super.viewWillAppear(animated)
         tabBarController?.tabBar.isHidden = true
         fetchImages()
+    }
+    
+    @IBAction func profileButtonTapped(_ sender: Any) {
+        switch toggleViewShowing {
+        case false:
+            toggleViewTrailingConstraint.constant = 0
+        case true:
+            toggleViewTrailingConstraint.constant = -414
+        }
+        toggleViewShowing = !toggleViewShowing
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     func updateViews() {
