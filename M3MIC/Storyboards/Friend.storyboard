@@ -11,11 +11,17 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="SF-Compact-Rounded-Light.otf">
+            <string>SFCompactRounded-Light</string>
+        </array>
         <array key="SF-Compact-Rounded-Regular.otf">
             <string>SFCompactRounded-Regular</string>
         </array>
         <array key="SF-Compact-Rounded-Semibold.otf">
             <string>SFCompactRounded-Semibold</string>
+        </array>
+        <array key="SF-Compact-Rounded-Thin.otf">
+            <string>SFCompactRounded-Thin</string>
         </array>
     </customFonts>
     <scenes>
@@ -141,11 +147,23 @@
                                         <color key="textColor" name="White100"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oT9-VN-Bch">
+                                        <rect key="frame" x="6" y="12.5" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="AG7-Nw-QZj"/>
+                                            <constraint firstAttribute="height" constant="50" id="wuc-Xq-WF1"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="profileButtonTapped:" destination="MAX-j5-a9g" eventType="touchUpInside" id="AYh-V8-Lhs"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="oT9-VN-Bch" firstAttribute="centerY" secondItem="Btf-T8-4Tl" secondAttribute="centerY" id="3r1-I4-bdM"/>
                                     <constraint firstItem="DDd-eJ-Y0I" firstAttribute="leading" secondItem="Btf-T8-4Tl" secondAttribute="leading" constant="6" id="9Zg-d8-iKt"/>
                                     <constraint firstAttribute="height" constant="75" id="KG4-KA-hDH"/>
                                     <constraint firstItem="jLO-fF-FVv" firstAttribute="centerY" secondItem="Btf-T8-4Tl" secondAttribute="centerY" id="Wfm-Ws-rry"/>
+                                    <constraint firstItem="oT9-VN-Bch" firstAttribute="leading" secondItem="Btf-T8-4Tl" secondAttribute="leading" constant="6" id="qll-Vj-eI0"/>
                                     <constraint firstItem="jLO-fF-FVv" firstAttribute="leading" secondItem="DDd-eJ-Y0I" secondAttribute="trailing" constant="16" id="rie-XT-22D"/>
                                     <constraint firstItem="DDd-eJ-Y0I" firstAttribute="centerY" secondItem="Btf-T8-4Tl" secondAttribute="centerY" id="s36-CK-tmq"/>
                                 </constraints>
@@ -176,11 +194,122 @@
                         <outlet property="friendsTableView" destination="kEL-GV-p8D" id="5QJ-tu-JZ5"/>
                         <outlet property="profilePicture" destination="DDd-eJ-Y0I" id="Wkd-xu-MEC"/>
                         <outlet property="usernameLabel" destination="jLO-fF-FVv" id="TrL-eq-bLH"/>
+                        <segue destination="is4-cx-e60" kind="presentation" identifier="toProfilePictureVC" id="5Kd-6K-pwd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhS-Ej-WC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="424.63768115942031" y="-175.44642857142856"/>
+        </scene>
+        <!--Friends Profile PictureVC-->
+        <scene sceneID="2hx-Kx-hQF">
+            <objects>
+                <viewController id="is4-cx-e60" customClass="FriendsProfilePictureVC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pOY-6H-acF" customClass="MemicView" customModule="M3MIC" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="memic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCe-Wt-fX7">
+                                <rect key="frame" x="16" y="60" width="382" height="57.5"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MFl-nB-yAT" customClass="MemicView" customModule="M3MIC" customModuleProvider="target">
+                                <rect key="frame" x="16" y="165.5" width="382" height="233"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="233" id="IPz-zM-ZmN"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="Vgb-PK-Mrh" kind="embed" identifier="toProfilePictureUploadVC" id="9ll-NN-7AJ"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1LM-fm-Pim" customClass="MemicButton" customModule="M3MIC" customModuleProvider="target">
+                                <rect key="frame" x="16" y="446.5" width="382" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="CVM-Th-HTT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Semibold" family="SF Compact Rounded" pointSize="15"/>
+                                <state key="normal" title="upload photo"/>
+                                <connections>
+                                    <action selector="uploadButtonTapped:" destination="is4-cx-e60" eventType="touchUpInside" id="Wro-aZ-SIS"/>
+                                    <action selector="uploadButtonTapped:" destination="rqF-J0-aqZ" eventType="touchUpInside" id="YLJ-wT-w4a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLH-8p-T6z" customClass="MemicButtonText" customModule="M3MIC" customModuleProvider="target">
+                                <rect key="frame" x="16" y="809" width="382" height="29"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="14"/>
+                                <state key="normal" title="cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="is4-cx-e60" eventType="touchUpInside" id="vBs-aW-50M"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="1LM-fm-Pim" firstAttribute="leading" secondItem="4QX-nb-S3I" secondAttribute="leading" constant="16" id="2bn-d5-u01"/>
+                            <constraint firstItem="SLH-8p-T6z" firstAttribute="leading" secondItem="4QX-nb-S3I" secondAttribute="leading" constant="16" id="4Bv-hQ-niC"/>
+                            <constraint firstItem="1LM-fm-Pim" firstAttribute="top" secondItem="MFl-nB-yAT" secondAttribute="bottom" constant="48" id="AEh-iC-bXm"/>
+                            <constraint firstItem="4QX-nb-S3I" firstAttribute="bottom" secondItem="SLH-8p-T6z" secondAttribute="bottom" constant="24" id="HYJ-Mp-wFV"/>
+                            <constraint firstItem="4QX-nb-S3I" firstAttribute="trailing" secondItem="SLH-8p-T6z" secondAttribute="trailing" constant="16" id="bN3-cR-sa5"/>
+                            <constraint firstItem="4QX-nb-S3I" firstAttribute="trailing" secondItem="BCe-Wt-fX7" secondAttribute="trailing" constant="16" id="d98-CC-cQG"/>
+                            <constraint firstItem="MFl-nB-yAT" firstAttribute="top" secondItem="BCe-Wt-fX7" secondAttribute="bottom" constant="48" id="ddJ-hQ-N5x"/>
+                            <constraint firstItem="4QX-nb-S3I" firstAttribute="trailing" secondItem="MFl-nB-yAT" secondAttribute="trailing" constant="16" id="drc-Qf-6kB"/>
+                            <constraint firstItem="BCe-Wt-fX7" firstAttribute="leading" secondItem="4QX-nb-S3I" secondAttribute="leading" constant="16" id="nxx-LC-dtr"/>
+                            <constraint firstItem="4QX-nb-S3I" firstAttribute="trailing" secondItem="1LM-fm-Pim" secondAttribute="trailing" constant="16" id="pAn-Xw-UU7"/>
+                            <constraint firstItem="BCe-Wt-fX7" firstAttribute="top" secondItem="4QX-nb-S3I" secondAttribute="top" constant="16" id="xMN-Ar-stW"/>
+                            <constraint firstItem="MFl-nB-yAT" firstAttribute="leading" secondItem="4QX-nb-S3I" secondAttribute="leading" constant="16" id="zDe-9r-32Y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4QX-nb-S3I"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rnm-w5-gl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="rqF-J0-aqZ" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1359" y="-175"/>
+        </scene>
+        <!--Profile Picture UploadVC-->
+        <scene sceneID="AJO-pr-h6g">
+            <objects>
+                <viewController id="Vgb-PK-Mrh" customClass="ProfilePictureUploadVC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fdo-Mi-yxT" customClass="MemicView" customModule="M3MIC" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="382" height="233"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7eN-gz-yYv">
+                                <rect key="frame" x="0.0" y="0.0" width="382" height="233"/>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Thin" family="SF Compact Rounded" pointSize="13"/>
+                                <state key="normal" title="edit profile picture">
+                                    <color key="titleColor" name="Secondary"/>
+                                </state>
+                                <connections>
+                                    <action selector="profilePictureButtonTapped:" destination="Vgb-PK-Mrh" eventType="touchUpInside" id="JGH-b4-345"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="byK-6e-IlI">
+                                <rect key="frame" x="91" y="0.0" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="byK-6e-IlI" secondAttribute="height" multiplier="1:1" id="aaH-5b-vO4"/>
+                                    <constraint firstAttribute="width" constant="200" id="naJ-FJ-ME9"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="7eN-gz-yYv" secondAttribute="bottom" id="IuF-DK-npu"/>
+                            <constraint firstItem="7eN-gz-yYv" firstAttribute="top" secondItem="Fdo-Mi-yxT" secondAttribute="top" id="NUW-5I-81D"/>
+                            <constraint firstItem="byK-6e-IlI" firstAttribute="centerX" secondItem="hdw-7i-oZW" secondAttribute="centerX" id="NVq-rm-7vO"/>
+                            <constraint firstAttribute="trailing" secondItem="7eN-gz-yYv" secondAttribute="trailing" id="gjs-Pv-ZFU"/>
+                            <constraint firstItem="byK-6e-IlI" firstAttribute="top" secondItem="Fdo-Mi-yxT" secondAttribute="top" id="j6m-0m-oqK"/>
+                            <constraint firstItem="7eN-gz-yYv" firstAttribute="leading" secondItem="Fdo-Mi-yxT" secondAttribute="leading" id="nqh-cf-eSs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hdw-7i-oZW"/>
+                    </view>
+                    <connections>
+                        <outlet property="profilePicture" destination="byK-6e-IlI" id="twc-1a-c1B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4B1-x7-sTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2136" y="-176"/>
         </scene>
     </scenes>
     <resources>

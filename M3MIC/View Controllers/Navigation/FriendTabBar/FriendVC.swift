@@ -19,6 +19,9 @@ class FriendVC: UIViewController {
         super.viewDidLoad()
         viewSetup()
     }
+    @IBAction func profileButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toProfilePictureVC", sender: self)
+    }
 }
 
 extension FriendVC: UITableViewDelegate, UITableViewDataSource {

@@ -78,6 +78,8 @@
 		56781E7522E0CC070074BC6D /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56781E7422E0CC070074BC6D /* FirebaseStorage.framework */; };
 		56781E7722E2605B0074BC6D /* FeedDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7622E2605B0074BC6D /* FeedDetailCell.swift */; };
 		56781E7922E66BD90074BC6D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7822E66BD90074BC6D /* DateFormatter.swift */; };
+		56781E7B22E69BBE0074BC6D /* FriendsProfilePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7A22E69BBE0074BC6D /* FriendsProfilePictureVC.swift */; };
+		56781E7D22E69C130074BC6D /* ProfilePictureUploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7C22E69C130074BC6D /* ProfilePictureUploadVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +157,8 @@
 		56781E7422E0CC070074BC6D /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Carthage/Build/iOS/FirebaseStorage.framework; sourceTree = SOURCE_ROOT; };
 		56781E7622E2605B0074BC6D /* FeedDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailCell.swift; sourceTree = "<group>"; };
 		56781E7822E66BD90074BC6D /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		56781E7A22E69BBE0074BC6D /* FriendsProfilePictureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfilePictureVC.swift; sourceTree = "<group>"; };
+		56781E7C22E69C130074BC6D /* ProfilePictureUploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureUploadVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +390,8 @@
 			isa = PBXGroup;
 			children = (
 				5621790622D28EB900B45E7B /* FriendVC.swift */,
+				56781E7A22E69BBE0074BC6D /* FriendsProfilePictureVC.swift */,
+				56781E7C22E69C130074BC6D /* ProfilePictureUploadVC.swift */,
 			);
 			path = FriendTabBar;
 			sourceTree = "<group>";
@@ -517,8 +523,10 @@
 				5621790E22D40C8400B45E7B /* FeedDetailVC.swift in Sources */,
 				561472C822D10EEF00648B86 /* Gif.swift in Sources */,
 				5622D7BC22DF8D15002D0542 /* CreateReplyVC.swift in Sources */,
+				56781E7D22E69C130074BC6D /* ProfilePictureUploadVC.swift in Sources */,
 				5622D7AA22DD08BC002D0542 /* CategoryCell.swift in Sources */,
 				561472D022D111F500648B86 /* GifController.swift in Sources */,
+				56781E7B22E69BBE0074BC6D /* FriendsProfilePictureVC.swift in Sources */,
 				56781E7922E66BD90074BC6D /* DateFormatter.swift in Sources */,
 				5622D79322D6CDF0002D0542 /* FeedCell.swift in Sources */,
 				56781E7722E2605B0074BC6D /* FeedDetailCell.swift in Sources */,
