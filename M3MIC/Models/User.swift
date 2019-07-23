@@ -11,8 +11,8 @@ import UIKit
 class User {
     
     let username: String?
-    let blockedUIDs: [String]?
-    let friendUIDs: [String]?
+    var blockedUIDs: [String]?
+    var friendUIDs: [String]?
     
     init(username: String, blockedUIDs: [String], friendUIDs: [String]) {
         self.username = username

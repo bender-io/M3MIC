@@ -56,15 +56,12 @@ extension FriendVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch tableView {
-            
         case friendsTableView:
             guard let friendUIDs = user?.friendUIDs else { return 0 }
-            
             return friendUIDs.count
             
         case blockedTableView:
             guard let blockedUIDs = user?.blockedUIDs else { return 0 }
-            
             return blockedUIDs.count
             
         default:
@@ -104,4 +101,43 @@ extension FriendVC: UITableViewDelegate, UITableViewDataSource {
         
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            switch tableView {
+            case friendsTableView:
+                guard let friendUID = user?.friendUIDs?[indexPath.row] else { return }
+                
+                UserController.shared.removeFriendAndBlockedUIDArrayWith(userUID: friendUID) { (error) in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        guard let index = self.user?.friendUIDs?.firstIndex(of: friendUID) else { return }
+                        self.user?.friendUIDs?.remove(at: index)
+                        print("\(friendUID) removed from friends")
+                        self.friendsTableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                }
+                
+            case blockedTableView:
+                guard let blockedUID = user?.blockedUIDs?[indexPath.row] else { return }
+                
+                UserController.shared.removeFriendAndBlockedUIDArrayWith(userUID: blockedUID) { (error) in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        guard let index = self.user?.blockedUIDs?.firstIndex(of: blockedUID) else { return }
+                        
+                        self.user?.blockedUIDs?.remove(at: index)
+                        print("\(blockedUID) is no longer blocked")
+                        self.blockedTableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                }
+                
+            default:
+                print("Not a valid tableView")
+            }
+        }
+    }
 }
+

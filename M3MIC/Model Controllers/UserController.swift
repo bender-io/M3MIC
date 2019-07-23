@@ -168,4 +168,19 @@ extension UserController {
             completion(nil)
         }
     }
+    
+    func removeFriendAndBlockedUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
+        
+        db.collection(Collection.User).document(currentUser).updateData([
+            Document.friendUIDs : FieldValue.arrayRemove([userUID]),
+            Document.blockedUIDs : FieldValue.arrayRemove([userUID])
+        ]) { (error) in
+            if let error = error {
+                print("❌ Error updating blockedUID array in \(#function) ; \(error.localizedDescription)")
+                completion(error) ; return
+            }
+            completion(nil)
+        }
+    }
 }
