@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol CategoryCellDelegate: class {
+    func passCollectionCellImage(with gif: UIImage, sender: CategoryCell)
+}
+
 class CategoryCell: UITableViewCell {
     
     // MARK: - Properties
     var category: String?
+    weak var delegate: CategoryCellDelegate?
     
     // MARK: - IBOutlets
     @IBOutlet weak var categoryCollection: UICollectionView!
@@ -23,8 +28,6 @@ class CategoryCell: UITableViewCell {
         categoryCollection.delegate = self
     }
 }
-
-
 
 // MARK: - CollectionView Methods
 extension CategoryCell: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -64,43 +67,43 @@ extension CategoryCell: UICollectionViewDelegate, UICollectionViewDataSource {
         switch category {
             
         case "funny":
-            let gif = GifController.shared.gifFunnyArray[indexPath.row]
+            let gif = GifController.shared.gifFunnyArray[indexPath.item]
             cell?.gifImage.image = gif
             
             return cell ?? UICollectionViewCell()
             
         case "cool":
-            let gif = GifController.shared.gifCoolArray[indexPath.row]
+            let gif = GifController.shared.gifCoolArray[indexPath.item]
             cell?.gifImage.image = gif
             
             return cell ?? UICollectionViewCell()
             
         case "happy":
-            let gif = GifController.shared.gifHappyArray[indexPath.row]
+            let gif = GifController.shared.gifHappyArray[indexPath.item]
             cell?.gifImage.image = gif
             
             return cell ?? UICollectionViewCell()
             
         case "sad":
-            let gif = GifController.shared.gifSadArray[indexPath.row]
+            let gif = GifController.shared.gifSadArray[indexPath.item]
             cell?.gifImage.image = gif
             
             return cell ?? UICollectionViewCell()
             
         case "hungry":
-            let gif = GifController.shared.gifHungryArray[indexPath.row]
+            let gif = GifController.shared.gifHungryArray[indexPath.item]
             cell?.gifImage.image = gif
             
             return cell ?? UICollectionViewCell()
             
         case "angry":
-            let gif = GifController.shared.gifAngryArray[indexPath.row]
+            let gif = GifController.shared.gifAngryArray[indexPath.item]
             cell?.gifImage.image = gif
             
             return cell ?? UICollectionViewCell()
             
         case "love":
-            let gif = GifController.shared.gifLoveArray[indexPath.row]
+            let gif = GifController.shared.gifLoveArray[indexPath.item]
             cell?.gifImage.image = gif
             
             return cell ?? UICollectionViewCell()
@@ -111,4 +114,50 @@ extension CategoryCell: UICollectionViewDelegate, UICollectionViewDataSource {
             return cell ?? UICollectionViewCell()
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        switch category {
+            
+        case "funny":
+            let gif = GifController.shared.gifFunnyArray[indexPath.item]
+            delegate?.passCollectionCellImage(with: gif, sender: self)
+            print(gif)
+            
+        case "cool":
+            let gif = GifController.shared.gifCoolArray[indexPath.item]
+            delegate?.passCollectionCellImage(with: gif, sender: self)
+            print(gif)
+            
+        case "happy":
+            let gif = GifController.shared.gifHappyArray[indexPath.item]
+            delegate?.passCollectionCellImage(with: gif, sender: self)
+            print(gif)
+            
+        case "sad":
+            let gif = GifController.shared.gifSadArray[indexPath.item]
+            delegate?.passCollectionCellImage(with: gif, sender: self)
+            print(gif)
+            
+        case "hungry":
+            let gif = GifController.shared.gifHungryArray[indexPath.item]
+            delegate?.passCollectionCellImage(with: gif, sender: self)
+            print(gif)
+            
+        case "angry":
+            let gif = GifController.shared.gifAngryArray[indexPath.item]
+            delegate?.passCollectionCellImage(with: gif, sender: self)
+            print(gif)
+            
+        case "love":
+            let gif = GifController.shared.gifLoveArray[indexPath.item]
+            delegate?.passCollectionCellImage(with: gif, sender: self)
+            print(gif)
+            
+        default:
+            print("Oops")
+        }
+    }
 }
+
+

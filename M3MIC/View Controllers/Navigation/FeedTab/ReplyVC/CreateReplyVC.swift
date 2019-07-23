@@ -18,6 +18,11 @@ class CreateReplyVC: UIViewController {
     var image: UIImage?
     var imageUrl: String?
     
+    var gif: UIImage? {
+        didSet {
+            print("dang")
+        }
+    }
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
