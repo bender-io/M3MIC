@@ -140,6 +140,18 @@ extension ReplyVC {
     }
 }
 
+// MARK: - Prepare for Segue
+extension ReplyVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toGifDetailVC" {
+            let destinationVC = segue.destination as? GifDetailVC
+            let post = self.post
+            destinationVC?.post = post
+        }
+    }
+}
+
+
 enum Category: String {
     case funny
     case cool

@@ -10,15 +10,33 @@ import UIKit
 
 class CreateReplyVC: UIViewController {
 
+    var post: Post? {
+        didSet {
+            updateViews()
+        }
+    }
     var image: UIImage?
     var imageUrl: String?
     
+    
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var gifImage: UIImageView!
+    @IBOutlet weak var messageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
         gifImage.image = image
+    }
+    
+    func updateViews() {
+        guard let post = post else { return }
+        
+        loadViewIfNeeded()
+        usernameLabel.text = post.username
+        timestampLabel.text = Date(timeIntervalSince1970: post.timestamp).stringWith(dateStyle: .short, timeStyle: .short)
+        messageLabel.text = post.message
     }
     
     @IBAction func saveButtonTApped(_ sender: Any) {

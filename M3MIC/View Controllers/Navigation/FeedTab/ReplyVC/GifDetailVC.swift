@@ -13,7 +13,9 @@ protocol GifDetailVCDelegate: class {
 }
 
 class GifDetailVC: UIViewController {
-        
+    
+    var post: Post?
+    
     @IBOutlet weak var gifTableView: UITableView!
     
     override func viewDidLoad() {
@@ -55,6 +57,8 @@ extension GifDetailVC {
             destinationVC?.imageUrl = imageUrl
             destinationVC?.image = image
             
+            let post = self.post
+            destinationVC?.post = post
         }
     }
 }

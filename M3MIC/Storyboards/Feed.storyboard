@@ -46,7 +46,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bPT-1d-gD7">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                                    <rect key="frame" x="0.0" y="3" width="414" height="100"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="NJl-K5-9p9">
                                                             <rect key="frame" x="6" y="6" width="50" height="50"/>
@@ -91,16 +91,13 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="omw-La-9RX">
-                                                    <rect key="frame" x="8" y="108" width="398" height="184"/>
+                                                    <rect key="frame" x="8" y="111" width="398" height="181"/>
                                                     <color key="backgroundColor" name="Black35"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="omw-La-9RX" secondAttribute="height" multiplier="199:92" id="9rW-th-QQZ"/>
-                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="bPT-1d-gD7" firstAttribute="top" secondItem="wQI-7c-PGh" secondAttribute="top" constant="3" id="D2H-QA-onO"/>
                                                 <constraint firstAttribute="trailing" secondItem="bPT-1d-gD7" secondAttribute="trailing" id="FGW-lo-BnB"/>
-                                                <constraint firstItem="bPT-1d-gD7" firstAttribute="top" secondItem="wQI-7c-PGh" secondAttribute="top" id="N0i-EW-YbZ"/>
                                                 <constraint firstItem="omw-La-9RX" firstAttribute="leading" secondItem="wQI-7c-PGh" secondAttribute="leading" constant="8" id="Vnb-Ci-SdT"/>
                                                 <constraint firstAttribute="bottom" secondItem="omw-La-9RX" secondAttribute="bottom" constant="8" id="kNB-Xr-nKr"/>
                                                 <constraint firstItem="bPT-1d-gD7" firstAttribute="leading" secondItem="wQI-7c-PGh" secondAttribute="leading" id="lMD-3m-B10"/>
@@ -800,6 +797,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="gifImage" destination="Vcm-ZT-O6a" id="YmC-qd-gQK"/>
+                        <outlet property="messageLabel" destination="U1R-lu-FSa" id="c1z-hF-hym"/>
+                        <outlet property="timestampLabel" destination="FDG-ib-NGi" id="K8T-Ls-yvA"/>
+                        <outlet property="usernameLabel" destination="xWE-7N-dw2" id="l9t-2q-6Hj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dML-c3-Hh8" userLabel="First Responder" sceneMemberID="firstResponder"/>
