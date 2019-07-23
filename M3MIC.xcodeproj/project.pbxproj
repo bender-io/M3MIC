@@ -81,6 +81,8 @@
 		56781E7B22E69BBE0074BC6D /* FriendsProfilePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7A22E69BBE0074BC6D /* FriendsProfilePictureVC.swift */; };
 		56781E7D22E69C130074BC6D /* ProfilePictureUploadVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7C22E69C130074BC6D /* ProfilePictureUploadVC.swift */; };
 		5679831822E7435100B97202 /* FeedDetailMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5679831722E7435100B97202 /* FeedDetailMenuVC.swift */; };
+		5679831E22E77FEB00B97202 /* BlockedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5679831D22E77FEB00B97202 /* BlockedCell.swift */; };
+		5679832022E7824B00B97202 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5679831F22E7824B00B97202 /* FriendCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,6 +163,8 @@
 		56781E7A22E69BBE0074BC6D /* FriendsProfilePictureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsProfilePictureVC.swift; sourceTree = "<group>"; };
 		56781E7C22E69C130074BC6D /* ProfilePictureUploadVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureUploadVC.swift; sourceTree = "<group>"; };
 		5679831722E7435100B97202 /* FeedDetailMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailMenuVC.swift; sourceTree = "<group>"; };
+		5679831D22E77FEB00B97202 /* BlockedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockedCell.swift; sourceTree = "<group>"; };
+		5679831F22E7824B00B97202 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +399,8 @@
 				5621790622D28EB900B45E7B /* FriendVC.swift */,
 				56781E7A22E69BBE0074BC6D /* FriendsProfilePictureVC.swift */,
 				56781E7C22E69C130074BC6D /* ProfilePictureUploadVC.swift */,
+				5679831F22E7824B00B97202 /* FriendCell.swift */,
+				5679831D22E77FEB00B97202 /* BlockedCell.swift */,
 			);
 			path = FriendTabBar;
 			sourceTree = "<group>";
@@ -514,6 +520,7 @@
 				561472F522D144D300648B86 /* MemicView.swift in Sources */,
 				5622D7B422DD2354002D0542 /* GifDetailVC.swift in Sources */,
 				5622D7A822DD0723002D0542 /* ReplyController.swift in Sources */,
+				5679832022E7824B00B97202 /* FriendCell.swift in Sources */,
 				5621790722D28EB900B45E7B /* FriendVC.swift in Sources */,
 				5614732622D1625F00648B86 /* Errors.swift in Sources */,
 				5622D7B122DD1209002D0542 /* CategoryCollectionCell.swift in Sources */,
@@ -530,6 +537,7 @@
 				56781E7D22E69C130074BC6D /* ProfilePictureUploadVC.swift in Sources */,
 				5622D7AA22DD08BC002D0542 /* CategoryCell.swift in Sources */,
 				561472D022D111F500648B86 /* GifController.swift in Sources */,
+				5679831E22E77FEB00B97202 /* BlockedCell.swift in Sources */,
 				56781E7B22E69BBE0074BC6D /* FriendsProfilePictureVC.swift in Sources */,
 				56781E7922E66BD90074BC6D /* DateFormatter.swift in Sources */,
 				5622D79322D6CDF0002D0542 /* FeedCell.swift in Sources */,

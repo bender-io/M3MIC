@@ -10,36 +10,25 @@ import UIKit
 
 class User {
     
-//    let userUID: String
     let username: String?
-//    let firstname: String?
-//    let lastname: String?
-//    let profilePicture: UIImage?
-//
-//    var fullname: String? {
-//        return "\(String(describing: firstname)) \(String(describing: lastname))"
-//    }
+    let blockedUIDs: [String]?
+    let friendUIDs: [String]?
     
-    init(username: String, profilePicture: UIImage) {
-//        self.userUID = userUID
+    init(username: String, blockedUIDs: [String], friendUIDs: [String]) {
         self.username = username
-//        self.firstname = firstname
-//        self.lastname = lastname
-//        self.profilePicture = profilePicture
+        self.blockedUIDs = blockedUIDs
+        self.friendUIDs = friendUIDs
     }
     
     init?(from dictionary: [String : Any]) {
         
-        guard let username = dictionary[Document.username] as? String
-//            let firstname = dictionary[Document.firstname] as? String,
-//            let lastname = dictionary[Document.lastname] as? String,
-//            let profilePicture = dictionary[Document.profilePicture] as? UIImage
+        guard let username = dictionary[Document.username] as? String,
+            let blockedUIDs = dictionary[Document.blockedUIDs] as? [String],
+            let friendUIDs = dictionary[Document.friendUIDs] as? [String]
             else { print("Failed to initialize in \(#function)") ; return nil }
         
-//        self.userUID = userUID
         self.username = username
-//        self.firstname = firstname
-//        self.lastname = lastname
-//        self.profilePicture = profilePicture
+        self.blockedUIDs = blockedUIDs
+        self.friendUIDs = friendUIDs
     }
 }

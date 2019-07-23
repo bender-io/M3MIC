@@ -115,9 +115,10 @@ class UserController {
                 completion(error) ; return
             }
             guard let data = document?.data() else { print("No data found in \(#function)") ; return }
+            
             self.user = User(from: data)
+            completion(nil)
             print("User: \(String(describing: self.user?.username)) was fetched")
-
         } 
     }
     
@@ -136,11 +137,12 @@ extension UserController {
     
     func updateBlockedUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
-
+       
         guard currentUser != userUID else { print("Cannot block currentUser") ; completion(Errors.unwrapCurrentUserUID) ; return }
         
         db.collection(Collection.User).document(currentUser).updateData([
-            Document.blockedUIDs : FieldValue.arrayUnion([userUID])
+            Document.blockedUIDs : FieldValue.arrayUnion([userUID]),
+            Document.friendUIDs : FieldValue.arrayRemove([userUID])
         ]) { (error) in
             if let error = error {
                 print("❌ Error updating blockedUID array in \(#function) ; \(error.localizedDescription)")
@@ -156,7 +158,8 @@ extension UserController {
         guard currentUser != userUID else { print("Cannot friend currentUser") ; completion(Errors.unwrapCurrentUserUID) ; return }
         
         db.collection(Collection.User).document(currentUser).updateData([
-            Document.friendUIDs : FieldValue.arrayUnion([userUID])
+            Document.friendUIDs : FieldValue.arrayUnion([userUID]),
+            Document.blockedUIDs : FieldValue.arrayRemove([userUID])
         ]) { (error) in
             if let error = error {
                 print("❌ Error updating blockedUID array in \(#function) ; \(error.localizedDescription)")
@@ -166,4 +169,3 @@ extension UserController {
         }
     }
 }
-

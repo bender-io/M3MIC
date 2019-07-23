@@ -10,6 +10,14 @@ import UIKit
 
 class FriendVC: UIViewController {
 
+    var user: User? {
+        didSet {
+            usernameLabel.text = user?.username
+            friendsTableView.reloadData()
+            blockedTableView.reloadData()
+        }
+    }
+    
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var friendsTableView: UITableView!
@@ -20,6 +28,18 @@ class FriendVC: UIViewController {
         viewSetup()
         blockedTableView.cornerRadios()
         friendsTableView.cornerRadios()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        UserController.shared.fetchCurrentUserInfo { (error) in
+            if let error = error {
+                print(error)
+            } else {
+                self.user = UserController.shared.user
+                print("Blocked: \(String(describing: self.user?.blockedUIDs)) \nFriends: \(String(describing: self.user?.friendUIDs))")
+            }
+        }
     }
     
     @IBAction func profileButtonTapped(_ sender: Any) {
@@ -38,10 +58,14 @@ extension FriendVC: UITableViewDelegate, UITableViewDataSource {
         switch tableView {
             
         case friendsTableView:
-            return 0
+            guard let friendUIDs = user?.friendUIDs else { return 0 }
+            
+            return friendUIDs.count
             
         case blockedTableView:
-            return 0
+            guard let blockedUIDs = user?.blockedUIDs else { return 0 }
+            
+            return blockedUIDs.count
             
         default:
             return 0
@@ -53,11 +77,25 @@ extension FriendVC: UITableViewDelegate, UITableViewDataSource {
         switch tableView {
             
         case friendsTableView:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell") as? FriendCell
+            guard let friend = user?.friendUIDs?[indexPath.row] else { return UITableViewCell() }
+            
+            cell?.usernameLabel.text = friend
+            cell?.profilePicture.image = #imageLiteral(resourceName: "PrimaryLogo")
+            cell?.backgroundColor = UIColor.black35
+            cell?.cornerRadios()
+            
             return cell ?? UITableViewCell()
 
         case blockedTableView:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "blockedCell")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "blockedCell") as? BlockedCell
+            guard let blocked = user?.blockedUIDs?[indexPath.row] else { return UITableViewCell() }
+            
+            cell?.usernameLabel.text = blocked
+            cell?.profilePicture.image = #imageLiteral(resourceName: "PrimaryLogo")
+            cell?.backgroundColor = UIColor.black35
+            cell?.cornerRadios()
+            
             return cell ?? UITableViewCell()
             
         default:
