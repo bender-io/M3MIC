@@ -66,7 +66,7 @@ class ReplyController {
                 
                 self.updateReplyUIDsWith(replyUID: docID, postUID: currentPost.postUID, replyURL: imageURL)
                 
-                UserController.shared.updateReplyUIDsWith(replyUID: docID, completion: { (error) in
+                UserController.shared.updateCurrentUserReplyUIDArrayWith(replyUID: docID, completion: { (error) in
                     if let error = error {
                         print("Error updating replyUID array in \(#function) ; \(error.localizedDescription) ; \(error)")
                     } else {

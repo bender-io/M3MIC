@@ -89,7 +89,11 @@ class FeedMenuTVC: UITableViewController {
     }
     
     func logoutUser() {
-        UserController.shared.signOutUser()
+        UserController.shared.signOutUser { (error) in
+            if let error = error {
+                print("Error signing out user in \(#function) ; \(error.localizedDescription) ; \(error)")
+            }
+        }
         
         let loginViewController = login.instantiateViewController(withIdentifier: "LoginVC")
         UIApplication.shared.windows.first!.rootViewController = loginViewController

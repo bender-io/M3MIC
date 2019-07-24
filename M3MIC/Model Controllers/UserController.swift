@@ -19,6 +19,8 @@ class UserController {
     lazy var db = Firestore.firestore()
     var user: User?
     
+    // MARK: - FireStore CRUD Methods
+
     /// Generates a new userUID in FireStore Auth and creates a new "User" document to the "Users" collection in FireStore Database, where the document name is equal to the new userUID. Additionally, populates the new user document with empty arrays for friendUIDs, blockedUIDs, postUIDs & replyUIDs.
     ///
     /// - Parameters:
@@ -67,7 +69,20 @@ class UserController {
             }
         }
     }
-    
+
+    /// Signs out the current user
+    ///
+    /// - Parameter completion: completes with an error if there is one
+    func signOutUser(completion: @escaping(Error?) -> Void) {
+        do {
+            try Auth.auth().signOut()
+            print("User signed out successfully")
+            completion(nil) ; return
+        } catch {
+            print("There was an error signing the user out in \(#function) ; \(error.localizedDescription)")
+            completion(error)
+        }
+    }
     
     /// Creates a new username or updates an existing username.
     ///
@@ -93,7 +108,7 @@ class UserController {
     /// - Parameters:
     ///   - postUID: the new postUID that is being updated
     ///   - completion: completes with an error if there is one
-    func updatePostUIDsWith(postUID: String, completion: @escaping(Error?) -> Void) {
+    func updateCurrentUserPostUIDArrayWith(postUID: String, completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.unwrapCurrentUserUID) ; return }
         
         db.collection(Collection.User).document(currentUser.uid).updateData([
@@ -114,7 +129,7 @@ class UserController {
     /// - Parameters:
     ///   - replyUID: the new replyUID that is being updated
     ///   - completion: completes with an error if there is one
-    func updateReplyUIDsWith(replyUID: String, completion: @escaping(Error?) -> Void) {
+    func updateCurrentUserReplyUIDArrayWith(replyUID: String, completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.unwrapCurrentUserUID) ; return }
         
         db.collection(Collection.User).document(currentUser.uid).updateData([
@@ -130,29 +145,24 @@ class UserController {
         }
     }
     
-    // MARK: - Fetch Methods
+    // MARK: - FireStore Fetch Methods
+    
+    /// Fetches the current user's "User" document and initializes a User from the data.
+    ///
+    /// - Parameter completion: completes with an error if there is one
     func fetchCurrentUserInfo(completion: @escaping(Error?) -> Void) {
-        guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
+        guard let currentUser = Auth.auth().currentUser?.uid else { completion(Errors.noCurrentUser) ; return }
         
         db.collection(Collection.User).document(currentUser).getDocument { (document, error) in
             if let error = error {
-                print("❌ Error fetching documents in \(#function) ; \(error.localizedDescription) ; \(error)")
+                print("Error fetching current user in \(#function) ; \(error.localizedDescription)")
                 completion(error) ; return
             }
-            guard let data = document?.data() else { print("No data found in \(#function)") ; return }
+            guard let data = document?.data() else { completion(Errors.unwrapData) ; return }
             
             self.user = User(from: data)
+            print("Fetched user: \(String(describing: self.user?.username))")
             completion(nil)
-            print("User: \(String(describing: self.user?.username)) was fetched")
-        } 
-    }
-    
-    /// Signs out the current user
-    func signOutUser() {
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print("There was an error signing the user out in \(#function) ; \(error.localizedDescription) ; \(error)")
         }
     }
 }
