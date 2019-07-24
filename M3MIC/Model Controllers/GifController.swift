@@ -83,7 +83,7 @@ class GifController {
         gifReplyArray.removeAll()
         
         for reply in replies {
-            guard let baseURL = URL(string: reply.gifURL) else { completion(false) ; return }
+            guard let baseURL = URL(string: reply.imageURL) else { completion(false) ; return }
             
             URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
                 if let error = error {

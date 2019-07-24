@@ -21,11 +21,10 @@ class User {
     }
     
     init?(from dictionary: [String : Any]) {
-        
         guard let username = dictionary[Document.username] as? String,
             let blockedUIDs = dictionary[Document.blockedUIDs] as? [String],
             let friendUIDs = dictionary[Document.friendUIDs] as? [String]
-            else { print("Failed to initialize in \(#function)") ; return nil }
+            else { print("Initializer failed in \(#function)") ; return nil }
         
         self.username = username
         self.blockedUIDs = blockedUIDs

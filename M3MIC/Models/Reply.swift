@@ -10,12 +10,9 @@ import Foundation
 
 struct Reply {
     
-    // MARK: - Properties
     let postUID: String
     let userUID: String
-    let gifURL: String
-//    let likeCount: Int
-//    let rank: Rank
+    let imageURL: String
     
     init?(from dictionary: [String : Any]) {
         guard let userUID = dictionary[Document.userUID] as? String,
@@ -25,14 +22,7 @@ struct Reply {
         
         self.userUID = userUID
         self.postUID = postUID
-        self.gifURL = gifURL
-    }
-    
-    enum Rank: String {
-        case gold
-        case silver
-        case bronze
-        case none
+        self.imageURL = gifURL
     }
 }
 

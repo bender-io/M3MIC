@@ -35,7 +35,7 @@ class SignupVC: UIViewController {
             let password = passwordTF.text, !password.isEmpty
             else { print("Could not unwrap TF in \(#function)") ; return }
         
-        UserController.shared.signupUserWith(email: email, password: password) { (error) in
+        UserController.shared.createUserWith(email: email, password: password) { (error) in
             if let error = error {
                 print("❌ Error creating a new user found in \(#function) ; \(error.localizedDescription) ; \(error)")
                 self.presentSignupErrorAlert()
