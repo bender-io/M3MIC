@@ -19,6 +19,8 @@ class ReplyController {
     var replies = [Reply]()
     private var post: Post?
     
+    var selectedImage: UIImage?
+    
     let db = UserController.shared.db
     
     func updateReplyUIDsWith(replyUID: String, postUID: String, replyURL: String) {

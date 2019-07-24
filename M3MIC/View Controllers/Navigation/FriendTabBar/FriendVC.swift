@@ -10,6 +10,14 @@ import UIKit
 
 class FriendVC: UIViewController {
 
+    var user: User? {
+        didSet {
+            usernameLabel.text = user?.username
+            friendsTableView.reloadData()
+            blockedTableView.reloadData()
+        }
+    }
+    
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var friendsTableView: UITableView!
@@ -18,7 +26,22 @@ class FriendVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
+        blockedTableView.cornerRadios()
+        friendsTableView.cornerRadios()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        UserController.shared.fetchCurrentUserInfo { (error) in
+            if let error = error {
+                print(error)
+            } else {
+                self.user = UserController.shared.user
+                print("Blocked: \(String(describing: self.user?.blockedUIDs)) \nFriends: \(String(describing: self.user?.friendUIDs))")
+            }
+        }
+    }
+    
     @IBAction func profileButtonTapped(_ sender: Any) {
         performSegue(withIdentifier: "toProfilePictureVC", sender: self)
     }
@@ -27,18 +50,19 @@ class FriendVC: UIViewController {
 extension FriendVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 75
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         switch tableView {
-            
         case friendsTableView:
-            return 0
+            guard let friendUIDs = user?.friendUIDs else { return 0 }
+            return friendUIDs.count
             
         case blockedTableView:
-            return 0
+            guard let blockedUIDs = user?.blockedUIDs else { return 0 }
+            return blockedUIDs.count
             
         default:
             return 0
@@ -50,11 +74,25 @@ extension FriendVC: UITableViewDelegate, UITableViewDataSource {
         switch tableView {
             
         case friendsTableView:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "friendsCell") as? FriendCell
+            guard let friend = user?.friendUIDs?[indexPath.row] else { return UITableViewCell() }
+            
+            cell?.usernameLabel.text = friend
+            cell?.profilePicture.image = #imageLiteral(resourceName: "PrimaryLogo")
+            cell?.backgroundColor = UIColor.black35
+            cell?.cornerRadios()
+            
             return cell ?? UITableViewCell()
 
         case blockedTableView:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "blockedCell")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "blockedCell") as? BlockedCell
+            guard let blocked = user?.blockedUIDs?[indexPath.row] else { return UITableViewCell() }
+            
+            cell?.usernameLabel.text = blocked
+            cell?.profilePicture.image = #imageLiteral(resourceName: "PrimaryLogo")
+            cell?.backgroundColor = UIColor.black35
+            cell?.cornerRadios()
+            
             return cell ?? UITableViewCell()
             
         default:
@@ -63,4 +101,43 @@ extension FriendVC: UITableViewDelegate, UITableViewDataSource {
         
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            switch tableView {
+            case friendsTableView:
+                guard let friendUID = user?.friendUIDs?[indexPath.row] else { return }
+                
+                UserController.shared.removeFriendAndBlockedUIDArrayWith(userUID: friendUID) { (error) in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        guard let index = self.user?.friendUIDs?.firstIndex(of: friendUID) else { return }
+                        self.user?.friendUIDs?.remove(at: index)
+                        print("\(friendUID) removed from friends")
+                        self.friendsTableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                }
+                
+            case blockedTableView:
+                guard let blockedUID = user?.blockedUIDs?[indexPath.row] else { return }
+                
+                UserController.shared.removeFriendAndBlockedUIDArrayWith(userUID: blockedUID) { (error) in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        guard let index = self.user?.blockedUIDs?.firstIndex(of: blockedUID) else { return }
+                        
+                        self.user?.blockedUIDs?.remove(at: index)
+                        print("\(blockedUID) is no longer blocked")
+                        self.blockedTableView.deleteRows(at: [indexPath], with: .fade)
+                    }
+                }
+                
+            default:
+                print("Not a valid tableView")
+            }
+        }
+    }
 }
+

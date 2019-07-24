@@ -17,6 +17,8 @@ class UserController {
     lazy var db = Firestore.firestore()
     
     var user: User?
+    var blockedUsers = [String]()
+    var userToFriend = [String]()
     
     /// Creates a new "User" document to the "Users" collection in FireStore. At inception, each user generates a userUID. Additionaly, each user sets an empty array for friendUID (other userUID's that the user can find on their friend's list), blockedUID (other userUID's that are blocked from the user) and a profileUID, which links the user to their profile data.
     ///
@@ -104,7 +106,7 @@ class UserController {
     }
     
     // MARK: - Fetch Methods
-    func fetchUserInfo(completion: @escaping(Error?) -> Void) {
+    func fetchCurrentUserInfo(completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
         
         db.collection(Collection.User).document(currentUser).getDocument { (document, error) in
@@ -113,9 +115,10 @@ class UserController {
                 completion(error) ; return
             }
             guard let data = document?.data() else { print("No data found in \(#function)") ; return }
+            
             self.user = User(from: data)
+            completion(nil)
             print("User: \(String(describing: self.user?.username)) was fetched")
-
         } 
     }
     
@@ -125,6 +128,59 @@ class UserController {
             try Auth.auth().signOut()
         } catch {
             print("There was an error signing the user out in \(#function) ; \(error.localizedDescription) ; \(error)")
+        }
+    }
+}
+
+// MARK: - Add & Block User Methods
+extension UserController {
+    
+    func updateBlockedUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
+       
+        guard currentUser != userUID else { print("Cannot block currentUser") ; completion(Errors.unwrapCurrentUserUID) ; return }
+        
+        db.collection(Collection.User).document(currentUser).updateData([
+            Document.blockedUIDs : FieldValue.arrayUnion([userUID]),
+            Document.friendUIDs : FieldValue.arrayRemove([userUID])
+        ]) { (error) in
+            if let error = error {
+                print("❌ Error updating blockedUID array in \(#function) ; \(error.localizedDescription)")
+                completion(error) ; return
+            }
+            completion(nil)
+        }
+    }
+    
+    func updateFriendUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
+        
+        guard currentUser != userUID else { print("Cannot friend currentUser") ; completion(Errors.unwrapCurrentUserUID) ; return }
+        
+        db.collection(Collection.User).document(currentUser).updateData([
+            Document.friendUIDs : FieldValue.arrayUnion([userUID]),
+            Document.blockedUIDs : FieldValue.arrayRemove([userUID])
+        ]) { (error) in
+            if let error = error {
+                print("❌ Error updating blockedUID array in \(#function) ; \(error.localizedDescription)")
+                completion(error) ; return
+            }
+            completion(nil)
+        }
+    }
+    
+    func removeFriendAndBlockedUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
+        
+        db.collection(Collection.User).document(currentUser).updateData([
+            Document.friendUIDs : FieldValue.arrayRemove([userUID]),
+            Document.blockedUIDs : FieldValue.arrayRemove([userUID])
+        ]) { (error) in
+            if let error = error {
+                print("❌ Error updating blockedUID array in \(#function) ; \(error.localizedDescription)")
+                completion(error) ; return
+            }
+            completion(nil)
         }
     }
 }

@@ -10,9 +10,10 @@ import UIKit
 
 class FeedDetailVC: UIViewController {
     
-    
     // MARK: - Properties
     var toggleViewShowing = false
+    
+    var feedDetailMenuVC = FeedDetailMenuVC()
     
     var post: Post? {
         didSet {
@@ -21,6 +22,7 @@ class FeedDetailVC: UIViewController {
         }
     }
     
+    // MARK: - IBOutlets
     @IBOutlet weak var toggleViewTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
@@ -39,6 +41,7 @@ class FeedDetailVC: UIViewController {
         fetchImages()
     }
     
+    // MARK: - IBActions
     @IBAction func profileButtonTapped(_ sender: Any) {
         switch toggleViewShowing {
         case false:
@@ -48,7 +51,7 @@ class FeedDetailVC: UIViewController {
         }
         toggleViewShowing = !toggleViewShowing
         
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.2) {
             self.view.layoutIfNeeded()
         }
     }
@@ -87,6 +90,7 @@ class FeedDetailVC: UIViewController {
     }
 }
 
+// MARK: - TableView Methods
 extension FeedDetailVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return GifController.shared.gifReplyArray.count
@@ -101,7 +105,7 @@ extension FeedDetailVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 225
+        return 255
     }
 }
 
@@ -112,6 +116,29 @@ extension FeedDetailVC {
             let destinationVC = segue.destination as? ReplyVC
             let post = self.post
             destinationVC?.post = post
+        }
+        
+        if segue.identifier == "friendMenueVC" {
+            let destinationVC = segue.destination as? FeedDetailMenuVC
+            destinationVC?.delegate = self
+            let post = self.post
+            destinationVC?.post = post
+        }
+    }
+}
+
+// MARK: - FeedDetailMenuVCDelegate
+extension FeedDetailVC: FeedDetailMenuVCDelegate {
+    func dismissFeedDetailMenu(sender: FeedDetailMenuVC) {
+        print("delegate responded")
+        
+        feedDetailMenuVC.dismissButtonTapped(self)
+        
+        toggleViewTrailingConstraint.constant = -414
+        toggleViewShowing = !toggleViewShowing
+    
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
         }
     }
 }

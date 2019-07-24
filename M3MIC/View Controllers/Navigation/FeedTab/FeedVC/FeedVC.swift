@@ -34,7 +34,6 @@ class FeedVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchPosts()
-        pushToDetailVC()
         menuClosed()
         menuIsShowing = false
     }
@@ -45,8 +44,6 @@ class FeedVC: UIViewController {
     
     @IBAction func menuButtonTapped(_ sender: Any) {
         menuTapped()
-    }
-    @IBAction func logoutButtonTapped(_ sender: Any) {
     }
     
     func setupTabBarUI() {
@@ -79,16 +76,6 @@ class FeedVC: UIViewController {
         menuOverlay.isHidden = true
         tabBarController?.tabBar.isHidden = false
     }
-    
-    func pushToDetailVC() {
-        let feedDetailVC = UIStoryboard.init(name: "Feed", bundle: Bundle.main).instantiateViewController(withIdentifier: "FeedDetailVC") as? FeedDetailVC
-        
-        if PostController.shared.postWasCreated {
-            
-            PostController.shared.postWasCreated = false
-            navigationController?.pushViewController(feedDetailVC ?? UIViewController(), animated: true)
-        }
-    }
 }
 
 // MARK: - TableView Methods
@@ -102,15 +89,13 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as? FeedCell
         let post = posts[indexPath.row]
         cell?.post = post
-        
-        cell?.gifImage.image = #imageLiteral(resourceName: "PrimaryLogo")
-        
+        cell?.gifImage.image = #imageLiteral(resourceName: "SecondaryLogo")
+
         if let replyUrl = post.topReply {
             GifController.shared.fetchTopReplyImageFrom(url: replyUrl, completion: { (image) in
                 DispatchQueue.main.async {
                     if let image = image {
                         cell?.gifImage.image = image
-                        print(cell?.post?.message as Any, image)
                     } else {
                         print("Failed to get image ; \(String(describing: post.topReply))")
                     }
@@ -143,7 +128,7 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
 extension FeedVC {
     
     func fetchUserProfile() {
-        UserController.shared.fetchUserInfo { (error) in
+        UserController.shared.fetchCurrentUserInfo { (error) in
             if let error = error {
                 print("❌ Could not fetch user info in \(#function) ; \(error.localizedDescription) ; \(error)")
             }

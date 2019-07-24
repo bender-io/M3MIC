@@ -8,7 +8,15 @@
 
 import UIKit
 
-class ReplyVC: UIViewController {
+class ReplyVC: UIViewController, CategoryCellDelegate {
+    
+    func passCollectionCellImage(imageURL: String, image: UIImage, sender: CategoryCell) {
+        guard let gifVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "createVC") as? CreateReplyVC else { return }
+        gifVC.image = image
+        gifVC.post = post
+        gifVC.imageUrl = imageURL
+        navigationController?.pushViewController(gifVC, animated: true)
+    }
     
     // MARK: - Properties
     let categories = ["funny", "cool", "happy", "sad", "hungry", "angry", "love"]
@@ -69,7 +77,7 @@ extension ReplyVC: UITableViewDelegate, UITableViewDataSource {
         let category = categories[indexPath.row]
         cell?.categoryLabel.text = category
         cell?.category = category
-        
+        cell?.delegate = self
         return cell ?? UITableViewCell()
     }
     
@@ -139,6 +147,19 @@ extension ReplyVC {
         }
     }
 }
+
+// MARK: - Prepare for Segue
+extension ReplyVC {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toGifDetailVC" {
+            let destinationVC = segue.destination as? GifDetailVC
+            let post = self.post
+            destinationVC?.post = post
+        }
+    }
+}
+
+
 
 enum Category: String {
     case funny
