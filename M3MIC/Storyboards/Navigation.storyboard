@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="-1083" y="68"/>
         </scene>
-        <!--NavigationTBC-->
+        <!--Tab Bar Controller-->
         <scene sceneID="OGk-Er-QpV">
             <objects>
-                <tabBarController storyboardIdentifier="NavigationTBC" id="urp-qt-CbH" customClass="NavigationTBC" customModule="M3MIC" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="NavigationTBC" id="urp-qt-CbH" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9Fd-Bh-NyV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

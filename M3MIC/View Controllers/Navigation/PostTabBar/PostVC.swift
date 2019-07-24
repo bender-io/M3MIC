@@ -11,10 +11,8 @@ import UIKit
 class PostVC: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var messageTV: UITextView!
-    @IBOutlet weak var publicSwitch: UISwitch!
+    @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var headerView: UIView!
-    @IBOutlet weak var switchLabel: UILabel!
     
     var switchIsPublic = true
     
@@ -27,7 +25,7 @@ class PostVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        messageTV.becomeFirstResponder()
+        messageTextView.becomeFirstResponder()
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -36,23 +34,17 @@ class PostVC: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        messageTV.text = "What's on your mind?"
+        messageTextView.text = "What's on your mind?"
         tabBarController?.selectedIndex = 0
     }
     
-    @IBAction func publicSwitchTapped(_ sender: Any) {
-        switchIsPublic = !switchIsPublic
-        
-        if switchIsPublic {
-            switchLabel.text = "Post to Public Feed"
-        } else {
-            switchLabel.text = "Post to Private Feed"
-        }
+    @IBAction func clearButtonTapped(_ sender: Any) {
+        messageTextView.text = ""
+        messageTextView.becomeFirstResponder()
     }
     
     func toDetailVC() {
         tabBarController?.selectedIndex = 0
-        
     }
 }
 
@@ -70,7 +62,7 @@ extension PostVC: UITextViewDelegate {
 extension PostVC {
     
     func createPost() {
-        guard let message = messageTV.text, !message.isEmpty else { print("Could not unwrap a message in \(#function)") ; return }
+        guard let message = messageTextView.text, !message.isEmpty else { print("Could not unwrap a message in \(#function)") ; return }
         guard let username = UserController.shared.user?.username else { print("Could not find username in \(#function)") ; return }
         
         PostController.shared.createPostWith(message: message, username: username) { (error) in
@@ -78,6 +70,6 @@ extension PostVC {
                 print("❌ Error creating post in \(#function) ; \(error.localizedDescription) ; \(error)")
             }
         }
-        messageTV.text = "What's on your mind?"
+        messageTextView.text = "What's on your mind?"
     }
 }

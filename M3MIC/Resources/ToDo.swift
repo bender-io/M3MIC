@@ -32,6 +32,10 @@ TODO: - WISH LIST
     6. Constraints for XR, XS, and 8
     7. Import friends from contacts / facebook
  
+ 
+ TODO: - NOTES
+    1. Max post characters = 75
+ 
 */
 
 
