@@ -35,7 +35,7 @@ TODO: - WISH LIST
  
  TODO: - NOTES
     1. Max post characters = 75
- 
+    2. Grab bigger gifs (220 is pixillated)
 */
 
 

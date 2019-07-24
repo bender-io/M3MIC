@@ -11,7 +11,7 @@ import UIKit
 class ReplyVC: UIViewController, CategoryCellDelegate {
     
     func passCollectionCellImage(imageURL: String, image: UIImage, sender: CategoryCell) {
-        guard let gifVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "createVC") as? CreateReplyVC else { return }
+        guard let gifVC = UIStoryboard(name: "Reply", bundle: nil).instantiateViewController(withIdentifier: "PostReplyVC") as? CreateReplyVC else { return }
         gifVC.image = image
         gifVC.post = post
         gifVC.imageUrl = imageURL
