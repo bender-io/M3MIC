@@ -48,28 +48,25 @@ class PostController {
         })
     }
     
-    func fetchAllPosts(completion: @escaping(Result <[Post], Error>) -> Void) {
-        db.collection(Collection.Post).getDocuments { (snapshot, error) in
+    func fetchAllPosts(blockedUIDs: [String], completion: @escaping(Result <[Post], Error>) -> Void) {
+        var posts: [Post] = []
+        
+        db.collection(Collection.Post).order(by: Document.timestamp, descending: true).getDocuments { (snapshot, error) in
             if let error = error {
                 print("❌ Error fetching documents in \(#function) ; \(error.localizedDescription) ; \(error)")
                 completion(.failure(error)) ; return
             }
             guard let snapshot = snapshot, snapshot.count > 0 else { completion(.failure(Errors.snapshotGuard)) ; return }
-            
-//            for document in snapshot.documents {
-//                let data = document.data()
-//                let userID = data[Document.userUID]
-//                //go into storage filepath: ("profileImages/\(userID)").
-//
-//                //if let data = data{
-//                //let image = UIImage(data:data)
-//
-//                //Post(
-//            }
-            
-            self.posts = snapshot.documents.compactMap { Post(from: $0.data(), postUID: $0.documentID) }
+
+            for document in snapshot.documents {
+                let data = document.data()
+                guard let post = Post(from: data, postUID: document.documentID) else { completion(.failure(Errors.snapshotGuard)) ; return }
+                if !blockedUIDs.contains(post.userUID) {
+                    posts.append(post)
+                }
+            }
+            self.posts = posts
             completion(.success(self.posts))
         }
     }
-
 }

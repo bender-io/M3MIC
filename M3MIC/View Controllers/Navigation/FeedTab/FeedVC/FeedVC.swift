@@ -137,7 +137,8 @@ extension FeedVC {
     }
     
     func fetchPosts() {
-        PostController.shared.fetchAllPosts { (result) in
+        let blockedUIDs = UserController.shared.user?.blockedUIDs ?? []
+        PostController.shared.fetchAllPosts(blockedUIDs: blockedUIDs) { (result) in
             switch result {
             case .failure(let error):
                 print("❌ Error fetching posts in \(#function) ; \(error.localizedDescription) ; \(error)")

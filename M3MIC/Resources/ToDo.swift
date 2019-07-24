@@ -9,17 +9,15 @@
 /*
  
 TODO: - HIGH PRIORITY
-    1. Hide posts where blockedUID == post.userUID
-    2. Fix imageURL array to save and fetch properly
-    3. Add profilePicture to FSStorage and fetch from user.profilePicture (singleton throughout?)
+    1. Fix imageURL array to save and fetch properly
+    2. Add profilePicture to FSStorage and fetch from user.profilePicture (singleton throughout?)
  
 TODO: - MEDIUM PRIORITY
-    1. Filter posts by timestamp
-    2. Replace images with gifs
-    3. Auto-clear  creatPostTextField once typing
-    4. Ability to delete your reply
-    5. Ability to delete your post
-    6. Add username to reply
+    1. Replace images with gifs
+    2. Auto-clear  creatPostTextField once typing
+    3. Ability to delete your reply
+    4. Ability to delete your post
+    5. Add username to reply
  
 TODO: - LOW PRIORITY
     1. Change status bar color to white on certain VC's
