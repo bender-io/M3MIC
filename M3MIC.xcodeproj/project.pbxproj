@@ -76,6 +76,7 @@
 		5622D7B622DD2579002D0542 /* GifDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B522DD2579002D0542 /* GifDetailCell.swift */; };
 		5622D7BC22DF8D15002D0542 /* CreateReplyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */; };
 		564F420F22E8208500F3A2F6 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564F420E22E8208500F3A2F6 /* ToDo.swift */; };
+		564F421322E8FA9600F3A2F6 /* Reply.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 564F421222E8FA9600F3A2F6 /* Reply.storyboard */; };
 		56781E7522E0CC070074BC6D /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56781E7422E0CC070074BC6D /* FirebaseStorage.framework */; };
 		56781E7722E2605B0074BC6D /* FeedDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7622E2605B0074BC6D /* FeedDetailCell.swift */; };
 		56781E7922E66BD90074BC6D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7822E66BD90074BC6D /* DateFormatter.swift */; };
@@ -159,6 +160,7 @@
 		5622D7B522DD2579002D0542 /* GifDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailCell.swift; sourceTree = "<group>"; };
 		5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReplyVC.swift; sourceTree = "<group>"; };
 		564F420E22E8208500F3A2F6 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		564F421222E8FA9600F3A2F6 /* Reply.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reply.storyboard; sourceTree = "<group>"; };
 		56781E7422E0CC070074BC6D /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Carthage/Build/iOS/FirebaseStorage.framework; sourceTree = SOURCE_ROOT; };
 		56781E7622E2605B0074BC6D /* FeedDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailCell.swift; sourceTree = "<group>"; };
 		56781E7822E66BD90074BC6D /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				561472B222D1085800648B86 /* Login.storyboard */,
 				562178F722D284A900B45E7B /* Navigation.storyboard */,
 				562178F922D2873900B45E7B /* Feed.storyboard */,
+				564F421222E8FA9600F3A2F6 /* Reply.storyboard */,
 				5621790222D28CAE00B45E7B /* Post.storyboard */,
 				5621790422D28E6300B45E7B /* Friend.storyboard */,
 			);
@@ -496,6 +499,7 @@
 				561472F922D1581400648B86 /* GoogleService-Info.plist in Resources */,
 				5621790522D28E6300B45E7B /* Friend.storyboard in Resources */,
 				561472B422D1085800648B86 /* Login.storyboard in Resources */,
+				564F421322E8FA9600F3A2F6 /* Reply.storyboard in Resources */,
 				561472E922D13C3F00648B86 /* Fonts in Resources */,
 				562178F822D284A900B45E7B /* Navigation.storyboard in Resources */,
 			);

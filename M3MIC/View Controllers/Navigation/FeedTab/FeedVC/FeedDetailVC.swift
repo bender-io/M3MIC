@@ -56,6 +56,12 @@ class FeedDetailVC: UIViewController {
         }
     }
     
+    @IBAction func addButtonTapped(_ sender: Any) {
+        guard let replyVC = UIStoryboard(name: "Reply", bundle: nil).instantiateViewController(withIdentifier: "ReplyVC") as? ReplyVC else { return }
+        navigationController?.pushViewController(replyVC, animated: true)
+        
+    }
+    
     func updateViews() {
         loadViewIfNeeded()
 
