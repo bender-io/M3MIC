@@ -75,6 +75,7 @@
 		5622D7B422DD2354002D0542 /* GifDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B322DD2354002D0542 /* GifDetailVC.swift */; };
 		5622D7B622DD2579002D0542 /* GifDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B522DD2579002D0542 /* GifDetailCell.swift */; };
 		5622D7BC22DF8D15002D0542 /* CreateReplyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */; };
+		564F420F22E8208500F3A2F6 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564F420E22E8208500F3A2F6 /* ToDo.swift */; };
 		56781E7522E0CC070074BC6D /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56781E7422E0CC070074BC6D /* FirebaseStorage.framework */; };
 		56781E7722E2605B0074BC6D /* FeedDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7622E2605B0074BC6D /* FeedDetailCell.swift */; };
 		56781E7922E66BD90074BC6D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7822E66BD90074BC6D /* DateFormatter.swift */; };
@@ -157,6 +158,7 @@
 		5622D7B322DD2354002D0542 /* GifDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailVC.swift; sourceTree = "<group>"; };
 		5622D7B522DD2579002D0542 /* GifDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailCell.swift; sourceTree = "<group>"; };
 		5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReplyVC.swift; sourceTree = "<group>"; };
+		564F420E22E8208500F3A2F6 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		56781E7422E0CC070074BC6D /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Carthage/Build/iOS/FirebaseStorage.framework; sourceTree = SOURCE_ROOT; };
 		56781E7622E2605B0074BC6D /* FeedDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailCell.swift; sourceTree = "<group>"; };
 		56781E7822E66BD90074BC6D /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				561472BA22D1085C00648B86 /* Info.plist */,
 				561472F822D1581400648B86 /* GoogleService-Info.plist */,
 				5614732722D1CADE00648B86 /* gRPCCertificates-Cpp.bundle */,
+				564F420E22E8208500F3A2F6 /* ToDo.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 				5621790022D28C0F00B45E7B /* PostVC.swift in Sources */,
 				5621790A22D2A24000B45E7B /* User.swift in Sources */,
 				560840F122D4FDF90056CD72 /* PostController.swift in Sources */,
+				564F420F22E8208500F3A2F6 /* ToDo.swift in Sources */,
 				5608412222D6753B0056CD72 /* Constants.swift in Sources */,
 				561472E722D132C600648B86 /* extensionView.swift in Sources */,
 				5622D7A222DCF282002D0542 /* ReplyVC.swift in Sources */,
