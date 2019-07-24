@@ -19,7 +19,7 @@ class UserController {
     lazy var db = Firestore.firestore()
     var user: User?
     
-    /// Generates a new user and userUID in FSAuth and creates a new "User" document to the "Users" collection in FireStore, where the document name is equal to the new userUID. Additionally, populates the new user document with empty arrays for friendUIDs, blockedUIDs, postUIDs & replyUIDs
+    /// Generates a new userUID in FireStore Auth and creates a new "User" document to the "Users" collection in FireStore Database, where the document name is equal to the new userUID. Additionally, populates the new user document with empty arrays for friendUIDs, blockedUIDs, postUIDs & replyUIDs.
     ///
     /// - Parameters:
     ///   - email: user's email
@@ -33,7 +33,7 @@ class UserController {
             }
             guard let data = data else { completion(Errors.unwrapData) ; return }
             
-            self.db.collection("User").document(data.user.uid).setData([
+            self.db.collection(Collection.User).document(data.user.uid).setData([
                 Document.friendUIDs : [],
                 Document.blockedUIDs : [],
                 Document.postUIDs : [],
@@ -68,12 +68,22 @@ class UserController {
         }
     }
     
-    func createUsername(_ username: String) {
-        guard let currentUser = Auth.auth().currentUser else { print("Couldn't unwrap the current user in \(#function)") ; return }
+    
+    /// Creates a new username or updates an existing username.
+    ///
+    /// - Parameters:
+    ///   - username: user's username
+    ///   - completion: completes with an error if there is one
+    func updateUsername(_ username: String, completion: @escaping(Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else { completion(Errors.noCurrentUser) ; return }
         
-        db.collection("User").document(currentUser.uid).updateData([Document.username : username]) { (error) in
+        db.collection(Collection.User).document(currentUser.uid).updateData([Document.username : username]) { (error) in
             if let error = error {
-                print("❌ Error updating username in \(#function) ; \(error.localizedDescription) ; \(error)")
+                print("Error updating username in \(#function) ; \(error.localizedDescription)")
+                completion(error) ; return
+            } else {
+                print("Username: \(username) has been updated")
+                completion(nil)
             }
         }
     }

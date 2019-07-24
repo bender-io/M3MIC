@@ -40,9 +40,13 @@ class SignupVC: UIViewController {
                 print("❌ Error creating a new user found in \(#function) ; \(error.localizedDescription) ; \(error)")
                 self.presentSignupErrorAlert()
             } else {
-                print("New user created")
-                UserController.shared.createUsername(username)
-                self.performSegue(withIdentifier: "toProfilePictureVC", sender: self)
+                UserController.shared.updateUsername(username, completion: { (_) in
+                    if let error = error {
+                        print("Error updating username in \(#function) ; \(error.localizedDescription) ; \(error)")
+                    } else {
+                        self.performSegue(withIdentifier: "toProfilePictureVC", sender: self)
+                    }
+                })
             }
         }
     }

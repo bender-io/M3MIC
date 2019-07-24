@@ -64,7 +64,7 @@ class ReplyController {
                 guard let docID = ref?.documentID else { completion(Errors.unwrapDocumentID) ; return }
                 guard let currentPost = PostController.shared.currentPost else { print("Could not unwrap currentPost in \(#function)") ; return}
                 
-                self.updateReplyUIDsWith(replyUID: docID, postUID: currentPost.postUID!, replyURL: imageURL)
+                self.updateReplyUIDsWith(replyUID: docID, postUID: currentPost.postUID, replyURL: imageURL)
                 
                 UserController.shared.updateReplyUIDs(with: docID)
                 print("Successfully created document with id: \(docID) in postID \(String(describing: currentPost.postUID))")
