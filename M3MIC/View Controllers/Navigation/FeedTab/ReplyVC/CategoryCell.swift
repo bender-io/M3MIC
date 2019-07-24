@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CategoryCellDelegate: class {
-    func passCollectionCellImage(with gif: UIImage, sender: CategoryCell)
+    func passCollectionCellImage(imageURL: String, image: UIImage, sender: CategoryCell)
 }
 
 class CategoryCell: UITableViewCell {
@@ -120,39 +120,53 @@ extension CategoryCell: UICollectionViewDelegate, UICollectionViewDataSource {
         switch category {
             
         case "funny":
-            let gif = GifController.shared.gifFunnyArray[indexPath.item]
-            delegate?.passCollectionCellImage(with: gif, sender: self)
-            print(gif)
+            guard let imageURL = GifController.shared.gifs?[indexPath.item] else { return }
+            
+            let image = GifController.shared.gifFunnyArray[indexPath.item]
+            delegate?.passCollectionCellImage(imageURL: imageURL, image: image, sender: self)
+            print(image, imageURL)
             
         case "cool":
-            let gif = GifController.shared.gifCoolArray[indexPath.item]
-            delegate?.passCollectionCellImage(with: gif, sender: self)
-            print(gif)
+            guard let imageURL = GifController.shared.gifs?[indexPath.item] else { return }
+
+            let image = GifController.shared.gifCoolArray[indexPath.item]
+            delegate?.passCollectionCellImage(imageURL: imageURL, image: image, sender: self)
+            print(image, imageURL)
             
         case "happy":
-            let gif = GifController.shared.gifHappyArray[indexPath.item]
-            delegate?.passCollectionCellImage(with: gif, sender: self)
-            print(gif)
+            guard let imageURL = GifController.shared.gifs?[indexPath.item] else { return }
+
+            let image = GifController.shared.gifHappyArray[indexPath.item]
+            delegate?.passCollectionCellImage(imageURL: imageURL, image: image, sender: self)
+            print(image, imageURL)
             
         case "sad":
-            let gif = GifController.shared.gifSadArray[indexPath.item]
-            delegate?.passCollectionCellImage(with: gif, sender: self)
-            print(gif)
+            guard let imageURL = GifController.shared.gifs?[indexPath.item] else { return }
+
+            let image = GifController.shared.gifSadArray[indexPath.item]
+            delegate?.passCollectionCellImage(imageURL: imageURL, image: image, sender: self)
+            print(image, imageURL)
             
         case "hungry":
-            let gif = GifController.shared.gifHungryArray[indexPath.item]
-            delegate?.passCollectionCellImage(with: gif, sender: self)
-            print(gif)
+            guard let imageURL = GifController.shared.gifs?[indexPath.item] else { return }
+
+            let image = GifController.shared.gifHungryArray[indexPath.item]
+            delegate?.passCollectionCellImage(imageURL: imageURL, image: image, sender: self)
+            print(image, imageURL)
             
         case "angry":
-            let gif = GifController.shared.gifAngryArray[indexPath.item]
-            delegate?.passCollectionCellImage(with: gif, sender: self)
-            print(gif)
+            guard let imageURL = GifController.shared.gifs?[indexPath.item] else { return }
+
+            let image = GifController.shared.gifAngryArray[indexPath.item]
+            delegate?.passCollectionCellImage(imageURL: imageURL, image: image, sender: self)
+            print(image, imageURL)
             
         case "love":
-            let gif = GifController.shared.gifLoveArray[indexPath.item]
-            delegate?.passCollectionCellImage(with: gif, sender: self)
-            print(gif)
+            guard let imageURL = GifController.shared.gifs?[indexPath.item] else { return }
+
+            let image = GifController.shared.gifLoveArray[indexPath.item]
+            delegate?.passCollectionCellImage(imageURL: imageURL, image: image, sender: self)
+            print(image, imageURL)
             
         default:
             print("Oops")
