@@ -42,9 +42,14 @@ class PostController {
                 }
                 guard let docID = ref?.documentID else { completion(Errors.unwrapDocumentID) ; return }
                 
-                UserController.shared.updatePostUIDs(with: docID)
-                print("Successfully created document with id: \(docID)")
-                completion(nil)
+                UserController.shared.updatePostUIDsWith(postUID: docID, completion: { (error) in
+                    if let error = error {
+                        print("Error updating postUID in \(#function) ; \(error.localizedDescription) ; \(error)")
+                    } else {
+                        print("Successfully created document with id: \(docID)")
+                        completion(nil)
+                    }
+                })
         })
     }
     

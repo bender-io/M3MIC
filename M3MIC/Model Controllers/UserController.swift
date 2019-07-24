@@ -88,14 +88,23 @@ class UserController {
         }
     }
     
-    func updatePostUIDs(with postUID: String) {
-        guard let currentUser = Auth.auth().currentUser else { print("Couldn't unwrap the current user in \(#function)") ; return }
+    /// Updates the current user's postUIDs field.
+    ///
+    /// - Parameters:
+    ///   - postUID: the new postUID that is being updated
+    ///   - completion: completes with an error if there is one
+    func updatePostUIDsWith(postUID: String, completion: @escaping(Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else { completion(Errors.unwrapCurrentUserUID) ; return }
         
-        db.collection("User").document(currentUser.uid).updateData([
+        db.collection(Collection.User).document(currentUser.uid).updateData([
             Document.postUIDs : FieldValue.arrayUnion([postUID])
         ]) { (error) in
             if let error = error {
-                print("❌ Error updating postUIDs array in \(#function) ; \(error.localizedDescription) ; \(error)")
+                print("Error updating postUID array in \(#function) ; \(error.localizedDescription)")
+                completion(error) ; return
+            } else {
+                print("Updated postUID array")
+                completion(nil)
             }
         }
     }
