@@ -66,9 +66,14 @@ class ReplyController {
                 
                 self.updateReplyUIDsWith(replyUID: docID, postUID: currentPost.postUID, replyURL: imageURL)
                 
-                UserController.shared.updateReplyUIDs(with: docID)
-                print("Successfully created document with id: \(docID) in postID \(String(describing: currentPost.postUID))")
-                completion(nil)
+                UserController.shared.updateReplyUIDsWith(replyUID: docID, completion: { (error) in
+                    if let error = error {
+                        print("Error updating replyUID array in \(#function) ; \(error.localizedDescription) ; \(error)")
+                    } else {
+                        print("Successfully created reply document with id: \(docID) ; with postID: \(String(describing: currentPost.postUID))")
+                        completion(nil)
+                    }
+                })
         })
     }
 }

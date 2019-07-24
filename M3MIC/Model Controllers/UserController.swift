@@ -88,7 +88,7 @@ class UserController {
         }
     }
     
-    /// Updates the current user's postUIDs field.
+    /// Updates the current user's postUID array field.
     ///
     /// - Parameters:
     ///   - postUID: the new postUID that is being updated
@@ -109,14 +109,23 @@ class UserController {
         }
     }
     
-    func updateReplyUIDs(with replyUID: String) {
-        guard let currentUser = Auth.auth().currentUser else { print("Couldn't unwrap the current user in \(#function)") ; return }
+    /// Updates the current user's replyUID array field.
+    ///
+    /// - Parameters:
+    ///   - replyUID: the new replyUID that is being updated
+    ///   - completion: completes with an error if there is one
+    func updateReplyUIDsWith(replyUID: String, completion: @escaping(Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else { completion(Errors.unwrapCurrentUserUID) ; return }
         
-        db.collection("User").document(currentUser.uid).updateData([
+        db.collection(Collection.User).document(currentUser.uid).updateData([
             Document.replyUIDs : FieldValue.arrayUnion([replyUID])
         ]) { (error) in
             if let error = error {
-                print("❌ Error updating postUIDs array in \(#function) ; \(error.localizedDescription) ; \(error)")
+                print("Error updating replyUIDs array in \(#function) ; \(error.localizedDescription)")
+                completion(error) ; return
+            } else {
+                print("Updated replyUID array")
+                completion(nil)
             }
         }
     }
