@@ -19,7 +19,7 @@ class UserController {
     lazy var db = Firestore.firestore()
     var user: User?
     
-    // MARK: - FireStore CRUD Methods
+    // MARK: - FireStore Auth Methods
 
     /// Generates a new userUID in FireStore Auth and creates a new "User" document to the "Users" collection in FireStore Database, where the document name is equal to the new userUID. Additionally, populates the new user document with empty arrays for friendUIDs, blockedUIDs, postUIDs & replyUIDs.
     ///
@@ -84,6 +84,8 @@ class UserController {
         }
     }
     
+    // MARK: - FireStore Update Methods
+    
     /// Creates a new username or updates an existing username.
     ///
     /// - Parameters:
@@ -106,7 +108,7 @@ class UserController {
     /// Updates the current user's postUID array field.
     ///
     /// - Parameters:
-    ///   - postUID: the new postUID that is being updated
+    ///   - postUID: the new postUID that is being updated to the postUID array
     ///   - completion: completes with an error if there is one
     func updateCurrentUserPostUIDArrayWith(postUID: String, completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.unwrapCurrentUserUID) ; return }
@@ -127,7 +129,7 @@ class UserController {
     /// Updates the current user's replyUID array field.
     ///
     /// - Parameters:
-    ///   - replyUID: the new replyUID that is being updated
+    ///   - replyUID: the new replyUID that is being updated to the replyUID array
     ///   - completion: completes with an error if there is one
     func updateCurrentUserReplyUIDArrayWith(replyUID: String, completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.unwrapCurrentUserUID) ; return }
@@ -145,7 +147,79 @@ class UserController {
         }
     }
     
-    // MARK: - FireStore Fetch Methods
+    /// Updates the current user's blockedUID array with the userUID that is passed into the function. If the userUID is also in the friendUID array, it is removed from the friendUID array before completion is called. The userUID cannot be equal to the current user's uid.
+    ///
+    /// - Parameters:
+    ///   - userUID: the new userUID that is being updated to the blockedUID array (cannot be equal to the current user's uid)
+    ///   - completion: completes with an error if there is one
+    func updateBlockedUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else { completion(Errors.noCurrentUser) ; return }
+
+        guard currentUser.uid != userUID else { completion(Errors.userEqualsSelf) ; return }
+        
+        db.collection(Collection.User).document(currentUser.uid).updateData([
+            Document.blockedUIDs : FieldValue.arrayUnion([userUID]),
+            Document.friendUIDs : FieldValue.arrayRemove([userUID])
+        ]) { (error) in
+            if let error = error {
+                print("Error updating blockedUID array in \(#function) ; \(error.localizedDescription)")
+                completion(error) ; return
+            } else {
+                print("Updated blockedUID array with \(userUID)")
+                completion(nil)
+            }
+        }
+    }
+    
+    /// Updates the current user's friendUID array with the userUID that is passed into the function. If the userUID is also in the blockedUID array, it is removed from the blockedUID array before completion is called. The userUID cannot be equal to the current user's uid.
+    ///
+    /// - Parameters:
+    ///   - userUID: the new userUID that is being updated to the friendUID array (cannot be equal to the current user's uid)
+    ///   - completion: completes with an error if there is one
+    func updateFriendUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
+        
+        guard currentUser != userUID else { completion(Errors.userEqualsSelf) ; return }
+        
+        db.collection(Collection.User).document(currentUser).updateData([
+            Document.friendUIDs : FieldValue.arrayUnion([userUID]),
+            Document.blockedUIDs : FieldValue.arrayRemove([userUID])
+        ]) { (error) in
+            if let error = error {
+                print("Error updating blockedUID array in \(#function) ; \(error.localizedDescription)")
+                completion(error) ; return
+            } else {
+                print("Updated friendUID array with \(userUID)")
+                completion(nil)
+            }
+        }
+    }
+
+    // MARK: - FireStore Remove Method
+    
+    /// Removes the selected userUID from the blockedUID or friendUID array.
+    ///
+    /// - Parameters:
+    ///   - userUID: the userUID that is being removed from the list(s)
+    ///   - completion: completes with an error if there is one
+    func removeFriendAndBlockedUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser?.uid else { completion(Errors.noCurrentUser) ; return }
+        
+        db.collection(Collection.User).document(currentUser).updateData([
+            Document.friendUIDs : FieldValue.arrayRemove([userUID]),
+            Document.blockedUIDs : FieldValue.arrayRemove([userUID])
+        ]) { (error) in
+            if let error = error {
+                print("Error updating array in \(#function) ; \(error.localizedDescription)")
+                completion(error) ; return
+            } else {
+                print("Removed user with id \(userUID) from the array")
+                completion(nil)
+            }
+        }
+    }
+    
+    // MARK: - FireStore Fetch Method
     
     /// Fetches the current user's "User" document and initializes a User from the data.
     ///
@@ -162,59 +236,6 @@ class UserController {
             
             self.user = User(from: data)
             print("Fetched user: \(String(describing: self.user?.username))")
-            completion(nil)
-        }
-    }
-}
-
-// MARK: - Add & Block User Methods
-extension UserController {
-    
-    func updateBlockedUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
-        guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
-       
-        guard currentUser != userUID else { print("Cannot block currentUser") ; completion(Errors.unwrapCurrentUserUID) ; return }
-        
-        db.collection(Collection.User).document(currentUser).updateData([
-            Document.blockedUIDs : FieldValue.arrayUnion([userUID]),
-            Document.friendUIDs : FieldValue.arrayRemove([userUID])
-        ]) { (error) in
-            if let error = error {
-                print("❌ Error updating blockedUID array in \(#function) ; \(error.localizedDescription)")
-                completion(error) ; return
-            }
-            completion(nil)
-        }
-    }
-    
-    func updateFriendUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
-        guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
-        
-        guard currentUser != userUID else { print("Cannot friend currentUser") ; completion(Errors.unwrapCurrentUserUID) ; return }
-        
-        db.collection(Collection.User).document(currentUser).updateData([
-            Document.friendUIDs : FieldValue.arrayUnion([userUID]),
-            Document.blockedUIDs : FieldValue.arrayRemove([userUID])
-        ]) { (error) in
-            if let error = error {
-                print("❌ Error updating blockedUID array in \(#function) ; \(error.localizedDescription)")
-                completion(error) ; return
-            }
-            completion(nil)
-        }
-    }
-    
-    func removeFriendAndBlockedUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
-        guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
-        
-        db.collection(Collection.User).document(currentUser).updateData([
-            Document.friendUIDs : FieldValue.arrayRemove([userUID]),
-            Document.blockedUIDs : FieldValue.arrayRemove([userUID])
-        ]) { (error) in
-            if let error = error {
-                print("❌ Error updating blockedUID array in \(#function) ; \(error.localizedDescription)")
-                completion(error) ; return
-            }
             completion(nil)
         }
     }
