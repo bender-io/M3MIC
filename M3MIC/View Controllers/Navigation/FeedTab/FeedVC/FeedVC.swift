@@ -17,7 +17,7 @@ class FeedVC: UIViewController {
     @IBOutlet weak var menuLeadConstraint: NSLayoutConstraint!
     @IBOutlet weak var feedLeadConstraint: NSLayoutConstraint!
     
-    var posts = [Post]() {
+    var posts: [Post] = [] {
         didSet {
             self.feedTableView.reloadData()
         }

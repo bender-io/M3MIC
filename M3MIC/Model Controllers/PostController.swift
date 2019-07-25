@@ -10,8 +10,6 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-// TODO: - Listeners for Reply Likes and Rank
-
 class PostController {
     
     // MARK: - Properties
@@ -21,11 +19,21 @@ class PostController {
     let db = UserController.shared.db
     
     var posts = [Post]()
+   
+    // TODO: - Refactor
     var currentPost: Post?
     
-    // MARK: - CRUD Methods
+    // MARK: - FireStore Methods
+    
+    /// Generates a new "Post" document and adds the postUID to the "User" document postUID array field.
+    ///
+    /// - Parameters:
+    ///   - message: post's message
+    ///   - timestamp: post's timestamp at time of creation
+    ///   - replyUIDs: post's replyUID array designated for holding replies (initially empty)
+    ///   - username: user.username who created post
+    ///   - completion: completes with an error if there is one
     func createPostWith(message: String, timestamp: Double = Date().timeIntervalSince1970, replyUIDs: [String] = [], username: String, completion: @escaping(Error?) -> Void) {
-        
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.noCurrentUser) ; return }
         
         var ref: DocumentReference?
@@ -37,14 +45,15 @@ class PostController {
             Document.username : username
             ], completion: { (error) in
                 if let error = error {
-                    print("❌ Error adding document in \(#function) ; \(error.localizedDescription) ; \(error)")
+                    print("Error creating document in \(#function) ; \(error.localizedDescription)")
                     completion(error) ; return
                 }
                 guard let docID = ref?.documentID else { completion(Errors.unwrapDocumentID) ; return }
                 
                 UserController.shared.updateCurrentUserPostUIDArrayWith(postUID: docID, completion: { (error) in
                     if let error = error {
-                        print("Error updating postUID in \(#function) ; \(error.localizedDescription) ; \(error)")
+                        print("Error updating postUID in \(#function) ; \(error.localizedDescription)")
+                        completion(error) ; return
                     } else {
                         print("Successfully created document with id: \(docID)")
                         completion(nil)
@@ -53,6 +62,11 @@ class PostController {
         })
     }
     
+    /// <#Description#>
+    ///
+    /// - Parameters:
+    ///   - blockedUIDs: <#blockedUIDs description#>
+    ///   - completion: <#completion description#>
     func fetchAllPosts(blockedUIDs: [String], completion: @escaping(Result <[Post], Error>) -> Void) {
         var posts: [Post] = []
         
