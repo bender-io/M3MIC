@@ -79,7 +79,7 @@ class FeedDetailVC: UIViewController {
         
         guard let postUID = post?.postUID else { print("No postUID found in \(#function)") ; return }
         
-        ReplyController.shared.fetchGifReplies(postUID: postUID, completion: { (error) in
+        ReplyController.shared.fetchAllRepliesFor(postUID: postUID, completion: { (error) in
             if let error = error {
                 print("❌ Error found in \(#function) ; \(error.localizedDescription) ; \(error)")
             }

@@ -18,8 +18,7 @@ class ReplyController {
     private init(){}
     
     var replies = [Reply]()
-    var post: Post?
-        
+    
     let db = UserController.shared.db
     
     // MARK: - FireStore Methods
@@ -63,16 +62,20 @@ class ReplyController {
         })
     }
     
-    func fetchGifReplies(postUID: String, completion: @escaping(Error?) -> Void) {
+    /// Fetches all replies for a post if there are any.
+    ///
+    /// - Parameters:
+    ///   - postUID: the post uid that this function will fetch from
+    ///   - completion: completes with an error if there is one
+    func fetchAllRepliesFor(postUID: String, completion: @escaping(Error?) -> Void) {
         db.collection(Collection.Reply).whereField(Document.postUID, isEqualTo: postUID).getDocuments { (snapshot, error) in
             if let error = error {
                 print("Error fetching reply documents in \(#function) ; \(error.localizedDescription)")
                 completion(error) ; return
             }
-            guard let snapshot = snapshot, snapshot.count > 0 else { completion(Errors.snapshotGuard) ; return }
+            guard let snapshot = snapshot, snapshot.count > 0 else { print("No replies found") ; completion(Errors.snapshotGuard) ; return }
             
             self.replies = snapshot.documents.compactMap { Reply(from: $0.data()) }
-            
             completion(nil)
         }
     }
