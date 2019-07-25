@@ -25,7 +25,7 @@ enum Document {
     static let replyUIDs = "replyUIDs"
     static let replyUID = "replyUID"
     static let replyImage = "replyImage"
-    static let topReply = "topReply"
+    static let replyURL = "replyURL"
 }
 
 enum Collection {

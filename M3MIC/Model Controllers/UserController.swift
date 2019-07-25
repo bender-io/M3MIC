@@ -20,7 +20,6 @@ class UserController {
     var user: User?
     
     // MARK: - FireStore Auth Methods
-
     /// Generates a new userUID in FireStore Auth and creates a new "User" document to the "Users" collection in FireStore Database, where the document name is equal to the new userUID. Additionally, populates the new user document with empty arrays for friendUIDs, blockedUIDs, postUIDs & replyUIDs.
     ///
     /// - Parameters:
@@ -85,7 +84,6 @@ class UserController {
     }
     
     // MARK: - FireStore Update Methods
-    
     /// Creates a new username or updates an existing username.
     ///
     /// - Parameters:
@@ -196,7 +194,6 @@ class UserController {
     }
 
     // MARK: - FireStore Remove Method
-    
     /// Removes the selected userUID from the blockedUID or friendUID array.
     ///
     /// - Parameters:
@@ -220,7 +217,6 @@ class UserController {
     }
     
     // MARK: - FireStore Fetch Method
-    
     /// Fetches the current user's "User" document and initializes a User from the data.
     ///
     /// - Parameter completion: completes with an error if there is one

@@ -13,26 +13,16 @@ import FirebaseFirestore
 
 class ReplyController {
     
+    // MARK: - Properties
     static let shared = ReplyController()
     private init(){}
     
     var replies = [Reply]()
-    private var post: Post?
+    var post: Post?
     
     var selectedImage: UIImage?
     
     let db = UserController.shared.db
-    
-    func updateReplyUIDsWith(replyUID: String, postUID: String, replyURL: String) {
-        db.collection(Collection.Post).document(postUID).updateData([
-            Document.replyUIDs : FieldValue.arrayUnion([replyUID]),
-            Document.topReply : replyURL
-        ]) { (error) in
-            if let error = error {
-                print("❌ Error updating postUIDs array in \(#function) ; \(error.localizedDescription) ; \(error)")
-            }
-        }
-    }
     
     func fetchGifReplies(postUID: String, completion: @escaping(Error?) -> Void) {        
         db.collection(Collection.Reply).whereField(Document.postUID, isEqualTo: postUID).getDocuments { (snapshot, error) in
@@ -64,7 +54,11 @@ class ReplyController {
                 guard let docID = ref?.documentID else { completion(Errors.unwrapDocumentID) ; return }
                 guard let currentPost = PostController.shared.currentPost else { print("Could not unwrap currentPost in \(#function)") ; return}
                 
-                self.updateReplyUIDsWith(replyUID: docID, postUID: currentPost.postUID, replyURL: imageURL)
+                PostController.shared.updatePostDocumentWith(replyUID: docID, replyURL: imageURL, postUID: currentPost.postUID, completion: { (error) in
+                    if let error = error {
+                        print("Could not update Post document in \(#function) ; \(error.localizedDescription) ; \(error)")
+                    }
+                })
                 
                 UserController.shared.updateCurrentUserReplyUIDArrayWith(replyUID: docID, completion: { (error) in
                     if let error = error {

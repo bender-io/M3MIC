@@ -62,6 +62,28 @@ class PostController {
         })
     }
     
+    /// Updates the selected "Post" document's replyURL field and adds the replyUID to it's replyUID array.
+    ///
+    /// - Parameters:
+    ///   - replyUID: the reply's unique identifier
+    ///   - replyURL: the reply's url that containts a gif or image
+    ///   - postUID: the selected post's unique identifier
+    ///   - completion: completes with an error if there is one
+    func updatePostDocumentWith(replyUID: String, replyURL: String, postUID: String, completion: @escaping(Error?) -> Void) {
+        db.collection(Collection.Post).document(postUID).updateData([
+            Document.replyUIDs : FieldValue.arrayUnion([replyUID]),
+            Document.replyURL : replyURL
+        ]) { (error) in
+            if let error = error {
+                print("Error updating replyUID array in \(#function) ; \(error.localizedDescription)")
+                completion(error) ; return
+            } else {
+                print("Updated post document \(postUID) with replyURL & replyUID \(replyUID)")
+                completion(nil)
+            }
+        }
+    }
+    
     /// Fetches all posts where the post.userUID has not been added to the current user's blockedUID array. Filters by timestamp.
     ///
     /// - Parameters:

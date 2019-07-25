@@ -91,13 +91,13 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         cell?.post = post
         cell?.gifImage.image = #imageLiteral(resourceName: "SecondaryLogo")
 
-        if let replyUrl = post.topReply {
+        if let replyUrl = post.replyURL {
             GifController.shared.fetchTopReplyImageFrom(url: replyUrl, completion: { (image) in
                 DispatchQueue.main.async {
                     if let image = image {
                         cell?.gifImage.image = image
                     } else {
-                        print("Failed to get image ; \(String(describing: post.topReply))")
+                        print("Failed to get image ; \(String(describing: post.replyURL))")
                     }
                 }
             })
