@@ -62,24 +62,25 @@ class PostController {
         })
     }
     
-    /// <#Description#>
+    /// Fetches all posts where the post.userUID has not been added to the current user's blockedUID array. Filters by timestamp.
     ///
     /// - Parameters:
-    ///   - blockedUIDs: <#blockedUIDs description#>
-    ///   - completion: <#completion description#>
+    ///   - blockedUIDs: the current user's blockedUID array
+    ///   - completion: completes with an array of posts if successful and an error if unsuccessful
     func fetchAllPosts(blockedUIDs: [String], completion: @escaping(Result <[Post], Error>) -> Void) {
         var posts: [Post] = []
         
         db.collection(Collection.Post).order(by: Document.timestamp, descending: true).getDocuments { (snapshot, error) in
             if let error = error {
-                print("❌ Error fetching documents in \(#function) ; \(error.localizedDescription) ; \(error)")
+                print("Error fetching documents in \(#function) ; \(error.localizedDescription)")
                 completion(.failure(error)) ; return
             }
             guard let snapshot = snapshot, snapshot.count > 0 else { completion(.failure(Errors.snapshotGuard)) ; return }
 
             for document in snapshot.documents {
                 let data = document.data()
-                guard let post = Post(from: data, postUID: document.documentID) else { completion(.failure(Errors.snapshotGuard)) ; return }
+                guard let post = Post(from: data, postUID: document.documentID) else { completion(.failure(Errors.unwrapData)) ; return }
+                
                 if !blockedUIDs.contains(post.userUID) {
                     posts.append(post)
                 }
