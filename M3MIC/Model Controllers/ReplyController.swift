@@ -17,7 +17,7 @@ class ReplyController {
     static let shared = ReplyController()
     private init(){}
     
-    var replies = [Reply]()
+    var replies: [Reply] = []
     
     let db = UserController.shared.db
     

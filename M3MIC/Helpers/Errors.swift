@@ -17,6 +17,7 @@ enum Errors: Error {
     case unwrapData
     case userEqualsSelf
     case noCurrentPost
+    case unwrapURL
 }
 
 extension Errors: LocalizedError {
@@ -37,7 +38,9 @@ extension Errors: LocalizedError {
         case .userEqualsSelf:
             return NSLocalizedString("User ID cannot equal Auth.auth().currentUser.uid", comment: "")
         case .noCurrentPost:
-             return NSLocalizedString("No current post", comment: "")
+            return NSLocalizedString("No current post", comment: "")
+        case .unwrapURL:
+            return NSLocalizedString("Could not unwrap url", comment: "")
         }
     }
 }

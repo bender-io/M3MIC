@@ -18,7 +18,7 @@ class PostController {
     
     let db = UserController.shared.db
     
-    var posts = [Post]()
+    var posts: [Post] = []
     
     // MARK: - FireStore Methods
     

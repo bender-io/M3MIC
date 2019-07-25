@@ -6,15 +6,16 @@
 //  Copyright © 2019 Brian Daniel. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Reply {
     
     let postUID: String
     let userUID: String
     let imageURL: String
+    let image: UIImage?
     
-    init?(from dictionary: [String : Any]) {
+    init?(from dictionary: [String : Any], image: UIImage?) {
         guard let userUID = dictionary[Document.userUID] as? String,
             let imageURL = dictionary[Document.replyImageURL] as? String,
             let postUID = dictionary[Document.postUID] as? String
@@ -23,6 +24,7 @@ struct Reply {
         self.userUID = userUID
         self.postUID = postUID
         self.imageURL = imageURL
+        self.image = image
     }
 }
 
