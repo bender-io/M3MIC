@@ -16,6 +16,7 @@ enum Errors: Error {
     case snapshotGuard
     case unwrapData
     case userEqualsSelf
+    case noCurrentPost
 }
 
 extension Errors: LocalizedError {
@@ -35,6 +36,8 @@ extension Errors: LocalizedError {
             return NSLocalizedString("Couldn't unwrap data", comment: "")
         case .userEqualsSelf:
             return NSLocalizedString("User ID cannot equal Auth.auth().currentUser.uid", comment: "")
+        case .noCurrentPost:
+             return NSLocalizedString("No current post", comment: "")
         }
     }
 }

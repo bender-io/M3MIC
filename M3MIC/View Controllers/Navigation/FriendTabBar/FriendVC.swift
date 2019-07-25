@@ -108,7 +108,7 @@ extension FriendVC: UITableViewDelegate, UITableViewDataSource {
             case friendsTableView:
                 guard let friendUID = user?.friendUIDs?[indexPath.row] else { return }
                 
-                UserController.shared.removeFriendAndBlockedUIDArrayWith(userUID: friendUID) { (error) in
+                UserController.shared.removeFriendOrBlockedUIDWith(userUID: friendUID) { (error) in
                     if let error = error {
                         print(error)
                     } else {
@@ -122,7 +122,7 @@ extension FriendVC: UITableViewDelegate, UITableViewDataSource {
             case blockedTableView:
                 guard let blockedUID = user?.blockedUIDs?[indexPath.row] else { return }
                 
-                UserController.shared.removeFriendAndBlockedUIDArrayWith(userUID: blockedUID) { (error) in
+                UserController.shared.removeFriendOrBlockedUIDWith(userUID: blockedUID) { (error) in
                     if let error = error {
                         print(error)
                     } else {

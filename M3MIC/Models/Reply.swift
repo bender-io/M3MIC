@@ -16,13 +16,13 @@ struct Reply {
     
     init?(from dictionary: [String : Any]) {
         guard let userUID = dictionary[Document.userUID] as? String,
-            let gifURL = dictionary[Document.replyImage] as? String,
+            let imageURL = dictionary[Document.replyImageURL] as? String,
             let postUID = dictionary[Document.postUID] as? String
             else { print("Initializer failed in \(#function)") ; return nil }
         
         self.userUID = userUID
         self.postUID = postUID
-        self.imageURL = gifURL
+        self.imageURL = imageURL
     }
 }
 

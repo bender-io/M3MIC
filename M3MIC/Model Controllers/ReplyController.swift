@@ -19,15 +19,55 @@ class ReplyController {
     
     var replies = [Reply]()
     var post: Post?
-    
-    var selectedImage: UIImage?
-    
+        
     let db = UserController.shared.db
     
-    func fetchGifReplies(postUID: String, completion: @escaping(Error?) -> Void) {        
+    // MARK: - FireStore Methods
+    
+    /// Creates a new "Reply" document with a replyImageURL and appends the docID to the current "User" document's replyUID array.
+    ///
+    /// - Parameters:
+    ///   - replyImageURL: the reply's image url
+    ///   - postUID: the postUID that the reply belongs to
+    ///   - completion: completes with an error if there is one
+    func saveReplyWith(replyImageURL: String, postUID: String, completion: @escaping (Error?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else { completion(Errors.noCurrentUser) ; return }
+            
+        var ref: DocumentReference?
+        ref = db.collection(Collection.Reply).addDocument(data: [
+            Document.postUID : postUID,
+            Document.userUID : currentUser.uid,
+            Document.replyImageURL : replyImageURL
+            ], completion: { (error) in
+                if let error = error {
+                    print("Error creating reply document in \(#function) ; \(error.localizedDescription)")
+                    completion(error) ; return
+                }
+                guard let docID = ref?.documentID else { completion(Errors.unwrapDocumentID) ; return }
+                
+                PostController.shared.updatePostDocumentWith(replyUID: docID, replyImageURL: replyImageURL, postUID: postUID, completion: { (error) in
+                    if let error = error {
+                        print("Could not update Post document in \(#function) ; \(error.localizedDescription)")
+                        completion(error) ; return
+                    }
+                })
+                UserController.shared.updateUserDocumentWith(replyUID: docID, completion: { (error) in
+                    if let error = error {
+                        print("Error updating replyUID array in \(#function) ; \(error.localizedDescription)")
+                        completion(error) ; return
+                    } else {
+                        print("Successfully created reply document with id: \(docID) ; with postID: \(postUID)")
+                        completion(nil)
+                    }
+                })
+        })
+    }
+    
+    func fetchGifReplies(postUID: String, completion: @escaping(Error?) -> Void) {
         db.collection(Collection.Reply).whereField(Document.postUID, isEqualTo: postUID).getDocuments { (snapshot, error) in
             if let error = error {
-                print("❌ Error fetching reply documents in \(#function) ; \(error.localizedDescription) ; \(error)")
+                print("Error fetching reply documents in \(#function) ; \(error.localizedDescription)")
+                completion(error) ; return
             }
             guard let snapshot = snapshot, snapshot.count > 0 else { completion(Errors.snapshotGuard) ; return }
             
@@ -35,39 +75,5 @@ class ReplyController {
             
             completion(nil)
         }
-    }
-    
-    func saveGifReplyWith(imageURL: String, postUID: String, completion: @escaping (Error?) -> Void) {
-        guard let currentUser = Auth.auth().currentUser?.uid else { completion(Errors.noCurrentUser) ; return }
-            
-        var ref: DocumentReference?
-        ref = db.collection("Reply").addDocument(data: [
-            Document.postUID : postUID,
-            Document.userUID : currentUser,
-            Document.replyImage : imageURL
-            ], completion: { (error) in
-                if let error = error {
-                    print("❌ Error adding document in \(#function) ; \(error.localizedDescription) ; \(error)")
-                    completion(error) ; return
-                }
-                
-                guard let docID = ref?.documentID else { completion(Errors.unwrapDocumentID) ; return }
-                guard let currentPost = PostController.shared.currentPost else { print("Could not unwrap currentPost in \(#function)") ; return}
-                
-                PostController.shared.updatePostDocumentWith(replyUID: docID, replyURL: imageURL, postUID: currentPost.postUID, completion: { (error) in
-                    if let error = error {
-                        print("Could not update Post document in \(#function) ; \(error.localizedDescription) ; \(error)")
-                    }
-                })
-                
-                UserController.shared.updateCurrentUserReplyUIDArrayWith(replyUID: docID, completion: { (error) in
-                    if let error = error {
-                        print("Error updating replyUID array in \(#function) ; \(error.localizedDescription) ; \(error)")
-                    } else {
-                        print("Successfully created reply document with id: \(docID) ; with postID: \(String(describing: currentPost.postUID))")
-                        completion(nil)
-                    }
-                })
-        })
     }
 }

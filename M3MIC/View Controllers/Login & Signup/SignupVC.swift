@@ -40,7 +40,7 @@ class SignupVC: UIViewController {
                 print("❌ Error creating a new user found in \(#function) ; \(error.localizedDescription) ; \(error)")
                 self.presentSignupErrorAlert()
             } else {
-                UserController.shared.updateUsername(username, completion: { (_) in
+                UserController.shared.updateUserDocumentWith(username: username, completion: { (error) in
                     if let error = error {
                         print("Error updating username in \(#function) ; \(error.localizedDescription) ; \(error)")
                     } else {

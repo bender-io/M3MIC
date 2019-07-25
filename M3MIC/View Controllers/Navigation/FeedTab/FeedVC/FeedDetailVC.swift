@@ -18,7 +18,6 @@ class FeedDetailVC: UIViewController {
     var post: Post? {
         didSet {
             updateViews()
-            PostController.shared.currentPost = post
         }
     }
     

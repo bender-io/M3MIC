@@ -16,16 +16,16 @@ class Post {
     let timestamp: Double
     let message: String
     let replyUIDs: [String]
-    let replyURL: String?
+    let thumbnailImageURL: String?
     let username: String
     
-    init(postUID: String, userUID: String, timestamp: Double, message: String, replyUIDs: [String] = [], replyURL: String?, username: String) {
+    init(postUID: String, userUID: String, timestamp: Double, message: String, replyUIDs: [String] = [], thumbnailImageURL: String?, username: String) {
         self.postUID = postUID
         self.userUID = userUID
         self.timestamp = timestamp
         self.message = message
         self.replyUIDs = replyUIDs
-        self.replyURL = replyURL
+        self.thumbnailImageURL = thumbnailImageURL
         self.username = username
     }
     
@@ -34,7 +34,7 @@ class Post {
             let timestamp = dictionary[Document.timestamp] as? Double,
             let message = dictionary[Document.message] as? String,
             let replyUIDs = dictionary[Document.replyUIDs] as? [String],
-            let replyURL = dictionary[Document.replyURL] as? String?,
+            let thumbnailImageURL = dictionary[Document.thumbnailImageURL] as? String?,
             let username = dictionary[Document.username] as? String
             else { print("Initializer failed in \(#function)") ; return nil }
         
@@ -43,7 +43,7 @@ class Post {
         self.timestamp = timestamp
         self.message = message
         self.replyUIDs = replyUIDs
-        self.replyURL = replyURL
+        self.thumbnailImageURL = thumbnailImageURL
         self.username = username
     }
 }

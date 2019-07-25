@@ -19,9 +19,6 @@ class PostController {
     let db = UserController.shared.db
     
     var posts = [Post]()
-   
-    // TODO: - Refactor
-    var currentPost: Post?
     
     // MARK: - FireStore Methods
     
@@ -50,7 +47,7 @@ class PostController {
                 }
                 guard let docID = ref?.documentID else { completion(Errors.unwrapDocumentID) ; return }
                 
-                UserController.shared.updateCurrentUserPostUIDArrayWith(postUID: docID, completion: { (error) in
+                UserController.shared.updateUserDocumentWith(postUID: docID, completion: { (error) in
                     if let error = error {
                         print("Error updating postUID in \(#function) ; \(error.localizedDescription)")
                         completion(error) ; return
@@ -69,10 +66,10 @@ class PostController {
     ///   - replyURL: the reply's url that containts a gif or image
     ///   - postUID: the selected post's unique identifier
     ///   - completion: completes with an error if there is one
-    func updatePostDocumentWith(replyUID: String, replyURL: String, postUID: String, completion: @escaping(Error?) -> Void) {
+    func updatePostDocumentWith(replyUID: String, replyImageURL: String, postUID: String, completion: @escaping(Error?) -> Void) {
         db.collection(Collection.Post).document(postUID).updateData([
             Document.replyUIDs : FieldValue.arrayUnion([replyUID]),
-            Document.replyURL : replyURL
+            Document.thumbnailImageURL : replyImageURL
         ]) { (error) in
             if let error = error {
                 print("Error updating replyUID array in \(#function) ; \(error.localizedDescription)")

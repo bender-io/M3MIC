@@ -20,6 +20,7 @@ class UserController {
     var user: User?
     
     // MARK: - FireStore Auth Methods
+    
     /// Generates a new userUID in FireStore Auth and creates a new "User" document to the "Users" collection in FireStore Database, where the document name is equal to the new userUID. Additionally, populates the new user document with empty arrays for friendUIDs, blockedUIDs, postUIDs & replyUIDs.
     ///
     /// - Parameters:
@@ -84,12 +85,13 @@ class UserController {
     }
     
     // MARK: - FireStore Update Methods
+    
     /// Creates a new username or updates an existing username.
     ///
     /// - Parameters:
     ///   - username: user's username
     ///   - completion: completes with an error if there is one
-    func updateUsername(_ username: String, completion: @escaping(Error?) -> Void) {
+    func updateUserDocumentWith(username: String, completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.noCurrentUser) ; return }
         
         db.collection(Collection.User).document(currentUser.uid).updateData([Document.username : username]) { (error) in
@@ -108,7 +110,7 @@ class UserController {
     /// - Parameters:
     ///   - postUID: the new postUID that is being updated to the postUID array
     ///   - completion: completes with an error if there is one
-    func updateCurrentUserPostUIDArrayWith(postUID: String, completion: @escaping(Error?) -> Void) {
+    func updateUserDocumentWith(postUID: String, completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.unwrapCurrentUserUID) ; return }
         
         db.collection(Collection.User).document(currentUser.uid).updateData([
@@ -129,7 +131,7 @@ class UserController {
     /// - Parameters:
     ///   - replyUID: the new replyUID that is being updated to the replyUID array
     ///   - completion: completes with an error if there is one
-    func updateCurrentUserReplyUIDArrayWith(replyUID: String, completion: @escaping(Error?) -> Void) {
+    func updateUserDocumentWith(replyUID: String, completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.unwrapCurrentUserUID) ; return }
         
         db.collection(Collection.User).document(currentUser.uid).updateData([
@@ -150,7 +152,7 @@ class UserController {
     /// - Parameters:
     ///   - userUID: the new userUID that is being updated to the blockedUID array (cannot be equal to the current user's uid)
     ///   - completion: completes with an error if there is one
-    func updateBlockedUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
+    func updateUserBlockedUIDsWith(userUID: String, completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.noCurrentUser) ; return }
 
         guard currentUser.uid != userUID else { completion(Errors.userEqualsSelf) ; return }
@@ -174,7 +176,7 @@ class UserController {
     /// - Parameters:
     ///   - userUID: the new userUID that is being updated to the friendUID array (cannot be equal to the current user's uid)
     ///   - completion: completes with an error if there is one
-    func updateFriendUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
+    func updateUserFriendUIDsWith(userUID: String, completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser?.uid else { print("Couldn't unwrap the current user in \(#function)") ; return }
         
         guard currentUser != userUID else { completion(Errors.userEqualsSelf) ; return }
@@ -194,12 +196,13 @@ class UserController {
     }
 
     // MARK: - FireStore Remove Method
+    
     /// Removes the selected userUID from the blockedUID or friendUID array.
     ///
     /// - Parameters:
     ///   - userUID: the userUID that is being removed from the list(s)
     ///   - completion: completes with an error if there is one
-    func removeFriendAndBlockedUIDArrayWith(userUID: String, completion: @escaping(Error?) -> Void) {
+    func removeFriendOrBlockedUIDWith(userUID: String, completion: @escaping(Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser?.uid else { completion(Errors.noCurrentUser) ; return }
         
         db.collection(Collection.User).document(currentUser).updateData([
@@ -217,6 +220,7 @@ class UserController {
     }
     
     // MARK: - FireStore Fetch Method
+    
     /// Fetches the current user's "User" document and initializes a User from the data.
     ///
     /// - Parameter completion: completes with an error if there is one

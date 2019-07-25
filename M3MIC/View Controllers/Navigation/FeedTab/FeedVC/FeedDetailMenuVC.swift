@@ -26,7 +26,7 @@ class FeedDetailMenuVC: UIViewController {
     @IBAction func addFriendButtonTapped(_ sender: Any) {
         guard let userUID = post?.userUID else { print("Could not find userUID") ; return }
         
-        UserController.shared.updateFriendUIDArrayWith(userUID: userUID) { (error) in
+        UserController.shared.updateUserFriendUIDsWith(userUID: userUID) { (error) in
             if error != nil {
                 print(error as Any)
             } else {
@@ -42,7 +42,7 @@ class FeedDetailMenuVC: UIViewController {
     @IBAction func blockButtonTapped(_ sender: Any) {
         guard let userUID = post?.userUID else { print("Could not find userUID") ; return }
         
-        UserController.shared.updateBlockedUIDArrayWith(userUID: userUID) { (error) in
+        UserController.shared.updateUserBlockedUIDsWith(userUID: userUID) { (error) in
             if error != nil {
                 print(error as Any)
             } else {
