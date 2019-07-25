@@ -29,6 +29,9 @@ class GifController {
     var gifAngryArray = [UIImage]()
     var gifLoveArray = [UIImage]()
 
+    // var replyImage: [ReplyImage]?
+    // ReplyImage(replyImageURL: String, replyImage: UIImage?)
+    
     let baseURL = URL(string: "https://api.tenor.com/v1")
     let apiKey = "8ZNGHJOGN4RF"
     
