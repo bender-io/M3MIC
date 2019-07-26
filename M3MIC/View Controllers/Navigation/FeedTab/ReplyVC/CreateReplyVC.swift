@@ -10,20 +10,13 @@ import UIKit
 
 class CreateReplyVC: UIViewController {
 
+    var reply: Reply?
     var post: Post? {
         didSet {
             updateViews()
         }
     }
-    var image: UIImage?
-    var imageUrl: String?
-    
-//    var gif: UIImage? {
-//        didSet {
-//            print("dang")
-//        }
-//    }
-    
+
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
     @IBOutlet weak var gifImage: UIImageView!
@@ -32,7 +25,7 @@ class CreateReplyVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetup()
-        gifImage.image = image
+        gifImage.image = reply?.image
     }
     
     func updateViews() {
@@ -45,11 +38,12 @@ class CreateReplyVC: UIViewController {
     }
     
     @IBAction func saveButtonTApped(_ sender: Any) {
-        guard let imageUrl = imageUrl else { print("No imageURL found in \(#function)") ; return }
+        guard let imageUrl = reply?.imageURL else { print("No imageURL found in \(#function)") ; return }
+        guard let post = post else { print("No imageURL found in \(#function)") ; return }
         
-        ReplyController.shared.saveGifReplyWith(imageURL: imageUrl, postUID: (PostController.shared.currentPost?.postUID)!) { (error) in
+        ReplyController.shared.saveReplyWith(imageURL: imageUrl, postUID: (post.postUID)) { (error) in
             if let error = error {
-                print("❌ error saving gif in \(#function) ; \(error.localizedDescription) ; \(error)")
+                print("Error saving gif in \(#function) ; \(error.localizedDescription) ; \(error)")
             }
             DispatchQueue.main.async {
                 self.navigationController?.popToRootViewController(animated: true)

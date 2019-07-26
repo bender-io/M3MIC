@@ -29,6 +29,9 @@ class GifController {
     var gifAngryArray = [UIImage]()
     var gifLoveArray = [UIImage]()
 
+    // var replyImage: [ReplyImage]?
+    // ReplyImage(replyImageURL: String, replyImage: UIImage?)
+    
     let baseURL = URL(string: "https://api.tenor.com/v1")
     let apiKey = "8ZNGHJOGN4RF"
     
@@ -83,7 +86,7 @@ class GifController {
         gifReplyArray.removeAll()
         
         for reply in replies {
-            guard let baseURL = URL(string: reply.gifURL) else { completion(false) ; return }
+            guard let baseURL = URL(string: reply.imageURL) else { completion(false) ; return }
             
             URLSession.shared.dataTask(with: baseURL) { (data, _, error) in
                 if let error = error {
@@ -111,7 +114,7 @@ class GifController {
                 print("❌ could not unwrap data in \(#function) ; \(error.localizedDescription) ; \(error)")
                 completion(nil) ; return
             }
-            
+
             guard let data = data, let gif = UIImage(data: data) else { completion(nil) ; return }
             
             completion(gif)

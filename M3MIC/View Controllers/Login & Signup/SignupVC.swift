@@ -35,14 +35,18 @@ class SignupVC: UIViewController {
             let password = passwordTF.text, !password.isEmpty
             else { print("Could not unwrap TF in \(#function)") ; return }
         
-        UserController.shared.signupUserWith(email: email, password: password) { (error) in
+        UserController.shared.createUserWith(email: email, password: password) { (error) in
             if let error = error {
                 print("❌ Error creating a new user found in \(#function) ; \(error.localizedDescription) ; \(error)")
                 self.presentSignupErrorAlert()
             } else {
-                print("New user created")
-                UserController.shared.createUsername(username)
-                self.performSegue(withIdentifier: "toProfilePictureVC", sender: self)
+                UserController.shared.updateUserDocumentWith(username: username, completion: { (error) in
+                    if let error = error {
+                        print("Error updating username in \(#function) ; \(error.localizedDescription) ; \(error)")
+                    } else {
+                        self.performSegue(withIdentifier: "toProfilePictureVC", sender: self)
+                    }
+                })
             }
         }
     }

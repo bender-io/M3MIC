@@ -17,7 +17,7 @@ class FeedVC: UIViewController {
     @IBOutlet weak var menuLeadConstraint: NSLayoutConstraint!
     @IBOutlet weak var feedLeadConstraint: NSLayoutConstraint!
     
-    var posts = [Post]() {
+    var posts: [Post] = [] {
         didSet {
             self.feedTableView.reloadData()
         }
@@ -91,13 +91,13 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         cell?.post = post
         cell?.gifImage.image = #imageLiteral(resourceName: "SecondaryLogo")
 
-        if let replyUrl = post.topReply {
+        if let replyUrl = post.thumbnailImageURL {
             GifController.shared.fetchTopReplyImageFrom(url: replyUrl, completion: { (image) in
                 DispatchQueue.main.async {
                     if let image = image {
                         cell?.gifImage.image = image
                     } else {
-                        print("Failed to get image ; \(String(describing: post.topReply))")
+                        print("Failed to get image ; \(String(describing: post.thumbnailImageURL))")
                     }
                 }
             })
@@ -137,7 +137,8 @@ extension FeedVC {
     }
     
     func fetchPosts() {
-        PostController.shared.fetchAllPosts { (result) in
+        let blockedUIDs = UserController.shared.user?.blockedUIDs ?? []
+        PostController.shared.fetchAllPosts(blockedUIDs: blockedUIDs) { (result) in
             switch result {
             case .failure(let error):
                 print("❌ Error fetching posts in \(#function) ; \(error.localizedDescription) ; \(error)")

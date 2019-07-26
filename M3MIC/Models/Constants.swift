@@ -11,9 +11,10 @@ import Foundation
 enum Document {
     
     static let userUID = "userUID"
+    static let blockedUIDs = "blockedUIDs"
+    static let friendUIDs = "friendUIDs"
+    
     static let username = "username"
-    static let firstname = "firstname"
-    static let lastname = "lastname"
     static let profilePicture = "profilePicture"
     
     static let postUIDs = "postUIDs"
@@ -23,11 +24,8 @@ enum Document {
     
     static let replyUIDs = "replyUIDs"
     static let replyUID = "replyUID"
-    static let replyImage = "replyImage"
-    static let topReply = "topReply"
-    
-    static let blockedUIDs = "blockedUIDs"
-    static let friendUIDs = "friendUIDs"
+    static let imageURL = "imageURL"
+    static let thumbnailImageURL = "thumbnailImageURL"
 }
 
 enum Collection {

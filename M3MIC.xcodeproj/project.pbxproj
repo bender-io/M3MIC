@@ -58,7 +58,6 @@
 		562178F822D284A900B45E7B /* Navigation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562178F722D284A900B45E7B /* Navigation.storyboard */; };
 		562178FA22D2873900B45E7B /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562178F922D2873900B45E7B /* Feed.storyboard */; };
 		562178FC22D287AA00B45E7B /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562178FB22D287AA00B45E7B /* FeedVC.swift */; };
-		562178FE22D2890300B45E7B /* NavigationTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562178FD22D2890300B45E7B /* NavigationTBC.swift */; };
 		5621790022D28C0F00B45E7B /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562178FF22D28C0F00B45E7B /* PostVC.swift */; };
 		5621790322D28CAE00B45E7B /* Post.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5621790222D28CAE00B45E7B /* Post.storyboard */; };
 		5621790522D28E6300B45E7B /* Friend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5621790422D28E6300B45E7B /* Friend.storyboard */; };
@@ -75,6 +74,9 @@
 		5622D7B422DD2354002D0542 /* GifDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B322DD2354002D0542 /* GifDetailVC.swift */; };
 		5622D7B622DD2579002D0542 /* GifDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7B522DD2579002D0542 /* GifDetailCell.swift */; };
 		5622D7BC22DF8D15002D0542 /* CreateReplyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */; };
+		564F420F22E8208500F3A2F6 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564F420E22E8208500F3A2F6 /* ToDo.swift */; };
+		564F421322E8FA9600F3A2F6 /* Reply.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 564F421222E8FA9600F3A2F6 /* Reply.storyboard */; };
+		564F421522EA5EB700F3A2F6 /* TenorContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564F421422EA5EB700F3A2F6 /* TenorContoller.swift */; };
 		56781E7522E0CC070074BC6D /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56781E7422E0CC070074BC6D /* FirebaseStorage.framework */; };
 		56781E7722E2605B0074BC6D /* FeedDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7622E2605B0074BC6D /* FeedDetailCell.swift */; };
 		56781E7922E66BD90074BC6D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56781E7822E66BD90074BC6D /* DateFormatter.swift */; };
@@ -140,7 +142,6 @@
 		562178F722D284A900B45E7B /* Navigation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Navigation.storyboard; sourceTree = "<group>"; };
 		562178F922D2873900B45E7B /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		562178FB22D287AA00B45E7B /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
-		562178FD22D2890300B45E7B /* NavigationTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTBC.swift; sourceTree = "<group>"; };
 		562178FF22D28C0F00B45E7B /* PostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		5621790222D28CAE00B45E7B /* Post.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Post.storyboard; sourceTree = "<group>"; };
 		5621790422D28E6300B45E7B /* Friend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friend.storyboard; sourceTree = "<group>"; };
@@ -157,6 +158,9 @@
 		5622D7B322DD2354002D0542 /* GifDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailVC.swift; sourceTree = "<group>"; };
 		5622D7B522DD2579002D0542 /* GifDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifDetailCell.swift; sourceTree = "<group>"; };
 		5622D7BB22DF8D15002D0542 /* CreateReplyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateReplyVC.swift; sourceTree = "<group>"; };
+		564F420E22E8208500F3A2F6 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		564F421222E8FA9600F3A2F6 /* Reply.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reply.storyboard; sourceTree = "<group>"; };
+		564F421422EA5EB700F3A2F6 /* TenorContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenorContoller.swift; sourceTree = "<group>"; };
 		56781E7422E0CC070074BC6D /* FirebaseStorage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseStorage.framework; path = Carthage/Build/iOS/FirebaseStorage.framework; sourceTree = SOURCE_ROOT; };
 		56781E7622E2605B0074BC6D /* FeedDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedDetailCell.swift; sourceTree = "<group>"; };
 		56781E7822E66BD90074BC6D /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
@@ -235,6 +239,7 @@
 				561472B222D1085800648B86 /* Login.storyboard */,
 				562178F722D284A900B45E7B /* Navigation.storyboard */,
 				562178F922D2873900B45E7B /* Feed.storyboard */,
+				564F421222E8FA9600F3A2F6 /* Reply.storyboard */,
 				5621790222D28CAE00B45E7B /* Post.storyboard */,
 				5621790422D28E6300B45E7B /* Friend.storyboard */,
 			);
@@ -250,6 +255,7 @@
 				561472BA22D1085C00648B86 /* Info.plist */,
 				561472F822D1581400648B86 /* GoogleService-Info.plist */,
 				5614732722D1CADE00648B86 /* gRPCCertificates-Cpp.bundle */,
+				564F420E22E8208500F3A2F6 /* ToDo.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -273,6 +279,7 @@
 				560840F022D4FDF90056CD72 /* PostController.swift */,
 				5622D7A722DD0723002D0542 /* ReplyController.swift */,
 				561472CF22D111F500648B86 /* GifController.swift */,
+				564F421422EA5EB700F3A2F6 /* TenorContoller.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -352,7 +359,6 @@
 		5621790122D28C1900B45E7B /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				562178FD22D2890300B45E7B /* NavigationTBC.swift */,
 				5622D7AF22DD11B9002D0542 /* FeedTab */,
 				5622D79522D6CE13002D0542 /* PostTabBar */,
 				5622D79622D6CE1B002D0542 /* FriendTabBar */,
@@ -493,6 +499,7 @@
 				561472F922D1581400648B86 /* GoogleService-Info.plist in Resources */,
 				5621790522D28E6300B45E7B /* Friend.storyboard in Resources */,
 				561472B422D1085800648B86 /* Login.storyboard in Resources */,
+				564F421322E8FA9600F3A2F6 /* Reply.storyboard in Resources */,
 				561472E922D13C3F00648B86 /* Fonts in Resources */,
 				562178F822D284A900B45E7B /* Navigation.storyboard in Resources */,
 			);
@@ -511,6 +518,7 @@
 				5621790022D28C0F00B45E7B /* PostVC.swift in Sources */,
 				5621790A22D2A24000B45E7B /* User.swift in Sources */,
 				560840F122D4FDF90056CD72 /* PostController.swift in Sources */,
+				564F420F22E8208500F3A2F6 /* ToDo.swift in Sources */,
 				5608412222D6753B0056CD72 /* Constants.swift in Sources */,
 				561472E722D132C600648B86 /* extensionView.swift in Sources */,
 				5622D7A222DCF282002D0542 /* ReplyVC.swift in Sources */,
@@ -542,6 +550,7 @@
 				56781E7922E66BD90074BC6D /* DateFormatter.swift in Sources */,
 				5622D79322D6CDF0002D0542 /* FeedCell.swift in Sources */,
 				56781E7722E2605B0074BC6D /* FeedDetailCell.swift in Sources */,
+				564F421522EA5EB700F3A2F6 /* TenorContoller.swift in Sources */,
 				561472EF22D1411700648B86 /* MemicButtonText.swift in Sources */,
 				561472EB22D13E3600648B86 /* MemicButton.swift in Sources */,
 				561472AF22D1085800648B86 /* AppDelegate.swift in Sources */,
@@ -550,7 +559,6 @@
 				5621790C22D3F1E600B45E7B /* MemicTV.swift in Sources */,
 				561472E222D131CD00648B86 /* MemicTF.swift in Sources */,
 				561472F322D1449400648B86 /* ProfilePictureVC.swift in Sources */,
-				562178FE22D2890300B45E7B /* NavigationTBC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

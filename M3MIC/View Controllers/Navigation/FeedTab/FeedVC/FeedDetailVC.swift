@@ -18,7 +18,6 @@ class FeedDetailVC: UIViewController {
     var post: Post? {
         didSet {
             updateViews()
-            PostController.shared.currentPost = post
         }
     }
     
@@ -56,6 +55,12 @@ class FeedDetailVC: UIViewController {
         }
     }
     
+    @IBAction func addButtonTapped(_ sender: Any) {
+        guard let replyVC = UIStoryboard(name: "Reply", bundle: nil).instantiateViewController(withIdentifier: "ReplyVC") as? ReplyVC else { return }
+        navigationController?.pushViewController(replyVC, animated: true)
+        
+    }
+    
     func updateViews() {
         loadViewIfNeeded()
 
@@ -74,7 +79,7 @@ class FeedDetailVC: UIViewController {
         
         guard let postUID = post?.postUID else { print("No postUID found in \(#function)") ; return }
         
-        ReplyController.shared.fetchGifReplies(postUID: postUID, completion: { (error) in
+        ReplyController.shared.fetchAllRepliesFor(postUID: postUID, completion: { (error) in
             if let error = error {
                 print("❌ Error found in \(#function) ; \(error.localizedDescription) ; \(error)")
             }

@@ -6,33 +6,32 @@
 //  Copyright © 2019 Brian Daniel. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-struct Reply {
+class Reply {
     
-    // MARK: - Properties
     let postUID: String
     let userUID: String
-    let gifURL: String
-//    let likeCount: Int
-//    let rank: Rank
+    var imageURL: String
+    var image: UIImage
     
-    init?(from dictionary: [String : Any]) {
+    init(postUID: String, userUID: String, imageURL: String, image: UIImage = #imageLiteral(resourceName: "PrimaryLogo")) {
+        self.postUID = postUID
+        self.userUID = userUID
+        self.imageURL = imageURL
+        self.image = image
+    }
+    
+    init?(from dictionary: [String : Any], image: UIImage = #imageLiteral(resourceName: "PrimaryLogo")) {
         guard let userUID = dictionary[Document.userUID] as? String,
-            let gifURL = dictionary[Document.replyImage] as? String,
+            let imageURL = dictionary[Document.imageURL] as? String,
             let postUID = dictionary[Document.postUID] as? String
             else { print("Initializer failed in \(#function)") ; return nil }
         
         self.userUID = userUID
         self.postUID = postUID
-        self.gifURL = gifURL
-    }
-    
-    enum Rank: String {
-        case gold
-        case silver
-        case bronze
-        case none
+        self.imageURL = imageURL
+        self.image = image
     }
 }
 

@@ -10,13 +10,14 @@ import Foundation
 
 enum Errors: Error {
     case personAlreadyExists
-    case interestAlreadyExists
     case noCurrentUser
     case unwrapDocumentID
-    case unwrapPersonUID
     case unwrapCurrentUserUID
     case snapshotGuard
     case unwrapData
+    case userEqualsSelf
+    case noCurrentPost
+    case unwrapURL
 }
 
 extension Errors: LocalizedError {
@@ -24,20 +25,22 @@ extension Errors: LocalizedError {
         switch self {
         case .personAlreadyExists:
             return NSLocalizedString("Person already exists", comment: "")
-        case .interestAlreadyExists:
-            return NSLocalizedString("Interest already exists", comment: "")
         case .noCurrentUser:
             return NSLocalizedString("No current user", comment: "")
         case .unwrapDocumentID:
             return NSLocalizedString("Couldn't unwrap ref.documentID", comment: "")
-        case .unwrapPersonUID:
-            return NSLocalizedString("Couldn't unwrap value.first?.personUID", comment: "")
         case .unwrapCurrentUserUID:
             return NSLocalizedString("Couldn't unwrap Auth.auth().currentUser.uid", comment: "")
         case .snapshotGuard:
             return NSLocalizedString("Failed snapshot guard", comment: "")
         case .unwrapData:
-            return NSLocalizedString("Couldnt unwrap data", comment: "")
+            return NSLocalizedString("Couldn't unwrap data", comment: "")
+        case .userEqualsSelf:
+            return NSLocalizedString("User ID cannot equal Auth.auth().currentUser.uid", comment: "")
+        case .noCurrentPost:
+            return NSLocalizedString("No current post", comment: "")
+        case .unwrapURL:
+            return NSLocalizedString("Could not unwrap url", comment: "")
         }
     }
 }

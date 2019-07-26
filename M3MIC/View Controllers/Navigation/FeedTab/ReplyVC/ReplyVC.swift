@@ -11,10 +11,10 @@ import UIKit
 class ReplyVC: UIViewController, CategoryCellDelegate {
     
     func passCollectionCellImage(imageURL: String, image: UIImage, sender: CategoryCell) {
-        guard let gifVC = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "createVC") as? CreateReplyVC else { return }
-        gifVC.image = image
+        guard let gifVC = UIStoryboard(name: "Reply", bundle: nil).instantiateViewController(withIdentifier: "PostReplyVC") as? CreateReplyVC else { return }
+        gifVC.reply?.image = image
         gifVC.post = post
-        gifVC.imageUrl = imageURL
+        gifVC.reply?.imageURL = imageURL
         navigationController?.pushViewController(gifVC, animated: true)
     }
     
@@ -95,15 +95,19 @@ extension ReplyVC: UISearchBarDelegate {
         self.gifSearchBar.text = ""
         self.dismissKeyboard()
         
-        GifController.shared.fetchGifUrls(searchTerm: searchText) { (success) in
-            if success {
-                print("Url fetch successful")
+        TenorController.shared.fetchImageURLs(searchTerm: searchText) { (error) in
+            if let error = error {
+                print("Could not conduct seearch in \(#function) ; \(error.localizedDescription) ; \(error)")
             }
-            guard let gifs = GifController.shared.gifs else { print("Could not unwrap gif urls") ; return }
+            guard let post = self.post else { print("No postUID found in \(#function)") ; return }
             
-            GifController.shared.fetchGifsFromUrls(tinygifs: gifs, category: "other", completion: { (success) in
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "toGifDetailVC", sender: self)
+            TenorController.shared.fetchImageFromURLs(postUID: post.postUID, completion: { (error) in
+                if let error = error {
+                    print("Error fetching image from url in \(#function) ; \(error.localizedDescription) ; \(error)")
+                } else {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "toGifDetailVC", sender: self)
+                    }
                 }
             })
         }
@@ -169,4 +173,5 @@ enum Category: String {
     case hungry
     case angry
     case love
+    case other
 }

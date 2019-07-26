@@ -28,16 +28,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrimaryLogo" translatesAutoresizingMaskIntoConstraints="NO" id="q1w-6X-GFE">
-                                <rect key="frame" x="32" y="104" width="50" height="50"/>
+                                <rect key="frame" x="8" y="94" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="mpV-bi-Zfq"/>
                                     <constraint firstAttribute="height" constant="50" id="t7u-bI-DlQ"/>
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's on your mind?" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G2d-R7-QAB">
-                                <rect key="frame" x="82" y="112" width="300" height="225"/>
+                                <rect key="frame" x="66" y="104" width="292" height="175"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="225" id="Hf1-kO-nRt"/>
+                                    <constraint firstAttribute="height" constant="175" id="Hf1-kO-nRt"/>
                                 </constraints>
                                 <color key="textColor" name="White100"/>
                                 <fontDescription key="fontDescription" name="SFCompactRounded-Light" family="SF Compact Rounded" pointSize="14"/>
@@ -46,24 +46,6 @@
                                     <outlet property="delegate" destination="0jM-3a-wdQ" id="XU0-FS-dDE"/>
                                 </connections>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gD4-fB-dZe">
-                                <rect key="frame" x="121" y="516" width="172.5" height="31"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post to Public Feed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9r-Gj-AiO">
-                                        <rect key="frame" x="0.0" y="0.0" width="115.5" height="31"/>
-                                        <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="14"/>
-                                        <color key="textColor" name="White100"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HH8-fh-WET">
-                                        <rect key="frame" x="123.5" y="0.0" width="51" height="31"/>
-                                        <color key="onTintColor" name="Secondary"/>
-                                        <connections>
-                                            <action selector="publicSwitchTapped:" destination="0jM-3a-wdQ" eventType="valueChanged" id="3Ut-td-bUJ"/>
-                                        </connections>
-                                    </switch>
-                                </subviews>
-                            </stackView>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="rLX-fd-bcD">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
@@ -86,23 +68,36 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x31-oo-uv4">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63W-cr-vos" customClass="MemicButton" customModule="M3MIC" customModuleProvider="target">
+                                <rect key="frame" x="16" y="413" width="382" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="6Ri-m6-O7s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFCompactRounded-Regular" family="SF Compact Rounded" pointSize="14"/>
+                                <state key="normal" title="clear text"/>
+                                <connections>
+                                    <action selector="clearButtonTapped:" destination="0jM-3a-wdQ" eventType="touchUpInside" id="X1V-Ks-N7W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="x31-oo-uv4" secondAttribute="trailing" id="0eS-cW-Zvt"/>
-                            <constraint firstAttribute="bottom" secondItem="gD4-fB-dZe" secondAttribute="bottom" constant="349" id="1Qt-Dy-9Zb"/>
-                            <constraint firstItem="q1w-6X-GFE" firstAttribute="top" secondItem="rLX-fd-bcD" secondAttribute="bottom" constant="16" id="2k3-Ln-enV"/>
+                            <constraint firstItem="q1w-6X-GFE" firstAttribute="top" secondItem="rLX-fd-bcD" secondAttribute="bottom" constant="6" id="2k3-Ln-enV"/>
                             <constraint firstItem="rLX-fd-bcD" firstAttribute="top" secondItem="5Qh-s2-2tq" secondAttribute="top" id="BCZ-7a-Qjh"/>
-                            <constraint firstItem="G2d-R7-QAB" firstAttribute="top" secondItem="rLX-fd-bcD" secondAttribute="bottom" constant="24" id="DcL-yK-SZp"/>
-                            <constraint firstItem="G2d-R7-QAB" firstAttribute="leading" secondItem="q1w-6X-GFE" secondAttribute="leading" constant="50" id="GOy-fA-3Z9"/>
-                            <constraint firstItem="gD4-fB-dZe" firstAttribute="centerX" secondItem="5Qh-s2-2tq" secondAttribute="centerX" id="GRu-OS-VsY"/>
-                            <constraint firstItem="5Qh-s2-2tq" firstAttribute="trailing" secondItem="G2d-R7-QAB" secondAttribute="trailing" constant="32" id="WkV-BZ-UbM"/>
+                            <constraint firstItem="5Qh-s2-2tq" firstAttribute="trailing" secondItem="63W-cr-vos" secondAttribute="trailing" constant="16" id="Co2-jf-bQr"/>
+                            <constraint firstItem="G2d-R7-QAB" firstAttribute="top" secondItem="rLX-fd-bcD" secondAttribute="bottom" constant="16" id="DcL-yK-SZp"/>
+                            <constraint firstItem="G2d-R7-QAB" firstAttribute="leading" secondItem="q1w-6X-GFE" secondAttribute="leading" constant="58" id="GOy-fA-3Z9"/>
+                            <constraint firstItem="63W-cr-vos" firstAttribute="centerX" secondItem="5Qh-s2-2tq" secondAttribute="centerX" id="GyB-bP-1Kg"/>
+                            <constraint firstItem="5Qh-s2-2tq" firstAttribute="trailing" secondItem="G2d-R7-QAB" secondAttribute="trailing" constant="56" id="WkV-BZ-UbM"/>
                             <constraint firstItem="rLX-fd-bcD" firstAttribute="trailing" secondItem="5Qh-s2-2tq" secondAttribute="trailing" id="Zwt-hn-NMR"/>
                             <constraint firstItem="x31-oo-uv4" firstAttribute="leading" secondItem="3Fo-Zn-kav" secondAttribute="leading" id="bVU-33-8gy"/>
-                            <constraint firstItem="q1w-6X-GFE" firstAttribute="leading" secondItem="5Qh-s2-2tq" secondAttribute="leading" constant="32" id="ck6-1j-FL6"/>
+                            <constraint firstItem="q1w-6X-GFE" firstAttribute="leading" secondItem="5Qh-s2-2tq" secondAttribute="leading" constant="8" id="ck6-1j-FL6"/>
                             <constraint firstItem="rLX-fd-bcD" firstAttribute="top" secondItem="x31-oo-uv4" secondAttribute="bottom" id="ghh-t6-5iR"/>
                             <constraint firstItem="rLX-fd-bcD" firstAttribute="leading" secondItem="5Qh-s2-2tq" secondAttribute="leading" id="la4-jh-WdH"/>
                             <constraint firstItem="x31-oo-uv4" firstAttribute="top" secondItem="3Fo-Zn-kav" secondAttribute="top" id="maX-cz-tPd"/>
+                            <constraint firstItem="63W-cr-vos" firstAttribute="leading" secondItem="5Qh-s2-2tq" secondAttribute="leading" constant="16" id="uS7-on-UTF"/>
+                            <constraint firstItem="63W-cr-vos" firstAttribute="top" secondItem="G2d-R7-QAB" secondAttribute="bottom" constant="134" id="wTe-Ru-lwd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5Qh-s2-2tq"/>
                     </view>
@@ -110,9 +105,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="headerView" destination="x31-oo-uv4" id="q3N-uh-ZRY"/>
-                        <outlet property="messageTV" destination="G2d-R7-QAB" id="Z1T-mn-mei"/>
-                        <outlet property="publicSwitch" destination="HH8-fh-WET" id="iUp-t6-FRL"/>
-                        <outlet property="switchLabel" destination="M9r-Gj-AiO" id="QJr-af-XqO"/>
+                        <outlet property="messageTextView" destination="G2d-R7-QAB" id="Z1T-mn-mei"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3bl-1B-TwB" userLabel="First Responder" sceneMemberID="firstResponder"/>

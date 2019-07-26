@@ -29,13 +29,13 @@ extension GifDetailVC: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return GifController.shared.gifSearchArray.count
+        return ReplyController.shared.replies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gifCell") as? GifDetailCell
-        let gif = GifController.shared.gifSearchArray[indexPath.row]
-        cell?.gifImage.image = gif
+        let reply = ReplyController.shared.replies[indexPath.row]
+        cell?.replyImage.image = reply.image
         
         return cell ?? UITableViewCell()
     }
@@ -52,10 +52,8 @@ extension GifDetailVC {
         if segue.identifier == "toCreateReplyVC" {
             let indexPath = gifTableView.indexPathForSelectedRow
             let destinationVC = segue.destination as? CreateReplyVC
-            let image = GifController.shared.gifSearchArray[(indexPath?.row)!]
-            let imageUrl = GifController.shared.gifs?[(indexPath?.row)!]
-            destinationVC?.imageUrl = imageUrl
-            destinationVC?.image = image
+            let reply = ReplyController.shared.replies[(indexPath?.row)!]
+            destinationVC?.reply = reply
             
             let post = self.post
             destinationVC?.post = post

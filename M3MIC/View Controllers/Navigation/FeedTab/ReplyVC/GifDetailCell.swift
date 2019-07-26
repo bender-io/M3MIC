@@ -10,5 +10,5 @@ import UIKit
 
 class GifDetailCell: UITableViewCell {
 
-    @IBOutlet weak var gifImage: UIImageView!
+    @IBOutlet weak var replyImage: UIImageView!
 }
