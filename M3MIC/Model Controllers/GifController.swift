@@ -114,7 +114,7 @@ class GifController {
                 print("❌ could not unwrap data in \(#function) ; \(error.localizedDescription) ; \(error)")
                 completion(nil) ; return
             }
-            
+
             guard let data = data, let gif = UIImage(data: data) else { completion(nil) ; return }
             
             completion(gif)

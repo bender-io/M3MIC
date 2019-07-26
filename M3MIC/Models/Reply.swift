@@ -12,8 +12,8 @@ class Reply {
     
     let postUID: String
     let userUID: String
-    let imageURL: String
-    let image: UIImage
+    var imageURL: String
+    var image: UIImage
     
     init(postUID: String, userUID: String, imageURL: String, image: UIImage = #imageLiteral(resourceName: "PrimaryLogo")) {
         self.postUID = postUID

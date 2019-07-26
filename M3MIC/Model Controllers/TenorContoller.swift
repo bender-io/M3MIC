@@ -14,7 +14,7 @@ class TenorController {
     static var shared = TenorController()
     private init(){}
     
-    public var imageURLs: [String]?
+    var imageURLs: [String]?
     
     private let baseURL = URL(string: "https://api.tenor.com/v1")
     private let apiKey = "8ZNGHJOGN4RF"
@@ -58,7 +58,7 @@ class TenorController {
         }.resume()
     }
     
-    public func fetchImageFromURLs(postUID: String, completion: @escaping(Error?) -> Void) {
+    func fetchImageFromURLs(postUID: String, completion: @escaping(Error?) -> Void) {
         guard let imageURLs = imageURLs else { completion(Errors.unwrapURL) ; return }
         
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.noCurrentUser) ; return }
