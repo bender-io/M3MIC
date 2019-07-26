@@ -169,4 +169,5 @@ enum Category: String {
     case hungry
     case angry
     case love
+    case other
 }

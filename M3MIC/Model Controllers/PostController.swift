@@ -66,10 +66,10 @@ class PostController {
     ///   - replyURL: the reply's url that containts a gif or image
     ///   - postUID: the selected post's unique identifier
     ///   - completion: completes with an error if there is one
-    func updatePostDocumentWith(replyUID: String, replyImageURL: String, postUID: String, completion: @escaping(Error?) -> Void) {
+    func updatePostDocumentWith(replyUID: String, imageURL: String, postUID: String, completion: @escaping(Error?) -> Void) {
         db.collection(Collection.Post).document(postUID).updateData([
             Document.replyUIDs : FieldValue.arrayUnion([replyUID]),
-            Document.thumbnailImageURL : replyImageURL
+            Document.thumbnailImageURL : imageURL
         ]) { (error) in
             if let error = error {
                 print("Error updating replyUID array in \(#function) ; \(error.localizedDescription)")

@@ -29,14 +29,14 @@ class ReplyController {
     ///   - replyImageURL: the reply's image url
     ///   - postUID: the postUID that the reply belongs to
     ///   - completion: completes with an error if there is one
-    func saveReplyWith(replyImageURL: String, postUID: String, completion: @escaping (Error?) -> Void) {
+    func saveReplyWith(imageURL: String, postUID: String, completion: @escaping (Error?) -> Void) {
         guard let currentUser = Auth.auth().currentUser else { completion(Errors.noCurrentUser) ; return }
             
         var ref: DocumentReference?
         ref = db.collection(Collection.Reply).addDocument(data: [
             Document.postUID : postUID,
             Document.userUID : currentUser.uid,
-            Document.replyImageURL : replyImageURL
+            Document.imageURL : imageURL
             ], completion: { (error) in
                 if let error = error {
                     print("Error creating reply document in \(#function) ; \(error.localizedDescription)")
@@ -44,7 +44,7 @@ class ReplyController {
                 }
                 guard let docID = ref?.documentID else { completion(Errors.unwrapDocumentID) ; return }
                 
-                PostController.shared.updatePostDocumentWith(replyUID: docID, replyImageURL: replyImageURL, postUID: postUID, completion: { (error) in
+                PostController.shared.updatePostDocumentWith(replyUID: docID, imageURL: imageURL, postUID: postUID, completion: { (error) in
                     if let error = error {
                         print("Could not update Post document in \(#function) ; \(error.localizedDescription)")
                         completion(error) ; return
@@ -56,6 +56,7 @@ class ReplyController {
                         completion(error) ; return
                     } else {
                         print("Successfully created reply document with id: \(docID) ; with postID: \(postUID)")
+                        self.replies.removeAll()
                         completion(nil)
                     }
                 })
@@ -75,7 +76,7 @@ class ReplyController {
             }
             guard let snapshot = snapshot, snapshot.count > 0 else { print("No replies found") ; completion(Errors.snapshotGuard) ; return }
             
-            self.replies = snapshot.documents.compactMap { Reply(from: $0.data()) }
+            self.replies = snapshot.documents.compactMap { Reply(from: $0.data(), image: #imageLiteral(resourceName: "PrimaryLogo")) }
             completion(nil)
         }
     }

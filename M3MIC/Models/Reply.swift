@@ -8,16 +8,23 @@
 
 import UIKit
 
-struct Reply {
+class Reply {
     
     let postUID: String
     let userUID: String
     let imageURL: String
-    let image: UIImage?
+    let image: UIImage
     
-    init?(from dictionary: [String : Any], image: UIImage?) {
+    init(postUID: String, userUID: String, imageURL: String, image: UIImage = #imageLiteral(resourceName: "PrimaryLogo")) {
+        self.postUID = postUID
+        self.userUID = userUID
+        self.imageURL = imageURL
+        self.image = image
+    }
+    
+    init?(from dictionary: [String : Any], image: UIImage = #imageLiteral(resourceName: "PrimaryLogo")) {
         guard let userUID = dictionary[Document.userUID] as? String,
-            let imageURL = dictionary[Document.replyImageURL] as? String,
+            let imageURL = dictionary[Document.imageURL] as? String,
             let postUID = dictionary[Document.postUID] as? String
             else { print("Initializer failed in \(#function)") ; return nil }
         
